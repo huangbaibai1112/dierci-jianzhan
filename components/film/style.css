@@ -45,16 +45,16 @@
   transition: filter 1.2s ease, opacity 1.2s ease, background 1.2s ease;
 }
 
-/* Scene 0: Age 50-99 Filters (Blueprint Midnight) */
+/* Scene 0: Curated Daily Picks (Starlight Midnight Slate) */
 .film-stage[data-current-scene="0"] .stage-night-canvas {
-  background: radial-gradient(circle at 65% 30%, #172554 0%, #0F172A 60%, #070B14 100%);
-  filter: saturate(1.1) brightness(1);
-}
-
-/* Scene 1: Curated Daily Picks (Starlight Midnight Slate) */
-.film-stage[data-current-scene="1"] .stage-night-canvas {
   background: radial-gradient(circle at 65% 30%, #1E293B 0%, #131B26 60%, #0A0F17 100%);
   filter: saturate(1) brightness(1);
+}
+
+/* Scene 1: Age 50-99 Filters (Blueprint Midnight) */
+.film-stage[data-current-scene="1"] .stage-night-canvas {
+  background: radial-gradient(circle at 65% 30%, #172554 0%, #0F172A 60%, #070B14 100%);
+  filter: saturate(1.1) brightness(1);
 }
 
 /* Scene 2: Sincere Profiles (Deep Teal & Emerald) */

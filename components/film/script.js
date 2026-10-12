@@ -30,8 +30,8 @@
   var tallyNumberEl = document.getElementById('filmTallyNumber');
 
   var chapterNames = [
-    'Age 50–99 Filters',
     'Curated Daily Picks',
+    'Age 50–99 Filters',
     'In-Depth Profiles',
     'Voice Connection',
     'Conversation Starters',
@@ -40,8 +40,8 @@
 
   function updateTallyCounter(sceneOffset) {
     if (!tallyNumberEl) return;
-    if (currentScene === 1) {
-      // In Scene 1 (Daily Picks), count up from 1 to 3 curated intros over first 1.8s
+    if (currentScene === 0) {
+      // In Scene 0 (Daily Picks), count up from 1 to 3 curated intros over first 1.8s
       var countTarget = Math.max(1, Math.min(3, Math.floor((sceneOffset / 1800) * 3) + 1));
       var currentVal = parseInt(tallyNumberEl.textContent, 10) || 1;
       if (countTarget !== currentVal) {
@@ -70,7 +70,7 @@
       stage.classList.remove('is-daylight');
     }
 
-    if (tallyNumberEl && currentScene === 1) {
+    if (tallyNumberEl && currentScene === 0) {
       tallyNumberEl.textContent = '1';
     }
 
