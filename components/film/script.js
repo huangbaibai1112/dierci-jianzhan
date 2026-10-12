@@ -61,6 +61,11 @@
     currentScene = sceneIndex;
 
     stage.setAttribute('data-current-scene', currentScene);
+    if (currentScene >= 2) {
+      stage.classList.add('f-paper');
+    } else {
+      stage.classList.remove('f-paper');
+    }
 
     if (tallyNumberEl && currentScene === 0) {
       tallyNumberEl.textContent = '0';

@@ -13,77 +13,48 @@
       
       <div class="film-stage" id="filmStage" data-current-scene="0">
         
-        <!-- Ambient Living Background (Dynamic Multi-Scene Lighting Transitions) -->
-        <div class="film-ambient-bg" aria-hidden="true">
-          
-          <!-- Scene 0 Layer: The Old Way (Cold Graphite & Faded Maroon) -->
-          <div class="ambient-scene-layer ambient-scene-0">
-            <div class="scene-gradient-base bg-base-0"></div>
-            <span class="ambient-glow glow-scene0-1"></span>
-            <span class="ambient-glow glow-scene0-2"></span>
-          </div>
+        <!-- Living Background System -->
+        <!-- Night Sky (Scenes 0 & 1) -->
+        <div class="fm-bg" aria-hidden="true">
+          <i class="bl b-1"></i>
+          <i class="bl b-2"></i>
+          <i class="bl b-3"></i>
+          <svg class="fm-strands" viewBox="0 0 1200 400" preserveAspectRatio="none">
+            <path class="sd s-1" d="M-50 120C150 40 300 200 500 120S850 40 1250 140"></path>
+            <path class="sd s-2" d="M-50 260C200 330 380 160 600 250S950 330 1250 230"></path>
+            <path class="sd s-3" d="M-50 330C220 280 420 380 640 320S1000 260 1250 330"></path>
+          </svg>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+        </div>
 
-          <!-- Scene 1 Layer: Paywalls & Ghosting (Deep Velvet Wine & Alert Glow) -->
-          <div class="ambient-scene-layer ambient-scene-1">
-            <div class="scene-gradient-base bg-base-1"></div>
-            <span class="ambient-glow glow-scene1-1"></span>
-            <span class="ambient-glow glow-scene1-2"></span>
-          </div>
-
-          <!-- Scene 2 Layer: Curated for 50+ (Emerald Juniper & Sunlit Honey) -->
-          <div class="ambient-scene-layer ambient-scene-2">
-            <div class="scene-gradient-base bg-base-2"></div>
-            <span class="ambient-glow glow-scene2-1"></span>
-            <span class="ambient-glow glow-scene2-2"></span>
-          </div>
-
-          <!-- Scene 3 Layer: Genuine Pacing (Warm Cocoa Truffle & Fireplace Amber) -->
-          <div class="ambient-scene-layer ambient-scene-3">
-            <div class="scene-gradient-base bg-base-3"></div>
-            <span class="ambient-glow glow-scene3-1"></span>
-            <span class="ambient-glow glow-scene3-2"></span>
-          </div>
-
-          <!-- Shared Living Strands & Drifting Starlight Particles -->
-          <svg class="ambient-strands" viewBox="0 0 1200 480" preserveAspectRatio="none">
-            <defs>
-              <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
-                <feMerge>
-                  <feMergeNode in="coloredBlur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
-
-            <!-- Organic Flowing Strands -->
-            <path class="strand-line line-1" d="M-50 140 C150 60 320 220 540 140 S880 50 1250 160"/>
-            <path class="strand-line line-2" d="M-50 280 C220 360 400 180 640 270 S980 350 1250 240"/>
-            <path class="strand-line line-3" d="M-50 360 C240 300 450 410 680 340 S1020 280 1250 350"/>
-            <path class="strand-line line-thread" d="M-40 210 C200 130 380 320 620 200 S920 120 1240 220"/>
-
-            <!-- Traveling Glowing Energy Nodes flowing along each curve -->
-            <circle class="strand-node node-1" r="3.5" filter="url(#glowFilter)">
-              <animateMotion dur="12s" repeatCount="indefinite" path="M-50 140 C150 60 320 220 540 140 S880 50 1250 160"/>
-            </circle>
-            <circle class="strand-node node-2" r="3" filter="url(#glowFilter)">
-              <animateMotion dur="16s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" path="M-50 280 C220 360 400 180 640 270 S980 350 1250 240"/>
-            </circle>
-            <circle class="strand-node node-3" r="3.2" filter="url(#glowFilter)">
-              <animateMotion dur="20s" repeatCount="indefinite" path="M-50 360 C240 300 450 410 680 340 S1020 280 1250 350"/>
-            </circle>
-            <circle class="strand-node node-thread" r="3.8" filter="url(#glowFilter)">
-              <animateMotion dur="14s" repeatCount="indefinite" path="M-40 210 C200 130 380 320 620 200 S920 120 1240 220"/>
-            </circle>
-
-            <!-- Star particles -->
-            <circle class="star star-1" cx="280" cy="110" r="2" fill="#FFFFFF"/>
-            <circle class="star star-2" cx="430" cy="80" r="1.5" fill="#FFFFFF"/>
-            <circle class="star star-3" cx="560" cy="380" r="2.2" fill="#FFFFFF"/>
-            <circle class="star star-4" cx="750" cy="420" r="1.5" fill="#FFFFFF"/>
-            <circle class="star star-5" cx="1080" cy="360" r="2" fill="#FFFFFF"/>
-            <circle class="star star-6" cx="200" cy="310" r="1.8" fill="#FFFFFF"/>
-            <circle class="star star-7" cx="920" cy="130" r="1.6" fill="#FFFFFF"/>
+        <!-- Daylight Watercolor Paper (Scenes 2 & 3: Rising Mountains & Morning Mist) -->
+        <div class="fm-paper" aria-hidden="true">
+          <svg class="fp-enso" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="44" pathLength="100" stroke-width="9" stroke-dashoffset="0" style="--l:30px;--g:70px;transition-delay:0.35s"></circle>
+            <circle cx="60" cy="60" r="44" pathLength="100" stroke-width="7" stroke-dashoffset="-30" style="--l:26px;--g:74px;transition-delay:0.57s"></circle>
+            <circle cx="60" cy="60" r="44" pathLength="100" stroke-width="5" stroke-dashoffset="-56" style="--l:20px;--g:80px;transition-delay:0.79s"></circle>
+            <circle cx="60" cy="60" r="44" pathLength="100" stroke-width="3" stroke-dashoffset="-76" style="--l:12px;--g:88px;transition-delay:1.01s"></circle>
+          </svg>
+          <i class="fp-mist m1"></i>
+          <i class="fp-mist m2"></i>
+          <svg class="fp-thread" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path pathLength="1" d="M-20 74C170 30 330 104 560 62S930 22 1220 66"></path>
+          </svg>
+          <svg class="fp-hills" viewBox="0 0 420 300" preserveAspectRatio="none">
+            <path class="h1" d="M0 130C60 96 118 118 178 92C246 62 318 110 420 82V300H0Z"></path>
+            <path class="h2" d="M0 188C78 150 150 178 222 156C298 132 362 166 420 150V300H0Z"></path>
+            <path class="h3" d="M0 238C74 214 158 236 238 220C318 204 372 230 420 222V300H0Z"></path>
           </svg>
         </div>
 

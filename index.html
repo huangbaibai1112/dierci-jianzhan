@@ -981,11 +981,16 @@ img {
 
 /* Big Cinematic Stage Island */
 .film-stage {
+  --cream: #F2EDE4;
+  --red2: #CF7457;
   position: relative;
-  background: #140E11;
+  background: rgb(27, 24, 22);
   border-radius: clamp(24px, 3.5vw, 38px);
   padding: clamp(36px, 5vw, 68px) clamp(28px, 4.5vw, 64px);
   overflow: hidden;
+  container-type: inline-size;
+  isolation: isolate;
+  color: var(--cream);
   box-shadow: 0 30px 70px -15px rgba(22, 13, 18, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -994,249 +999,343 @@ img {
   min-height: 480px;
 }
 
-/* Ambient Living Background with Scene-by-Scene Transitions */
-.film-ambient-bg {
+/* Night Sky (Scenes 0 & 1) */
+.fm-bg {
   position: absolute;
   inset: 0;
+  z-index: 0;
   pointer-events: none;
   overflow: hidden;
   border-radius: inherit;
-  z-index: 1;
+  transition: filter 1.2s ease, opacity 1.2s ease;
 }
 
-.ambient-scene-layer {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transform: scale(1.03);
-  transition: opacity 1.35s cubic-bezier(0.16, 1, 0.3, 1), transform 1.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-  pointer-events: none;
+.film-stage[data-current-scene="0"] .fm-bg {
+  filter: saturate(0.15) brightness(0.75);
 }
 
-.scene-gradient-base {
-  position: absolute;
-  inset: 0;
+.film-stage[data-current-scene="1"] .fm-bg {
+  filter: saturate(1.25) brightness(1.05);
 }
 
-/* Scene 0: Cold Graphite & Tired Fatigue (The Old Way) */
-.bg-base-0 {
-  background: radial-gradient(circle at 75% 35%, #271E22 0%, #1A1316 55%, #120D10 100%);
-}
-.glow-scene0-1 {
-  width: 330px;
-  height: 330px;
-  top: -80px;
-  left: 15%;
-  background: rgba(100, 75, 88, 0.3);
-  animation: orbDrift1 9s ease-in-out infinite alternate;
-}
-.glow-scene0-2 {
-  width: 350px;
-  height: 350px;
-  bottom: -90px;
-  right: 18%;
-  background: rgba(70, 52, 60, 0.28);
-  animation: orbDrift2 11s ease-in-out infinite alternate;
-}
-
-/* Scene 1: Alert Crimson & Paywall Wine */
-.bg-base-1 {
-  background: radial-gradient(circle at 75% 35%, #3D131F 0%, #240C13 55%, #16060C 100%);
-}
-.glow-scene1-1 {
-  width: 360px;
-  height: 360px;
-  top: -70px;
-  right: 20%;
-  background: rgba(195, 38, 72, 0.38);
-  animation: orbDrift1 8s ease-in-out infinite alternate;
-}
-.glow-scene1-2 {
-  width: 390px;
-  height: 390px;
-  bottom: -100px;
-  left: 12%;
-  background: rgba(212, 116, 20, 0.26);
-  animation: orbDrift2 10s ease-in-out infinite alternate;
-}
-
-/* Scene 2: Emerald Juniper Trust & Sunlit Honey (Curated for 50+) */
-.bg-base-2 {
-  background: radial-gradient(circle at 75% 35%, #182A22 0%, #0F1D17 55%, #0A130F 100%);
-}
-.glow-scene2-1 {
-  width: 380px;
-  height: 380px;
-  top: -60px;
-  left: 18%;
-  background: rgba(36, 110, 86, 0.44);
-  animation: orbDrift1 10s ease-in-out infinite alternate;
-}
-.glow-scene2-2 {
-  width: 350px;
-  height: 350px;
-  bottom: -80px;
-  right: 15%;
-  background: rgba(212, 116, 20, 0.34);
-  animation: orbDrift2 8.5s ease-in-out infinite alternate;
-}
-
-/* Scene 3: Warm Cashmere Cocoa & Fireplace Amber (Genuine Pacing) */
-.bg-base-3 {
-  background: radial-gradient(circle at 75% 35%, #37211B 0%, #221411 55%, #160C0A 100%);
-}
-.glow-scene3-1 {
-  width: 370px;
-  height: 370px;
-  top: -80px;
-  right: 15%;
-  background: rgba(212, 116, 20, 0.4);
-  animation: orbDrift1 9.5s ease-in-out infinite alternate;
-}
-.glow-scene3-2 {
-  width: 390px;
-  height: 390px;
-  bottom: -90px;
-  left: 15%;
-  background: rgba(139, 38, 62, 0.35);
-  animation: orbDrift2 10.5s ease-in-out infinite alternate;
-}
-
-/* Active Scene Trigger */
-.film-stage[data-current-scene="0"] .ambient-scene-0,
-.film-stage[data-current-scene="1"] .ambient-scene-1,
-.film-stage[data-current-scene="2"] .ambient-scene-2,
-.film-stage[data-current-scene="3"] .ambient-scene-3 {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Ambient Glow Orbs Physics */
-.ambient-glow {
+.fm-bg .bl {
   position: absolute;
   border-radius: 50%;
-  filter: blur(75px);
+  filter: blur(7cqw);
+  opacity: 0.5;
+  animation: 18s ease-in-out 0s infinite alternate none running fmDrift;
   will-change: transform;
 }
 
-@keyframes orbDrift1 {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(24px, -18px) scale(1.08); }
-  100% { transform: translate(-16px, 14px) scale(0.96); }
+.fm-bg .b-1 {
+  width: 46cqw;
+  height: 46cqw;
+  left: -8cqw;
+  top: -14cqw;
+  background: rgb(217, 119, 111);
 }
 
-@keyframes orbDrift2 {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-22px, 20px) scale(1.06); }
-  100% { transform: translate(18px, -16px) scale(0.98); }
+.fm-bg .b-2 {
+  width: 40cqw;
+  height: 40cqw;
+  right: -6cqw;
+  top: 6cqw;
+  background: rgb(143, 192, 187);
+  opacity: 0.32;
+  animation-duration: 22s;
+  animation-delay: -6s;
 }
 
-/* Shared Strands & Flowing Energy Currents */
-.ambient-strands {
+.fm-bg .b-3 {
+  width: 44cqw;
+  height: 44cqw;
+  left: 30cqw;
+  bottom: -26cqw;
+  background: rgb(255, 198, 194);
+  opacity: 0.26;
+  animation-duration: 26s;
+  animation-delay: -11s;
+}
+
+.fm-strands {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 1;
   pointer-events: none;
-  opacity: 0.85;
 }
 
-.strand-line {
+.fm-strands .sd {
   fill: none;
+  stroke: rgba(255, 198, 194, 0.42);
   stroke-linecap: round;
-  stroke-dasharray: 68, 28;
-  transition: stroke 1.35s ease, opacity 1.35s ease, stroke-width 1.35s ease;
+  stroke-dasharray: 60, 26;
+  animation: 14s linear 0s infinite normal none running fmFlow;
 }
 
-.line-1 {
+.fm-strands .s-1 {
   stroke-width: 2.2px;
   stroke: rgba(255, 198, 194, 0.45);
-  animation: strandFlow1 13s linear infinite;
 }
 
-.line-2 {
+.fm-strands .s-2 {
   stroke-width: 1.8px;
-  stroke: rgba(143, 192, 187, 0.4);
-  animation: strandFlow2 18s linear infinite reverse;
+  stroke: rgba(143, 192, 187, 0.38);
+  animation-duration: 18s;
+  animation-direction: reverse;
 }
 
-.line-3 {
+.fm-strands .s-3 {
   stroke-width: 1.5px;
   stroke: rgba(217, 119, 111, 0.35);
-  animation: strandFlow3 23s linear infinite;
+  animation-duration: 22s;
 }
 
-.line-thread {
-  stroke-width: 2px;
-  stroke-dasharray: 52, 32;
-  stroke: rgba(212, 116, 20, 0.42);
-  animation: strandFlow1 16s linear infinite;
+.fm-bg .tw {
+  position: absolute;
+  width: 0.45cqw;
+  height: 0.45cqw;
+  border-radius: 50%;
+  background: rgb(251, 247, 240);
+  opacity: 0;
+  animation: 4.5s ease-in-out 0s infinite normal none running fmTwinkle;
+  will-change: transform, opacity;
 }
 
-@keyframes strandFlow1 {
-  to { stroke-dashoffset: -960; }
+.fm-bg .tw:nth-child(5) { left: 8%; top: 22%; }
+.fm-bg .tw:nth-child(6) { left: 22%; top: 72%; animation-delay: -1s; }
+.fm-bg .tw:nth-child(7) { left: 36%; top: 14%; animation-delay: -2.2s; }
+.fm-bg .tw:nth-child(8) { left: 48%; top: 84%; animation-delay: -3s; }
+.fm-bg .tw:nth-child(9) { left: 58%; top: 10%; animation-delay: -0.6s; }
+.fm-bg .tw:nth-child(10) { left: 70%; top: 66%; animation-delay: -1.7s; }
+.fm-bg .tw:nth-child(11) { left: 84%; top: 26%; animation-delay: -2.7s; }
+.fm-bg .tw:nth-child(12) { left: 92%; top: 78%; animation-delay: -3.6s; }
+.fm-bg .tw:nth-child(13) { left: 14%; top: 46%; animation-delay: -4s; }
+.fm-bg .tw:nth-child(14) { left: 30%; top: 36%; animation-delay: -1.4s; }
+.fm-bg .tw:nth-child(15) { left: 76%; top: 44%; animation-delay: -2.4s; }
+.fm-bg .tw:nth-child(16) { left: 64%; top: 90%; animation-delay: -3.3s; }
+
+/* Daylight Watercolor Paper (Scenes 2 & 3: Rising Mountain Mist) */
+.fm-paper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #F2EDE4;
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: inherit;
 }
 
-@keyframes strandFlow2 {
-  to { stroke-dashoffset: -960; }
+.film-stage.f-paper,
+.film-stage[data-current-scene="2"],
+.film-stage[data-current-scene="3"] {
+  --red2: #B8553B;
 }
 
-@keyframes strandFlow3 {
-  to { stroke-dashoffset: -960; }
+.film-stage.f-paper .fm-paper,
+.film-stage[data-current-scene="2"] .fm-paper,
+.film-stage[data-current-scene="3"] .fm-paper {
+  opacity: 1;
 }
 
-/* Traveling Glowing Light Nodes */
-.strand-node {
-  opacity: 0.9;
-  transition: fill 1.35s ease, opacity 1.35s ease;
+/* Zen Ensō Calligraphy Circle */
+.fp-enso {
+  position: absolute;
+  right: -3cqw;
+  top: 50%;
+  width: 46cqw;
+  height: 46cqw;
+  margin-top: -23cqw;
+  transform: rotate(128deg) scaleY(0.96);
+  opacity: 0.14;
+  transition: transform 1.8s cubic-bezier(0.6, 0, 0.2, 1);
+  pointer-events: none;
 }
 
-.node-1 { fill: #FFD2CD; }
-.node-2 { fill: #A7F3D0; }
-.node-3 { fill: #FDE68A; }
-.node-thread { fill: #FBBF24; }
-
-/* Dynamic Scene Variations for the Flowing Strands */
-.film-stage[data-current-scene="0"] .line-1 { stroke: rgba(190, 165, 175, 0.35); }
-.film-stage[data-current-scene="0"] .line-2 { stroke: rgba(155, 135, 145, 0.3); }
-.film-stage[data-current-scene="0"] .line-3 { stroke: rgba(135, 120, 130, 0.25); }
-.film-stage[data-current-scene="0"] .line-thread { stroke: rgba(165, 145, 155, 0.28); }
-.film-stage[data-current-scene="0"] .strand-node { fill: #E5E0E2; opacity: 0.6; }
-
-.film-stage[data-current-scene="1"] .line-1 { stroke: rgba(255, 107, 129, 0.6); stroke-width: 2.6px; }
-.film-stage[data-current-scene="1"] .line-2 { stroke: rgba(238, 82, 83, 0.52); }
-.film-stage[data-current-scene="1"] .line-3 { stroke: rgba(212, 116, 20, 0.45); }
-.film-stage[data-current-scene="1"] .line-thread { stroke: rgba(244, 63, 94, 0.55); }
-.film-stage[data-current-scene="1"] .strand-node { fill: #FECDD3; opacity: 0.95; }
-
-.film-stage[data-current-scene="2"] .line-1 { stroke: rgba(167, 243, 208, 0.65); stroke-width: 2.5px; }
-.film-stage[data-current-scene="2"] .line-2 { stroke: rgba(52, 211, 153, 0.55); }
-.film-stage[data-current-scene="2"] .line-3 { stroke: rgba(253, 230, 138, 0.5); }
-.film-stage[data-current-scene="2"] .line-thread { stroke: rgba(110, 231, 183, 0.6); }
-.film-stage[data-current-scene="2"] .strand-node { fill: #D1FAE5; opacity: 0.95; }
-
-.film-stage[data-current-scene="3"] .line-1 { stroke: rgba(245, 158, 11, 0.7); stroke-width: 2.5px; }
-.film-stage[data-current-scene="3"] .line-2 { stroke: rgba(254, 215, 170, 0.6); }
-.film-stage[data-current-scene="3"] .line-3 { stroke: rgba(244, 114, 182, 0.5); }
-.film-stage[data-current-scene="3"] .line-thread { stroke: rgba(251, 191, 36, 0.65); }
-.film-stage[data-current-scene="3"] .strand-node { fill: #FEF3C7; opacity: 1; }
-
-.star {
-  animation: starPulse 4.5s ease-in-out infinite alternate;
+.film-stage[data-current-scene="3"] .fp-enso {
+  transform: translateX(-30cqw) rotate(128deg) scaleY(0.96);
 }
-.star-1 { animation-delay: 0.2s; opacity: 0.6; }
-.star-2 { animation-delay: 1.1s; opacity: 0.45; }
-.star-3 { animation-delay: 2.3s; opacity: 0.75; }
-.star-4 { animation-delay: 0.8s; opacity: 0.4; }
-.star-5 { animation-delay: 1.9s; opacity: 0.65; }
-.star-6 { animation-delay: 2.7s; opacity: 0.5; }
-.star-7 { animation-delay: 0.5s; opacity: 0.55; }
 
-@keyframes starPulse {
-  0% { opacity: 0.25; transform: scale(0.85); }
-  100% { opacity: 0.85; transform: scale(1.15); }
+.fp-enso circle {
+  fill: none;
+  stroke: rgb(110, 104, 95);
+  stroke-linecap: round;
+  stroke-dasharray: 0px, 100px;
+  transition: stroke-dasharray 1.5s cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+.film-stage.f-paper .fp-enso circle,
+.film-stage[data-current-scene="2"] .fp-enso circle,
+.film-stage[data-current-scene="3"] .fp-enso circle {
+  stroke-dasharray: var(--l) var(--g);
+}
+
+/* Layered Mountain Hills Rising from the Bottom */
+.fp-hills {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 36%;
+  transform: translateY(12%);
+  transition: transform 2.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+}
+
+.fp-hills .h1 { fill: rgb(230, 223, 210); }
+.fp-hills .h2 { fill: rgb(217, 214, 198); }
+.fp-hills .h3 { fill: rgb(207, 198, 180); }
+
+.film-stage.f-paper .fp-hills,
+.film-stage[data-current-scene="2"] .fp-hills,
+.film-stage[data-current-scene="3"] .fp-hills {
+  transform: none;
+}
+
+/* Morning Mist Cloud Layers */
+.fp-mist {
+  position: absolute;
+  left: -30%;
+  width: 160%;
+  height: 14cqw;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(251, 247, 240, 0.85), transparent);
+  animation: 40s ease-in-out 0s infinite alternate none running fmMist;
+  pointer-events: none;
+}
+
+.fp-mist.m1 {
+  bottom: 24%;
+}
+
+.fp-mist.m2 {
+  bottom: 8%;
+  height: 10cqw;
+  animation-duration: 55s;
+  animation-direction: alternate-reverse;
+}
+
+/* Breathing Destiny Red Thread */
+.fp-thread {
+  position: absolute;
+  left: 0;
+  top: 57%;
+  width: 100%;
+  height: 10cqw;
+  opacity: 0.55;
+  animation: 14s ease-in-out 0s infinite alternate none running fmBreathe;
+  transition: opacity 0.8s;
+  mask-image: linear-gradient(90deg, transparent 30%, rgb(0, 0, 0) 56%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 30%, rgb(0, 0, 0) 56%);
+  pointer-events: none;
+}
+
+.film-stage[data-current-scene="3"] .fp-thread {
+  opacity: 0;
+}
+
+.fp-thread path {
+  fill: none;
+  stroke: rgb(184, 85, 59);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.6s cubic-bezier(0.6, 0, 0.2, 1) 0.6s;
+}
+
+.film-stage.f-paper .fp-thread path,
+.film-stage[data-current-scene="2"] .fp-thread path,
+.film-stage[data-current-scene="3"] .fp-thread path {
+  stroke-dashoffset: 0;
+}
+
+/* Daylight Typography & Element Adaptation */
+.film-stage.f-paper .scene-kicker,
+.film-stage[data-current-scene="2"] .scene-kicker,
+.film-stage[data-current-scene="3"] .scene-kicker {
+  color: rgb(162, 70, 47);
+}
+
+.film-stage.f-paper .scene-title,
+.film-stage[data-current-scene="2"] .scene-title,
+.film-stage[data-current-scene="3"] .scene-title {
+  color: rgb(42, 37, 33);
+}
+
+.film-stage.f-paper .scene-title em,
+.film-stage[data-current-scene="2"] .scene-title em,
+.film-stage[data-current-scene="3"] .scene-title em {
+  color: rgb(184, 85, 59);
+}
+
+.film-stage.f-paper .scene-desc,
+.film-stage[data-current-scene="2"] .scene-desc,
+.film-stage[data-current-scene="3"] .scene-desc {
+  color: rgb(78, 70, 63);
+}
+
+.film-stage.f-paper .chip-juniper,
+.film-stage[data-current-scene="2"] .chip-juniper,
+.film-stage[data-current-scene="3"] .chip-juniper {
+  background: rgba(36, 110, 86, 0.12);
+  border: 1px solid rgba(36, 110, 86, 0.28);
+  color: #1A533E;
+}
+
+.film-stage.f-paper .chip-mature,
+.film-stage[data-current-scene="2"] .chip-mature,
+.film-stage[data-current-scene="3"] .chip-mature {
+  background: rgba(184, 85, 59, 0.12);
+  border: 1px solid rgba(184, 85, 59, 0.25);
+  color: #8C3E26;
+}
+
+.film-stage.f-paper .trust-floating-pill,
+.film-stage[data-current-scene="2"] .trust-floating-pill,
+.film-stage.f-paper .dialogue-floating-pill,
+.film-stage[data-current-scene="3"] .dialogue-floating-pill {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(70, 45, 30, 0.16);
+  color: #2A2521;
+  box-shadow: 0 10px 25px -10px rgba(70, 45, 30, 0.25);
+}
+
+.film-stage.f-paper .film-phone-frame,
+.film-stage[data-current-scene="2"] .film-phone-frame,
+.film-stage[data-current-scene="3"] .film-phone-frame {
+  box-shadow: 0 0 0 0.22cqw #3A332D, 0 30px 50px -26px rgba(70, 45, 30, 0.5), 0 0 6cqw -1cqw rgba(184, 85, 59, 0.18);
+}
+
+/* Organic Floating Keyframes */
+@keyframes fmDrift {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(6cqw, 4cqw) scale(1.12); }
+  100% { transform: translate(-4cqw, 7cqw) scale(0.94); }
+}
+
+@keyframes fmFlow {
+  100% { stroke-dashoffset: -860; }
+}
+
+@keyframes fmTwinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4); }
+  50% { opacity: 0.85; transform: scale(1); }
+}
+
+@keyframes fmMist {
+  0% { transform: translateX(-6%); }
+  100% { transform: translateX(6%); }
+}
+
+@keyframes fmBreathe {
+  0% { transform: translateY(-0.5cqw); }
+  100% { transform: translateY(0.6cqw); }
 }
 
 /* Left Narrative Box */
@@ -3399,77 +3498,48 @@ img {
       
       <div class="film-stage" id="filmStage" data-current-scene="0">
         
-        <!-- Ambient Living Background (Dynamic Multi-Scene Lighting Transitions) -->
-        <div class="film-ambient-bg" aria-hidden="true">
-          
-          <!-- Scene 0 Layer: The Old Way (Cold Graphite & Faded Maroon) -->
-          <div class="ambient-scene-layer ambient-scene-0">
-            <div class="scene-gradient-base bg-base-0"></div>
-            <span class="ambient-glow glow-scene0-1"></span>
-            <span class="ambient-glow glow-scene0-2"></span>
-          </div>
+        <!-- Living Background System -->
+        <!-- Night Sky (Scenes 0 & 1) -->
+        <div class="fm-bg" aria-hidden="true">
+          <i class="bl b-1"></i>
+          <i class="bl b-2"></i>
+          <i class="bl b-3"></i>
+          <svg class="fm-strands" viewBox="0 0 1200 400" preserveAspectRatio="none">
+            <path class="sd s-1" d="M-50 120C150 40 300 200 500 120S850 40 1250 140"></path>
+            <path class="sd s-2" d="M-50 260C200 330 380 160 600 250S950 330 1250 230"></path>
+            <path class="sd s-3" d="M-50 330C220 280 420 380 640 320S1000 260 1250 330"></path>
+          </svg>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+          <span class="tw"></span>
+        </div>
 
-          <!-- Scene 1 Layer: Paywalls & Ghosting (Deep Velvet Wine & Alert Glow) -->
-          <div class="ambient-scene-layer ambient-scene-1">
-            <div class="scene-gradient-base bg-base-1"></div>
-            <span class="ambient-glow glow-scene1-1"></span>
-            <span class="ambient-glow glow-scene1-2"></span>
-          </div>
-
-          <!-- Scene 2 Layer: Curated for 50+ (Emerald Juniper & Sunlit Honey) -->
-          <div class="ambient-scene-layer ambient-scene-2">
-            <div class="scene-gradient-base bg-base-2"></div>
-            <span class="ambient-glow glow-scene2-1"></span>
-            <span class="ambient-glow glow-scene2-2"></span>
-          </div>
-
-          <!-- Scene 3 Layer: Genuine Pacing (Warm Cocoa Truffle & Fireplace Amber) -->
-          <div class="ambient-scene-layer ambient-scene-3">
-            <div class="scene-gradient-base bg-base-3"></div>
-            <span class="ambient-glow glow-scene3-1"></span>
-            <span class="ambient-glow glow-scene3-2"></span>
-          </div>
-
-          <!-- Shared Living Strands & Drifting Starlight Particles -->
-          <svg class="ambient-strands" viewBox="0 0 1200 480" preserveAspectRatio="none">
-            <defs>
-              <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
-                <feMerge>
-                  <feMergeNode in="coloredBlur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
-
-            <!-- Organic Flowing Strands -->
-            <path class="strand-line line-1" d="M-50 140 C150 60 320 220 540 140 S880 50 1250 160"/>
-            <path class="strand-line line-2" d="M-50 280 C220 360 400 180 640 270 S980 350 1250 240"/>
-            <path class="strand-line line-3" d="M-50 360 C240 300 450 410 680 340 S1020 280 1250 350"/>
-            <path class="strand-line line-thread" d="M-40 210 C200 130 380 320 620 200 S920 120 1240 220"/>
-
-            <!-- Traveling Glowing Energy Nodes flowing along each curve -->
-            <circle class="strand-node node-1" r="3.5" filter="url(#glowFilter)">
-              <animateMotion dur="12s" repeatCount="indefinite" path="M-50 140 C150 60 320 220 540 140 S880 50 1250 160"/>
-            </circle>
-            <circle class="strand-node node-2" r="3" filter="url(#glowFilter)">
-              <animateMotion dur="16s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" path="M-50 280 C220 360 400 180 640 270 S980 350 1250 240"/>
-            </circle>
-            <circle class="strand-node node-3" r="3.2" filter="url(#glowFilter)">
-              <animateMotion dur="20s" repeatCount="indefinite" path="M-50 360 C240 300 450 410 680 340 S1020 280 1250 350"/>
-            </circle>
-            <circle class="strand-node node-thread" r="3.8" filter="url(#glowFilter)">
-              <animateMotion dur="14s" repeatCount="indefinite" path="M-40 210 C200 130 380 320 620 200 S920 120 1240 220"/>
-            </circle>
-
-            <!-- Star particles -->
-            <circle class="star star-1" cx="280" cy="110" r="2" fill="#FFFFFF"/>
-            <circle class="star star-2" cx="430" cy="80" r="1.5" fill="#FFFFFF"/>
-            <circle class="star star-3" cx="560" cy="380" r="2.2" fill="#FFFFFF"/>
-            <circle class="star star-4" cx="750" cy="420" r="1.5" fill="#FFFFFF"/>
-            <circle class="star star-5" cx="1080" cy="360" r="2" fill="#FFFFFF"/>
-            <circle class="star star-6" cx="200" cy="310" r="1.8" fill="#FFFFFF"/>
-            <circle class="star star-7" cx="920" cy="130" r="1.6" fill="#FFFFFF"/>
+        <!-- Daylight Watercolor Paper (Scenes 2 & 3: Rising Mountains & Morning Mist) -->
+        <div class="fm-paper" aria-hidden="true">
+          <svg class="fp-enso" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="44" pathLength="100" stroke-width="9" stroke-dashoffset="0" style="--l:30px;--g:70px;transition-delay:0.35s"></circle>
+            <circle cx="60" cy="60" r="44" pathLength="100" stroke-width="7" stroke-dashoffset="-30" style="--l:26px;--g:74px;transition-delay:0.57s"></circle>
+            <circle cx="60" cy="60" r="44" pathLength="100" stroke-width="5" stroke-dashoffset="-56" style="--l:20px;--g:80px;transition-delay:0.79s"></circle>
+            <circle cx="60" cy="60" r="44" pathLength="100" stroke-width="3" stroke-dashoffset="-76" style="--l:12px;--g:88px;transition-delay:1.01s"></circle>
+          </svg>
+          <i class="fp-mist m1"></i>
+          <i class="fp-mist m2"></i>
+          <svg class="fp-thread" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path pathLength="1" d="M-20 74C170 30 330 104 560 62S930 22 1220 66"></path>
+          </svg>
+          <svg class="fp-hills" viewBox="0 0 420 300" preserveAspectRatio="none">
+            <path class="h1" d="M0 130C60 96 118 118 178 92C246 62 318 110 420 82V300H0Z"></path>
+            <path class="h2" d="M0 188C78 150 150 178 222 156C298 132 362 166 420 150V300H0Z"></path>
+            <path class="h3" d="M0 238C74 214 158 236 238 220C318 204 372 230 420 222V300H0Z"></path>
           </svg>
         </div>
 
@@ -4518,6 +4588,11 @@ window.APP_CONFIG = {
     currentScene = sceneIndex;
 
     stage.setAttribute('data-current-scene', currentScene);
+    if (currentScene >= 2) {
+      stage.classList.add('f-paper');
+    } else {
+      stage.classList.remove('f-paper');
+    }
 
     if (tallyNumberEl && currentScene === 0) {
       tallyNumberEl.textContent = '0';
