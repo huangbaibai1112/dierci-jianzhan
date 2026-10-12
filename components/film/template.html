@@ -13,21 +13,49 @@
       
       <div class="film-stage" id="filmStage" data-current-scene="0">
         
-        <!-- Ambient Living Background (Drifting organic lines & glowing stars) -->
+        <!-- Ambient Living Background (Dynamic Multi-Scene Lighting Transitions) -->
         <div class="film-ambient-bg" aria-hidden="true">
-          <span class="ambient-glow glow-1"></span>
-          <span class="ambient-glow glow-2"></span>
-          <span class="ambient-glow glow-3"></span>
+          
+          <!-- Scene 0 Layer: The Old Way (Cold Graphite & Faded Maroon) -->
+          <div class="ambient-scene-layer ambient-scene-0">
+            <div class="scene-gradient-base bg-base-0"></div>
+            <span class="ambient-glow glow-scene0-1"></span>
+            <span class="ambient-glow glow-scene0-2"></span>
+          </div>
+
+          <!-- Scene 1 Layer: Paywalls & Ghosting (Deep Velvet Wine & Alert Glow) -->
+          <div class="ambient-scene-layer ambient-scene-1">
+            <div class="scene-gradient-base bg-base-1"></div>
+            <span class="ambient-glow glow-scene1-1"></span>
+            <span class="ambient-glow glow-scene1-2"></span>
+          </div>
+
+          <!-- Scene 2 Layer: Curated for 50+ (Emerald Juniper & Sunlit Honey) -->
+          <div class="ambient-scene-layer ambient-scene-2">
+            <div class="scene-gradient-base bg-base-2"></div>
+            <span class="ambient-glow glow-scene2-1"></span>
+            <span class="ambient-glow glow-scene2-2"></span>
+          </div>
+
+          <!-- Scene 3 Layer: Genuine Pacing (Warm Cocoa Truffle & Fireplace Amber) -->
+          <div class="ambient-scene-layer ambient-scene-3">
+            <div class="scene-gradient-base bg-base-3"></div>
+            <span class="ambient-glow glow-scene3-1"></span>
+            <span class="ambient-glow glow-scene3-2"></span>
+          </div>
+
+          <!-- Shared Living Strands & Drifting Starlight Particles -->
           <svg class="ambient-strands" viewBox="0 0 1200 480" preserveAspectRatio="none">
             <path class="strand-line line-1" d="M-50 140 C150 60 320 220 540 140 S880 50 1250 160"/>
             <path class="strand-line line-2" d="M-50 280 C220 360 400 180 640 270 S980 350 1250 240"/>
             <path class="strand-line line-3" d="M-50 360 C240 300 450 410 680 340 S1020 280 1250 350"/>
-            <!-- Subtle glowing particle dots -->
-            <circle cx="280" cy="110" r="2" fill="#FFFFFF" opacity="0.6"/>
-            <circle cx="430" cy="80" r="1.5" fill="#FFFFFF" opacity="0.5"/>
-            <circle cx="560" cy="380" r="2" fill="#FFFFFF" opacity="0.7"/>
-            <circle cx="750" cy="420" r="1.5" fill="#FFFFFF" opacity="0.4"/>
-            <circle cx="1080" cy="360" r="2" fill="#FFFFFF" opacity="0.6"/>
+            <circle class="star star-1" cx="280" cy="110" r="2" fill="#FFFFFF"/>
+            <circle class="star star-2" cx="430" cy="80" r="1.5" fill="#FFFFFF"/>
+            <circle class="star star-3" cx="560" cy="380" r="2.2" fill="#FFFFFF"/>
+            <circle class="star star-4" cx="750" cy="420" r="1.5" fill="#FFFFFF"/>
+            <circle class="star star-5" cx="1080" cy="360" r="2" fill="#FFFFFF"/>
+            <circle class="star star-6" cx="200" cy="310" r="1.8" fill="#FFFFFF"/>
+            <circle class="star star-7" cx="920" cy="130" r="1.6" fill="#FFFFFF"/>
           </svg>
         </div>
 
