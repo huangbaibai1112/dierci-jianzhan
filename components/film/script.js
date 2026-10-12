@@ -63,12 +63,7 @@
     currentScene = sceneIndex;
 
     stage.setAttribute('data-current-scene', currentScene);
-    // Scenes 4 and 5 are in the daylight porcelain dawn & cafe morning
-    if (currentScene >= 4) {
-      stage.classList.add('is-daylight');
-    } else {
-      stage.classList.remove('is-daylight');
-    }
+    // All 6 scenes share the cohesive, continuous master cinema atmosphere
 
     if (tallyNumberEl && currentScene === 0) {
       tallyNumberEl.textContent = '1';

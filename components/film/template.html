@@ -13,79 +13,38 @@
       
       <div class="film-stage" id="filmStage" data-current-scene="0">
         
-        <!-- Living Atmosphere Canvas System -->
-        <!-- Night & Acoustic Cosmos Canvas (Chapters 0, 1, 2, 3) -->
-        <div class="stage-night-canvas" aria-hidden="true">
-          <span class="ambient-orb orb-dusk"></span>
-          <span class="ambient-orb orb-ember"></span>
-          <span class="ambient-orb orb-sage"></span>
-          <span class="ambient-orb orb-sky"></span>
+        <!-- Unified Master Cinema Canvas (Cohesive Living Atmosphere across all 6 Chapters) -->
+        <div class="stage-master-canvas" aria-hidden="true">
+          <!-- Flowing Aurora Light Blooms -->
+          <span class="ambient-aurora aurora-rose"></span>
+          <span class="ambient-aurora aurora-amber"></span>
+          <span class="ambient-aurora aurora-cyan"></span>
+          <span class="ambient-aurora aurora-phone-glow"></span>
           
-          <!-- Flowing Starlight Currents -->
-          <svg class="night-currents" viewBox="0 0 1200 400" preserveAspectRatio="none">
-            <path class="current-strand strand-a" d="M-40 130 C 180 50, 320 210, 520 130 S 860 50, 1240 150"></path>
-            <path class="current-strand strand-b" d="M-40 270 C 210 340, 390 170, 610 260 S 960 340, 1240 240"></path>
-            <path class="current-strand strand-c" d="M-40 340 C 230 290, 430 390, 650 330 S 1010 270, 1240 340"></path>
+          <!-- Unified Organic Silk Ribbon Currents -->
+          <svg class="master-silk-strands" viewBox="0 0 1200 480" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="silkRibbonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="rgba(255, 101, 132, 0.05)" />
+                <stop offset="30%" stop-color="rgba(245, 158, 11, 0.22)" />
+                <stop offset="70%" stop-color="rgba(74, 144, 226, 0.22)" />
+                <stop offset="100%" stop-color="rgba(255, 101, 132, 0.08)" />
+              </linearGradient>
+            </defs>
+            <path class="silk-ribbon ribbon-1" d="M-60 140 C 220 50, 420 230, 680 140 S 1040 50, 1260 170" />
+            <path class="silk-ribbon ribbon-2" d="M-60 280 C 240 370, 470 190, 750 270 S 1060 340, 1260 230" />
+            <path class="silk-ribbon ribbon-3" d="M-60 380 C 260 310, 520 420, 800 340 S 1110 270, 1260 350" />
           </svg>
 
-          <!-- Concentric Acoustic Sonar Rings (Dynamic in Chapter 3: Voice) -->
-          <div class="acoustic-sonar-system">
-            <span class="sonar-ring sr-1"></span>
-            <span class="sonar-ring sr-2"></span>
-            <span class="sonar-ring sr-3"></span>
-          </div>
-
-          <!-- Voice Orbital Trajectory Path (Harmonious with app's Voice globe) -->
-          <svg class="voice-orbital-arc" viewBox="0 0 800 400">
-            <ellipse cx="500" cy="200" rx="280" ry="120" class="orbital-ellipse" />
-            <circle cx="340" cy="110" r="4.5" class="orbital-node node-1" />
-            <circle cx="680" cy="280" r="3.5" class="orbital-node node-2" />
-          </svg>
-
-          <!-- Starlight Glimmer Points -->
-          <span class="starlight-point s1"></span>
-          <span class="starlight-point s2"></span>
-          <span class="starlight-point s3"></span>
-          <span class="starlight-point s4"></span>
-          <span class="starlight-point s5"></span>
-          <span class="starlight-point s6"></span>
-          <span class="starlight-point s7"></span>
-          <span class="starlight-point s8"></span>
-          <span class="starlight-point s9"></span>
-          <span class="starlight-point s10"></span>
-        </div>
-
-        <!-- Daylight Porcelain & Warm Cafe Dawn Canvas (Chapters 4 & 5) -->
-        <div class="stage-day-canvas" aria-hidden="true">
-          <!-- Soft Golden Dawn Sun Orbit Arcs -->
-          <svg class="day-sun-orbit" viewBox="0 0 180 180">
-            <circle class="orbit-glow" cx="90" cy="90" r="72"></circle>
-            <circle class="orbit-ring ring-outer" cx="90" cy="90" r="62"></circle>
-            <circle class="orbit-ring ring-inner" cx="90" cy="90" r="46"></circle>
-          </svg>
-          
-          <!-- Gentle Morning Breeze Drift Layers -->
-          <i class="day-breeze breeze-high"></i>
-          <i class="day-breeze breeze-low"></i>
-          
-          <!-- Breathing Thread of Dialogue -->
-          <svg class="day-thread" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path pathLength="1" d="M-20 72 C 180 32, 340 102, 570 60 S 940 24, 1220 64"></path>
-          </svg>
-          
-          <!-- Serene Rolling Horizon Contours -->
-          <svg class="day-ridges" viewBox="0 0 1200 320" preserveAspectRatio="none">
-            <path class="ridge-distant" d="M0 160 C 220 110, 420 180, 640 130 C 880 75, 1040 150, 1200 120 L 1200 320 L 0 320 Z"></path>
-            <path class="ridge-mid" d="M0 215 C 240 170, 460 235, 700 190 C 910 150, 1070 210, 1200 185 L 1200 320 L 0 320 Z"></path>
-            <path class="ridge-fore" d="M0 262 C 260 230, 520 280, 760 245 C 960 215, 1100 255, 1200 240 L 1200 320 L 0 320 Z"></path>
-          </svg>
-
-          <!-- Cafe Aroma Steam Wisps (Active in Chapter 5: Coffee & Tea) -->
-          <svg class="coffee-steam-canvas" viewBox="0 0 400 300">
-            <path class="steam-line steam-1" d="M140 270 Q110 190 145 130 T125 40" />
-            <path class="steam-line steam-2" d="M190 280 Q215 200 180 140 T200 50" />
-            <path class="steam-line steam-3" d="M240 270 Q215 180 250 120 T230 35" />
-          </svg>
+          <!-- Star Dust Micro Glimmers -->
+          <span class="star-glimmer sg-1"></span>
+          <span class="star-glimmer sg-2"></span>
+          <span class="star-glimmer sg-3"></span>
+          <span class="star-glimmer sg-4"></span>
+          <span class="star-glimmer sg-5"></span>
+          <span class="star-glimmer sg-6"></span>
+          <span class="star-glimmer sg-7"></span>
+          <span class="star-glimmer sg-8"></span>
         </div>
 
         <!-- Left Column: Scene Editorial Narration (6 Distinct Chapters) -->
