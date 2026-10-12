@@ -974,7 +974,7 @@ img {
 
 
 /* [COMPONENT: film] components\film\style.css */
-/* Component: Interactive Story Film Stage (Living Atmosphere & Real iOS App Showcase) */
+/* Component: Interactive Story Film Stage (6 Living Atmosphere Chapters & Real iOS App Showcase) */
 .comp-film {
   padding: clamp(28px, 4.5vw, 56px) 0;
 }
@@ -1008,7 +1008,7 @@ img {
 }
 
 /* ==========================================================================
-   Living Atmosphere: Night & Acoustic Cosmos (Scenes 0 & 1)
+   Living Atmosphere: Night & Acoustic Cosmos (Scenes 0, 1, 2, 3)
    ========================================================================== */
 .stage-night-canvas {
   position: absolute;
@@ -1017,16 +1017,30 @@ img {
   pointer-events: none;
   overflow: hidden;
   border-radius: inherit;
-  background: radial-gradient(circle at 65% 30%, #1E293B 0%, #131B26 60%, #0A0F17 100%);
+  background: radial-gradient(circle at 65% 30%, #152238 0%, #0F172A 60%, #0A0F17 100%);
   transition: filter 1.2s ease, opacity 1.2s ease, background 1.2s ease;
 }
 
+/* Scene 0: Age 50-99 Filters (Blueprint Midnight) */
 .film-stage[data-current-scene="0"] .stage-night-canvas {
+  background: radial-gradient(circle at 65% 30%, #172554 0%, #0F172A 60%, #070B14 100%);
+  filter: saturate(1.1) brightness(1);
+}
+
+/* Scene 1: Curated Daily Picks (Starlight Midnight Slate) */
+.film-stage[data-current-scene="1"] .stage-night-canvas {
   background: radial-gradient(circle at 65% 30%, #1E293B 0%, #131B26 60%, #0A0F17 100%);
   filter: saturate(1) brightness(1);
 }
 
-.film-stage[data-current-scene="1"] .stage-night-canvas {
+/* Scene 2: Sincere Profiles (Deep Teal & Emerald) */
+.film-stage[data-current-scene="2"] .stage-night-canvas {
+  background: radial-gradient(circle at 60% 35%, #064E3B 0%, #0F172A 65%, #080D1A 100%);
+  filter: saturate(1.15) brightness(1.05);
+}
+
+/* Scene 3: Voice Connection (Midnight Acoustic Cosmos) */
+.film-stage[data-current-scene="3"] .stage-night-canvas {
   background: radial-gradient(circle at 68% 35%, #162447 0%, #0F172A 55%, #080D1A 100%);
   filter: saturate(1.3) brightness(1.1);
 }
@@ -1084,7 +1098,7 @@ img {
   animation-delay: -4s;
 }
 
-.film-stage[data-current-scene="1"] .orb-sky {
+.film-stage[data-current-scene="3"] .orb-sky {
   opacity: 0.35;
 }
 
@@ -1123,7 +1137,7 @@ img {
   animation-duration: 23s;
 }
 
-/* Concentric Acoustic Sonar Rings (Chapter 1: Voice Feature) */
+/* Concentric Acoustic Sonar Rings (Chapter 3: Voice Feature) */
 .acoustic-sonar-system {
   position: absolute;
   right: 18%;
@@ -1137,7 +1151,7 @@ img {
   transition: opacity 0.8s ease;
 }
 
-.film-stage[data-current-scene="1"] .acoustic-sonar-system {
+.film-stage[data-current-scene="3"] .acoustic-sonar-system {
   opacity: 1;
 }
 
@@ -1172,7 +1186,7 @@ img {
   }
 }
 
-/* Voice Orbital Trajectory Arc */
+/* Voice Orbital Trajectory Arc (Active in Scene 3) */
 .voice-orbital-arc {
   position: absolute;
   right: 2%;
@@ -1185,7 +1199,7 @@ img {
   transition: opacity 1s ease;
 }
 
-.film-stage[data-current-scene="1"] .voice-orbital-arc {
+.film-stage[data-current-scene="3"] .voice-orbital-arc {
   opacity: 0.65;
 }
 
@@ -1235,7 +1249,7 @@ img {
 .starlight-point.s10 { left: 75%; top: 45%; animation-delay: -2.4s; }
 
 /* ==========================================================================
-   Living Atmosphere: Daylight Porcelain & Warm Cafe Dawn (Scenes 2 & 3)
+   Living Atmosphere: Daylight Porcelain & Warm Cafe Dawn (Scenes 4 & 5)
    ========================================================================== */
 .stage-day-canvas {
   position: absolute;
@@ -1250,13 +1264,13 @@ img {
 }
 
 .film-stage.is-daylight .stage-day-canvas,
-.film-stage[data-current-scene="2"] .stage-day-canvas,
-.film-stage[data-current-scene="3"] .stage-day-canvas {
+.film-stage[data-current-scene="4"] .stage-day-canvas,
+.film-stage[data-current-scene="5"] .stage-day-canvas {
   opacity: 1;
 }
 
-/* Scene 3 warms up to a sunlit cafe morning */
-.film-stage[data-current-scene="3"] .stage-day-canvas {
+/* Scene 5 warms up to a sunlit cafe morning */
+.film-stage[data-current-scene="5"] .stage-day-canvas {
   background: linear-gradient(135deg, #FFFDFB 0%, #FEF3C7 28%, #FDF4F0 70%, #F1F5F9 100%);
 }
 
@@ -1273,7 +1287,7 @@ img {
   transition: transform 1.8s cubic-bezier(0.6, 0, 0.2, 1);
 }
 
-.film-stage[data-current-scene="3"] .day-sun-orbit {
+.film-stage[data-current-scene="5"] .day-sun-orbit {
   transform: translateX(-24cqw) rotate(15deg);
 }
 
@@ -1342,7 +1356,7 @@ img {
   pointer-events: none;
 }
 
-.film-stage[data-current-scene="3"] .day-thread {
+.film-stage[data-current-scene="5"] .day-thread {
   opacity: 0;
 }
 
@@ -1358,8 +1372,8 @@ img {
 }
 
 .film-stage.is-daylight .day-thread path,
-.film-stage[data-current-scene="2"] .day-thread path,
-.film-stage[data-current-scene="3"] .day-thread path {
+.film-stage[data-current-scene="4"] .day-thread path,
+.film-stage[data-current-scene="5"] .day-thread path {
   stroke-dashoffset: 0;
 }
 
@@ -1381,12 +1395,12 @@ img {
 .ridge-fore { fill: #94A3B8; opacity: 0.35; }
 
 .film-stage.is-daylight .day-ridges,
-.film-stage[data-current-scene="2"] .day-ridges,
-.film-stage[data-current-scene="3"] .day-ridges {
+.film-stage[data-current-scene="4"] .day-ridges,
+.film-stage[data-current-scene="5"] .day-ridges {
   transform: none;
 }
 
-/* Cafe Aroma Steam Wisps (Chapter 3: Coffee & Tea) */
+/* Cafe Aroma Steam Wisps (Chapter 5: Coffee & Tea) */
 .coffee-steam-canvas {
   position: absolute;
   right: 8%;
@@ -1399,7 +1413,7 @@ img {
   transition: opacity 1.2s ease;
 }
 
-.film-stage[data-current-scene="3"] .coffee-steam-canvas {
+.film-stage[data-current-scene="5"] .coffee-steam-canvas {
   opacity: 0.75;
 }
 
@@ -1433,50 +1447,50 @@ img {
 
 /* ==========================================================================
    Daylight Typography & Element Adaptation
-   ========================================================================== */
+   ========================================================================= */
 .film-stage.is-daylight .scene-kicker,
-.film-stage[data-current-scene="2"] .scene-kicker,
-.film-stage[data-current-scene="3"] .scene-kicker {
+.film-stage[data-current-scene="4"] .scene-kicker,
+.film-stage[data-current-scene="5"] .scene-kicker {
   color: #E94266;
 }
 
 .film-stage.is-daylight .scene-title,
-.film-stage[data-current-scene="2"] .scene-title,
-.film-stage[data-current-scene="3"] .scene-title {
+.film-stage[data-current-scene="4"] .scene-title,
+.film-stage[data-current-scene="5"] .scene-title {
   color: #1E293B;
 }
 
 .film-stage.is-daylight .scene-title em,
-.film-stage[data-current-scene="2"] .scene-title em,
-.film-stage[data-current-scene="3"] .scene-title em {
+.film-stage[data-current-scene="4"] .scene-title em,
+.film-stage[data-current-scene="5"] .scene-title em {
   color: #E94266;
 }
 
 .film-stage.is-daylight .scene-desc,
-.film-stage[data-current-scene="2"] .scene-desc,
-.film-stage[data-current-scene="3"] .scene-desc {
+.film-stage[data-current-scene="4"] .scene-desc,
+.film-stage[data-current-scene="5"] .scene-desc {
   color: #475569;
 }
 
 .film-stage.is-daylight .chip-juniper,
-.film-stage[data-current-scene="2"] .chip-juniper,
-.film-stage[data-current-scene="3"] .chip-juniper {
+.film-stage[data-current-scene="4"] .chip-juniper,
+.film-stage[data-current-scene="5"] .chip-juniper {
   background: rgba(39, 174, 96, 0.12);
   border: 1px solid rgba(39, 174, 96, 0.28);
   color: #1E8449;
 }
 
 .film-stage.is-daylight .chip-mature,
-.film-stage[data-current-scene="2"] .chip-mature,
-.film-stage[data-current-scene="3"] .chip-mature {
+.film-stage[data-current-scene="4"] .chip-mature,
+.film-stage[data-current-scene="5"] .chip-mature {
   background: rgba(233, 66, 102, 0.12);
   border: 1px solid rgba(233, 66, 102, 0.25);
   color: #D42B51;
 }
 
 .film-stage.is-daylight .film-phone-frame,
-.film-stage[data-current-scene="2"] .film-phone-frame,
-.film-stage[data-current-scene="3"] .film-phone-frame {
+.film-stage[data-current-scene="4"] .film-phone-frame,
+.film-stage[data-current-scene="5"] .film-phone-frame {
   box-shadow: 0 0 0 1px rgba(30, 41, 59, 0.12), 0 32px 55px -25px rgba(30, 41, 59, 0.35), 0 0 40px -10px rgba(233, 66, 102, 0.15);
 }
 
@@ -1710,13 +1724,34 @@ img {
 [data-current-scene="0"] .pops-scene-0,
 [data-current-scene="1"] .pops-scene-1,
 [data-current-scene="2"] .pops-scene-2,
-[data-current-scene="3"] .pops-scene-3 {
+[data-current-scene="3"] .pops-scene-3,
+[data-current-scene="4"] .pops-scene-4,
+[data-current-scene="5"] .pops-scene-5 {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
 }
 
-/* Scene 0 Floating Chips: Heartbeat Praise & Verified Status */
+/* Scene 0 Floating Pills: Filters */
+.filter-floating-pill {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  color: #FDE68A;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25);
+  white-space: nowrap;
+}
+
+.fp-1 { top: 18%; left: -48px; animation: floatPop1 4.2s ease-in-out infinite alternate; }
+.fp-2 { top: 74%; right: -42px; animation: floatPop2 4.6s ease-in-out infinite alternate; }
+
+/* Scene 1 Floating Pills: Daily Picks */
 .bubble-heart {
   position: absolute;
   top: 14%;
@@ -1784,7 +1819,26 @@ img {
   font-weight: 500;
 }
 
-/* Scene 1 Voice Floating Pills */
+/* Scene 2 Floating Pills: Profile */
+.profile-floating-pill {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(52, 211, 153, 0.45);
+  color: #A7F3D0;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
+  white-space: nowrap;
+}
+
+.prp-1 { top: 16%; left: -46px; animation: floatPop1 4s ease-in-out infinite alternate; }
+.prp-2 { top: 76%; right: -42px; animation: floatPop2 4.6s ease-in-out infinite alternate; }
+
+/* Scene 3 Floating Pills: Voice */
 .voice-floating-pill {
   position: absolute;
   background: rgba(15, 23, 42, 0.9);
@@ -1804,7 +1858,7 @@ img {
 .vp-2 { top: 48%; right: -46px; animation: floatPop2 4.6s ease-in-out infinite alternate; }
 .vp-3 { bottom: 12%; left: -28px; animation: floatPop1 5s ease-in-out infinite alternate; }
 
-/* Scene 2 Prompt Floating Pills */
+/* Scene 4 Floating Pills: Prompts */
 .prompt-floating-pill {
   position: absolute;
   background: rgba(255, 255, 255, 0.95);
@@ -1829,7 +1883,7 @@ img {
 .tp-1 { top: 18%; left: -48px; animation: floatPop1 4.2s ease-in-out infinite alternate; }
 .tp-2 { top: 76%; right: -38px; animation: floatPop2 4.6s ease-in-out infinite alternate; }
 
-/* Scene 3 Coffee & Event Floating Pills */
+/* Scene 5 Floating Pills: Coffee */
 .coffee-floating-pill {
   position: absolute;
   background: rgba(255, 255, 255, 0.95);
@@ -1965,7 +2019,35 @@ img {
   display: block;
 }
 
-/* Screen 0: Interactive React Pill on Daily Picks */
+/* Screen 0: Filters Highlight Glow */
+.filter-interactive-overlay {
+  position: absolute;
+  top: 38%;
+  left: 20px;
+  right: 20px;
+  height: 60px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.filter-slider-glow {
+  position: absolute;
+  right: 18px;
+  top: 32px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(233, 66, 102, 0.4);
+  box-shadow: 0 0 16px rgba(233, 66, 102, 0.6);
+  animation: sliderPulse 2s infinite ease-in-out;
+}
+
+@keyframes sliderPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.3); opacity: 0.9; }
+}
+
+/* Screen 1: Interactive React Pill on Daily Picks */
 .screen-interactive-overlay {
   position: absolute;
   bottom: 82px;
@@ -2005,7 +2087,30 @@ img {
   }
 }
 
-/* Screen 1: Voice Frequency Wave Overlay */
+/* Screen 2: Profile Actions Glow */
+.profile-interactive-overlay {
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+  right: 20px;
+  height: 70px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.profile-action-glow {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  height: 48px;
+  border-radius: 24px;
+  border: 1.5px solid rgba(39, 174, 96, 0.5);
+  box-shadow: 0 0 16px rgba(39, 174, 96, 0.3);
+  animation: promptHalo 3s ease-in-out infinite alternate;
+}
+
+/* Screen 3: Voice Frequency Wave Overlay */
 .voice-wave-overlay {
   position: absolute;
   bottom: 110px;
@@ -2051,7 +2156,7 @@ img {
   100% { transform: scaleY(1.3); }
 }
 
-/* Screen 2: Prompt Card Highlight & Typing Cursor */
+/* Screen 4: Prompt Card Highlight & Typing Cursor */
 .prompt-interactive-overlay {
   position: absolute;
   inset: 0;
@@ -2095,7 +2200,7 @@ img {
   50% { opacity: 0; }
 }
 
-/* Screen 3: Coffee Date Badge Highlight */
+/* Screen 5: Coffee Date Badge Highlight */
 .event-interactive-overlay {
   position: absolute;
   top: 72px;
@@ -2121,7 +2226,7 @@ img {
 }
 
 /* ==========================================================================
-   Cinema Controls Bar (Directly below stage)
+   Cinema Controls Bar (Directly below stage, 6 segments)
    ========================================================================== */
 .film-ui-controls {
   display: flex;
@@ -2201,7 +2306,7 @@ img {
 }
 
 .timeline-segment {
-  width: 25%;
+  width: calc(100% / 6);
   height: 100%;
   background: transparent;
   border: none;
@@ -2265,9 +2370,13 @@ img {
   .phone-floating-elements {
     max-width: 265px;
   }
+  .fp-1 { left: -14px; font-size: 11px; padding: 6px 12px; }
+  .fp-2 { right: -14px; font-size: 11px; padding: 6px 12px; }
   .pop-1 { left: -14px; font-size: 11px; padding: 6px 12px; }
   .bubble-verified { right: -14px; font-size: 11px; padding: 6px 12px; }
   .floating-tally-pill { left: -10px; font-size: 11px; padding: 7px 13px; }
+  .prp-1 { left: -14px; font-size: 11px; padding: 6px 12px; }
+  .prp-2 { right: -14px; font-size: 11px; padding: 6px 12px; }
   .vp-1 { left: -12px; font-size: 11px; }
   .vp-2 { right: -12px; font-size: 11px; }
   .vp-3 { left: -12px; font-size: 11px; }
@@ -2285,9 +2394,13 @@ img {
   .phone-floating-elements {
     max-width: 245px;
   }
+  .fp-1 { left: -6px; }
+  .fp-2 { right: -6px; }
   .pop-1 { left: -6px; }
   .bubble-verified { right: -6px; }
   .floating-tally-pill { left: -6px; }
+  .prp-1 { left: -6px; }
+  .prp-2 { right: -6px; }
   .vp-1 { left: -6px; }
   .vp-2 { right: -6px; }
   .vp-3 { left: -6px; }
@@ -3332,7 +3445,7 @@ img {
       <div class="film-stage" id="filmStage" data-current-scene="0">
         
         <!-- Living Atmosphere Canvas System -->
-        <!-- Night & Acoustic Cosmos Canvas (Chapters 0 & 1) -->
+        <!-- Night & Acoustic Cosmos Canvas (Chapters 0, 1, 2, 3) -->
         <div class="stage-night-canvas" aria-hidden="true">
           <span class="ambient-orb orb-dusk"></span>
           <span class="ambient-orb orb-ember"></span>
@@ -3346,7 +3459,7 @@ img {
             <path class="current-strand strand-c" d="M-40 340 C 230 290, 430 390, 650 330 S 1010 270, 1240 340"></path>
           </svg>
 
-          <!-- Concentric Acoustic Sonar Rings (Dynamic in Chapter 1: Voice) -->
+          <!-- Concentric Acoustic Sonar Rings (Dynamic in Chapter 3: Voice) -->
           <div class="acoustic-sonar-system">
             <span class="sonar-ring sr-1"></span>
             <span class="sonar-ring sr-2"></span>
@@ -3373,7 +3486,7 @@ img {
           <span class="starlight-point s10"></span>
         </div>
 
-        <!-- Daylight Porcelain & Warm Cafe Dawn Canvas (Chapters 2 & 3) -->
+        <!-- Daylight Porcelain & Warm Cafe Dawn Canvas (Chapters 4 & 5) -->
         <div class="stage-day-canvas" aria-hidden="true">
           <!-- Soft Golden Dawn Sun Orbit Arcs -->
           <svg class="day-sun-orbit" viewBox="0 0 180 180">
@@ -3398,7 +3511,7 @@ img {
             <path class="ridge-fore" d="M0 262 C 260 230, 520 280, 760 245 C 960 215, 1100 255, 1200 240 L 1200 320 L 0 320 Z"></path>
           </svg>
 
-          <!-- Cafe Aroma Steam Wisps (Active in Chapter 3: Coffee & Tea) -->
+          <!-- Cafe Aroma Steam Wisps (Active in Chapter 5: Coffee & Tea) -->
           <svg class="coffee-steam-canvas" viewBox="0 0 400 300">
             <path class="steam-line steam-1" d="M140 270 Q110 190 145 130 T125 40" />
             <path class="steam-line steam-2" d="M190 280 Q215 200 180 140 T200 50" />
@@ -3406,22 +3519,44 @@ img {
           </svg>
         </div>
 
-        <!-- Left Column: Scene Editorial Narration -->
+        <!-- Left Column: Scene Editorial Narration (6 Distinct Chapters) -->
         <div class="film-narrative-box">
           
-          <!-- Scene 0: Curated Daily Picks (No Swiping Exhaustion) -->
+          <!-- Scene 0: Age 50-99 Custom Filters -->
           <div class="scene-copy active" data-scene-index="0">
-            <span class="scene-kicker">CURATED FOR 50+</span>
-            <h3 class="scene-title">Handpicked daily intros. <em>No endless swiping.</em></h3>
-            <p class="scene-desc">Every morning, receive handpicked introductions matched on personality, values, and location. Verified profiles with clear intentions.</p>
+            <span class="scene-kicker">AGE 50&ndash;99 FILTERS</span>
+            <h3 class="scene-title">Preferences for 50+. <em>Never compromise.</em></h3>
+            <p class="scene-desc">Built exclusively for mature singles. Set exact age brackets (50&ndash;99), regional radius, and lifestyle preferences without twenty-something noise.</p>
+            <div class="scene-floating-chips">
+              <span class="chip-juniper">&#x1F3AF; Age 50&ndash;99 Slider</span>
+              <span class="chip-popup chip-rose">Custom criteria</span>
+            </div>
+          </div>
+
+          <!-- Scene 1: Curated Daily Picks (No Swiping Exhaustion) -->
+          <div class="scene-copy" data-scene-index="1">
+            <span class="scene-kicker">CURATED DAILY PICKS</span>
+            <h3 class="scene-title">Handpicked every morning. <em>No endless swiping.</em></h3>
+            <p class="scene-desc">Every morning at 9 AM, receive handpicked introductions matched on personality, values, and location. Verified profiles with clear intentions.</p>
             <div class="scene-floating-chips">
               <span class="chip-juniper">&#x2713; Verified Mature Profiles</span>
               <span class="chip-popup chip-rose">Heartbeat Praise &amp; React</span>
             </div>
           </div>
 
-          <!-- Scene 1: Voice Connection (Real Voices, Real Warmth) -->
-          <div class="scene-copy" data-scene-index="1">
+          <!-- Scene 2: Sincere In-Depth Profiles -->
+          <div class="scene-copy" data-scene-index="2">
+            <span class="scene-kicker">IN-DEPTH PROFILES</span>
+            <h3 class="scene-title">Connect on life stories, <em>not fast impressions.</em></h3>
+            <p class="scene-desc">Browse heartfelt answers, weekend passions, favorite morning routines, and genuine life values. Learn who they truly are before reaching out.</p>
+            <div class="scene-floating-chips">
+              <span class="chip-juniper">&#x1F4D6; Heartfelt Life Answers</span>
+              <span class="chip-popup chip-rose">Direct &ldquo;Say Hi&rdquo;</span>
+            </div>
+          </div>
+
+          <!-- Scene 3: Voice Connection (Real Voices, Real Warmth) -->
+          <div class="scene-copy" data-scene-index="3">
             <span class="scene-kicker">VOICE CONNECTION</span>
             <h3 class="scene-title">Hear their laugh <em>before saying hello.</em></h3>
             <p class="scene-desc">Text alone cannot convey warmth. Listen to authentic voice clips—hear cadence, kind humor, and gentle tone before reaching out.</p>
@@ -3431,8 +3566,8 @@ img {
             </div>
           </div>
 
-          <!-- Scene 2: Guided Conversation Starters (No Awkward Silence) -->
-          <div class="scene-copy" data-scene-index="2">
+          <!-- Scene 4: Guided Conversation Starters (No Awkward Silence) -->
+          <div class="scene-copy" data-scene-index="4">
             <span class="scene-kicker">THOUGHTFUL ICEBREAKERS</span>
             <h3 class="scene-title">No awkward silence. <em>Curated prompts.</em></h3>
             <p class="scene-desc">Skip repetitive small talk. Four guided prompt cards make opening up effortless, dignified, and comfortable for both people.</p>
@@ -3442,8 +3577,8 @@ img {
             </div>
           </div>
 
-          <!-- Scene 3: 1-on-1 Coffee & Tea Events (Real Life Companionship) -->
-          <div class="scene-copy" data-scene-index="3">
+          <!-- Scene 5: 1-on-1 Coffee & Tea Events (Real Life Companionship) -->
+          <div class="scene-copy" data-scene-index="5">
             <span class="scene-kicker">REAL COMPANIONSHIP</span>
             <h3 class="scene-title">From quiet chats to <em>morning coffee meetups.</em></h3>
             <p class="scene-desc">Move comfortably from friendly dialogue into relaxed 1-on-1 tea, cafe, and concert meetups. Plan casual get-togethers at your own pace.</p>
@@ -3455,13 +3590,19 @@ img {
 
         </div>
 
-        <!-- Right Column: Interactive Phone Mockup with 3D Floating Particles & Badges -->
+        <!-- Right Column: Interactive Phone Mockup with 3D Floating Badges -->
         <div class="film-phone-col" aria-hidden="true">
           
-          <!-- Floating Dynamic Chips & Badges around the Phone -->
+          <!-- Floating Dynamic Chips & Badges around the Phone (6 Scenes) -->
           <div class="phone-floating-elements">
-            <!-- Scene 0 Popups: Daily Picks & Verified Badges -->
+            <!-- Scene 0 Popups: Filters Badges -->
             <div class="phone-scene-pops pops-scene-0">
+              <span class="filter-floating-pill fp-1">&#x1F3AF; Age 50&ndash;99 Precise Range</span>
+              <span class="filter-floating-pill fp-2">&#x2713; Photo Verified Only</span>
+            </div>
+
+            <!-- Scene 1 Popups: Daily Picks & Verified Badges -->
+            <div class="phone-scene-pops pops-scene-1">
               <span class="bubble-heart pop-1">&#x1F497; React with Praise</span>
               <span class="bubble-verified pop-2">&#x2713; ID Confirmed</span>
               <div class="floating-tally-pill" id="filmTallyPill">
@@ -3469,21 +3610,27 @@ img {
               </div>
             </div>
 
-            <!-- Scene 1 Audio Frequency & Voice Badges -->
-            <div class="phone-scene-pops pops-scene-1">
+            <!-- Scene 2 Popups: Profile & About Me Badges -->
+            <div class="phone-scene-pops pops-scene-2">
+              <span class="profile-floating-pill prp-1">&#x25C9; Online Recently</span>
+              <span class="profile-floating-pill prp-2">&#x1F4AC; Say Hi With Sincerity</span>
+            </div>
+
+            <!-- Scene 3 Popups: Audio Frequency & Voice Badges -->
+            <div class="phone-scene-pops pops-scene-3">
               <span class="voice-floating-pill vp-1">&#x1F399; Real Voice, Real Warmth</span>
               <span class="voice-floating-pill vp-2">&#x266A; 0:14 Audio Introduction</span>
               <span class="voice-floating-pill vp-3">&#x2728; Genuine Laugh</span>
             </div>
 
-            <!-- Scene 2 Guided Prompt Badges -->
-            <div class="phone-scene-pops pops-scene-2">
+            <!-- Scene 4 Popups: Guided Prompt Badges -->
+            <div class="phone-scene-pops pops-scene-4">
               <span class="prompt-floating-pill tp-1">&#x1F4A1; Guided Conversation Prompts</span>
               <span class="prompt-floating-pill tp-2">&#x2709;&#xFE0F; Thoughtful Dialogue</span>
             </div>
 
-            <!-- Scene 3 Coffee & Event Badges -->
-            <div class="phone-scene-pops pops-scene-3">
+            <!-- Scene 5 Popups: Coffee & Event Badges -->
+            <div class="phone-scene-pops pops-scene-5">
               <span class="coffee-floating-pill co-1">&#x2615; Coffee &amp; Tea &middot; 1-on-1</span>
               <span class="coffee-floating-pill co-2">&#x1F4C5; Oct 3 Meetup Scheduled</span>
             </div>
@@ -3503,10 +3650,21 @@ img {
                 </div>
               </div>
 
-              <!-- Phone Screens (Active switches per scene) -->
+              <!-- Phone Screens (Active switches per scene, 6 screens) -->
               
-              <!-- Screen 0: Curated Daily Picks (Real Masked App Screen) -->
+              <!-- Screen 0: Filters (Age 50-99, Pure Settings UI) -->
               <div class="phone-screen-view active" data-screen-for="0">
+                <div class="screen-app-stage screen-filters">
+                  <img src="assets/ui/ui05-filters.png" alt="Senior Preference Filters Screen" width="360" height="780" loading="lazy">
+                  <!-- Interactive Slider Highlight Halo -->
+                  <div class="filter-interactive-overlay">
+                    <div class="filter-slider-glow"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Screen 1: Curated Daily Picks (Real Thoroughly Masked App Screen) -->
+              <div class="phone-screen-view" data-screen-for="1">
                 <div class="screen-app-stage screen-daily-picks">
                   <img src="assets/ui/ui01-for-you.jpg" alt="Daily Curated Picks Screen" width="360" height="780" loading="lazy">
                   <!-- Interactive Heart Pulse Action Pill -->
@@ -3519,8 +3677,19 @@ img {
                 </div>
               </div>
 
-              <!-- Screen 1: Voice Connection (Real Masked Voice Screen) -->
-              <div class="phone-screen-view" data-screen-for="1">
+              <!-- Screen 2: In-Depth Profile View (Real Thoroughly Masked Profile Screen) -->
+              <div class="phone-screen-view" data-screen-for="2">
+                <div class="screen-app-stage screen-profile">
+                  <img src="assets/ui/ui06-profile.jpg" alt="Mature Member Profile View" width="360" height="780" loading="lazy">
+                  <!-- Interactive Actions Overlay -->
+                  <div class="profile-interactive-overlay">
+                    <div class="profile-action-glow"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Screen 3: Voice Connection (Real Thoroughly Masked Voice Screen) -->
+              <div class="phone-screen-view" data-screen-for="3">
                 <div class="screen-app-stage screen-voice">
                   <img src="assets/ui/ui03-voice.png" alt="Voice Connection Screen" width="360" height="780" loading="lazy">
                   <!-- Animated Voice Equalizer Wave Overlay -->
@@ -3539,8 +3708,8 @@ img {
                 </div>
               </div>
 
-              <!-- Screen 2: Conversation Starters (Real Masked Chat & Prompts Screen) -->
-              <div class="phone-screen-view" data-screen-for="2">
+              <!-- Screen 4: Conversation Starters (Real Thoroughly Masked Chat & Prompts Screen) -->
+              <div class="phone-screen-view" data-screen-for="4">
                 <div class="screen-app-stage screen-prompts">
                   <img src="assets/ui/ui07-conversation-starters.png" alt="Conversation Starters Drawer" width="360" height="780" loading="lazy">
                   <!-- Interactive Prompt Card Pulse Highlight -->
@@ -3553,8 +3722,8 @@ img {
                 </div>
               </div>
 
-              <!-- Screen 3: 1-on-1 Coffee & Tea Events (Real Masked Event Screen) -->
-              <div class="phone-screen-view" data-screen-for="3">
+              <!-- Screen 5: 1-on-1 Coffee & Tea Events (Real Thoroughly Masked Event Screen) -->
+              <div class="phone-screen-view" data-screen-for="5">
                 <div class="screen-app-stage screen-coffee-event">
                   <img src="assets/ui/ui04-coffee-event.jpg" alt="1-on-1 Coffee and Tea Event" width="360" height="780" loading="lazy">
                   <!-- Interactive Event Tag Highlight -->
@@ -3570,7 +3739,7 @@ img {
 
       </div>
 
-      <!-- Cinema Timeline & Player Controls -->
+      <!-- Cinema Timeline & Player Controls (6 Segments) -->
       <div class="film-ui-controls">
         
         <!-- Step Back Button -->
@@ -3591,23 +3760,29 @@ img {
         </button>
 
         <!-- Segmented Scrubber Bar -->
-        <div class="film-timeline-bar" id="filmTimeline" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Story chapter progress" aria-valuetext="Chapter 1 of 4: Curated Daily Picks">
+        <div class="film-timeline-bar" id="filmTimeline" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Story chapter progress" aria-valuetext="Chapter 1 of 6: Age 50-99 Filters">
           <div class="timeline-track">
             <div class="timeline-fill" id="filmProgressFill" style="transform: scaleX(0);"></div>
             
-            <!-- Chapter Segments -->
+            <!-- 6 Chapter Segments -->
             <div class="timeline-ticks">
-              <button type="button" class="timeline-segment active" data-step="0" aria-label="Chapter 1: Curated Daily Picks">
-                <span class="segment-label">1. Daily Picks</span>
+              <button type="button" class="timeline-segment active" data-step="0" aria-label="Chapter 1: Age 50-99 Filters">
+                <span class="segment-label">1. 50+ Filters</span>
               </button>
-              <button type="button" class="timeline-segment" data-step="1" aria-label="Chapter 2: Voice Connection">
-                <span class="segment-label">2. Voice Warmth</span>
+              <button type="button" class="timeline-segment" data-step="1" aria-label="Chapter 2: Curated Daily Picks">
+                <span class="segment-label">2. Daily Picks</span>
               </button>
-              <button type="button" class="timeline-segment" data-step="2" aria-label="Chapter 3: Icebreakers">
-                <span class="segment-label">3. Icebreakers</span>
+              <button type="button" class="timeline-segment" data-step="2" aria-label="Chapter 3: In-Depth Profiles">
+                <span class="segment-label">3. Profiles</span>
               </button>
-              <button type="button" class="timeline-segment" data-step="3" aria-label="Chapter 4: 1-on-1 Coffee &amp; Tea">
-                <span class="segment-label">4. Coffee Meetups</span>
+              <button type="button" class="timeline-segment" data-step="3" aria-label="Chapter 4: Voice Warmth">
+                <span class="segment-label">4. Voice Warmth</span>
+              </button>
+              <button type="button" class="timeline-segment" data-step="4" aria-label="Chapter 5: Icebreakers">
+                <span class="segment-label">5. Icebreakers</span>
+              </button>
+              <button type="button" class="timeline-segment" data-step="5" aria-label="Chapter 6: 1-on-1 Coffee &amp; Tea">
+                <span class="segment-label">6. Coffee Meetups</span>
               </button>
             </div>
           </div>
@@ -4360,7 +4535,7 @@ window.APP_CONFIG = {
 
 // [COMPONENT: film] components\film\script.js
 /**
- * Film Component Interactive Story Player
+ * Film Component Interactive Story Player (6 Comprehensive Chapters)
  * Controls play/pause, chapter stepping, and continuous real-time timeline progression.
  * Automatically advances smoothly across chapters in real-time.
  */
@@ -4377,9 +4552,9 @@ window.APP_CONFIG = {
   if (!stage || !playBtn) return;
 
   var currentScene = 0;
-  var totalScenes = 4;
-  var sceneDuration = 5500; // 5.5 seconds per chapter
-  var totalDuration = totalScenes * sceneDuration; // 22 seconds total cycle
+  var totalScenes = 6;
+  var sceneDuration = 5200; // 5.2 seconds per chapter
+  var totalDuration = totalScenes * sceneDuration; // 31.2 seconds total cycle
 
   var currentTime = 0; // ms in loop: 0 to totalDuration
   var isPlaying = true;
@@ -4391,7 +4566,9 @@ window.APP_CONFIG = {
   var tallyNumberEl = document.getElementById('filmTallyNumber');
 
   var chapterNames = [
+    'Age 50–99 Filters',
     'Curated Daily Picks',
+    'In-Depth Profiles',
     'Voice Connection',
     'Conversation Starters',
     '1-on-1 Coffee & Tea'
@@ -4399,8 +4576,8 @@ window.APP_CONFIG = {
 
   function updateTallyCounter(sceneOffset) {
     if (!tallyNumberEl) return;
-    if (currentScene === 0) {
-      // In Scene 0, count up from 1 to 3 handpicked daily introductions over first 1.8s
+    if (currentScene === 1) {
+      // In Scene 1 (Daily Picks), count up from 1 to 3 curated intros over first 1.8s
       var countTarget = Math.max(1, Math.min(3, Math.floor((sceneOffset / 1800) * 3) + 1));
       var currentVal = parseInt(tallyNumberEl.textContent, 10) || 1;
       if (countTarget !== currentVal) {
@@ -4422,13 +4599,14 @@ window.APP_CONFIG = {
     currentScene = sceneIndex;
 
     stage.setAttribute('data-current-scene', currentScene);
-    if (currentScene >= 2) {
+    // Scenes 4 and 5 are in the daylight porcelain dawn & cafe morning
+    if (currentScene >= 4) {
       stage.classList.add('is-daylight');
     } else {
       stage.classList.remove('is-daylight');
     }
 
-    if (tallyNumberEl && currentScene === 0) {
+    if (tallyNumberEl && currentScene === 1) {
       tallyNumberEl.textContent = '1';
     }
 
@@ -4492,7 +4670,6 @@ window.APP_CONFIG = {
     var delta = timestamp - lastTimestamp;
     lastTimestamp = timestamp;
 
-    // If tab woke from sleep or inactive for > 2s, don't jump massively
     if (delta > 2000) {
       delta = 16.6;
     } else {
@@ -4599,7 +4776,7 @@ window.APP_CONFIG = {
       renderProgress(ratio);
     });
 
-    // Keyboard accessibility: Left / Right arrows & Space
+    // Keyboard accessibility
     timeline.addEventListener('keydown', function(e) {
       if (e.key === 'ArrowRight') {
         e.preventDefault();

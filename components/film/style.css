@@ -1,4 +1,4 @@
-/* Component: Interactive Story Film Stage (Living Atmosphere & Real iOS App Showcase) */
+/* Component: Interactive Story Film Stage (6 Living Atmosphere Chapters & Real iOS App Showcase) */
 .comp-film {
   padding: clamp(28px, 4.5vw, 56px) 0;
 }
@@ -32,7 +32,7 @@
 }
 
 /* ==========================================================================
-   Living Atmosphere: Night & Acoustic Cosmos (Scenes 0 & 1)
+   Living Atmosphere: Night & Acoustic Cosmos (Scenes 0, 1, 2, 3)
    ========================================================================== */
 .stage-night-canvas {
   position: absolute;
@@ -41,16 +41,30 @@
   pointer-events: none;
   overflow: hidden;
   border-radius: inherit;
-  background: radial-gradient(circle at 65% 30%, #1E293B 0%, #131B26 60%, #0A0F17 100%);
+  background: radial-gradient(circle at 65% 30%, #152238 0%, #0F172A 60%, #0A0F17 100%);
   transition: filter 1.2s ease, opacity 1.2s ease, background 1.2s ease;
 }
 
+/* Scene 0: Age 50-99 Filters (Blueprint Midnight) */
 .film-stage[data-current-scene="0"] .stage-night-canvas {
+  background: radial-gradient(circle at 65% 30%, #172554 0%, #0F172A 60%, #070B14 100%);
+  filter: saturate(1.1) brightness(1);
+}
+
+/* Scene 1: Curated Daily Picks (Starlight Midnight Slate) */
+.film-stage[data-current-scene="1"] .stage-night-canvas {
   background: radial-gradient(circle at 65% 30%, #1E293B 0%, #131B26 60%, #0A0F17 100%);
   filter: saturate(1) brightness(1);
 }
 
-.film-stage[data-current-scene="1"] .stage-night-canvas {
+/* Scene 2: Sincere Profiles (Deep Teal & Emerald) */
+.film-stage[data-current-scene="2"] .stage-night-canvas {
+  background: radial-gradient(circle at 60% 35%, #064E3B 0%, #0F172A 65%, #080D1A 100%);
+  filter: saturate(1.15) brightness(1.05);
+}
+
+/* Scene 3: Voice Connection (Midnight Acoustic Cosmos) */
+.film-stage[data-current-scene="3"] .stage-night-canvas {
   background: radial-gradient(circle at 68% 35%, #162447 0%, #0F172A 55%, #080D1A 100%);
   filter: saturate(1.3) brightness(1.1);
 }
@@ -108,7 +122,7 @@
   animation-delay: -4s;
 }
 
-.film-stage[data-current-scene="1"] .orb-sky {
+.film-stage[data-current-scene="3"] .orb-sky {
   opacity: 0.35;
 }
 
@@ -147,7 +161,7 @@
   animation-duration: 23s;
 }
 
-/* Concentric Acoustic Sonar Rings (Chapter 1: Voice Feature) */
+/* Concentric Acoustic Sonar Rings (Chapter 3: Voice Feature) */
 .acoustic-sonar-system {
   position: absolute;
   right: 18%;
@@ -161,7 +175,7 @@
   transition: opacity 0.8s ease;
 }
 
-.film-stage[data-current-scene="1"] .acoustic-sonar-system {
+.film-stage[data-current-scene="3"] .acoustic-sonar-system {
   opacity: 1;
 }
 
@@ -196,7 +210,7 @@
   }
 }
 
-/* Voice Orbital Trajectory Arc */
+/* Voice Orbital Trajectory Arc (Active in Scene 3) */
 .voice-orbital-arc {
   position: absolute;
   right: 2%;
@@ -209,7 +223,7 @@
   transition: opacity 1s ease;
 }
 
-.film-stage[data-current-scene="1"] .voice-orbital-arc {
+.film-stage[data-current-scene="3"] .voice-orbital-arc {
   opacity: 0.65;
 }
 
@@ -259,7 +273,7 @@
 .starlight-point.s10 { left: 75%; top: 45%; animation-delay: -2.4s; }
 
 /* ==========================================================================
-   Living Atmosphere: Daylight Porcelain & Warm Cafe Dawn (Scenes 2 & 3)
+   Living Atmosphere: Daylight Porcelain & Warm Cafe Dawn (Scenes 4 & 5)
    ========================================================================== */
 .stage-day-canvas {
   position: absolute;
@@ -274,13 +288,13 @@
 }
 
 .film-stage.is-daylight .stage-day-canvas,
-.film-stage[data-current-scene="2"] .stage-day-canvas,
-.film-stage[data-current-scene="3"] .stage-day-canvas {
+.film-stage[data-current-scene="4"] .stage-day-canvas,
+.film-stage[data-current-scene="5"] .stage-day-canvas {
   opacity: 1;
 }
 
-/* Scene 3 warms up to a sunlit cafe morning */
-.film-stage[data-current-scene="3"] .stage-day-canvas {
+/* Scene 5 warms up to a sunlit cafe morning */
+.film-stage[data-current-scene="5"] .stage-day-canvas {
   background: linear-gradient(135deg, #FFFDFB 0%, #FEF3C7 28%, #FDF4F0 70%, #F1F5F9 100%);
 }
 
@@ -297,7 +311,7 @@
   transition: transform 1.8s cubic-bezier(0.6, 0, 0.2, 1);
 }
 
-.film-stage[data-current-scene="3"] .day-sun-orbit {
+.film-stage[data-current-scene="5"] .day-sun-orbit {
   transform: translateX(-24cqw) rotate(15deg);
 }
 
@@ -366,7 +380,7 @@
   pointer-events: none;
 }
 
-.film-stage[data-current-scene="3"] .day-thread {
+.film-stage[data-current-scene="5"] .day-thread {
   opacity: 0;
 }
 
@@ -382,8 +396,8 @@
 }
 
 .film-stage.is-daylight .day-thread path,
-.film-stage[data-current-scene="2"] .day-thread path,
-.film-stage[data-current-scene="3"] .day-thread path {
+.film-stage[data-current-scene="4"] .day-thread path,
+.film-stage[data-current-scene="5"] .day-thread path {
   stroke-dashoffset: 0;
 }
 
@@ -405,12 +419,12 @@
 .ridge-fore { fill: #94A3B8; opacity: 0.35; }
 
 .film-stage.is-daylight .day-ridges,
-.film-stage[data-current-scene="2"] .day-ridges,
-.film-stage[data-current-scene="3"] .day-ridges {
+.film-stage[data-current-scene="4"] .day-ridges,
+.film-stage[data-current-scene="5"] .day-ridges {
   transform: none;
 }
 
-/* Cafe Aroma Steam Wisps (Chapter 3: Coffee & Tea) */
+/* Cafe Aroma Steam Wisps (Chapter 5: Coffee & Tea) */
 .coffee-steam-canvas {
   position: absolute;
   right: 8%;
@@ -423,7 +437,7 @@
   transition: opacity 1.2s ease;
 }
 
-.film-stage[data-current-scene="3"] .coffee-steam-canvas {
+.film-stage[data-current-scene="5"] .coffee-steam-canvas {
   opacity: 0.75;
 }
 
@@ -457,50 +471,50 @@
 
 /* ==========================================================================
    Daylight Typography & Element Adaptation
-   ========================================================================== */
+   ========================================================================= */
 .film-stage.is-daylight .scene-kicker,
-.film-stage[data-current-scene="2"] .scene-kicker,
-.film-stage[data-current-scene="3"] .scene-kicker {
+.film-stage[data-current-scene="4"] .scene-kicker,
+.film-stage[data-current-scene="5"] .scene-kicker {
   color: #E94266;
 }
 
 .film-stage.is-daylight .scene-title,
-.film-stage[data-current-scene="2"] .scene-title,
-.film-stage[data-current-scene="3"] .scene-title {
+.film-stage[data-current-scene="4"] .scene-title,
+.film-stage[data-current-scene="5"] .scene-title {
   color: #1E293B;
 }
 
 .film-stage.is-daylight .scene-title em,
-.film-stage[data-current-scene="2"] .scene-title em,
-.film-stage[data-current-scene="3"] .scene-title em {
+.film-stage[data-current-scene="4"] .scene-title em,
+.film-stage[data-current-scene="5"] .scene-title em {
   color: #E94266;
 }
 
 .film-stage.is-daylight .scene-desc,
-.film-stage[data-current-scene="2"] .scene-desc,
-.film-stage[data-current-scene="3"] .scene-desc {
+.film-stage[data-current-scene="4"] .scene-desc,
+.film-stage[data-current-scene="5"] .scene-desc {
   color: #475569;
 }
 
 .film-stage.is-daylight .chip-juniper,
-.film-stage[data-current-scene="2"] .chip-juniper,
-.film-stage[data-current-scene="3"] .chip-juniper {
+.film-stage[data-current-scene="4"] .chip-juniper,
+.film-stage[data-current-scene="5"] .chip-juniper {
   background: rgba(39, 174, 96, 0.12);
   border: 1px solid rgba(39, 174, 96, 0.28);
   color: #1E8449;
 }
 
 .film-stage.is-daylight .chip-mature,
-.film-stage[data-current-scene="2"] .chip-mature,
-.film-stage[data-current-scene="3"] .chip-mature {
+.film-stage[data-current-scene="4"] .chip-mature,
+.film-stage[data-current-scene="5"] .chip-mature {
   background: rgba(233, 66, 102, 0.12);
   border: 1px solid rgba(233, 66, 102, 0.25);
   color: #D42B51;
 }
 
 .film-stage.is-daylight .film-phone-frame,
-.film-stage[data-current-scene="2"] .film-phone-frame,
-.film-stage[data-current-scene="3"] .film-phone-frame {
+.film-stage[data-current-scene="4"] .film-phone-frame,
+.film-stage[data-current-scene="5"] .film-phone-frame {
   box-shadow: 0 0 0 1px rgba(30, 41, 59, 0.12), 0 32px 55px -25px rgba(30, 41, 59, 0.35), 0 0 40px -10px rgba(233, 66, 102, 0.15);
 }
 
@@ -734,13 +748,34 @@
 [data-current-scene="0"] .pops-scene-0,
 [data-current-scene="1"] .pops-scene-1,
 [data-current-scene="2"] .pops-scene-2,
-[data-current-scene="3"] .pops-scene-3 {
+[data-current-scene="3"] .pops-scene-3,
+[data-current-scene="4"] .pops-scene-4,
+[data-current-scene="5"] .pops-scene-5 {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
 }
 
-/* Scene 0 Floating Chips: Heartbeat Praise & Verified Status */
+/* Scene 0 Floating Pills: Filters */
+.filter-floating-pill {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  color: #FDE68A;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25);
+  white-space: nowrap;
+}
+
+.fp-1 { top: 18%; left: -48px; animation: floatPop1 4.2s ease-in-out infinite alternate; }
+.fp-2 { top: 74%; right: -42px; animation: floatPop2 4.6s ease-in-out infinite alternate; }
+
+/* Scene 1 Floating Pills: Daily Picks */
 .bubble-heart {
   position: absolute;
   top: 14%;
@@ -808,7 +843,26 @@
   font-weight: 500;
 }
 
-/* Scene 1 Voice Floating Pills */
+/* Scene 2 Floating Pills: Profile */
+.profile-floating-pill {
+  position: absolute;
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(52, 211, 153, 0.45);
+  color: #A7F3D0;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
+  white-space: nowrap;
+}
+
+.prp-1 { top: 16%; left: -46px; animation: floatPop1 4s ease-in-out infinite alternate; }
+.prp-2 { top: 76%; right: -42px; animation: floatPop2 4.6s ease-in-out infinite alternate; }
+
+/* Scene 3 Floating Pills: Voice */
 .voice-floating-pill {
   position: absolute;
   background: rgba(15, 23, 42, 0.9);
@@ -828,7 +882,7 @@
 .vp-2 { top: 48%; right: -46px; animation: floatPop2 4.6s ease-in-out infinite alternate; }
 .vp-3 { bottom: 12%; left: -28px; animation: floatPop1 5s ease-in-out infinite alternate; }
 
-/* Scene 2 Prompt Floating Pills */
+/* Scene 4 Floating Pills: Prompts */
 .prompt-floating-pill {
   position: absolute;
   background: rgba(255, 255, 255, 0.95);
@@ -853,7 +907,7 @@
 .tp-1 { top: 18%; left: -48px; animation: floatPop1 4.2s ease-in-out infinite alternate; }
 .tp-2 { top: 76%; right: -38px; animation: floatPop2 4.6s ease-in-out infinite alternate; }
 
-/* Scene 3 Coffee & Event Floating Pills */
+/* Scene 5 Floating Pills: Coffee */
 .coffee-floating-pill {
   position: absolute;
   background: rgba(255, 255, 255, 0.95);
@@ -989,7 +1043,35 @@
   display: block;
 }
 
-/* Screen 0: Interactive React Pill on Daily Picks */
+/* Screen 0: Filters Highlight Glow */
+.filter-interactive-overlay {
+  position: absolute;
+  top: 38%;
+  left: 20px;
+  right: 20px;
+  height: 60px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.filter-slider-glow {
+  position: absolute;
+  right: 18px;
+  top: 32px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(233, 66, 102, 0.4);
+  box-shadow: 0 0 16px rgba(233, 66, 102, 0.6);
+  animation: sliderPulse 2s infinite ease-in-out;
+}
+
+@keyframes sliderPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.3); opacity: 0.9; }
+}
+
+/* Screen 1: Interactive React Pill on Daily Picks */
 .screen-interactive-overlay {
   position: absolute;
   bottom: 82px;
@@ -1029,7 +1111,30 @@
   }
 }
 
-/* Screen 1: Voice Frequency Wave Overlay */
+/* Screen 2: Profile Actions Glow */
+.profile-interactive-overlay {
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+  right: 20px;
+  height: 70px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.profile-action-glow {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  height: 48px;
+  border-radius: 24px;
+  border: 1.5px solid rgba(39, 174, 96, 0.5);
+  box-shadow: 0 0 16px rgba(39, 174, 96, 0.3);
+  animation: promptHalo 3s ease-in-out infinite alternate;
+}
+
+/* Screen 3: Voice Frequency Wave Overlay */
 .voice-wave-overlay {
   position: absolute;
   bottom: 110px;
@@ -1075,7 +1180,7 @@
   100% { transform: scaleY(1.3); }
 }
 
-/* Screen 2: Prompt Card Highlight & Typing Cursor */
+/* Screen 4: Prompt Card Highlight & Typing Cursor */
 .prompt-interactive-overlay {
   position: absolute;
   inset: 0;
@@ -1119,7 +1224,7 @@
   50% { opacity: 0; }
 }
 
-/* Screen 3: Coffee Date Badge Highlight */
+/* Screen 5: Coffee Date Badge Highlight */
 .event-interactive-overlay {
   position: absolute;
   top: 72px;
@@ -1145,7 +1250,7 @@
 }
 
 /* ==========================================================================
-   Cinema Controls Bar (Directly below stage)
+   Cinema Controls Bar (Directly below stage, 6 segments)
    ========================================================================== */
 .film-ui-controls {
   display: flex;
@@ -1225,7 +1330,7 @@
 }
 
 .timeline-segment {
-  width: 25%;
+  width: calc(100% / 6);
   height: 100%;
   background: transparent;
   border: none;
@@ -1289,9 +1394,13 @@
   .phone-floating-elements {
     max-width: 265px;
   }
+  .fp-1 { left: -14px; font-size: 11px; padding: 6px 12px; }
+  .fp-2 { right: -14px; font-size: 11px; padding: 6px 12px; }
   .pop-1 { left: -14px; font-size: 11px; padding: 6px 12px; }
   .bubble-verified { right: -14px; font-size: 11px; padding: 6px 12px; }
   .floating-tally-pill { left: -10px; font-size: 11px; padding: 7px 13px; }
+  .prp-1 { left: -14px; font-size: 11px; padding: 6px 12px; }
+  .prp-2 { right: -14px; font-size: 11px; padding: 6px 12px; }
   .vp-1 { left: -12px; font-size: 11px; }
   .vp-2 { right: -12px; font-size: 11px; }
   .vp-3 { left: -12px; font-size: 11px; }
@@ -1309,9 +1418,13 @@
   .phone-floating-elements {
     max-width: 245px;
   }
+  .fp-1 { left: -6px; }
+  .fp-2 { right: -6px; }
   .pop-1 { left: -6px; }
   .bubble-verified { right: -6px; }
   .floating-tally-pill { left: -6px; }
+  .prp-1 { left: -6px; }
+  .prp-2 { right: -6px; }
   .vp-1 { left: -6px; }
   .vp-2 { right: -6px; }
   .vp-3 { left: -6px; }

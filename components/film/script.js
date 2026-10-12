@@ -1,5 +1,5 @@
 /**
- * Film Component Interactive Story Player
+ * Film Component Interactive Story Player (6 Comprehensive Chapters)
  * Controls play/pause, chapter stepping, and continuous real-time timeline progression.
  * Automatically advances smoothly across chapters in real-time.
  */
@@ -16,9 +16,9 @@
   if (!stage || !playBtn) return;
 
   var currentScene = 0;
-  var totalScenes = 4;
-  var sceneDuration = 5500; // 5.5 seconds per chapter
-  var totalDuration = totalScenes * sceneDuration; // 22 seconds total cycle
+  var totalScenes = 6;
+  var sceneDuration = 5200; // 5.2 seconds per chapter
+  var totalDuration = totalScenes * sceneDuration; // 31.2 seconds total cycle
 
   var currentTime = 0; // ms in loop: 0 to totalDuration
   var isPlaying = true;
@@ -30,7 +30,9 @@
   var tallyNumberEl = document.getElementById('filmTallyNumber');
 
   var chapterNames = [
+    'Age 50–99 Filters',
     'Curated Daily Picks',
+    'In-Depth Profiles',
     'Voice Connection',
     'Conversation Starters',
     '1-on-1 Coffee & Tea'
@@ -38,8 +40,8 @@
 
   function updateTallyCounter(sceneOffset) {
     if (!tallyNumberEl) return;
-    if (currentScene === 0) {
-      // In Scene 0, count up from 1 to 3 handpicked daily introductions over first 1.8s
+    if (currentScene === 1) {
+      // In Scene 1 (Daily Picks), count up from 1 to 3 curated intros over first 1.8s
       var countTarget = Math.max(1, Math.min(3, Math.floor((sceneOffset / 1800) * 3) + 1));
       var currentVal = parseInt(tallyNumberEl.textContent, 10) || 1;
       if (countTarget !== currentVal) {
@@ -61,13 +63,14 @@
     currentScene = sceneIndex;
 
     stage.setAttribute('data-current-scene', currentScene);
-    if (currentScene >= 2) {
+    // Scenes 4 and 5 are in the daylight porcelain dawn & cafe morning
+    if (currentScene >= 4) {
       stage.classList.add('is-daylight');
     } else {
       stage.classList.remove('is-daylight');
     }
 
-    if (tallyNumberEl && currentScene === 0) {
+    if (tallyNumberEl && currentScene === 1) {
       tallyNumberEl.textContent = '1';
     }
 
@@ -131,7 +134,6 @@
     var delta = timestamp - lastTimestamp;
     lastTimestamp = timestamp;
 
-    // If tab woke from sleep or inactive for > 2s, don't jump massively
     if (delta > 2000) {
       delta = 16.6;
     } else {
@@ -238,7 +240,7 @@
       renderProgress(ratio);
     });
 
-    // Keyboard accessibility: Left / Right arrows & Space
+    // Keyboard accessibility
     timeline.addEventListener('keydown', function(e) {
       if (e.key === 'ArrowRight') {
         e.preventDefault();
