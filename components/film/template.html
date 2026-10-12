@@ -46,9 +46,37 @@
 
           <!-- Shared Living Strands & Drifting Starlight Particles -->
           <svg class="ambient-strands" viewBox="0 0 1200 480" preserveAspectRatio="none">
+            <defs>
+              <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+
+            <!-- Organic Flowing Strands -->
             <path class="strand-line line-1" d="M-50 140 C150 60 320 220 540 140 S880 50 1250 160"/>
             <path class="strand-line line-2" d="M-50 280 C220 360 400 180 640 270 S980 350 1250 240"/>
             <path class="strand-line line-3" d="M-50 360 C240 300 450 410 680 340 S1020 280 1250 350"/>
+            <path class="strand-line line-thread" d="M-40 210 C200 130 380 320 620 200 S920 120 1240 220"/>
+
+            <!-- Traveling Glowing Energy Nodes flowing along each curve -->
+            <circle class="strand-node node-1" r="3.5" filter="url(#glowFilter)">
+              <animateMotion dur="12s" repeatCount="indefinite" path="M-50 140 C150 60 320 220 540 140 S880 50 1250 160"/>
+            </circle>
+            <circle class="strand-node node-2" r="3" filter="url(#glowFilter)">
+              <animateMotion dur="16s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" path="M-50 280 C220 360 400 180 640 270 S980 350 1250 240"/>
+            </circle>
+            <circle class="strand-node node-3" r="3.2" filter="url(#glowFilter)">
+              <animateMotion dur="20s" repeatCount="indefinite" path="M-50 360 C240 300 450 410 680 340 S1020 280 1250 350"/>
+            </circle>
+            <circle class="strand-node node-thread" r="3.8" filter="url(#glowFilter)">
+              <animateMotion dur="14s" repeatCount="indefinite" path="M-40 210 C200 130 380 320 620 200 S920 120 1240 220"/>
+            </circle>
+
+            <!-- Star particles -->
             <circle class="star star-1" cx="280" cy="110" r="2" fill="#FFFFFF"/>
             <circle class="star star-2" cx="430" cy="80" r="1.5" fill="#FFFFFF"/>
             <circle class="star star-3" cx="560" cy="380" r="2.2" fill="#FFFFFF"/>

@@ -1132,7 +1132,7 @@ img {
   100% { transform: translate(18px, -16px) scale(0.98); }
 }
 
-/* Shared Strands & Floating Star Particles */
+/* Shared Strands & Flowing Energy Currents */
 .ambient-strands {
   position: absolute;
   inset: 0;
@@ -1140,19 +1140,88 @@ img {
   height: 100%;
   z-index: 2;
   pointer-events: none;
+  opacity: 0.85;
 }
 
 .strand-line {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.12);
-  stroke-width: 1.5;
-  stroke-dasharray: 6 6;
-  animation: strandFlow 32s linear infinite;
+  stroke-linecap: round;
+  stroke-dasharray: 68, 28;
+  transition: stroke 1.35s ease, opacity 1.35s ease, stroke-width 1.35s ease;
 }
 
-@keyframes strandFlow {
-  to { stroke-dashoffset: -120; }
+.line-1 {
+  stroke-width: 2.2px;
+  stroke: rgba(255, 198, 194, 0.45);
+  animation: strandFlow1 13s linear infinite;
 }
+
+.line-2 {
+  stroke-width: 1.8px;
+  stroke: rgba(143, 192, 187, 0.4);
+  animation: strandFlow2 18s linear infinite reverse;
+}
+
+.line-3 {
+  stroke-width: 1.5px;
+  stroke: rgba(217, 119, 111, 0.35);
+  animation: strandFlow3 23s linear infinite;
+}
+
+.line-thread {
+  stroke-width: 2px;
+  stroke-dasharray: 52, 32;
+  stroke: rgba(212, 116, 20, 0.42);
+  animation: strandFlow1 16s linear infinite;
+}
+
+@keyframes strandFlow1 {
+  to { stroke-dashoffset: -960; }
+}
+
+@keyframes strandFlow2 {
+  to { stroke-dashoffset: -960; }
+}
+
+@keyframes strandFlow3 {
+  to { stroke-dashoffset: -960; }
+}
+
+/* Traveling Glowing Light Nodes */
+.strand-node {
+  opacity: 0.9;
+  transition: fill 1.35s ease, opacity 1.35s ease;
+}
+
+.node-1 { fill: #FFD2CD; }
+.node-2 { fill: #A7F3D0; }
+.node-3 { fill: #FDE68A; }
+.node-thread { fill: #FBBF24; }
+
+/* Dynamic Scene Variations for the Flowing Strands */
+.film-stage[data-current-scene="0"] .line-1 { stroke: rgba(190, 165, 175, 0.35); }
+.film-stage[data-current-scene="0"] .line-2 { stroke: rgba(155, 135, 145, 0.3); }
+.film-stage[data-current-scene="0"] .line-3 { stroke: rgba(135, 120, 130, 0.25); }
+.film-stage[data-current-scene="0"] .line-thread { stroke: rgba(165, 145, 155, 0.28); }
+.film-stage[data-current-scene="0"] .strand-node { fill: #E5E0E2; opacity: 0.6; }
+
+.film-stage[data-current-scene="1"] .line-1 { stroke: rgba(255, 107, 129, 0.6); stroke-width: 2.6px; }
+.film-stage[data-current-scene="1"] .line-2 { stroke: rgba(238, 82, 83, 0.52); }
+.film-stage[data-current-scene="1"] .line-3 { stroke: rgba(212, 116, 20, 0.45); }
+.film-stage[data-current-scene="1"] .line-thread { stroke: rgba(244, 63, 94, 0.55); }
+.film-stage[data-current-scene="1"] .strand-node { fill: #FECDD3; opacity: 0.95; }
+
+.film-stage[data-current-scene="2"] .line-1 { stroke: rgba(167, 243, 208, 0.65); stroke-width: 2.5px; }
+.film-stage[data-current-scene="2"] .line-2 { stroke: rgba(52, 211, 153, 0.55); }
+.film-stage[data-current-scene="2"] .line-3 { stroke: rgba(253, 230, 138, 0.5); }
+.film-stage[data-current-scene="2"] .line-thread { stroke: rgba(110, 231, 183, 0.6); }
+.film-stage[data-current-scene="2"] .strand-node { fill: #D1FAE5; opacity: 0.95; }
+
+.film-stage[data-current-scene="3"] .line-1 { stroke: rgba(245, 158, 11, 0.7); stroke-width: 2.5px; }
+.film-stage[data-current-scene="3"] .line-2 { stroke: rgba(254, 215, 170, 0.6); }
+.film-stage[data-current-scene="3"] .line-3 { stroke: rgba(244, 114, 182, 0.5); }
+.film-stage[data-current-scene="3"] .line-thread { stroke: rgba(251, 191, 36, 0.65); }
+.film-stage[data-current-scene="3"] .strand-node { fill: #FEF3C7; opacity: 1; }
 
 .star {
   animation: starPulse 4.5s ease-in-out infinite alternate;
@@ -2701,9 +2770,37 @@ img {
 
           <!-- Shared Living Strands & Drifting Starlight Particles -->
           <svg class="ambient-strands" viewBox="0 0 1200 480" preserveAspectRatio="none">
+            <defs>
+              <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+
+            <!-- Organic Flowing Strands -->
             <path class="strand-line line-1" d="M-50 140 C150 60 320 220 540 140 S880 50 1250 160"/>
             <path class="strand-line line-2" d="M-50 280 C220 360 400 180 640 270 S980 350 1250 240"/>
             <path class="strand-line line-3" d="M-50 360 C240 300 450 410 680 340 S1020 280 1250 350"/>
+            <path class="strand-line line-thread" d="M-40 210 C200 130 380 320 620 200 S920 120 1240 220"/>
+
+            <!-- Traveling Glowing Energy Nodes flowing along each curve -->
+            <circle class="strand-node node-1" r="3.5" filter="url(#glowFilter)">
+              <animateMotion dur="12s" repeatCount="indefinite" path="M-50 140 C150 60 320 220 540 140 S880 50 1250 160"/>
+            </circle>
+            <circle class="strand-node node-2" r="3" filter="url(#glowFilter)">
+              <animateMotion dur="16s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" path="M-50 280 C220 360 400 180 640 270 S980 350 1250 240"/>
+            </circle>
+            <circle class="strand-node node-3" r="3.2" filter="url(#glowFilter)">
+              <animateMotion dur="20s" repeatCount="indefinite" path="M-50 360 C240 300 450 410 680 340 S1020 280 1250 350"/>
+            </circle>
+            <circle class="strand-node node-thread" r="3.8" filter="url(#glowFilter)">
+              <animateMotion dur="14s" repeatCount="indefinite" path="M-40 210 C200 130 380 320 620 200 S920 120 1240 220"/>
+            </circle>
+
+            <!-- Star particles -->
             <circle class="star star-1" cx="280" cy="110" r="2" fill="#FFFFFF"/>
             <circle class="star star-2" cx="430" cy="80" r="1.5" fill="#FFFFFF"/>
             <circle class="star star-3" cx="560" cy="380" r="2.2" fill="#FFFFFF"/>
