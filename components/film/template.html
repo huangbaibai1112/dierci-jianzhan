@@ -136,9 +136,44 @@
 
         </div>
 
-        <!-- Right Column: Interactive Phone Mockup -->
+        <!-- Right Column: Interactive Phone Mockup with 3D Floating Particles & Popups -->
         <div class="film-phone-col" aria-hidden="true">
-          <div class="film-phone-frame">
+          
+          <!-- Floating Dynamic Chips & Badges around the Phone -->
+          <div class="phone-floating-elements">
+            <!-- Scene 0 Popups & Live Tally Counter -->
+            <div class="phone-scene-pops pops-scene-0">
+              <span class="bubble-match pop-1">It&rsquo;s a match!</span>
+              <span class="bubble-match pop-2">It&rsquo;s a match!</span>
+              <div class="floating-tally-pill" id="filmTallyPill">
+                <b class="tally-number" id="filmTallyNumber">0</b> matches · <span class="tally-zero">0 conversations</span>
+              </div>
+            </div>
+
+            <!-- Scene 1 Staggered Lock Chips -->
+            <div class="phone-scene-pops pops-scene-1">
+              <span class="lock-chip lc-1">🔒 See who likes you</span>
+              <span class="lock-chip lc-2">🔒 Unlimited likes</span>
+              <span class="lock-chip lc-3">🔒 99+ hidden messages</span>
+              <span class="lock-chip lc-4">🔒 Fee required</span>
+              <span class="lock-chip lc-5">🔒 Premium boost</span>
+            </div>
+
+            <!-- Scene 2 Trust & Compatibility Blooming Pills -->
+            <div class="phone-scene-pops pops-scene-2">
+              <span class="trust-floating-pill tp-1">✓ 96% Values Match</span>
+              <span class="trust-floating-pill tp-2">✓ ID Confirmed</span>
+            </div>
+
+            <!-- Scene 3 Unhurried Dialogue Reflection Pills -->
+            <div class="phone-scene-pops pops-scene-3">
+              <span class="dialogue-floating-pill dp-1">💬 Thoughtful dialogue</span>
+              <span class="dialogue-floating-pill dp-2">☕ Zero timer pressure</span>
+            </div>
+          </div>
+
+          <!-- Smartphone Frame (3D Gentle Bobbing) -->
+          <div class="film-phone-frame" id="filmPhoneFrame">
             <i class="phone-dynamic-island"></i>
             
             <div class="phone-screen-container">
@@ -152,28 +187,99 @@
               </div>
 
               <!-- Phone Screens (Active switches per scene) -->
+              
+              <!-- Screen 0: Interactive Physical Card Swiping Animation -->
               <div class="phone-screen-view active" data-screen-for="0">
-                <img src="assets/placeholders/film-swipe-old.svg" alt="Generic swiping interface mockup" width="360" height="640" loading="lazy">
-                <div class="screen-corner-badge">✕</div>
-              </div>
-
-              <div class="phone-screen-view" data-screen-for="1">
-                <img src="assets/placeholders/film-swipe-old.svg" alt="Swiping app paywall mockup" width="360" height="640" loading="lazy">
-                <div class="phone-paywall-overlay">
-                  <div class="paywall-card">
-                    <span class="paywall-icon">🔒</span>
-                    <b>99+ Matches Waiting</b>
-                    <small>Upgrade to Gold to read messages</small>
+                <div class="screen-swipe-stage">
+                  <!-- Under Card (Revealed after top card swipes away) -->
+                  <div class="swipe-under-card">
+                    <div class="under-card-inner">
+                      <div class="under-avatar-placeholder"></div>
+                      <div class="under-meta-line line-short"></div>
+                      <div class="under-meta-line line-long"></div>
+                    </div>
+                  </div>
+                  <!-- Top Profile Card (Physically tilts and swipes away) -->
+                  <div class="swipe-profile-card">
+                    <img src="assets/placeholders/film-swipe-old.svg" alt="" width="360" height="640" loading="lazy">
+                    <div class="swipe-stamp-nope">NOPE</div>
                   </div>
                 </div>
               </div>
 
-              <div class="phone-screen-view" data-screen-for="2">
-                <img src="assets/placeholders/film-chat-new.svg" alt="Compatibility introduction mockup" width="360" height="640" loading="lazy">
+              <!-- Screen 1: Pulsing Locked Paywall Overlay & Blurred Grid -->
+              <div class="phone-screen-view" data-screen-for="1">
+                <div class="screen-paywall-stage">
+                  <div class="paywall-blurred-backdrop">
+                    <img src="assets/placeholders/film-swipe-old.svg" alt="" width="360" height="640" loading="lazy">
+                  </div>
+                  <div class="phone-paywall-overlay">
+                    <div class="paywall-card">
+                      <span class="paywall-icon-pulse">🔒</span>
+                      <b>99+ Matches Waiting</b>
+                      <small>Upgrade to Gold to read messages</small>
+                      <div class="paywall-fake-btn">Read Messages</div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
+              <!-- Screen 2: Curated Compatibility Introduction Card (Smooth spring entrance) -->
+              <div class="phone-screen-view" data-screen-for="2">
+                <div class="screen-curated-stage">
+                  <img src="assets/placeholders/film-chat-new.svg" alt="" width="360" height="640" loading="lazy">
+                  <div class="curated-compatibility-banner">
+                    <div class="compat-header">
+                      <span class="compat-icon">✓</span>
+                      <b>96% Core Values Match</b>
+                    </div>
+                    <div class="compat-progress-bar">
+                      <div class="compat-progress-fill"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Screen 3: Live Sequential Chat Message Unfolding & Typing Indicator -->
               <div class="phone-screen-view" data-screen-for="3">
-                <img src="assets/placeholders/film-chat-new.svg" alt="Peaceful conversation stream mockup" width="360" height="640" loading="lazy">
+                <div class="screen-chat-stage">
+                  <!-- Top Partner Bar -->
+                  <div class="chat-top-partner">
+                    <div class="partner-avatar"></div>
+                    <div class="partner-info">
+                      <b>Eleanor, 58</b>
+                      <small>Active now · Denver</small>
+                    </div>
+                  </div>
+                  
+                  <!-- Sequential Chat Stream -->
+                  <div class="chat-message-stream">
+                    <!-- Message 1 (Pops in at 0.5s) -->
+                    <div class="chat-bubble-stream bubble-in">
+                      <p>&ldquo;Good morning! I value slow Sunday morning coffee and conversations where both people truly listen.&rdquo;</p>
+                      <span class="bubble-time">10:14 AM</span>
+                    </div>
+
+                    <!-- Typing Indicator Bubble (Bounces at 1.8s) -->
+                    <div class="chat-typing-bubble" id="chatTypingIndicator">
+                      <span class="typing-dot"></span>
+                      <span class="typing-dot"></span>
+                      <span class="typing-dot"></span>
+                    </div>
+
+                    <!-- Message 2 Reply (Slides in at 2.8s) -->
+                    <div class="chat-bubble-stream bubble-reply" id="chatReplyBubble">
+                      <p>&ldquo;Yes! That is exactly what I cherish at this chapter in life. Coffee at your pace.&rdquo;</p>
+                      <span class="bubble-time">10:22 AM &check;&check;</span>
+                    </div>
+                  </div>
+
+                  <!-- Chat Input Mockup -->
+                  <div class="chat-input-bar">
+                    <span class="chat-input-placeholder">Type a thoughtful message...</span>
+                    <span class="chat-send-btn">&#10148;</span>
+                  </div>
+                </div>
               </div>
 
             </div>

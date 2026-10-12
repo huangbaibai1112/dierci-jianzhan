@@ -27,6 +27,7 @@
 
   var iconPlay = playBtn.querySelector('.icon-play');
   var iconPause = playBtn.querySelector('.icon-pause');
+  var tallyNumberEl = document.getElementById('filmTallyNumber');
 
   var chapterNames = [
     'The Old Way',
@@ -35,12 +36,35 @@
     'Genuine Pacing'
   ];
 
+  function updateTallyCounter(sceneOffset) {
+    if (!tallyNumberEl) return;
+    if (currentScene === 0) {
+      // In Scene 0, count up from 0 to 26 matches over the first 2.4 seconds
+      var countTarget = Math.min(26, Math.floor((sceneOffset / 2400) * 26));
+      var currentVal = parseInt(tallyNumberEl.textContent, 10) || 0;
+      if (countTarget !== currentVal) {
+        tallyNumberEl.textContent = countTarget;
+        tallyNumberEl.classList.remove('bump');
+        void tallyNumberEl.offsetWidth; // trigger reflow
+        tallyNumberEl.classList.add('bump');
+      }
+    } else {
+      if (tallyNumberEl.textContent !== '0') {
+        tallyNumberEl.textContent = '0';
+      }
+    }
+  }
+
   function applySceneUI(sceneIndex) {
     if (sceneIndex < 0) sceneIndex = 0;
     if (sceneIndex >= totalScenes) sceneIndex = totalScenes - 1;
     currentScene = sceneIndex;
 
     stage.setAttribute('data-current-scene', currentScene);
+
+    if (tallyNumberEl && currentScene === 0) {
+      tallyNumberEl.textContent = '0';
+    }
 
     // Update narrative copy with clean animation reset
     var copies = stage.querySelectorAll('.scene-copy');
@@ -120,6 +144,9 @@
       applySceneUI(newScene);
     }
 
+    var sceneOffset = currentTime % sceneDuration;
+    updateTallyCounter(sceneOffset);
+
     renderProgress(currentTime / totalDuration);
 
     rafId = requestAnimationFrame(loop);
@@ -164,6 +191,7 @@
     currentTime = targetScene * sceneDuration;
     lastTimestamp = null;
     applySceneUI(targetScene);
+    updateTallyCounter(0);
     renderProgress(currentTime / totalDuration);
   }
 
