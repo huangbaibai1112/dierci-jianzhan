@@ -62,9 +62,9 @@
 
     stage.setAttribute('data-current-scene', currentScene);
     if (currentScene >= 2) {
-      stage.classList.add('f-paper');
+      stage.classList.add('is-daylight', 'f-paper');
     } else {
-      stage.classList.remove('f-paper');
+      stage.classList.remove('is-daylight', 'f-paper');
     }
 
     if (tallyNumberEl && currentScene === 0) {

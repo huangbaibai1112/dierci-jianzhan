@@ -28,65 +28,66 @@
   min-height: 480px;
 }
 
-/* Night Sky (Scenes 0 & 1) */
-.fm-bg {
+/* Living Atmosphere: Night Atmosphere (Scenes 0 & 1) */
+.stage-night-canvas {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
   border-radius: inherit;
+  background: radial-gradient(circle at 65% 30%, #251B21 0%, #171216 60%, #0F0B0E 100%);
   transition: filter 1.2s ease, opacity 1.2s ease;
 }
 
-.film-stage[data-current-scene="0"] .fm-bg {
-  filter: saturate(0.15) brightness(0.75);
+.film-stage[data-current-scene="0"] .stage-night-canvas {
+  filter: saturate(0.2) brightness(0.78);
 }
 
-.film-stage[data-current-scene="1"] .fm-bg {
+.film-stage[data-current-scene="1"] .stage-night-canvas {
   filter: saturate(1.25) brightness(1.05);
 }
 
-.fm-bg .bl {
+.ambient-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(7cqw);
-  opacity: 0.5;
-  animation: 18s ease-in-out 0s infinite alternate none running fmDrift;
+  filter: blur(7.5cqw);
+  opacity: 0.52;
   will-change: transform;
+  animation: orbFloat1 20s ease-in-out infinite alternate;
 }
 
-.fm-bg .b-1 {
-  width: 46cqw;
-  height: 46cqw;
+.orb-dusk {
+  width: 48cqw;
+  height: 48cqw;
   left: -8cqw;
   top: -14cqw;
-  background: rgb(217, 119, 111);
+  background: #8B3A4A;
 }
 
-.fm-bg .b-2 {
-  width: 40cqw;
-  height: 40cqw;
+.orb-ember {
+  width: 42cqw;
+  height: 42cqw;
   right: -6cqw;
-  top: 6cqw;
-  background: rgb(143, 192, 187);
-  opacity: 0.32;
-  animation-duration: 22s;
+  top: 4cqw;
+  background: #C86A4B;
+  opacity: 0.36;
+  animation-duration: 24s;
   animation-delay: -6s;
 }
 
-.fm-bg .b-3 {
+.orb-sage {
   width: 44cqw;
   height: 44cqw;
-  left: 30cqw;
-  bottom: -26cqw;
-  background: rgb(255, 198, 194);
-  opacity: 0.26;
-  animation-duration: 26s;
+  left: 28cqw;
+  bottom: -24cqw;
+  background: #3B6B58;
+  opacity: 0.28;
+  animation-duration: 28s;
   animation-delay: -11s;
 }
 
-.fm-strands {
+.night-currents {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -95,62 +96,59 @@
   pointer-events: none;
 }
 
-.fm-strands .sd {
+.current-strand {
   fill: none;
-  stroke: rgba(255, 198, 194, 0.42);
   stroke-linecap: round;
-  stroke-dasharray: 60, 26;
-  animation: 14s linear 0s infinite normal none running fmFlow;
+  stroke-dasharray: 64, 28;
+  animation: currentStream 15s linear infinite;
 }
 
-.fm-strands .s-1 {
+.strand-a {
   stroke-width: 2.2px;
-  stroke: rgba(255, 198, 194, 0.45);
+  stroke: rgba(232, 185, 178, 0.45);
 }
 
-.fm-strands .s-2 {
+.strand-b {
   stroke-width: 1.8px;
   stroke: rgba(143, 192, 187, 0.38);
-  animation-duration: 18s;
+  animation-duration: 19s;
   animation-direction: reverse;
 }
 
-.fm-strands .s-3 {
+.strand-c {
   stroke-width: 1.5px;
   stroke: rgba(217, 119, 111, 0.35);
-  animation-duration: 22s;
+  animation-duration: 23s;
 }
 
-.fm-bg .tw {
+.starlight-point {
   position: absolute;
   width: 0.45cqw;
   height: 0.45cqw;
   border-radius: 50%;
-  background: rgb(251, 247, 240);
+  background: #FDF9F3;
   opacity: 0;
-  animation: 4.5s ease-in-out 0s infinite normal none running fmTwinkle;
+  animation: starlightGlimmer 4.5s ease-in-out infinite;
   will-change: transform, opacity;
 }
 
-.fm-bg .tw:nth-child(5) { left: 8%; top: 22%; }
-.fm-bg .tw:nth-child(6) { left: 22%; top: 72%; animation-delay: -1s; }
-.fm-bg .tw:nth-child(7) { left: 36%; top: 14%; animation-delay: -2.2s; }
-.fm-bg .tw:nth-child(8) { left: 48%; top: 84%; animation-delay: -3s; }
-.fm-bg .tw:nth-child(9) { left: 58%; top: 10%; animation-delay: -0.6s; }
-.fm-bg .tw:nth-child(10) { left: 70%; top: 66%; animation-delay: -1.7s; }
-.fm-bg .tw:nth-child(11) { left: 84%; top: 26%; animation-delay: -2.7s; }
-.fm-bg .tw:nth-child(12) { left: 92%; top: 78%; animation-delay: -3.6s; }
-.fm-bg .tw:nth-child(13) { left: 14%; top: 46%; animation-delay: -4s; }
-.fm-bg .tw:nth-child(14) { left: 30%; top: 36%; animation-delay: -1.4s; }
-.fm-bg .tw:nth-child(15) { left: 76%; top: 44%; animation-delay: -2.4s; }
-.fm-bg .tw:nth-child(16) { left: 64%; top: 90%; animation-delay: -3.3s; }
+.starlight-point.s1 { left: 9%; top: 22%; }
+.starlight-point.s2 { left: 24%; top: 72%; animation-delay: -1s; }
+.starlight-point.s3 { left: 37%; top: 15%; animation-delay: -2.2s; }
+.starlight-point.s4 { left: 49%; top: 82%; animation-delay: -3s; }
+.starlight-point.s5 { left: 59%; top: 12%; animation-delay: -0.6s; }
+.starlight-point.s6 { left: 71%; top: 67%; animation-delay: -1.7s; }
+.starlight-point.s7 { left: 83%; top: 27%; animation-delay: -2.7s; }
+.starlight-point.s8 { left: 91%; top: 76%; animation-delay: -3.6s; }
+.starlight-point.s9 { left: 16%; top: 48%; animation-delay: -4s; }
+.starlight-point.s10 { left: 75%; top: 45%; animation-delay: -2.4s; }
 
-/* Daylight Watercolor Paper (Scenes 2 & 3: Rising Mountain Mist) */
-.fm-paper {
+/* Living Atmosphere: Daylight Golden Dawn (Scenes 2 & 3) */
+.stage-day-canvas {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: #F2EDE4;
+  background: #FAF5ED;
   opacity: 0;
   transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
@@ -158,157 +156,178 @@
   border-radius: inherit;
 }
 
+.film-stage.is-daylight .stage-day-canvas,
+.film-stage.f-paper .stage-day-canvas,
+.film-stage[data-current-scene="2"] .stage-day-canvas,
+.film-stage[data-current-scene="3"] .stage-day-canvas {
+  opacity: 1;
+}
+
+.film-stage.is-daylight,
 .film-stage.f-paper,
 .film-stage[data-current-scene="2"],
 .film-stage[data-current-scene="3"] {
   --red2: #B8553B;
 }
 
-.film-stage.f-paper .fm-paper,
-.film-stage[data-current-scene="2"] .fm-paper,
-.film-stage[data-current-scene="3"] .fm-paper {
-  opacity: 1;
+/* Soft Golden Dawn Sun Orbit Arcs */
+.day-sun-orbit {
+  position: absolute;
+  right: 1cqw;
+  top: 48%;
+  width: 44cqw;
+  height: 44cqw;
+  margin-top: -22cqw;
+  pointer-events: none;
+  transform: rotate(-15deg);
+  transition: transform 1.8s cubic-bezier(0.6, 0, 0.2, 1);
 }
 
-/* Zen Ensō Calligraphy Circle */
-.fp-enso {
+.film-stage[data-current-scene="3"] .day-sun-orbit {
+  transform: translateX(-28cqw) rotate(15deg);
+}
+
+.orbit-glow {
+  fill: #F5E5C9;
+  opacity: 0.45;
+  filter: blur(2.5cqw);
+}
+
+.orbit-ring {
+  fill: none;
+  stroke: #D8A064;
+  stroke-linecap: round;
+  transition: stroke-dasharray 1.6s cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+.ring-outer {
+  stroke-width: 1.6;
+  opacity: 0.38;
+  stroke-dasharray: 60 18;
+  animation: orbitRotate 45s linear infinite;
+}
+
+.ring-inner {
+  stroke-width: 1.2;
+  opacity: 0.28;
+  stroke-dasharray: 40 14;
+  animation: orbitRotate 30s linear infinite reverse;
+}
+
+/* Gentle Morning Breeze Drift Layers */
+.day-breeze {
   position: absolute;
-  right: -3cqw;
-  top: 50%;
-  width: 46cqw;
-  height: 46cqw;
-  margin-top: -23cqw;
-  transform: rotate(128deg) scaleY(0.96);
-  opacity: 0.14;
-  transition: transform 1.8s cubic-bezier(0.6, 0, 0.2, 1);
+  left: -30%;
+  width: 160%;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgba(255, 248, 235, 0.92), transparent);
+  animation: breezeFloat 40s ease-in-out infinite alternate;
+}
+
+.breeze-high {
+  bottom: 25%;
+  height: 14cqw;
+}
+
+.breeze-low {
+  bottom: 9%;
+  height: 10cqw;
+  animation-duration: 52s;
+  animation-direction: alternate-reverse;
+}
+
+/* Breathing Thread of Companionship */
+.day-thread {
+  position: absolute;
+  left: 0;
+  top: 56%;
+  width: 100%;
+  height: 10cqw;
+  opacity: 0.6;
+  animation: threadBreathe 14s ease-in-out infinite alternate;
+  transition: opacity 0.8s;
+  mask-image: linear-gradient(90deg, transparent 25%, #000 55%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 25%, #000 55%);
   pointer-events: none;
 }
 
-.film-stage[data-current-scene="3"] .fp-enso {
-  transform: translateX(-30cqw) rotate(128deg) scaleY(0.96);
+.film-stage[data-current-scene="3"] .day-thread {
+  opacity: 0;
 }
 
-.fp-enso circle {
+.day-thread path {
   fill: none;
-  stroke: rgb(110, 104, 95);
+  stroke: #B64A38;
+  stroke-width: 1.6;
   stroke-linecap: round;
-  stroke-dasharray: 0px, 100px;
-  transition: stroke-dasharray 1.5s cubic-bezier(0.6, 0, 0.2, 1);
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.6s cubic-bezier(0.6, 0, 0.2, 1) 0.5s;
 }
 
-.film-stage.f-paper .fp-enso circle,
-.film-stage[data-current-scene="2"] .fp-enso circle,
-.film-stage[data-current-scene="3"] .fp-enso circle {
-  stroke-dasharray: var(--l) var(--g);
+.film-stage.is-daylight .day-thread path,
+.film-stage.f-paper .day-thread path,
+.film-stage[data-current-scene="2"] .day-thread path,
+.film-stage[data-current-scene="3"] .day-thread path {
+  stroke-dashoffset: 0;
 }
 
-/* Layered Mountain Hills Rising from the Bottom */
-.fp-hills {
+/* Serene Rolling Foothills (Harmonious layered contours) */
+.day-ridges {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   width: 100%;
   height: 36%;
-  transform: translateY(12%);
+  transform: translateY(14%);
   transition: transform 2.2s cubic-bezier(0.2, 0.8, 0.2, 1);
   pointer-events: none;
 }
 
-.fp-hills .h1 { fill: rgb(230, 223, 210); }
-.fp-hills .h2 { fill: rgb(217, 214, 198); }
-.fp-hills .h3 { fill: rgb(207, 198, 180); }
+.ridge-distant { fill: #ECE3D2; }
+.ridge-mid { fill: #DFD7C7; }
+.ridge-fore { fill: #D2CABC; }
 
-.film-stage.f-paper .fp-hills,
-.film-stage[data-current-scene="2"] .fp-hills,
-.film-stage[data-current-scene="3"] .fp-hills {
+.film-stage.is-daylight .day-ridges,
+.film-stage.f-paper .day-ridges,
+.film-stage[data-current-scene="2"] .day-ridges,
+.film-stage[data-current-scene="3"] .day-ridges {
   transform: none;
 }
 
-/* Morning Mist Cloud Layers */
-.fp-mist {
-  position: absolute;
-  left: -30%;
-  width: 160%;
-  height: 14cqw;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(251, 247, 240, 0.85), transparent);
-  animation: 40s ease-in-out 0s infinite alternate none running fmMist;
-  pointer-events: none;
-}
-
-.fp-mist.m1 {
-  bottom: 24%;
-}
-
-.fp-mist.m2 {
-  bottom: 8%;
-  height: 10cqw;
-  animation-duration: 55s;
-  animation-direction: alternate-reverse;
-}
-
-/* Breathing Destiny Red Thread */
-.fp-thread {
-  position: absolute;
-  left: 0;
-  top: 57%;
-  width: 100%;
-  height: 10cqw;
-  opacity: 0.55;
-  animation: 14s ease-in-out 0s infinite alternate none running fmBreathe;
-  transition: opacity 0.8s;
-  mask-image: linear-gradient(90deg, transparent 30%, rgb(0, 0, 0) 56%);
-  -webkit-mask-image: linear-gradient(90deg, transparent 30%, rgb(0, 0, 0) 56%);
-  pointer-events: none;
-}
-
-.film-stage[data-current-scene="3"] .fp-thread {
-  opacity: 0;
-}
-
-.fp-thread path {
-  fill: none;
-  stroke: rgb(184, 85, 59);
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  vector-effect: non-scaling-stroke;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  transition: stroke-dashoffset 2.6s cubic-bezier(0.6, 0, 0.2, 1) 0.6s;
-}
-
-.film-stage.f-paper .fp-thread path,
-.film-stage[data-current-scene="2"] .fp-thread path,
-.film-stage[data-current-scene="3"] .fp-thread path {
-  stroke-dashoffset: 0;
-}
-
 /* Daylight Typography & Element Adaptation */
+.film-stage.is-daylight .scene-kicker,
 .film-stage.f-paper .scene-kicker,
 .film-stage[data-current-scene="2"] .scene-kicker,
 .film-stage[data-current-scene="3"] .scene-kicker {
-  color: rgb(162, 70, 47);
+  color: #9E3246;
 }
 
+.film-stage.is-daylight .scene-title,
 .film-stage.f-paper .scene-title,
 .film-stage[data-current-scene="2"] .scene-title,
 .film-stage[data-current-scene="3"] .scene-title {
-  color: rgb(42, 37, 33);
+  color: #2A211D;
 }
 
+.film-stage.is-daylight .scene-title em,
 .film-stage.f-paper .scene-title em,
 .film-stage[data-current-scene="2"] .scene-title em,
 .film-stage[data-current-scene="3"] .scene-title em {
-  color: rgb(184, 85, 59);
+  color: #B8553B;
 }
 
+.film-stage.is-daylight .scene-desc,
 .film-stage.f-paper .scene-desc,
 .film-stage[data-current-scene="2"] .scene-desc,
 .film-stage[data-current-scene="3"] .scene-desc {
-  color: rgb(78, 70, 63);
+  color: #544A43;
 }
 
+.film-stage.is-daylight .chip-juniper,
 .film-stage.f-paper .chip-juniper,
 .film-stage[data-current-scene="2"] .chip-juniper,
 .film-stage[data-current-scene="3"] .chip-juniper {
@@ -317,6 +336,7 @@
   color: #1A533E;
 }
 
+.film-stage.is-daylight .chip-mature,
 .film-stage.f-paper .chip-mature,
 .film-stage[data-current-scene="2"] .chip-mature,
 .film-stage[data-current-scene="3"] .chip-mature {
@@ -325,8 +345,10 @@
   color: #8C3E26;
 }
 
+.film-stage.is-daylight .trust-floating-pill,
 .film-stage.f-paper .trust-floating-pill,
 .film-stage[data-current-scene="2"] .trust-floating-pill,
+.film-stage.is-daylight .dialogue-floating-pill,
 .film-stage.f-paper .dialogue-floating-pill,
 .film-stage[data-current-scene="3"] .dialogue-floating-pill {
   background: rgba(255, 255, 255, 0.92);
@@ -335,36 +357,41 @@
   box-shadow: 0 10px 25px -10px rgba(70, 45, 30, 0.25);
 }
 
+.film-stage.is-daylight .film-phone-frame,
 .film-stage.f-paper .film-phone-frame,
 .film-stage[data-current-scene="2"] .film-phone-frame,
 .film-stage[data-current-scene="3"] .film-phone-frame {
-  box-shadow: 0 0 0 0.22cqw #3A332D, 0 30px 50px -26px rgba(70, 45, 30, 0.5), 0 0 6cqw -1cqw rgba(184, 85, 59, 0.18);
+  box-shadow: 0 0 0 0.22cqw #3E352F, 0 32px 55px -25px rgba(80, 50, 35, 0.45), 0 0 6cqw -1cqw rgba(182, 74, 56, 0.16);
 }
 
-/* Organic Floating Keyframes */
-@keyframes fmDrift {
-  0% { transform: translate(0px, 0px) scale(1); }
-  50% { transform: translate(6cqw, 4cqw) scale(1.12); }
-  100% { transform: translate(-4cqw, 7cqw) scale(0.94); }
+/* Keyframes for Customized Living Atmospheres */
+@keyframes orbFloat1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(5cqw, 3cqw) scale(1.1); }
+  100% { transform: translate(-3cqw, 6cqw) scale(0.95); }
 }
 
-@keyframes fmFlow {
-  100% { stroke-dashoffset: -860; }
+@keyframes currentStream {
+  100% { stroke-dashoffset: -880; }
 }
 
-@keyframes fmTwinkle {
+@keyframes starlightGlimmer {
   0%, 100% { opacity: 0; transform: scale(0.4); }
   50% { opacity: 0.85; transform: scale(1); }
 }
 
-@keyframes fmMist {
-  0% { transform: translateX(-6%); }
-  100% { transform: translateX(6%); }
+@keyframes breezeFloat {
+  0% { transform: translateX(-5%); }
+  100% { transform: translateX(5%); }
 }
 
-@keyframes fmBreathe {
+@keyframes threadBreathe {
   0% { transform: translateY(-0.5cqw); }
-  100% { transform: translateY(0.6cqw); }
+  100% { transform: translateY(0.5cqw); }
+}
+
+@keyframes orbitRotate {
+  100% { transform: rotate(360deg); }
 }
 
 /* Left Narrative Box */
