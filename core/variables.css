@@ -4,46 +4,50 @@
  * Warm, comforting, romantic, and highly legible for adults 50+
  */
 :root {
-  /* Warm Cashmere & Cream Canvas (Comforting & Inviting) */
-  --bg-primary: #FAF7F2;
-  --bg-secondary: #F3ECE1;
+  /* Clean iOS Canvas & Porcelain Backgrounds */
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #EEF2F6;
   --bg-surface: #FFFFFF;
-  --bg-card-dark: #261219;
-  --bg-bordeaux-elevated: #3A1B25;
-  --bg-mist: #EBE3D7;
+  --bg-card-dark: #1B2430;
+  --bg-bordeaux-elevated: #283344;
+  --bg-mist: #E2E8F0;
 
-  /* High-Contrast Warm Typography Colors (Soft on Senior Eyes) */
-  --ink-primary: #231C1A;
-  --ink-secondary: #524642;
-  --ink-muted: #7E706A;
+  /* High-Contrast Slate Typography Colors (Crisp on Senior Eyes) */
+  --ink-primary: #1E293B;
+  --ink-secondary: #475569;
+  --ink-muted: #64748B;
   --ink-inverse: #FFFFFF;
-  --ink-inverse-muted: #DBCFCB;
+  --ink-inverse-muted: #CBD5E1;
 
-  /* Primary Brand Warmth: Velvet Bordeaux & Mulberry Wine */
-  --accent-wine: #8B263E;
-  --accent-wine-dark: #721C30;
-  --accent-wine-soft: #FDF0F3;
-  --accent-rose: #C4687C;
+  /* Primary Brand Warmth: Heartbeat Rose / Coral (From App React Action) */
+  --accent-wine: #E94266;
+  --accent-wine-dark: #D42B51;
+  --accent-wine-soft: #FDF2F4;
+  --accent-rose: #FF6584;
 
-  /* High-Converting Warm Action: Sunlit Honey Amber */
-  --accent-honey: #D47414;
-  --accent-honey-dark: #B85F0B;
-  --accent-honey-soft: #FEF3E7;
-  --accent-honey-gold: #E58E26;
+  /* High-Converting Action: Heartbeat Coral & Honey Gold */
+  --accent-honey: #E94266;
+  --accent-honey-dark: #D42B51;
+  --accent-honey-soft: #FEF2F4;
+  --accent-honey-gold: #F59E0B;
 
-  /* Trust & Verified Badges: Juniper Pine */
-  --accent-juniper: #246E56;
-  --accent-juniper-dark: #1A5341;
-  --accent-juniper-soft: #EBF5F1;
+  /* Trust & Verified Badges: Emerald Green (From App Verified Checkmarks) */
+  --accent-juniper: #27AE60;
+  --accent-juniper-dark: #1E8449;
+  --accent-juniper-soft: #EAF9F1;
 
-  --accent-crimson: #C53030;
-  --accent-crimson-soft: #FDE8E8;
+  /* Soundwave Blue (From App Voice Tab) */
+  --accent-sky: #4A90E2;
+  --accent-sky-soft: #EBF5FB;
 
-  /* Architectural Warm Borders */
-  --border-light: #ECE4D8;
-  --border-medium: #DCCFBE;
-  --border-dark: #3A1B25;
-  --border-focus: #8B263E;
+  --accent-crimson: #E53E3E;
+  --accent-crimson-soft: #FEE2E2;
+
+  /* Architectural Clean Borders */
+  --border-light: #E2E8F0;
+  --border-medium: #CBD5E1;
+  --border-dark: #283344;
+  --border-focus: #E94266;
 
   /* Modern, Crystal-Clear Typography */
   --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -81,8 +85,8 @@
   --shadow-subtle: 0 4px 16px -4px rgba(35, 28, 26, 0.05);
   --shadow-card: 0 12px 32px -8px rgba(35, 28, 26, 0.08), 0 2px 6px -1px rgba(35, 28, 26, 0.04);
   --shadow-floating: 0 24px 50px -12px rgba(38, 18, 25, 0.28);
-  --shadow-button: 0 8px 24px -4px rgba(212, 116, 20, 0.42);
-  --shadow-button-wine: 0 8px 24px -4px rgba(139, 38, 62, 0.38);
+  --shadow-button: 0 8px 24px -4px rgba(233, 66, 102, 0.42);
+  --shadow-button-wine: 0 8px 24px -4px rgba(233, 66, 102, 0.38);
 
   --transition: 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }

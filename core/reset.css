@@ -145,13 +145,13 @@ img {
 .badge-wine {
   background: var(--accent-wine-soft);
   color: var(--accent-wine-dark);
-  border: 1px solid rgba(139, 38, 62, 0.2);
+  border: 1px solid rgba(233, 66, 102, 0.2);
 }
 
 .badge-honey {
   background: var(--accent-honey-soft);
   color: var(--accent-honey-dark);
-  border: 1px solid rgba(212, 116, 20, 0.22);
+  border: 1px solid rgba(233, 66, 102, 0.22);
 }
 
 .section-header {
@@ -183,7 +183,7 @@ img {
   text-transform: uppercase;
   color: var(--accent-wine);
   background: var(--accent-wine-soft);
-  border: 1px solid rgba(139, 38, 62, 0.18);
+  border: 1px solid rgba(233, 66, 102, 0.18);
   padding: 5px 16px;
   border-radius: var(--radius-full);
 }

@@ -21,46 +21,50 @@
  * Warm, comforting, romantic, and highly legible for adults 50+
  */
 :root {
-  /* Warm Cashmere & Cream Canvas (Comforting & Inviting) */
-  --bg-primary: #FAF7F2;
-  --bg-secondary: #F3ECE1;
+  /* Clean iOS Canvas & Porcelain Backgrounds */
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #EEF2F6;
   --bg-surface: #FFFFFF;
-  --bg-card-dark: #261219;
-  --bg-bordeaux-elevated: #3A1B25;
-  --bg-mist: #EBE3D7;
+  --bg-card-dark: #1B2430;
+  --bg-bordeaux-elevated: #283344;
+  --bg-mist: #E2E8F0;
 
-  /* High-Contrast Warm Typography Colors (Soft on Senior Eyes) */
-  --ink-primary: #231C1A;
-  --ink-secondary: #524642;
-  --ink-muted: #7E706A;
+  /* High-Contrast Slate Typography Colors (Crisp on Senior Eyes) */
+  --ink-primary: #1E293B;
+  --ink-secondary: #475569;
+  --ink-muted: #64748B;
   --ink-inverse: #FFFFFF;
-  --ink-inverse-muted: #DBCFCB;
+  --ink-inverse-muted: #CBD5E1;
 
-  /* Primary Brand Warmth: Velvet Bordeaux & Mulberry Wine */
-  --accent-wine: #8B263E;
-  --accent-wine-dark: #721C30;
-  --accent-wine-soft: #FDF0F3;
-  --accent-rose: #C4687C;
+  /* Primary Brand Warmth: Heartbeat Rose / Coral (From App React Action) */
+  --accent-wine: #E94266;
+  --accent-wine-dark: #D42B51;
+  --accent-wine-soft: #FDF2F4;
+  --accent-rose: #FF6584;
 
-  /* High-Converting Warm Action: Sunlit Honey Amber */
-  --accent-honey: #D47414;
-  --accent-honey-dark: #B85F0B;
-  --accent-honey-soft: #FEF3E7;
-  --accent-honey-gold: #E58E26;
+  /* High-Converting Action: Heartbeat Coral & Honey Gold */
+  --accent-honey: #E94266;
+  --accent-honey-dark: #D42B51;
+  --accent-honey-soft: #FEF2F4;
+  --accent-honey-gold: #F59E0B;
 
-  /* Trust & Verified Badges: Juniper Pine */
-  --accent-juniper: #246E56;
-  --accent-juniper-dark: #1A5341;
-  --accent-juniper-soft: #EBF5F1;
+  /* Trust & Verified Badges: Emerald Green (From App Verified Checkmarks) */
+  --accent-juniper: #27AE60;
+  --accent-juniper-dark: #1E8449;
+  --accent-juniper-soft: #EAF9F1;
 
-  --accent-crimson: #C53030;
-  --accent-crimson-soft: #FDE8E8;
+  /* Soundwave Blue (From App Voice Tab) */
+  --accent-sky: #4A90E2;
+  --accent-sky-soft: #EBF5FB;
 
-  /* Architectural Warm Borders */
-  --border-light: #ECE4D8;
-  --border-medium: #DCCFBE;
-  --border-dark: #3A1B25;
-  --border-focus: #8B263E;
+  --accent-crimson: #E53E3E;
+  --accent-crimson-soft: #FEE2E2;
+
+  /* Architectural Clean Borders */
+  --border-light: #E2E8F0;
+  --border-medium: #CBD5E1;
+  --border-dark: #283344;
+  --border-focus: #E94266;
 
   /* Modern, Crystal-Clear Typography */
   --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -98,8 +102,8 @@
   --shadow-subtle: 0 4px 16px -4px rgba(35, 28, 26, 0.05);
   --shadow-card: 0 12px 32px -8px rgba(35, 28, 26, 0.08), 0 2px 6px -1px rgba(35, 28, 26, 0.04);
   --shadow-floating: 0 24px 50px -12px rgba(38, 18, 25, 0.28);
-  --shadow-button: 0 8px 24px -4px rgba(212, 116, 20, 0.42);
-  --shadow-button-wine: 0 8px 24px -4px rgba(139, 38, 62, 0.38);
+  --shadow-button: 0 8px 24px -4px rgba(233, 66, 102, 0.42);
+  --shadow-button-wine: 0 8px 24px -4px rgba(233, 66, 102, 0.38);
 
   --transition: 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -253,13 +257,13 @@ img {
 .badge-wine {
   background: var(--accent-wine-soft);
   color: var(--accent-wine-dark);
-  border: 1px solid rgba(139, 38, 62, 0.2);
+  border: 1px solid rgba(233, 66, 102, 0.2);
 }
 
 .badge-honey {
   background: var(--accent-honey-soft);
   color: var(--accent-honey-dark);
-  border: 1px solid rgba(212, 116, 20, 0.22);
+  border: 1px solid rgba(233, 66, 102, 0.22);
 }
 
 .section-header {
@@ -291,7 +295,7 @@ img {
   text-transform: uppercase;
   color: var(--accent-wine);
   background: var(--accent-wine-soft);
-  border: 1px solid rgba(139, 38, 62, 0.18);
+  border: 1px solid rgba(233, 66, 102, 0.18);
   padding: 5px 16px;
   border-radius: var(--radius-full);
 }
@@ -388,7 +392,7 @@ img {
   position: relative;
   z-index: 50;
   padding: 16px 0;
-  background: rgba(250, 247, 242, 0.9);
+  background: rgba(248, 250, 252, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-light);
@@ -773,6 +777,7 @@ img {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  object-position: center 25%;
   border-radius: 10px;
   display: block;
 }
@@ -969,7 +974,7 @@ img {
 
 
 /* [COMPONENT: film] components\film\style.css */
-/* Component: Interactive Story Film Stage (Pixel-Perfect Match to Reference) */
+/* Component: Interactive Story Film Stage (Living Atmosphere & Real iOS App Showcase) */
 .comp-film {
   padding: clamp(28px, 4.5vw, 56px) 0;
 }
@@ -981,25 +986,30 @@ img {
 
 /* Big Cinematic Stage Island */
 .film-stage {
-  --cream: #F2EDE4;
-  --red2: #CF7457;
+  --cream: #F8FAFC;
+  --rose-accent: #E94266;
+  --emerald-accent: #27AE60;
+  --sky-accent: #4A90E2;
   position: relative;
-  background: rgb(27, 24, 22);
+  background: #0F172A;
   border-radius: clamp(24px, 3.5vw, 38px);
   padding: clamp(36px, 5vw, 68px) clamp(28px, 4.5vw, 64px);
   overflow: hidden;
   container-type: inline-size;
   isolation: isolate;
   color: var(--cream);
-  box-shadow: 0 30px 70px -15px rgba(22, 13, 18, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 70px -15px rgba(15, 23, 42, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08);
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
   gap: clamp(28px, 4vw, 56px);
-  min-height: 480px;
+  min-height: 520px;
+  transition: background 1.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 1.2s ease;
 }
 
-/* Living Atmosphere: Night Atmosphere (Scenes 0 & 1) */
+/* ==========================================================================
+   Living Atmosphere: Night & Acoustic Cosmos (Scenes 0 & 1)
+   ========================================================================== */
 .stage-night-canvas {
   position: absolute;
   inset: 0;
@@ -1007,18 +1017,21 @@ img {
   pointer-events: none;
   overflow: hidden;
   border-radius: inherit;
-  background: radial-gradient(circle at 65% 30%, #251B21 0%, #171216 60%, #0F0B0E 100%);
-  transition: filter 1.2s ease, opacity 1.2s ease;
+  background: radial-gradient(circle at 65% 30%, #1E293B 0%, #131B26 60%, #0A0F17 100%);
+  transition: filter 1.2s ease, opacity 1.2s ease, background 1.2s ease;
 }
 
 .film-stage[data-current-scene="0"] .stage-night-canvas {
-  filter: saturate(0.2) brightness(0.78);
+  background: radial-gradient(circle at 65% 30%, #1E293B 0%, #131B26 60%, #0A0F17 100%);
+  filter: saturate(1) brightness(1);
 }
 
 .film-stage[data-current-scene="1"] .stage-night-canvas {
-  filter: saturate(1.25) brightness(1.05);
+  background: radial-gradient(circle at 68% 35%, #162447 0%, #0F172A 55%, #080D1A 100%);
+  filter: saturate(1.3) brightness(1.1);
 }
 
+/* Ambient Floating Glowing Orbs */
 .ambient-orb {
   position: absolute;
   border-radius: 50%;
@@ -1033,7 +1046,8 @@ img {
   height: 48cqw;
   left: -8cqw;
   top: -14cqw;
-  background: #8B3A4A;
+  background: #E94266;
+  opacity: 0.28;
 }
 
 .orb-ember {
@@ -1041,8 +1055,8 @@ img {
   height: 42cqw;
   right: -6cqw;
   top: 4cqw;
-  background: #C86A4B;
-  opacity: 0.36;
+  background: #F59E0B;
+  opacity: 0.22;
   animation-duration: 24s;
   animation-delay: -6s;
 }
@@ -1052,12 +1066,29 @@ img {
   height: 44cqw;
   left: 28cqw;
   bottom: -24cqw;
-  background: #3B6B58;
-  opacity: 0.28;
+  background: #27AE60;
+  opacity: 0.24;
   animation-duration: 28s;
   animation-delay: -11s;
 }
 
+.orb-sky {
+  width: 50cqw;
+  height: 50cqw;
+  right: 12cqw;
+  bottom: -10cqw;
+  background: #4A90E2;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  animation-duration: 22s;
+  animation-delay: -4s;
+}
+
+.film-stage[data-current-scene="1"] .orb-sky {
+  opacity: 0.35;
+}
+
+/* Flowing Starlight Currents */
 .night-currents {
   position: absolute;
   inset: 0;
@@ -1076,28 +1107,117 @@ img {
 
 .strand-a {
   stroke-width: 2.2px;
-  stroke: rgba(232, 185, 178, 0.45);
+  stroke: rgba(233, 66, 102, 0.4);
 }
 
 .strand-b {
   stroke-width: 1.8px;
-  stroke: rgba(143, 192, 187, 0.38);
+  stroke: rgba(39, 174, 96, 0.35);
   animation-duration: 19s;
   animation-direction: reverse;
 }
 
 .strand-c {
   stroke-width: 1.5px;
-  stroke: rgba(217, 119, 111, 0.35);
+  stroke: rgba(74, 144, 226, 0.35);
   animation-duration: 23s;
 }
 
+/* Concentric Acoustic Sonar Rings (Chapter 1: Voice Feature) */
+.acoustic-sonar-system {
+  position: absolute;
+  right: 18%;
+  top: 50%;
+  width: 320px;
+  height: 320px;
+  transform: translate(50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.film-stage[data-current-scene="1"] .acoustic-sonar-system {
+  opacity: 1;
+}
+
+.sonar-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(74, 144, 226, 0.4);
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.2);
+  animation: sonarPulse 4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  opacity: 0;
+}
+
+.sr-1 { animation-delay: 0s; }
+.sr-2 { animation-delay: 1.3s; }
+.sr-3 { animation-delay: 2.6s; }
+
+@keyframes sonarPulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+    border-color: rgba(74, 144, 226, 0.6);
+  }
+  50% {
+    opacity: 0.4;
+    border-color: rgba(233, 66, 102, 0.4);
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+    border-color: rgba(39, 174, 96, 0);
+  }
+}
+
+/* Voice Orbital Trajectory Arc */
+.voice-orbital-arc {
+  position: absolute;
+  right: 2%;
+  top: 15%;
+  width: 55%;
+  height: 70%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.film-stage[data-current-scene="1"] .voice-orbital-arc {
+  opacity: 0.65;
+}
+
+.orbital-ellipse {
+  fill: none;
+  stroke: rgba(39, 174, 96, 0.35);
+  stroke-width: 1.5;
+  stroke-dasharray: 8 6;
+  animation: orbitDash 30s linear infinite;
+}
+
+.orbital-node {
+  fill: #27AE60;
+  filter: drop-shadow(0 0 6px #27AE60);
+}
+
+.orbital-node.node-2 {
+  fill: #4A90E2;
+  filter: drop-shadow(0 0 6px #4A90E2);
+}
+
+@keyframes orbitDash {
+  100% { stroke-dashoffset: -400; }
+}
+
+/* Starlight Points */
 .starlight-point {
   position: absolute;
   width: 0.45cqw;
   height: 0.45cqw;
   border-radius: 50%;
-  background: #FDF9F3;
+  background: #F8FAFC;
   opacity: 0;
   animation: starlightGlimmer 4.5s ease-in-out infinite;
   will-change: transform, opacity;
@@ -1114,31 +1234,30 @@ img {
 .starlight-point.s9 { left: 16%; top: 48%; animation-delay: -4s; }
 .starlight-point.s10 { left: 75%; top: 45%; animation-delay: -2.4s; }
 
-/* Living Atmosphere: Daylight Golden Dawn (Scenes 2 & 3) */
+/* ==========================================================================
+   Living Atmosphere: Daylight Porcelain & Warm Cafe Dawn (Scenes 2 & 3)
+   ========================================================================== */
 .stage-day-canvas {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: #FAF5ED;
+  background: linear-gradient(135deg, #FAFBFD 0%, #F1F5F9 50%, #FFF5F5 100%);
   opacity: 0;
-  transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), background 1.4s ease;
   pointer-events: none;
   overflow: hidden;
   border-radius: inherit;
 }
 
 .film-stage.is-daylight .stage-day-canvas,
-.film-stage.f-paper .stage-day-canvas,
 .film-stage[data-current-scene="2"] .stage-day-canvas,
 .film-stage[data-current-scene="3"] .stage-day-canvas {
   opacity: 1;
 }
 
-.film-stage.is-daylight,
-.film-stage.f-paper,
-.film-stage[data-current-scene="2"],
-.film-stage[data-current-scene="3"] {
-  --red2: #B8553B;
+/* Scene 3 warms up to a sunlit cafe morning */
+.film-stage[data-current-scene="3"] .stage-day-canvas {
+  background: linear-gradient(135deg, #FFFDFB 0%, #FEF3C7 28%, #FDF4F0 70%, #F1F5F9 100%);
 }
 
 /* Soft Golden Dawn Sun Orbit Arcs */
@@ -1155,18 +1274,18 @@ img {
 }
 
 .film-stage[data-current-scene="3"] .day-sun-orbit {
-  transform: translateX(-28cqw) rotate(15deg);
+  transform: translateX(-24cqw) rotate(15deg);
 }
 
 .orbit-glow {
-  fill: #F5E5C9;
-  opacity: 0.45;
+  fill: #FEF3C7;
+  opacity: 0.6;
   filter: blur(2.5cqw);
 }
 
 .orbit-ring {
   fill: none;
-  stroke: #D8A064;
+  stroke: #F59E0B;
   stroke-linecap: round;
   transition: stroke-dasharray 1.6s cubic-bezier(0.6, 0, 0.2, 1);
 }
@@ -1192,7 +1311,7 @@ img {
   width: 160%;
   border-radius: 50%;
   pointer-events: none;
-  background: radial-gradient(closest-side, rgba(255, 248, 235, 0.92), transparent);
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.9), transparent);
   animation: breezeFloat 40s ease-in-out infinite alternate;
 }
 
@@ -1208,14 +1327,14 @@ img {
   animation-direction: alternate-reverse;
 }
 
-/* Breathing Thread of Companionship */
+/* Breathing Thread of Dialogue */
 .day-thread {
   position: absolute;
   left: 0;
   top: 56%;
   width: 100%;
   height: 10cqw;
-  opacity: 0.6;
+  opacity: 0.55;
   animation: threadBreathe 14s ease-in-out infinite alternate;
   transition: opacity 0.8s;
   mask-image: linear-gradient(90deg, transparent 25%, #000 55%);
@@ -1229,7 +1348,7 @@ img {
 
 .day-thread path {
   fill: none;
-  stroke: #B64A38;
+  stroke: #E94266;
   stroke-width: 1.6;
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
@@ -1239,13 +1358,12 @@ img {
 }
 
 .film-stage.is-daylight .day-thread path,
-.film-stage.f-paper .day-thread path,
 .film-stage[data-current-scene="2"] .day-thread path,
 .film-stage[data-current-scene="3"] .day-thread path {
   stroke-dashoffset: 0;
 }
 
-/* Serene Rolling Foothills (Harmonious layered contours) */
+/* Serene Rolling Horizon Contours */
 .day-ridges {
   position: absolute;
   left: 0;
@@ -1258,84 +1376,111 @@ img {
   pointer-events: none;
 }
 
-.ridge-distant { fill: #ECE3D2; }
-.ridge-mid { fill: #DFD7C7; }
-.ridge-fore { fill: #D2CABC; }
+.ridge-distant { fill: #E2E8F0; opacity: 0.7; }
+.ridge-mid { fill: #CBD5E1; opacity: 0.6; }
+.ridge-fore { fill: #94A3B8; opacity: 0.35; }
 
 .film-stage.is-daylight .day-ridges,
-.film-stage.f-paper .day-ridges,
 .film-stage[data-current-scene="2"] .day-ridges,
 .film-stage[data-current-scene="3"] .day-ridges {
   transform: none;
 }
 
-/* Daylight Typography & Element Adaptation */
+/* Cafe Aroma Steam Wisps (Chapter 3: Coffee & Tea) */
+.coffee-steam-canvas {
+  position: absolute;
+  right: 8%;
+  bottom: 15%;
+  width: 280px;
+  height: 240px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.film-stage[data-current-scene="3"] .coffee-steam-canvas {
+  opacity: 0.75;
+}
+
+.steam-line {
+  fill: none;
+  stroke: rgba(217, 119, 6, 0.38);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 40 20;
+  animation: steamRise 6s linear infinite;
+}
+
+.steam-2 { animation-delay: -2s; stroke: rgba(233, 66, 102, 0.32); }
+.steam-3 { animation-delay: -4s; stroke: rgba(245, 158, 11, 0.35); }
+
+@keyframes steamRise {
+  0% {
+    stroke-dashoffset: 200;
+    opacity: 0.2;
+    transform: translateY(10px);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    stroke-dashoffset: -200;
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* ==========================================================================
+   Daylight Typography & Element Adaptation
+   ========================================================================== */
 .film-stage.is-daylight .scene-kicker,
-.film-stage.f-paper .scene-kicker,
 .film-stage[data-current-scene="2"] .scene-kicker,
 .film-stage[data-current-scene="3"] .scene-kicker {
-  color: #9E3246;
+  color: #E94266;
 }
 
 .film-stage.is-daylight .scene-title,
-.film-stage.f-paper .scene-title,
 .film-stage[data-current-scene="2"] .scene-title,
 .film-stage[data-current-scene="3"] .scene-title {
-  color: #2A211D;
+  color: #1E293B;
 }
 
 .film-stage.is-daylight .scene-title em,
-.film-stage.f-paper .scene-title em,
 .film-stage[data-current-scene="2"] .scene-title em,
 .film-stage[data-current-scene="3"] .scene-title em {
-  color: #B8553B;
+  color: #E94266;
 }
 
 .film-stage.is-daylight .scene-desc,
-.film-stage.f-paper .scene-desc,
 .film-stage[data-current-scene="2"] .scene-desc,
 .film-stage[data-current-scene="3"] .scene-desc {
-  color: #544A43;
+  color: #475569;
 }
 
 .film-stage.is-daylight .chip-juniper,
-.film-stage.f-paper .chip-juniper,
 .film-stage[data-current-scene="2"] .chip-juniper,
 .film-stage[data-current-scene="3"] .chip-juniper {
-  background: rgba(36, 110, 86, 0.12);
-  border: 1px solid rgba(36, 110, 86, 0.28);
-  color: #1A533E;
+  background: rgba(39, 174, 96, 0.12);
+  border: 1px solid rgba(39, 174, 96, 0.28);
+  color: #1E8449;
 }
 
 .film-stage.is-daylight .chip-mature,
-.film-stage.f-paper .chip-mature,
 .film-stage[data-current-scene="2"] .chip-mature,
 .film-stage[data-current-scene="3"] .chip-mature {
-  background: rgba(184, 85, 59, 0.12);
-  border: 1px solid rgba(184, 85, 59, 0.25);
-  color: #8C3E26;
-}
-
-.film-stage.is-daylight .trust-floating-pill,
-.film-stage.f-paper .trust-floating-pill,
-.film-stage[data-current-scene="2"] .trust-floating-pill,
-.film-stage.is-daylight .dialogue-floating-pill,
-.film-stage.f-paper .dialogue-floating-pill,
-.film-stage[data-current-scene="3"] .dialogue-floating-pill {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(70, 45, 30, 0.16);
-  color: #2A2521;
-  box-shadow: 0 10px 25px -10px rgba(70, 45, 30, 0.25);
+  background: rgba(233, 66, 102, 0.12);
+  border: 1px solid rgba(233, 66, 102, 0.25);
+  color: #D42B51;
 }
 
 .film-stage.is-daylight .film-phone-frame,
-.film-stage.f-paper .film-phone-frame,
 .film-stage[data-current-scene="2"] .film-phone-frame,
 .film-stage[data-current-scene="3"] .film-phone-frame {
-  box-shadow: 0 0 0 0.22cqw #3E352F, 0 32px 55px -25px rgba(80, 50, 35, 0.45), 0 0 6cqw -1cqw rgba(182, 74, 56, 0.16);
+  box-shadow: 0 0 0 1px rgba(30, 41, 59, 0.12), 0 32px 55px -25px rgba(30, 41, 59, 0.35), 0 0 40px -10px rgba(233, 66, 102, 0.15);
 }
 
-/* Keyframes for Customized Living Atmospheres */
+/* Keyframes for Atmospheric Motion */
 @keyframes orbFloat1 {
   0% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(5cqw, 3cqw) scale(1.1); }
@@ -1365,7 +1510,9 @@ img {
   100% { transform: rotate(360deg); }
 }
 
-/* Left Narrative Box */
+/* ==========================================================================
+   Left Editorial Narrative Box
+   ========================================================================== */
 .film-narrative-box {
   position: relative;
   z-index: 2;
@@ -1388,7 +1535,7 @@ img {
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent-honey-gold);
+  color: #F59E0B;
   opacity: 0;
   transform: translateY(-8px);
   transition: opacity 0.6s ease 0.08s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
@@ -1407,12 +1554,13 @@ img {
   line-height: 1.15;
   letter-spacing: -0.025em;
   margin: 0;
+  transition: color 0.6s ease;
 }
 
 .scene-title em {
   font-style: italic;
   font-weight: 500;
-  color: #F6A37F;
+  color: #FF6584;
 }
 
 .scene-title .w {
@@ -1421,125 +1569,90 @@ img {
   transform: translateY(0.4em);
   filter: blur(4.5px);
   will-change: transform, opacity, filter;
+  transition:
+    opacity 0.75s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: calc(var(--i, 0) * 85ms + 120ms);
 }
 
 .scene-copy.active .scene-title .w {
-  animation: wordBloom 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: calc(var(--i, 0) * 115ms + 180ms);
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
 }
 
 .scene-desc {
-  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.72);
-  margin: 0;
+  font-size: clamp(0.95rem, 1.35vw, 1.125rem);
+  line-height: 1.6;
+  color: #CBD5E1;
   max-width: 480px;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.8s ease 0.65s, transform 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.65s;
+  margin: 0;
+  transition: color 0.6s ease;
 }
 
-.scene-copy.active .scene-desc {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Floating Status Chips (Matching Reference) */
 .scene-floating-chips {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 14px;
-}
-
-.scene-floating-chips > * {
-  opacity: 0;
-  transform: translateY(14px) scale(0.92);
-  transition: opacity 0.7s ease, transform 0.85s cubic-bezier(0.2, 1.25, 0.4, 1);
-}
-
-.scene-copy.active .scene-floating-chips > :nth-child(1) {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  transition-delay: 0.85s;
-}
-
-.scene-copy.active .scene-floating-chips > :nth-child(2) {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  transition-delay: 1.05s;
-}
-
-.scene-copy.active .scene-floating-chips > :nth-child(3) {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  transition-delay: 1.25s;
-}
-
-.chip-tally {
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #FFFFFF;
-  font-size: 0.875rem;
-  padding: 7px 18px;
-  border-radius: var(--radius-full);
-}
-
-.chip-tally b {
-  color: #FFFFFF;
-  font-weight: 800;
-}
-
-.chip-popup {
-  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  padding: 7px 16px;
-  border-radius: var(--radius-full);
-}
-
-.chip-match {
-  background: linear-gradient(135deg, #FF6F61 0%, #EE5253 100%);
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(238, 82, 83, 0.45);
-}
-
-.chip-lock {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #FFFFFF;
-  font-size: 0.875rem;
-  padding: 7px 16px;
-  border-radius: var(--radius-full);
-}
-
-.chip-paywall {
-  background: #E53E3E;
-  color: #FFFFFF;
+  gap: 10px;
+  margin-top: 6px;
 }
 
 .chip-juniper {
-  background: rgba(36, 110, 86, 0.4);
+  background: rgba(39, 174, 96, 0.25);
   border: 1px solid rgba(52, 211, 153, 0.4);
-  color: #A7F3D0;
+  color: #6EE7B7;
   font-size: 0.875rem;
   padding: 7px 16px;
   border-radius: var(--radius-full);
   font-weight: 700;
 }
 
-.chip-mature {
-  background: rgba(212, 116, 20, 0.35);
-  border: 1px solid rgba(245, 158, 11, 0.4);
-  color: #FDE68A;
+.chip-sky {
+  background: rgba(74, 144, 226, 0.25);
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  color: #93C5FD;
+  font-size: 0.875rem;
+  padding: 7px 16px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
 }
 
-/* Right Smartphone Mockup & 3D Interactive Stage */
+.chip-popup {
+  font-size: 0.8125rem;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  animation: pulseChip 2.5s infinite alternate;
+}
+
+.chip-rose {
+  background: #E94266;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(233, 66, 102, 0.4);
+}
+
+.chip-voice {
+  background: #4A90E2;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(74, 144, 226, 0.4);
+}
+
+.chip-mature {
+  background: rgba(233, 66, 102, 0.25);
+  border: 1px solid rgba(233, 66, 102, 0.4);
+  color: #FDA4AF;
+}
+
+@keyframes pulseChip {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.04); }
+}
+
+/* ==========================================================================
+   Right Smartphone Column & 3D Interactive Stage
+   ========================================================================== */
 .film-phone-col {
   position: relative;
   z-index: 2;
@@ -1550,8 +1663,8 @@ img {
 
 .film-phone-frame {
   width: 100%;
-  max-width: 320px;
-  background: #0D080A;
+  max-width: 310px;
+  background: #0B0F17;
   border-radius: 46px;
   padding: 10px;
   box-shadow: 0 25px 65px -10px rgba(0, 0, 0, 0.75), 0 0 0 2px rgba(255, 255, 255, 0.15);
@@ -1559,6 +1672,7 @@ img {
   z-index: 10;
   animation: phoneBob 6.5s ease-in-out infinite;
   will-change: transform;
+  transition: box-shadow 1.2s ease;
 }
 
 @keyframes phoneBob {
@@ -1570,11 +1684,11 @@ img {
   }
 }
 
-/* Floating Dynamic Chips & Badges around the Phone */
+/* Floating Badges around Phone */
 .phone-floating-elements {
   position: absolute;
   width: 100%;
-  max-width: 320px;
+  max-width: 310px;
   height: 100%;
   top: 0;
   left: 50%;
@@ -1593,7 +1707,6 @@ img {
   pointer-events: none;
 }
 
-/* Activate popups when stage is in corresponding chapter */
 [data-current-scene="0"] .pops-scene-0,
 [data-current-scene="1"] .pops-scene-1,
 [data-current-scene="2"] .pops-scene-2,
@@ -1603,31 +1716,37 @@ img {
   transform: scale(1);
 }
 
-/* Scene 0 Floating Chips: Match bubbles & Live Tally Counter */
-.bubble-match {
+/* Scene 0 Floating Chips: Heartbeat Praise & Verified Status */
+.bubble-heart {
   position: absolute;
-  background: linear-gradient(135deg, #FF6F61 0%, #EE5253 100%);
+  top: 14%;
+  left: -52px;
+  background: linear-gradient(135deg, #FF6584 0%, #E94266 100%);
   color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 8px 24px rgba(233, 66, 102, 0.45);
+  white-space: nowrap;
+  animation: floatPop1 4s ease-in-out infinite alternate;
+}
+
+.bubble-verified {
+  position: absolute;
+  top: 42%;
+  right: -48px;
+  background: rgba(30, 41, 59, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(52, 211, 153, 0.45);
+  color: #A7F3D0;
   font-size: 13px;
   font-weight: 700;
   padding: 7px 16px;
   border-radius: var(--radius-full);
-  box-shadow: 0 8px 24px rgba(238, 82, 83, 0.45);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
   white-space: nowrap;
-  letter-spacing: -0.01em;
-}
-
-.pop-1 {
-  top: 14%;
-  left: -52px;
-  transform: rotate(-5deg);
-  animation: floatPop1 4s ease-in-out infinite alternate;
-}
-
-.pop-2 {
-  top: 42%;
-  right: -48px;
-  transform: rotate(4deg);
   animation: floatPop2 4.5s ease-in-out infinite alternate;
 }
 
@@ -1635,11 +1754,11 @@ img {
   position: absolute;
   bottom: 8%;
   left: -32px;
-  background: rgba(18, 12, 14, 0.88);
+  background: rgba(15, 23, 42, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  color: #F0ECE9;
+  color: #F8FAFC;
   font-size: 13px;
   padding: 9px 18px;
   border-radius: var(--radius-full);
@@ -1649,7 +1768,7 @@ img {
 }
 
 .tally-number {
-  color: #FF7B72;
+  color: #FF6584;
   font-weight: 800;
   display: inline-block;
   transition: transform 160ms cubic-bezier(0.175, 0.885, 0.32, 1.4);
@@ -1657,84 +1776,96 @@ img {
 
 .tally-number.bump {
   transform: scale(1.45);
-  color: #FFA39E;
+  color: #FDA4AF;
 }
 
 .tally-zero {
-  color: #9C8E87;
+  color: #94A3B8;
   font-weight: 500;
 }
 
-/* Scene 1 Staggered Lock Chips */
-.lock-chip {
+/* Scene 1 Voice Floating Pills */
+.voice-floating-pill {
   position: absolute;
-  background: rgba(28, 18, 22, 0.85);
+  background: rgba(15, 23, 42, 0.9);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(248, 113, 113, 0.35);
-  color: #FFE4E6;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 7px 15px;
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  color: #BAE6FD;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 8px 16px;
   border-radius: var(--radius-full);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 24px rgba(74, 144, 226, 0.3);
   white-space: nowrap;
 }
 
-.lc-1 { top: 7%; left: -46px; animation: floatPop1 3.8s ease-in-out infinite alternate; }
-.lc-2 { top: 22%; right: -42px; animation: floatPop2 4.2s ease-in-out infinite alternate; }
-.lc-3 { top: 54%; left: -50px; animation: floatPop1 4.5s ease-in-out infinite alternate 0.5s; }
-.lc-4 { top: 72%; right: -36px; animation: floatPop2 3.6s ease-in-out infinite alternate 0.3s; }
-.lc-5 { top: 88%; left: -20px; animation: floatPop1 4.8s ease-in-out infinite alternate 0.7s; }
+.vp-1 { top: 12%; left: -52px; animation: floatPop1 4s ease-in-out infinite alternate; }
+.vp-2 { top: 48%; right: -46px; animation: floatPop2 4.6s ease-in-out infinite alternate; }
+.vp-3 { bottom: 12%; left: -28px; animation: floatPop1 5s ease-in-out infinite alternate; }
 
-/* Scene 2 Trust & Compatibility Blooming Pills */
-.trust-floating-pill {
+/* Scene 2 Prompt Floating Pills */
+.prompt-floating-pill {
   position: absolute;
-  background: rgba(18, 44, 34, 0.88);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(52, 211, 153, 0.45);
-  color: #A7F3D0;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  color: #1E293B;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 18px;
   border-radius: var(--radius-full);
-  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 10px 25px -10px rgba(30, 41, 59, 0.25);
   white-space: nowrap;
+}
+
+.film-stage:not(.is-daylight) .prompt-floating-pill {
+  background: rgba(30, 41, 59, 0.9);
+  color: #F8FAFC;
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .tp-1 { top: 18%; left: -48px; animation: floatPop1 4.2s ease-in-out infinite alternate; }
 .tp-2 { top: 76%; right: -38px; animation: floatPop2 4.6s ease-in-out infinite alternate; }
 
-/* Scene 3 Unhurried Dialogue Reflection Pills */
-.dialogue-floating-pill {
+/* Scene 3 Coffee & Event Floating Pills */
+.coffee-floating-pill {
   position: absolute;
-  background: rgba(45, 28, 18, 0.88);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(245, 158, 11, 0.4);
-  color: #FDE68A;
+  color: #92400E;
   font-size: 13px;
   font-weight: 700;
   padding: 8px 18px;
   border-radius: var(--radius-full);
-  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.22);
+  box-shadow: 0 10px 25px -10px rgba(217, 119, 6, 0.3);
   white-space: nowrap;
 }
 
-.dp-1 { top: 16%; right: -42px; animation: floatPop2 4.4s ease-in-out infinite alternate; }
-.dp-2 { top: 78%; left: -38px; animation: floatPop1 4.8s ease-in-out infinite alternate; }
+.film-stage:not(.is-daylight) .coffee-floating-pill {
+  background: rgba(45, 28, 18, 0.9);
+  color: #FDE68A;
+}
+
+.co-1 { top: 16%; right: -42px; animation: floatPop2 4.4s ease-in-out infinite alternate; }
+.co-2 { top: 78%; left: -38px; animation: floatPop1 4.8s ease-in-out infinite alternate; }
 
 @keyframes floatPop1 {
-  0% { transform: translateY(0) rotate(-3deg); }
-  100% { transform: translateY(-7px) rotate(-1deg); }
+  0% { transform: translateY(0) rotate(-2.5deg); }
+  100% { transform: translateY(-7px) rotate(-0.5deg); }
 }
 
 @keyframes floatPop2 {
-  0% { transform: translateY(0) rotate(3deg); }
-  100% { transform: translateY(-8px) rotate(1.5deg); }
+  0% { transform: translateY(0) rotate(2.5deg); }
+  100% { transform: translateY(-8px) rotate(0.8deg); }
 }
 
+/* ==========================================================================
+   Smartphone Device & Screen Views
+   ========================================================================== */
 .phone-dynamic-island {
   position: absolute;
   top: 17px;
@@ -1752,7 +1883,7 @@ img {
   border-radius: 38px;
   overflow: hidden;
   position: relative;
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 9 / 19.5;
 }
 
 .phone-status-bar {
@@ -1812,7 +1943,7 @@ img {
   inset: 0;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 350ms ease;
+  transition: opacity 400ms ease;
 }
 
 .phone-screen-view.active {
@@ -1820,525 +1951,178 @@ img {
   visibility: visible;
 }
 
-/* Screen 0: Interactive Physical Card Swiping Animation */
-.screen-swipe-stage {
+.screen-app-stage {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: #140E11;
+  background: #0B0F17;
 }
 
-.swipe-under-card {
-  position: absolute;
-  inset: 0;
-  background: #1C1518;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 22px 18px;
-  z-index: 1;
-}
-
-.under-card-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.under-avatar-placeholder {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  margin-bottom: 6px;
-}
-
-.under-meta-line {
-  height: 10px;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.line-short { width: 42%; }
-.line-long { width: 72%; }
-
-.swipe-profile-card {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  transform-origin: 50% 120%;
-  will-change: transform, opacity;
-}
-
-.swipe-profile-card img {
+.screen-app-stage img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-[data-current-scene="0"] .phone-screen-view[data-screen-for="0"].active .swipe-profile-card {
-  animation: cardSwipeAction 5.5s cubic-bezier(0.2, 0.8, 0.25, 1) infinite;
-}
-
-@keyframes cardSwipeAction {
-  0%, 15% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-    opacity: 1;
-  }
-  19% {
-    transform: translate3d(-14px, 0, 0) rotate(-3.5deg);
-  }
-  25% {
-    transform: translate3d(6px, 0, 0) rotate(1.5deg);
-  }
-  32% {
-    transform: translate3d(-28px, 8px, 0) rotate(-8deg);
-  }
-  42%, 84% {
-    transform: translate3d(-150%, 45px, 0) rotate(-28deg);
-    opacity: 0;
-  }
-  88% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-    opacity: 0;
-  }
-  94%, 100% {
-    opacity: 1;
-  }
-}
-
-.swipe-stamp-nope {
+/* Screen 0: Interactive React Pill on Daily Picks */
+.screen-interactive-overlay {
   position: absolute;
-  top: 72px;
-  right: 20px;
-  border: 4px solid #EF4444;
-  color: #EF4444;
-  font-size: 26px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  padding: 4px 14px;
-  border-radius: 8px;
-  text-transform: uppercase;
-  transform: rotate(14deg);
-  opacity: 0;
-  box-shadow: 0 0 18px rgba(239, 68, 68, 0.6);
-  text-shadow: 0 0 8px rgba(239, 68, 68, 0.45);
+  bottom: 82px;
+  right: 18px;
+  z-index: 10;
+  pointer-events: none;
 }
 
-[data-current-scene="0"] .phone-screen-view[data-screen-for="0"].active .swipe-stamp-nope {
-  animation: stampNopeAction 5.5s ease-out infinite;
-}
-
-@keyframes stampNopeAction {
-  0%, 18% {
-    opacity: 0;
-    transform: rotate(15deg) scale(2.2);
-  }
-  22% {
-    opacity: 1;
-    transform: rotate(14deg) scale(1);
-  }
-  38% {
-    opacity: 1;
-    transform: rotate(14deg) scale(1);
-  }
-  44%, 100% {
-    opacity: 0;
-    transform: rotate(14deg) scale(0.9);
-  }
-}
-
-/* Screen 1: Pulsing Locked Paywall Overlay & Blurred Grid */
-.screen-paywall-stage {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-.paywall-blurred-backdrop {
-  position: absolute;
-  inset: 0;
-  filter: blur(8px) brightness(0.6);
-}
-
-.paywall-blurred-backdrop img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.phone-paywall-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(22, 13, 18, 0.68);
-  display: grid;
-  place-items: center;
-  padding: 20px;
-  z-index: 5;
-}
-
-.paywall-card {
-  background: #FFFFFF;
-  border-radius: 20px;
-  padding: 22px 18px;
-  text-align: center;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
-  display: flex;
-  flex-direction: column;
+.interactive-react-pill {
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  width: 100%;
+  gap: 6px;
+  background: linear-gradient(135deg, #FF6584 0%, #E94266 100%);
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 6px 20px rgba(233, 66, 102, 0.5);
+  animation: heartPulse 2.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
 }
 
-.paywall-icon-pulse {
-  font-size: 32px;
-  display: inline-block;
-  animation: lockHeartbeat 1.8s ease-in-out infinite;
-  will-change: transform;
-}
-
-@keyframes lockHeartbeat {
+@keyframes heartPulse {
   0%, 100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 0 rgba(229, 62, 62, 0));
+    box-shadow: 0 6px 20px rgba(233, 66, 102, 0.5);
   }
-  20% {
-    transform: scale(1.22);
-    filter: drop-shadow(0 0 12px rgba(229, 62, 62, 0.7));
+  15% {
+    transform: scale(1.09);
+    box-shadow: 0 8px 26px rgba(233, 66, 102, 0.7);
   }
-  40% {
-    transform: scale(1.08);
-    filter: drop-shadow(0 0 5px rgba(229, 62, 62, 0.4));
+  25% {
+    transform: scale(0.98);
   }
-  60% {
-    transform: scale(1.18);
-    filter: drop-shadow(0 0 10px rgba(229, 62, 62, 0.6));
-  }
-  80% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 0 rgba(229, 62, 62, 0));
+  35% {
+    transform: scale(1.05);
   }
 }
 
-.paywall-card b {
-  font-size: 15px;
-  color: #231C1A;
-  font-weight: 700;
+/* Screen 1: Voice Frequency Wave Overlay */
+.voice-wave-overlay {
+  position: absolute;
+  bottom: 110px;
+  left: 20px;
+  right: 20px;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
 }
 
-.paywall-card small {
-  font-size: 11px;
-  color: #7E706A;
-  line-height: 1.4;
+.eq-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 28px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(74, 144, 226, 0.3);
 }
 
-.paywall-fake-btn {
-  margin-top: 6px;
-  width: 100%;
-  padding: 10px 14px;
-  background: linear-gradient(135deg, #E53E3E 0%, #C53030 100%);
-  color: #FFFFFF;
-  font-weight: 700;
-  font-size: 12px;
-  border-radius: var(--radius-full);
-  box-shadow: 0 4px 14px rgba(229, 62, 62, 0.4);
+.eq-bar {
+  width: 3.5px;
+  background: linear-gradient(180deg, #60A5FA 0%, #34D399 100%);
+  border-radius: 2px;
+  animation: eqBounce 1.2s ease-in-out infinite alternate;
 }
 
-/* Screen 2: Curated Compatibility Introduction Card */
-.screen-curated-stage {
+.eq-bar.b1 { height: 8px; animation-delay: 0.1s; }
+.eq-bar.b2 { height: 16px; animation-delay: 0.3s; }
+.eq-bar.b3 { height: 22px; animation-delay: 0.2s; }
+.eq-bar.b4 { height: 12px; animation-delay: 0.5s; }
+.eq-bar.b5 { height: 20px; animation-delay: 0.4s; }
+.eq-bar.b6 { height: 14px; animation-delay: 0.15s; }
+.eq-bar.b7 { height: 18px; animation-delay: 0.35s; }
+.eq-bar.b8 { height: 10px; animation-delay: 0.25s; }
+
+@keyframes eqBounce {
+  0% { transform: scaleY(0.4); }
+  100% { transform: scaleY(1.3); }
+}
+
+/* Screen 2: Prompt Card Highlight & Typing Cursor */
+.prompt-interactive-overlay {
   position: absolute;
   inset: 0;
-  background: #0E0A0C;
-  overflow: hidden;
-}
-
-.screen-curated-stage img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-[data-current-scene="2"] .phone-screen-view[data-screen-for="2"].active .screen-curated-stage img {
-  animation: curatedSlideIn 850ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes curatedSlideIn {
-  from {
-    transform: translateY(20px) scale(0.96);
-    opacity: 0.7;
-  }
-  to {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-}
-
-.curated-compatibility-banner {
-  position: absolute;
-  bottom: 20px;
-  left: 16px;
-  right: 16px;
-  background: rgba(18, 28, 24, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(52, 211, 153, 0.4);
-  border-radius: 16px;
-  padding: 14px 16px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
   z-index: 10;
 }
 
-.compat-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #A7F3D0;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.compat-icon {
-  display: inline-grid;
-  place-items: center;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #10B981;
-  color: #FFFFFF;
-  font-size: 11px;
-  font-weight: 900;
-}
-
-.compat-progress-bar {
-  width: 100%;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.compat-progress-fill {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #10B981, #34D399);
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(52, 211, 153, 0.8);
-}
-
-[data-current-scene="2"] .phone-screen-view[data-screen-for="2"].active .compat-progress-fill {
-  animation: fillCompatGauge 1.4s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
-}
-
-@keyframes fillCompatGauge {
-  from { width: 0%; }
-  to { width: 96%; }
-}
-
-/* Screen 3: Live Sequential Chat Stream & Typing Dots */
-.screen-chat-stage {
+.prompt-highlight-halo {
   position: absolute;
-  inset: 0;
-  background: #181215;
-  display: flex;
-  flex-direction: column;
-  padding: 46px 12px 14px;
-  overflow: hidden;
+  top: 48%;
+  left: 14px;
+  right: 14px;
+  height: 58px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(233, 66, 102, 0.5);
+  box-shadow: 0 0 16px rgba(233, 66, 102, 0.3);
+  animation: promptHalo 3s ease-in-out infinite alternate;
 }
 
-.chat-top-partner {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 8px 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  margin-bottom: 10px;
+@keyframes promptHalo {
+  0% { opacity: 0.3; transform: scale(0.98); }
+  100% { opacity: 0.9; transform: scale(1.02); }
 }
 
-.partner-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #D4A373 url('assets/placeholders/film-chat-new.svg') center/cover no-repeat;
-  border: 1.5px solid #F28C38;
-  flex-shrink: 0;
+.prompt-cursor-indicator {
+  position: absolute;
+  bottom: 22px;
+  left: 60px;
 }
 
-.partner-info b {
-  display: block;
-  font-size: 13px;
+.typing-line {
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  background: #E94266;
+  animation: cursorBlink 1s infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Screen 3: Coffee Date Badge Highlight */
+.event-interactive-overlay {
+  position: absolute;
+  top: 72px;
+  left: 20px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.date-badge-glow {
+  background: rgba(245, 158, 11, 0.9);
   color: #FFFFFF;
-  font-weight: 700;
-}
-
-.partner-info small {
-  display: block;
   font-size: 11px;
-  color: #34D399;
-  font-weight: 500;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.5);
+  animation: dateGlow 2.5s ease-in-out infinite alternate;
 }
 
-.chat-message-stream {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  overflow: hidden;
+@keyframes dateGlow {
+  0% { transform: scale(1); box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4); }
+  100% { transform: scale(1.06); box-shadow: 0 6px 20px rgba(245, 158, 11, 0.7); }
 }
 
-.chat-bubble-stream {
-  max-width: 84%;
-  padding: 10px 13px;
-  border-radius: 16px;
-  font-size: 12px;
-  line-height: 1.45;
-  position: relative;
-}
-
-.bubble-in {
-  align-self: flex-start;
-  background: rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: #FFFFFF;
-  border-bottom-left-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  font-weight: 500;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
-}
-
-[data-current-scene="3"] .phone-screen-view[data-screen-for="3"].active .bubble-in {
-  animation: bubbleInPop 500ms cubic-bezier(0.16, 1, 0.3, 1) 250ms both;
-}
-
-@keyframes bubbleInPop {
-  from {
-    opacity: 0;
-    transform: translateY(12px) scale(0.92);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.bubble-time {
-  display: block;
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 4px;
-  text-align: right;
-}
-
-/* Typing Indicator Bubble */
-.chat-typing-bubble {
-  align-self: flex-start;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 14px;
-  border-bottom-left-radius: 4px;
-  padding: 8px 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  opacity: 0;
-}
-
-[data-current-scene="3"] .phone-screen-view[data-screen-for="3"].active .chat-typing-bubble {
-  animation: typingLifeCycle 5.5s ease forwards;
-}
-
-@keyframes typingLifeCycle {
-  0%, 20% {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  24%, 48% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  52%, 100% {
-    opacity: 0;
-    transform: translateY(-4px);
-    pointer-events: none;
-  }
-}
-
-.typing-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #D4A373;
-  animation: typingBounce 1.2s ease-in-out infinite;
-}
-
-.typing-dot:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.typing-dot:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-@keyframes typingBounce {
-  0%, 60%, 100% {
-    transform: translateY(0);
-    opacity: 0.4;
-  }
-  30% {
-    transform: translateY(-5px);
-    opacity: 1;
-  }
-}
-
-/* Robert's reply bubble */
-.bubble-reply {
-  align-self: flex-end;
-  background: linear-gradient(135deg, #8E2B38 0%, #AF3846 100%);
-  color: #FFFFFF;
-  border-bottom-right-radius: 4px;
-  box-shadow: 0 4px 18px rgba(142, 43, 56, 0.5);
-  font-weight: 500;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-}
-
-[data-current-scene="3"] .phone-screen-view[data-screen-for="3"].active .bubble-reply {
-  animation: bubbleReplySlide 600ms cubic-bezier(0.2, 0.9, 0.3, 1.2) 2.6s both;
-}
-
-@keyframes bubbleReplySlide {
-  from {
-    opacity: 0;
-    transform: translateY(14px) scale(0.92);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.chat-input-bar {
-  margin-top: auto;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 20px;
-  padding: 8px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.45);
-}
-
-.chat-send-btn {
-  color: #F28C38;
-  font-size: 13px;
-}
-
-/* Cinema Controls Bar (Directly below stage) */
+/* ==========================================================================
+   Cinema Controls Bar (Directly below stage)
+   ========================================================================== */
 .film-ui-controls {
   display: flex;
   align-items: center;
@@ -2365,12 +2149,13 @@ img {
 .film-btn-control:hover {
   background: var(--bg-secondary);
   color: var(--accent-wine);
+  border-color: var(--accent-wine);
 }
 
 .film-timeline-bar {
   flex-grow: 1;
   position: relative;
-  height: 32px;
+  height: 38px;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -2380,16 +2165,16 @@ img {
 
 .timeline-track {
   width: 100%;
-  height: 5px;
-  background: rgba(82, 70, 66, 0.22);
+  height: 6px;
+  background: rgba(148, 163, 184, 0.25);
   border-radius: 4px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   transition: height 0.2s ease;
 }
 
 .film-timeline-bar:hover .timeline-track {
-  height: 7px;
+  height: 8px;
 }
 
 .timeline-fill {
@@ -2398,7 +2183,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, var(--accent-wine) 0%, var(--accent-honey) 100%);
+  background: linear-gradient(90deg, #E94266 0%, #FF6584 50%, #F59E0B 100%);
   border-radius: 4px;
   transform-origin: left center;
   transform: scaleX(0);
@@ -2408,7 +2193,7 @@ img {
 
 .timeline-ticks {
   position: absolute;
-  inset: -12px 0;
+  inset: -14px 0;
   display: flex;
   justify-content: space-between;
   z-index: 3;
@@ -2423,72 +2208,93 @@ img {
   cursor: pointer;
   position: relative;
   pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.segment-label {
+  position: absolute;
+  top: 26px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  opacity: 0.75;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.timeline-segment.active .segment-label,
+.timeline-segment:hover .segment-label {
+  color: var(--accent-wine);
+  opacity: 1;
 }
 
 .timeline-segment::after {
   content: "";
   position: absolute;
   right: 0;
-  top: 12px;
+  top: 14px;
   width: 2px;
-  height: 5px;
+  height: 6px;
   background: rgba(255, 255, 255, 0.85);
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
   z-index: 4;
 }
 
 .film-timeline-bar:hover .timeline-segment::after {
-  height: 7px;
+  height: 8px;
 }
 
 .timeline-segment:last-child::after {
   display: none;
 }
 
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
 @media (max-width: 900px) {
   .film-stage {
     grid-template-columns: 1fr;
-    padding: 32px 16px;
+    padding: 32px 18px;
     overflow: hidden;
   }
   .film-phone-frame {
-    max-width: 270px;
+    max-width: 265px;
   }
   .phone-floating-elements {
-    max-width: 270px;
+    max-width: 265px;
   }
   .pop-1 { left: -14px; font-size: 11px; padding: 6px 12px; }
-  .pop-2 { right: -14px; font-size: 11px; padding: 6px 12px; }
+  .bubble-verified { right: -14px; font-size: 11px; padding: 6px 12px; }
   .floating-tally-pill { left: -10px; font-size: 11px; padding: 7px 13px; }
-  .lc-1 { left: -12px; font-size: 11px; }
-  .lc-2 { right: -12px; font-size: 11px; }
-  .lc-3 { left: -12px; font-size: 11px; }
-  .lc-4 { right: -12px; font-size: 11px; }
-  .lc-5 { display: none; }
+  .vp-1 { left: -12px; font-size: 11px; }
+  .vp-2 { right: -12px; font-size: 11px; }
+  .vp-3 { left: -12px; font-size: 11px; }
   .tp-1 { left: -14px; font-size: 11px; padding: 6px 13px; }
   .tp-2 { right: -14px; font-size: 11px; padding: 6px 13px; }
-  .dp-1 { right: -14px; font-size: 11px; padding: 6px 13px; }
-  .dp-2 { left: -14px; font-size: 11px; padding: 6px 13px; }
+  .co-1 { right: -14px; font-size: 11px; padding: 6px 13px; }
+  .co-2 { left: -14px; font-size: 11px; padding: 6px 13px; }
+  .segment-label { display: none; }
 }
 
 @media (max-width: 480px) {
   .film-phone-frame {
-    max-width: 250px;
+    max-width: 245px;
   }
   .phone-floating-elements {
-    max-width: 250px;
+    max-width: 245px;
   }
   .pop-1 { left: -6px; }
-  .pop-2 { right: -6px; }
+  .bubble-verified { right: -6px; }
   .floating-tally-pill { left: -6px; }
-  .lc-1 { left: -6px; }
-  .lc-2 { right: -6px; }
-  .lc-3 { left: -6px; }
-  .lc-4 { right: -6px; }
+  .vp-1 { left: -6px; }
+  .vp-2 { right: -6px; }
+  .vp-3 { left: -6px; }
   .tp-1 { left: -6px; }
   .tp-2 { right: -6px; }
-  .dp-1 { right: -6px; }
-  .dp-2 { left: -6px; }
+  .co-1 { right: -6px; }
+  .co-2 { left: -6px; }
 }
 
 
@@ -3441,8 +3247,8 @@ img {
           <div class="art-visual-box">
             <div class="art-polaroid-frame">
               <img 
-                src="assets/placeholders/hero-eleanor.svg" 
-                alt="Eleanor, 58 and Robert, 62" 
+                src="assets/ui/ui02-daily-picks.jpg" 
+                alt="Curated Daily Introduction Profile" 
                 width="800" 
                 height="680" 
                 class="art-photo"
@@ -3513,11 +3319,11 @@ img {
 <section class="comp-film" id="experience" aria-labelledby="filmHeading">
   <div class="site-wrap">
     
-    <!-- Section Intro Header (Directly matching reference structure) -->
+    <!-- Section Intro Header -->
     <div class="section-header">
       <span class="kicker">Conversation First</span>
       <h2 id="filmHeading">Less Swiping. <em>More Talking.</em></h2>
-      <p>Built for genuine conversation and authentic companionship, not endless swiping.</p>
+      <p>Built for authentic companionship and genuine conversation, not endless swiping.</p>
     </div>
 
     <!-- The Interactive Film Cinema Stage -->
@@ -3526,16 +3332,35 @@ img {
       <div class="film-stage" id="filmStage" data-current-scene="0">
         
         <!-- Living Atmosphere Canvas System -->
-        <!-- Night Atmosphere (Scenes 0 & 1: Cold Fatigue to Alert Noise) -->
+        <!-- Night & Acoustic Cosmos Canvas (Chapters 0 & 1) -->
         <div class="stage-night-canvas" aria-hidden="true">
-          <span class="night-orb orb-dusk"></span>
-          <span class="night-orb orb-ember"></span>
-          <span class="night-orb orb-sage"></span>
+          <span class="ambient-orb orb-dusk"></span>
+          <span class="ambient-orb orb-ember"></span>
+          <span class="ambient-orb orb-sage"></span>
+          <span class="ambient-orb orb-sky"></span>
+          
+          <!-- Flowing Starlight Currents -->
           <svg class="night-currents" viewBox="0 0 1200 400" preserveAspectRatio="none">
             <path class="current-strand strand-a" d="M-40 130 C 180 50, 320 210, 520 130 S 860 50, 1240 150"></path>
             <path class="current-strand strand-b" d="M-40 270 C 210 340, 390 170, 610 260 S 960 340, 1240 240"></path>
             <path class="current-strand strand-c" d="M-40 340 C 230 290, 430 390, 650 330 S 1010 270, 1240 340"></path>
           </svg>
+
+          <!-- Concentric Acoustic Sonar Rings (Dynamic in Chapter 1: Voice) -->
+          <div class="acoustic-sonar-system">
+            <span class="sonar-ring sr-1"></span>
+            <span class="sonar-ring sr-2"></span>
+            <span class="sonar-ring sr-3"></span>
+          </div>
+
+          <!-- Voice Orbital Trajectory Path (Harmonious with app's Voice globe) -->
+          <svg class="voice-orbital-arc" viewBox="0 0 800 400">
+            <ellipse cx="500" cy="200" rx="280" ry="120" class="orbital-ellipse" />
+            <circle cx="340" cy="110" r="4.5" class="orbital-node node-1" />
+            <circle cx="680" cy="280" r="3.5" class="orbital-node node-2" />
+          </svg>
+
+          <!-- Starlight Glimmer Points -->
           <span class="starlight-point s1"></span>
           <span class="starlight-point s2"></span>
           <span class="starlight-point s3"></span>
@@ -3548,7 +3373,7 @@ img {
           <span class="starlight-point s10"></span>
         </div>
 
-        <!-- Daylight Golden Dawn (Scenes 2 & 3: Serene Foothills & Morning Conversation) -->
+        <!-- Daylight Porcelain & Warm Cafe Dawn Canvas (Chapters 2 & 3) -->
         <div class="stage-day-canvas" aria-hidden="true">
           <!-- Soft Golden Dawn Sun Orbit Arcs -->
           <svg class="day-sun-orbit" viewBox="0 0 180 180">
@@ -3556,103 +3381,111 @@ img {
             <circle class="orbit-ring ring-outer" cx="90" cy="90" r="62"></circle>
             <circle class="orbit-ring ring-inner" cx="90" cy="90" r="46"></circle>
           </svg>
+          
           <!-- Gentle Morning Breeze Drift Layers -->
           <i class="day-breeze breeze-high"></i>
           <i class="day-breeze breeze-low"></i>
-          <!-- Breathing Thread of Companionship -->
+          
+          <!-- Breathing Thread of Dialogue -->
           <svg class="day-thread" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path pathLength="1" d="M-20 72 C 180 32, 340 102, 570 60 S 940 24, 1220 64"></path>
           </svg>
-          <!-- Serene Rolling Foothills (Harmonious layered contours) -->
+          
+          <!-- Serene Rolling Horizon Contours -->
           <svg class="day-ridges" viewBox="0 0 1200 320" preserveAspectRatio="none">
             <path class="ridge-distant" d="M0 160 C 220 110, 420 180, 640 130 C 880 75, 1040 150, 1200 120 L 1200 320 L 0 320 Z"></path>
             <path class="ridge-mid" d="M0 215 C 240 170, 460 235, 700 190 C 910 150, 1070 210, 1200 185 L 1200 320 L 0 320 Z"></path>
             <path class="ridge-fore" d="M0 262 C 260 230, 520 280, 760 245 C 960 215, 1100 255, 1200 240 L 1200 320 L 0 320 Z"></path>
+          </svg>
+
+          <!-- Cafe Aroma Steam Wisps (Active in Chapter 3: Coffee & Tea) -->
+          <svg class="coffee-steam-canvas" viewBox="0 0 400 300">
+            <path class="steam-line steam-1" d="M140 270 Q110 190 145 130 T125 40" />
+            <path class="steam-line steam-2" d="M190 280 Q215 200 180 140 T200 50" />
+            <path class="steam-line steam-3" d="M240 270 Q215 180 250 120 T230 35" />
           </svg>
         </div>
 
         <!-- Left Column: Scene Editorial Narration -->
         <div class="film-narrative-box">
           
-          <!-- Scene 0: The Old Way (Exact Match to Reference) -->
+          <!-- Scene 0: Curated Daily Picks (No Swiping Exhaustion) -->
           <div class="scene-copy active" data-scene-index="0">
-            <span class="scene-kicker">THE OLD WAY</span>
-            <h3 class="scene-title">Swiping turns people into <em>pictures</em>.</h3>
-            <p class="scene-desc">Hundreds of matches. Hardly any conversations.</p>
-            <div class="scene-floating-chips">
-              <span class="chip-tally"><b>26</b> matches · <b>0</b> conversations</span>
-              <span class="chip-popup chip-match">It&rsquo;s a match!</span>
-            </div>
-          </div>
-
-          <!-- Scene 1: The Paywall & Noise -->
-          <div class="scene-copy" data-scene-index="1">
-            <span class="scene-kicker">PAYWALLS &amp; GHOSTING</span>
-            <h3 class="scene-title">Locked messages and <em>empty profiles</em>.</h3>
-            <p class="scene-desc">Hidden fees just to read greetings. Superficial chatter that leads nowhere.</p>
-            <div class="scene-floating-chips">
-              <span class="chip-lock">🔒 99+ hidden likes</span>
-              <span class="chip-popup chip-paywall">Fee required to view</span>
-            </div>
-          </div>
-
-          <!-- Scene 2: Curated Compatibility for 50+ -->
-          <div class="scene-copy" data-scene-index="2">
             <span class="scene-kicker">CURATED FOR 50+</span>
-            <h3 class="scene-title">Matched on <em>shared life values</em>.</h3>
-            <p class="scene-desc">Handpicked daily introductions based on core personality, values, and location.</p>
+            <h3 class="scene-title">Handpicked daily intros. <em>No endless swiping.</em></h3>
+            <p class="scene-desc">Every morning, receive handpicked introductions matched on personality, values, and location. Verified profiles with clear intentions.</p>
             <div class="scene-floating-chips">
-              <span class="chip-juniper">✓ 96% Values Match</span>
-              <span class="chip-popup chip-mature">Manually verified</span>
+              <span class="chip-juniper">&#x2713; Verified Mature Profiles</span>
+              <span class="chip-popup chip-rose">Heartbeat Praise &amp; React</span>
             </div>
           </div>
 
-          <!-- Scene 3: Unhurried Dialogue -->
-          <div class="scene-copy" data-scene-index="3">
-            <span class="scene-kicker">GENUINE PACING</span>
-            <h3 class="scene-title">Conversations that <em>unfold naturally</em>.</h3>
-            <p class="scene-desc">No timer panic. Take your time sharing life stories, weekend passions, and morning coffee thoughts.</p>
+          <!-- Scene 1: Voice Connection (Real Voices, Real Warmth) -->
+          <div class="scene-copy" data-scene-index="1">
+            <span class="scene-kicker">VOICE CONNECTION</span>
+            <h3 class="scene-title">Hear their laugh <em>before saying hello.</em></h3>
+            <p class="scene-desc">Text alone cannot convey warmth. Listen to authentic voice clips—hear cadence, kind humor, and gentle tone before reaching out.</p>
             <div class="scene-floating-chips">
-              <span class="chip-juniper">💬 Thoughtful dialogue</span>
+              <span class="chip-sky">&#x1F399; Voice Introductions</span>
+              <span class="chip-popup chip-voice">Acoustic connection</span>
+            </div>
+          </div>
+
+          <!-- Scene 2: Guided Conversation Starters (No Awkward Silence) -->
+          <div class="scene-copy" data-scene-index="2">
+            <span class="scene-kicker">THOUGHTFUL ICEBREAKERS</span>
+            <h3 class="scene-title">No awkward silence. <em>Curated prompts.</em></h3>
+            <p class="scene-desc">Skip repetitive small talk. Four guided prompt cards make opening up effortless, dignified, and comfortable for both people.</p>
+            <div class="scene-floating-chips">
+              <span class="chip-juniper">&#x1F4A1; 4 Guided Icebreakers</span>
+              <span class="chip-popup chip-mature">Unhurried pacing</span>
+            </div>
+          </div>
+
+          <!-- Scene 3: 1-on-1 Coffee & Tea Events (Real Life Companionship) -->
+          <div class="scene-copy" data-scene-index="3">
+            <span class="scene-kicker">REAL COMPANIONSHIP</span>
+            <h3 class="scene-title">From quiet chats to <em>morning coffee meetups.</em></h3>
+            <p class="scene-desc">Move comfortably from friendly dialogue into relaxed 1-on-1 tea, cafe, and concert meetups. Plan casual get-togethers at your own pace.</p>
+            <div class="scene-floating-chips">
+              <span class="chip-juniper">&#x2615; Coffee &amp; Tea &middot; 1-on-1</span>
               <span class="chip-popup chip-mature">Zero pressure</span>
             </div>
           </div>
 
         </div>
 
-        <!-- Right Column: Interactive Phone Mockup with 3D Floating Particles & Popups -->
+        <!-- Right Column: Interactive Phone Mockup with 3D Floating Particles & Badges -->
         <div class="film-phone-col" aria-hidden="true">
           
           <!-- Floating Dynamic Chips & Badges around the Phone -->
           <div class="phone-floating-elements">
-            <!-- Scene 0 Popups & Live Tally Counter -->
+            <!-- Scene 0 Popups: Daily Picks & Verified Badges -->
             <div class="phone-scene-pops pops-scene-0">
-              <span class="bubble-match pop-1">It&rsquo;s a match!</span>
-              <span class="bubble-match pop-2">It&rsquo;s a match!</span>
+              <span class="bubble-heart pop-1">&#x1F497; React with Praise</span>
+              <span class="bubble-verified pop-2">&#x2713; ID Confirmed</span>
               <div class="floating-tally-pill" id="filmTallyPill">
-                <b class="tally-number" id="filmTallyNumber">0</b> matches · <span class="tally-zero">0 conversations</span>
+                <b class="tally-number" id="filmTallyNumber">3</b> daily picks &middot; <span class="tally-zero">0 swipe fatigue</span>
               </div>
             </div>
 
-            <!-- Scene 1 Staggered Lock Chips -->
+            <!-- Scene 1 Audio Frequency & Voice Badges -->
             <div class="phone-scene-pops pops-scene-1">
-              <span class="lock-chip lc-1">🔒 See who likes you</span>
-              <span class="lock-chip lc-2">🔒 Unlimited likes</span>
-              <span class="lock-chip lc-3">🔒 99+ hidden messages</span>
-              <span class="lock-chip lc-4">🔒 Fee required</span>
-              <span class="lock-chip lc-5">🔒 Premium boost</span>
+              <span class="voice-floating-pill vp-1">&#x1F399; Real Voice, Real Warmth</span>
+              <span class="voice-floating-pill vp-2">&#x266A; 0:14 Audio Introduction</span>
+              <span class="voice-floating-pill vp-3">&#x2728; Genuine Laugh</span>
             </div>
 
-            <!-- Scene 2 Trust & Compatibility Blooming Pills -->
+            <!-- Scene 2 Guided Prompt Badges -->
             <div class="phone-scene-pops pops-scene-2">
-              <span class="trust-floating-pill tp-1">✓ 96% Values Match</span>
-              <span class="trust-floating-pill tp-2">✓ ID Confirmed</span>
+              <span class="prompt-floating-pill tp-1">&#x1F4A1; Guided Conversation Prompts</span>
+              <span class="prompt-floating-pill tp-2">&#x2709;&#xFE0F; Thoughtful Dialogue</span>
             </div>
 
-            <!-- Scene 3 Unhurried Dialogue Reflection Pills -->
+            <!-- Scene 3 Coffee & Event Badges -->
             <div class="phone-scene-pops pops-scene-3">
-              <span class="dialogue-floating-pill dp-1">💬 Thoughtful dialogue</span>
-              <span class="dialogue-floating-pill dp-2">☕ Zero timer pressure</span>
+              <span class="coffee-floating-pill co-1">&#x2615; Coffee &amp; Tea &middot; 1-on-1</span>
+              <span class="coffee-floating-pill co-2">&#x1F4C5; Oct 3 Meetup Scheduled</span>
             </div>
           </div>
 
@@ -3672,96 +3505,61 @@ img {
 
               <!-- Phone Screens (Active switches per scene) -->
               
-              <!-- Screen 0: Interactive Physical Card Swiping Animation -->
+              <!-- Screen 0: Curated Daily Picks (Real Masked App Screen) -->
               <div class="phone-screen-view active" data-screen-for="0">
-                <div class="screen-swipe-stage">
-                  <!-- Under Card (Revealed after top card swipes away) -->
-                  <div class="swipe-under-card">
-                    <div class="under-card-inner">
-                      <div class="under-avatar-placeholder"></div>
-                      <div class="under-meta-line line-short"></div>
-                      <div class="under-meta-line line-long"></div>
+                <div class="screen-app-stage screen-daily-picks">
+                  <img src="assets/ui/ui01-for-you.jpg" alt="Daily Curated Picks Screen" width="360" height="780" loading="lazy">
+                  <!-- Interactive Heart Pulse Action Pill -->
+                  <div class="screen-interactive-overlay">
+                    <div class="interactive-react-pill">
+                      <span class="heart-pulse-icon">&#x1F497;</span>
+                      <span class="react-label">React</span>
                     </div>
-                  </div>
-                  <!-- Top Profile Card (Physically tilts and swipes away) -->
-                  <div class="swipe-profile-card">
-                    <img src="assets/placeholders/film-swipe-old.svg" alt="" width="360" height="640" loading="lazy">
-                    <div class="swipe-stamp-nope">NOPE</div>
                   </div>
                 </div>
               </div>
 
-              <!-- Screen 1: Pulsing Locked Paywall Overlay & Blurred Grid -->
+              <!-- Screen 1: Voice Connection (Real Masked Voice Screen) -->
               <div class="phone-screen-view" data-screen-for="1">
-                <div class="screen-paywall-stage">
-                  <div class="paywall-blurred-backdrop">
-                    <img src="assets/placeholders/film-swipe-old.svg" alt="" width="360" height="640" loading="lazy">
-                  </div>
-                  <div class="phone-paywall-overlay">
-                    <div class="paywall-card">
-                      <span class="paywall-icon-pulse">🔒</span>
-                      <b>99+ Matches Waiting</b>
-                      <small>Upgrade to Gold to read messages</small>
-                      <div class="paywall-fake-btn">Read Messages</div>
+                <div class="screen-app-stage screen-voice">
+                  <img src="assets/ui/ui03-voice.png" alt="Voice Connection Screen" width="360" height="780" loading="lazy">
+                  <!-- Animated Voice Equalizer Wave Overlay -->
+                  <div class="voice-wave-overlay">
+                    <div class="eq-bar-wrap">
+                      <span class="eq-bar b1"></span>
+                      <span class="eq-bar b2"></span>
+                      <span class="eq-bar b3"></span>
+                      <span class="eq-bar b4"></span>
+                      <span class="eq-bar b5"></span>
+                      <span class="eq-bar b6"></span>
+                      <span class="eq-bar b7"></span>
+                      <span class="eq-bar b8"></span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Screen 2: Curated Compatibility Introduction Card (Smooth spring entrance) -->
+              <!-- Screen 2: Conversation Starters (Real Masked Chat & Prompts Screen) -->
               <div class="phone-screen-view" data-screen-for="2">
-                <div class="screen-curated-stage">
-                  <img src="assets/placeholders/film-chat-new.svg" alt="" width="360" height="640" loading="lazy">
-                  <div class="curated-compatibility-banner">
-                    <div class="compat-header">
-                      <span class="compat-icon">✓</span>
-                      <b>96% Core Values Match</b>
-                    </div>
-                    <div class="compat-progress-bar">
-                      <div class="compat-progress-fill"></div>
+                <div class="screen-app-stage screen-prompts">
+                  <img src="assets/ui/ui07-conversation-starters.png" alt="Conversation Starters Drawer" width="360" height="780" loading="lazy">
+                  <!-- Interactive Prompt Card Pulse Highlight -->
+                  <div class="prompt-interactive-overlay">
+                    <div class="prompt-highlight-halo"></div>
+                    <div class="prompt-cursor-indicator">
+                      <span class="typing-line"></span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Screen 3: Live Sequential Chat Message Unfolding & Typing Indicator -->
+              <!-- Screen 3: 1-on-1 Coffee & Tea Events (Real Masked Event Screen) -->
               <div class="phone-screen-view" data-screen-for="3">
-                <div class="screen-chat-stage">
-                  <!-- Top Partner Bar -->
-                  <div class="chat-top-partner">
-                    <div class="partner-avatar"></div>
-                    <div class="partner-info">
-                      <b>Eleanor, 58</b>
-                      <small>Active now · Denver</small>
-                    </div>
-                  </div>
-                  
-                  <!-- Sequential Chat Stream -->
-                  <div class="chat-message-stream">
-                    <!-- Message 1 (Pops in at 0.5s) -->
-                    <div class="chat-bubble-stream bubble-in">
-                      <p>&ldquo;Good morning! I value slow Sunday morning coffee and conversations where both people truly listen.&rdquo;</p>
-                      <span class="bubble-time">10:14 AM</span>
-                    </div>
-
-                    <!-- Typing Indicator Bubble (Bounces at 1.8s) -->
-                    <div class="chat-typing-bubble" id="chatTypingIndicator">
-                      <span class="typing-dot"></span>
-                      <span class="typing-dot"></span>
-                      <span class="typing-dot"></span>
-                    </div>
-
-                    <!-- Message 2 Reply (Slides in at 2.8s) -->
-                    <div class="chat-bubble-stream bubble-reply" id="chatReplyBubble">
-                      <p>&ldquo;Yes! That is exactly what I cherish at this chapter in life. Coffee at your pace.&rdquo;</p>
-                      <span class="bubble-time">10:22 AM &check;&check;</span>
-                    </div>
-                  </div>
-
-                  <!-- Chat Input Mockup -->
-                  <div class="chat-input-bar">
-                    <span class="chat-input-placeholder">Type a thoughtful message...</span>
-                    <span class="chat-send-btn">&#10148;</span>
+                <div class="screen-app-stage screen-coffee-event">
+                  <img src="assets/ui/ui04-coffee-event.jpg" alt="1-on-1 Coffee and Tea Event" width="360" height="780" loading="lazy">
+                  <!-- Interactive Event Tag Highlight -->
+                  <div class="event-interactive-overlay">
+                    <div class="date-badge-glow">&#x1F4C5; Oct 3</div>
                   </div>
                 </div>
               </div>
@@ -3793,16 +3591,24 @@ img {
         </button>
 
         <!-- Segmented Scrubber Bar -->
-        <div class="film-timeline-bar" id="filmTimeline" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Story chapter progress" aria-valuetext="Chapter 1 of 4: The Old Way">
+        <div class="film-timeline-bar" id="filmTimeline" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Story chapter progress" aria-valuetext="Chapter 1 of 4: Curated Daily Picks">
           <div class="timeline-track">
             <div class="timeline-fill" id="filmProgressFill" style="transform: scaleX(0);"></div>
             
             <!-- Chapter Segments -->
             <div class="timeline-ticks">
-              <button type="button" class="timeline-segment active" data-step="0" aria-label="Chapter 1: The Old Way"></button>
-              <button type="button" class="timeline-segment" data-step="1" aria-label="Chapter 2: The Paywall &amp; Noise"></button>
-              <button type="button" class="timeline-segment" data-step="2" aria-label="Chapter 3: Curated for 50+"></button>
-              <button type="button" class="timeline-segment" data-step="3" aria-label="Chapter 4: Genuine Pacing"></button>
+              <button type="button" class="timeline-segment active" data-step="0" aria-label="Chapter 1: Curated Daily Picks">
+                <span class="segment-label">1. Daily Picks</span>
+              </button>
+              <button type="button" class="timeline-segment" data-step="1" aria-label="Chapter 2: Voice Connection">
+                <span class="segment-label">2. Voice Warmth</span>
+              </button>
+              <button type="button" class="timeline-segment" data-step="2" aria-label="Chapter 3: Icebreakers">
+                <span class="segment-label">3. Icebreakers</span>
+              </button>
+              <button type="button" class="timeline-segment" data-step="3" aria-label="Chapter 4: 1-on-1 Coffee &amp; Tea">
+                <span class="segment-label">4. Coffee Meetups</span>
+              </button>
             </div>
           </div>
         </div>
@@ -4585,18 +4391,18 @@ window.APP_CONFIG = {
   var tallyNumberEl = document.getElementById('filmTallyNumber');
 
   var chapterNames = [
-    'The Old Way',
-    'Paywalls & Noise',
-    'Curated for 50+',
-    'Genuine Pacing'
+    'Curated Daily Picks',
+    'Voice Connection',
+    'Conversation Starters',
+    '1-on-1 Coffee & Tea'
   ];
 
   function updateTallyCounter(sceneOffset) {
     if (!tallyNumberEl) return;
     if (currentScene === 0) {
-      // In Scene 0, count up from 0 to 26 matches over the first 2.4 seconds
-      var countTarget = Math.min(26, Math.floor((sceneOffset / 2400) * 26));
-      var currentVal = parseInt(tallyNumberEl.textContent, 10) || 0;
+      // In Scene 0, count up from 1 to 3 handpicked daily introductions over first 1.8s
+      var countTarget = Math.max(1, Math.min(3, Math.floor((sceneOffset / 1800) * 3) + 1));
+      var currentVal = parseInt(tallyNumberEl.textContent, 10) || 1;
       if (countTarget !== currentVal) {
         tallyNumberEl.textContent = countTarget;
         tallyNumberEl.classList.remove('bump');
@@ -4604,8 +4410,8 @@ window.APP_CONFIG = {
         tallyNumberEl.classList.add('bump');
       }
     } else {
-      if (tallyNumberEl.textContent !== '0') {
-        tallyNumberEl.textContent = '0';
+      if (tallyNumberEl.textContent !== '3') {
+        tallyNumberEl.textContent = '3';
       }
     }
   }
@@ -4617,13 +4423,13 @@ window.APP_CONFIG = {
 
     stage.setAttribute('data-current-scene', currentScene);
     if (currentScene >= 2) {
-      stage.classList.add('is-daylight', 'f-paper');
+      stage.classList.add('is-daylight');
     } else {
-      stage.classList.remove('is-daylight', 'f-paper');
+      stage.classList.remove('is-daylight');
     }
 
     if (tallyNumberEl && currentScene === 0) {
-      tallyNumberEl.textContent = '0';
+      tallyNumberEl.textContent = '1';
     }
 
     // Update narrative copy with clean animation reset
@@ -4690,7 +4496,6 @@ window.APP_CONFIG = {
     if (delta > 2000) {
       delta = 16.6;
     } else {
-      // Normal frame, cap to 250ms max to catch up gracefully without freezing
       delta = Math.min(delta, 250);
     }
 
@@ -4758,7 +4563,7 @@ window.APP_CONFIG = {
   // Play/Pause button
   playBtn.addEventListener('click', togglePlay);
 
-  // Prev button (if already more than 1.5s into current scene, rewind to start of scene; else jump to prev scene)
+  // Prev button
   if (prevBtn) {
     prevBtn.addEventListener('click', function() {
       var sceneOffset = currentTime % sceneDuration;
@@ -4809,7 +4614,7 @@ window.APP_CONFIG = {
     });
   }
 
-  // Tab visibility changes (pause RAF when hidden to save battery & prevent time warp)
+  // Tab visibility changes
   document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
       if (isPlaying) {

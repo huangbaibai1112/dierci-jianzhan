@@ -1,11 +1,11 @@
 <section class="comp-film" id="experience" aria-labelledby="filmHeading">
   <div class="site-wrap">
     
-    <!-- Section Intro Header (Directly matching reference structure) -->
+    <!-- Section Intro Header -->
     <div class="section-header">
       <span class="kicker">Conversation First</span>
       <h2 id="filmHeading">Less Swiping. <em>More Talking.</em></h2>
-      <p>Built for genuine conversation and authentic companionship, not endless swiping.</p>
+      <p>Built for authentic companionship and genuine conversation, not endless swiping.</p>
     </div>
 
     <!-- The Interactive Film Cinema Stage -->
@@ -14,16 +14,35 @@
       <div class="film-stage" id="filmStage" data-current-scene="0">
         
         <!-- Living Atmosphere Canvas System -->
-        <!-- Night Atmosphere (Scenes 0 & 1: Cold Fatigue to Alert Noise) -->
+        <!-- Night & Acoustic Cosmos Canvas (Chapters 0 & 1) -->
         <div class="stage-night-canvas" aria-hidden="true">
-          <span class="night-orb orb-dusk"></span>
-          <span class="night-orb orb-ember"></span>
-          <span class="night-orb orb-sage"></span>
+          <span class="ambient-orb orb-dusk"></span>
+          <span class="ambient-orb orb-ember"></span>
+          <span class="ambient-orb orb-sage"></span>
+          <span class="ambient-orb orb-sky"></span>
+          
+          <!-- Flowing Starlight Currents -->
           <svg class="night-currents" viewBox="0 0 1200 400" preserveAspectRatio="none">
             <path class="current-strand strand-a" d="M-40 130 C 180 50, 320 210, 520 130 S 860 50, 1240 150"></path>
             <path class="current-strand strand-b" d="M-40 270 C 210 340, 390 170, 610 260 S 960 340, 1240 240"></path>
             <path class="current-strand strand-c" d="M-40 340 C 230 290, 430 390, 650 330 S 1010 270, 1240 340"></path>
           </svg>
+
+          <!-- Concentric Acoustic Sonar Rings (Dynamic in Chapter 1: Voice) -->
+          <div class="acoustic-sonar-system">
+            <span class="sonar-ring sr-1"></span>
+            <span class="sonar-ring sr-2"></span>
+            <span class="sonar-ring sr-3"></span>
+          </div>
+
+          <!-- Voice Orbital Trajectory Path (Harmonious with app's Voice globe) -->
+          <svg class="voice-orbital-arc" viewBox="0 0 800 400">
+            <ellipse cx="500" cy="200" rx="280" ry="120" class="orbital-ellipse" />
+            <circle cx="340" cy="110" r="4.5" class="orbital-node node-1" />
+            <circle cx="680" cy="280" r="3.5" class="orbital-node node-2" />
+          </svg>
+
+          <!-- Starlight Glimmer Points -->
           <span class="starlight-point s1"></span>
           <span class="starlight-point s2"></span>
           <span class="starlight-point s3"></span>
@@ -36,7 +55,7 @@
           <span class="starlight-point s10"></span>
         </div>
 
-        <!-- Daylight Golden Dawn (Scenes 2 & 3: Serene Foothills & Morning Conversation) -->
+        <!-- Daylight Porcelain & Warm Cafe Dawn Canvas (Chapters 2 & 3) -->
         <div class="stage-day-canvas" aria-hidden="true">
           <!-- Soft Golden Dawn Sun Orbit Arcs -->
           <svg class="day-sun-orbit" viewBox="0 0 180 180">
@@ -44,103 +63,111 @@
             <circle class="orbit-ring ring-outer" cx="90" cy="90" r="62"></circle>
             <circle class="orbit-ring ring-inner" cx="90" cy="90" r="46"></circle>
           </svg>
+          
           <!-- Gentle Morning Breeze Drift Layers -->
           <i class="day-breeze breeze-high"></i>
           <i class="day-breeze breeze-low"></i>
-          <!-- Breathing Thread of Companionship -->
+          
+          <!-- Breathing Thread of Dialogue -->
           <svg class="day-thread" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path pathLength="1" d="M-20 72 C 180 32, 340 102, 570 60 S 940 24, 1220 64"></path>
           </svg>
-          <!-- Serene Rolling Foothills (Harmonious layered contours) -->
+          
+          <!-- Serene Rolling Horizon Contours -->
           <svg class="day-ridges" viewBox="0 0 1200 320" preserveAspectRatio="none">
             <path class="ridge-distant" d="M0 160 C 220 110, 420 180, 640 130 C 880 75, 1040 150, 1200 120 L 1200 320 L 0 320 Z"></path>
             <path class="ridge-mid" d="M0 215 C 240 170, 460 235, 700 190 C 910 150, 1070 210, 1200 185 L 1200 320 L 0 320 Z"></path>
             <path class="ridge-fore" d="M0 262 C 260 230, 520 280, 760 245 C 960 215, 1100 255, 1200 240 L 1200 320 L 0 320 Z"></path>
+          </svg>
+
+          <!-- Cafe Aroma Steam Wisps (Active in Chapter 3: Coffee & Tea) -->
+          <svg class="coffee-steam-canvas" viewBox="0 0 400 300">
+            <path class="steam-line steam-1" d="M140 270 Q110 190 145 130 T125 40" />
+            <path class="steam-line steam-2" d="M190 280 Q215 200 180 140 T200 50" />
+            <path class="steam-line steam-3" d="M240 270 Q215 180 250 120 T230 35" />
           </svg>
         </div>
 
         <!-- Left Column: Scene Editorial Narration -->
         <div class="film-narrative-box">
           
-          <!-- Scene 0: The Old Way (Exact Match to Reference) -->
+          <!-- Scene 0: Curated Daily Picks (No Swiping Exhaustion) -->
           <div class="scene-copy active" data-scene-index="0">
-            <span class="scene-kicker">THE OLD WAY</span>
-            <h3 class="scene-title">Swiping turns people into <em>pictures</em>.</h3>
-            <p class="scene-desc">Hundreds of matches. Hardly any conversations.</p>
-            <div class="scene-floating-chips">
-              <span class="chip-tally"><b>26</b> matches · <b>0</b> conversations</span>
-              <span class="chip-popup chip-match">It&rsquo;s a match!</span>
-            </div>
-          </div>
-
-          <!-- Scene 1: The Paywall & Noise -->
-          <div class="scene-copy" data-scene-index="1">
-            <span class="scene-kicker">PAYWALLS &amp; GHOSTING</span>
-            <h3 class="scene-title">Locked messages and <em>empty profiles</em>.</h3>
-            <p class="scene-desc">Hidden fees just to read greetings. Superficial chatter that leads nowhere.</p>
-            <div class="scene-floating-chips">
-              <span class="chip-lock">🔒 99+ hidden likes</span>
-              <span class="chip-popup chip-paywall">Fee required to view</span>
-            </div>
-          </div>
-
-          <!-- Scene 2: Curated Compatibility for 50+ -->
-          <div class="scene-copy" data-scene-index="2">
             <span class="scene-kicker">CURATED FOR 50+</span>
-            <h3 class="scene-title">Matched on <em>shared life values</em>.</h3>
-            <p class="scene-desc">Handpicked daily introductions based on core personality, values, and location.</p>
+            <h3 class="scene-title">Handpicked daily intros. <em>No endless swiping.</em></h3>
+            <p class="scene-desc">Every morning, receive handpicked introductions matched on personality, values, and location. Verified profiles with clear intentions.</p>
             <div class="scene-floating-chips">
-              <span class="chip-juniper">✓ 96% Values Match</span>
-              <span class="chip-popup chip-mature">Manually verified</span>
+              <span class="chip-juniper">&#x2713; Verified Mature Profiles</span>
+              <span class="chip-popup chip-rose">Heartbeat Praise &amp; React</span>
             </div>
           </div>
 
-          <!-- Scene 3: Unhurried Dialogue -->
-          <div class="scene-copy" data-scene-index="3">
-            <span class="scene-kicker">GENUINE PACING</span>
-            <h3 class="scene-title">Conversations that <em>unfold naturally</em>.</h3>
-            <p class="scene-desc">No timer panic. Take your time sharing life stories, weekend passions, and morning coffee thoughts.</p>
+          <!-- Scene 1: Voice Connection (Real Voices, Real Warmth) -->
+          <div class="scene-copy" data-scene-index="1">
+            <span class="scene-kicker">VOICE CONNECTION</span>
+            <h3 class="scene-title">Hear their laugh <em>before saying hello.</em></h3>
+            <p class="scene-desc">Text alone cannot convey warmth. Listen to authentic voice clips—hear cadence, kind humor, and gentle tone before reaching out.</p>
             <div class="scene-floating-chips">
-              <span class="chip-juniper">💬 Thoughtful dialogue</span>
+              <span class="chip-sky">&#x1F399; Voice Introductions</span>
+              <span class="chip-popup chip-voice">Acoustic connection</span>
+            </div>
+          </div>
+
+          <!-- Scene 2: Guided Conversation Starters (No Awkward Silence) -->
+          <div class="scene-copy" data-scene-index="2">
+            <span class="scene-kicker">THOUGHTFUL ICEBREAKERS</span>
+            <h3 class="scene-title">No awkward silence. <em>Curated prompts.</em></h3>
+            <p class="scene-desc">Skip repetitive small talk. Four guided prompt cards make opening up effortless, dignified, and comfortable for both people.</p>
+            <div class="scene-floating-chips">
+              <span class="chip-juniper">&#x1F4A1; 4 Guided Icebreakers</span>
+              <span class="chip-popup chip-mature">Unhurried pacing</span>
+            </div>
+          </div>
+
+          <!-- Scene 3: 1-on-1 Coffee & Tea Events (Real Life Companionship) -->
+          <div class="scene-copy" data-scene-index="3">
+            <span class="scene-kicker">REAL COMPANIONSHIP</span>
+            <h3 class="scene-title">From quiet chats to <em>morning coffee meetups.</em></h3>
+            <p class="scene-desc">Move comfortably from friendly dialogue into relaxed 1-on-1 tea, cafe, and concert meetups. Plan casual get-togethers at your own pace.</p>
+            <div class="scene-floating-chips">
+              <span class="chip-juniper">&#x2615; Coffee &amp; Tea &middot; 1-on-1</span>
               <span class="chip-popup chip-mature">Zero pressure</span>
             </div>
           </div>
 
         </div>
 
-        <!-- Right Column: Interactive Phone Mockup with 3D Floating Particles & Popups -->
+        <!-- Right Column: Interactive Phone Mockup with 3D Floating Particles & Badges -->
         <div class="film-phone-col" aria-hidden="true">
           
           <!-- Floating Dynamic Chips & Badges around the Phone -->
           <div class="phone-floating-elements">
-            <!-- Scene 0 Popups & Live Tally Counter -->
+            <!-- Scene 0 Popups: Daily Picks & Verified Badges -->
             <div class="phone-scene-pops pops-scene-0">
-              <span class="bubble-match pop-1">It&rsquo;s a match!</span>
-              <span class="bubble-match pop-2">It&rsquo;s a match!</span>
+              <span class="bubble-heart pop-1">&#x1F497; React with Praise</span>
+              <span class="bubble-verified pop-2">&#x2713; ID Confirmed</span>
               <div class="floating-tally-pill" id="filmTallyPill">
-                <b class="tally-number" id="filmTallyNumber">0</b> matches · <span class="tally-zero">0 conversations</span>
+                <b class="tally-number" id="filmTallyNumber">3</b> daily picks &middot; <span class="tally-zero">0 swipe fatigue</span>
               </div>
             </div>
 
-            <!-- Scene 1 Staggered Lock Chips -->
+            <!-- Scene 1 Audio Frequency & Voice Badges -->
             <div class="phone-scene-pops pops-scene-1">
-              <span class="lock-chip lc-1">🔒 See who likes you</span>
-              <span class="lock-chip lc-2">🔒 Unlimited likes</span>
-              <span class="lock-chip lc-3">🔒 99+ hidden messages</span>
-              <span class="lock-chip lc-4">🔒 Fee required</span>
-              <span class="lock-chip lc-5">🔒 Premium boost</span>
+              <span class="voice-floating-pill vp-1">&#x1F399; Real Voice, Real Warmth</span>
+              <span class="voice-floating-pill vp-2">&#x266A; 0:14 Audio Introduction</span>
+              <span class="voice-floating-pill vp-3">&#x2728; Genuine Laugh</span>
             </div>
 
-            <!-- Scene 2 Trust & Compatibility Blooming Pills -->
+            <!-- Scene 2 Guided Prompt Badges -->
             <div class="phone-scene-pops pops-scene-2">
-              <span class="trust-floating-pill tp-1">✓ 96% Values Match</span>
-              <span class="trust-floating-pill tp-2">✓ ID Confirmed</span>
+              <span class="prompt-floating-pill tp-1">&#x1F4A1; Guided Conversation Prompts</span>
+              <span class="prompt-floating-pill tp-2">&#x2709;&#xFE0F; Thoughtful Dialogue</span>
             </div>
 
-            <!-- Scene 3 Unhurried Dialogue Reflection Pills -->
+            <!-- Scene 3 Coffee & Event Badges -->
             <div class="phone-scene-pops pops-scene-3">
-              <span class="dialogue-floating-pill dp-1">💬 Thoughtful dialogue</span>
-              <span class="dialogue-floating-pill dp-2">☕ Zero timer pressure</span>
+              <span class="coffee-floating-pill co-1">&#x2615; Coffee &amp; Tea &middot; 1-on-1</span>
+              <span class="coffee-floating-pill co-2">&#x1F4C5; Oct 3 Meetup Scheduled</span>
             </div>
           </div>
 
@@ -160,96 +187,61 @@
 
               <!-- Phone Screens (Active switches per scene) -->
               
-              <!-- Screen 0: Interactive Physical Card Swiping Animation -->
+              <!-- Screen 0: Curated Daily Picks (Real Masked App Screen) -->
               <div class="phone-screen-view active" data-screen-for="0">
-                <div class="screen-swipe-stage">
-                  <!-- Under Card (Revealed after top card swipes away) -->
-                  <div class="swipe-under-card">
-                    <div class="under-card-inner">
-                      <div class="under-avatar-placeholder"></div>
-                      <div class="under-meta-line line-short"></div>
-                      <div class="under-meta-line line-long"></div>
+                <div class="screen-app-stage screen-daily-picks">
+                  <img src="assets/ui/ui01-for-you.jpg" alt="Daily Curated Picks Screen" width="360" height="780" loading="lazy">
+                  <!-- Interactive Heart Pulse Action Pill -->
+                  <div class="screen-interactive-overlay">
+                    <div class="interactive-react-pill">
+                      <span class="heart-pulse-icon">&#x1F497;</span>
+                      <span class="react-label">React</span>
                     </div>
-                  </div>
-                  <!-- Top Profile Card (Physically tilts and swipes away) -->
-                  <div class="swipe-profile-card">
-                    <img src="assets/placeholders/film-swipe-old.svg" alt="" width="360" height="640" loading="lazy">
-                    <div class="swipe-stamp-nope">NOPE</div>
                   </div>
                 </div>
               </div>
 
-              <!-- Screen 1: Pulsing Locked Paywall Overlay & Blurred Grid -->
+              <!-- Screen 1: Voice Connection (Real Masked Voice Screen) -->
               <div class="phone-screen-view" data-screen-for="1">
-                <div class="screen-paywall-stage">
-                  <div class="paywall-blurred-backdrop">
-                    <img src="assets/placeholders/film-swipe-old.svg" alt="" width="360" height="640" loading="lazy">
-                  </div>
-                  <div class="phone-paywall-overlay">
-                    <div class="paywall-card">
-                      <span class="paywall-icon-pulse">🔒</span>
-                      <b>99+ Matches Waiting</b>
-                      <small>Upgrade to Gold to read messages</small>
-                      <div class="paywall-fake-btn">Read Messages</div>
+                <div class="screen-app-stage screen-voice">
+                  <img src="assets/ui/ui03-voice.png" alt="Voice Connection Screen" width="360" height="780" loading="lazy">
+                  <!-- Animated Voice Equalizer Wave Overlay -->
+                  <div class="voice-wave-overlay">
+                    <div class="eq-bar-wrap">
+                      <span class="eq-bar b1"></span>
+                      <span class="eq-bar b2"></span>
+                      <span class="eq-bar b3"></span>
+                      <span class="eq-bar b4"></span>
+                      <span class="eq-bar b5"></span>
+                      <span class="eq-bar b6"></span>
+                      <span class="eq-bar b7"></span>
+                      <span class="eq-bar b8"></span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Screen 2: Curated Compatibility Introduction Card (Smooth spring entrance) -->
+              <!-- Screen 2: Conversation Starters (Real Masked Chat & Prompts Screen) -->
               <div class="phone-screen-view" data-screen-for="2">
-                <div class="screen-curated-stage">
-                  <img src="assets/placeholders/film-chat-new.svg" alt="" width="360" height="640" loading="lazy">
-                  <div class="curated-compatibility-banner">
-                    <div class="compat-header">
-                      <span class="compat-icon">✓</span>
-                      <b>96% Core Values Match</b>
-                    </div>
-                    <div class="compat-progress-bar">
-                      <div class="compat-progress-fill"></div>
+                <div class="screen-app-stage screen-prompts">
+                  <img src="assets/ui/ui07-conversation-starters.png" alt="Conversation Starters Drawer" width="360" height="780" loading="lazy">
+                  <!-- Interactive Prompt Card Pulse Highlight -->
+                  <div class="prompt-interactive-overlay">
+                    <div class="prompt-highlight-halo"></div>
+                    <div class="prompt-cursor-indicator">
+                      <span class="typing-line"></span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Screen 3: Live Sequential Chat Message Unfolding & Typing Indicator -->
+              <!-- Screen 3: 1-on-1 Coffee & Tea Events (Real Masked Event Screen) -->
               <div class="phone-screen-view" data-screen-for="3">
-                <div class="screen-chat-stage">
-                  <!-- Top Partner Bar -->
-                  <div class="chat-top-partner">
-                    <div class="partner-avatar"></div>
-                    <div class="partner-info">
-                      <b>Eleanor, 58</b>
-                      <small>Active now · Denver</small>
-                    </div>
-                  </div>
-                  
-                  <!-- Sequential Chat Stream -->
-                  <div class="chat-message-stream">
-                    <!-- Message 1 (Pops in at 0.5s) -->
-                    <div class="chat-bubble-stream bubble-in">
-                      <p>&ldquo;Good morning! I value slow Sunday morning coffee and conversations where both people truly listen.&rdquo;</p>
-                      <span class="bubble-time">10:14 AM</span>
-                    </div>
-
-                    <!-- Typing Indicator Bubble (Bounces at 1.8s) -->
-                    <div class="chat-typing-bubble" id="chatTypingIndicator">
-                      <span class="typing-dot"></span>
-                      <span class="typing-dot"></span>
-                      <span class="typing-dot"></span>
-                    </div>
-
-                    <!-- Message 2 Reply (Slides in at 2.8s) -->
-                    <div class="chat-bubble-stream bubble-reply" id="chatReplyBubble">
-                      <p>&ldquo;Yes! That is exactly what I cherish at this chapter in life. Coffee at your pace.&rdquo;</p>
-                      <span class="bubble-time">10:22 AM &check;&check;</span>
-                    </div>
-                  </div>
-
-                  <!-- Chat Input Mockup -->
-                  <div class="chat-input-bar">
-                    <span class="chat-input-placeholder">Type a thoughtful message...</span>
-                    <span class="chat-send-btn">&#10148;</span>
+                <div class="screen-app-stage screen-coffee-event">
+                  <img src="assets/ui/ui04-coffee-event.jpg" alt="1-on-1 Coffee and Tea Event" width="360" height="780" loading="lazy">
+                  <!-- Interactive Event Tag Highlight -->
+                  <div class="event-interactive-overlay">
+                    <div class="date-badge-glow">&#x1F4C5; Oct 3</div>
                   </div>
                 </div>
               </div>
@@ -281,16 +273,24 @@
         </button>
 
         <!-- Segmented Scrubber Bar -->
-        <div class="film-timeline-bar" id="filmTimeline" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Story chapter progress" aria-valuetext="Chapter 1 of 4: The Old Way">
+        <div class="film-timeline-bar" id="filmTimeline" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Story chapter progress" aria-valuetext="Chapter 1 of 4: Curated Daily Picks">
           <div class="timeline-track">
             <div class="timeline-fill" id="filmProgressFill" style="transform: scaleX(0);"></div>
             
             <!-- Chapter Segments -->
             <div class="timeline-ticks">
-              <button type="button" class="timeline-segment active" data-step="0" aria-label="Chapter 1: The Old Way"></button>
-              <button type="button" class="timeline-segment" data-step="1" aria-label="Chapter 2: The Paywall &amp; Noise"></button>
-              <button type="button" class="timeline-segment" data-step="2" aria-label="Chapter 3: Curated for 50+"></button>
-              <button type="button" class="timeline-segment" data-step="3" aria-label="Chapter 4: Genuine Pacing"></button>
+              <button type="button" class="timeline-segment active" data-step="0" aria-label="Chapter 1: Curated Daily Picks">
+                <span class="segment-label">1. Daily Picks</span>
+              </button>
+              <button type="button" class="timeline-segment" data-step="1" aria-label="Chapter 2: Voice Connection">
+                <span class="segment-label">2. Voice Warmth</span>
+              </button>
+              <button type="button" class="timeline-segment" data-step="2" aria-label="Chapter 3: Icebreakers">
+                <span class="segment-label">3. Icebreakers</span>
+              </button>
+              <button type="button" class="timeline-segment" data-step="3" aria-label="Chapter 4: 1-on-1 Coffee &amp; Tea">
+                <span class="segment-label">4. Coffee Meetups</span>
+              </button>
             </div>
           </div>
         </div>

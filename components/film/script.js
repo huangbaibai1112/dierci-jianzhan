@@ -30,18 +30,18 @@
   var tallyNumberEl = document.getElementById('filmTallyNumber');
 
   var chapterNames = [
-    'The Old Way',
-    'Paywalls & Noise',
-    'Curated for 50+',
-    'Genuine Pacing'
+    'Curated Daily Picks',
+    'Voice Connection',
+    'Conversation Starters',
+    '1-on-1 Coffee & Tea'
   ];
 
   function updateTallyCounter(sceneOffset) {
     if (!tallyNumberEl) return;
     if (currentScene === 0) {
-      // In Scene 0, count up from 0 to 26 matches over the first 2.4 seconds
-      var countTarget = Math.min(26, Math.floor((sceneOffset / 2400) * 26));
-      var currentVal = parseInt(tallyNumberEl.textContent, 10) || 0;
+      // In Scene 0, count up from 1 to 3 handpicked daily introductions over first 1.8s
+      var countTarget = Math.max(1, Math.min(3, Math.floor((sceneOffset / 1800) * 3) + 1));
+      var currentVal = parseInt(tallyNumberEl.textContent, 10) || 1;
       if (countTarget !== currentVal) {
         tallyNumberEl.textContent = countTarget;
         tallyNumberEl.classList.remove('bump');
@@ -49,8 +49,8 @@
         tallyNumberEl.classList.add('bump');
       }
     } else {
-      if (tallyNumberEl.textContent !== '0') {
-        tallyNumberEl.textContent = '0';
+      if (tallyNumberEl.textContent !== '3') {
+        tallyNumberEl.textContent = '3';
       }
     }
   }
@@ -62,13 +62,13 @@
 
     stage.setAttribute('data-current-scene', currentScene);
     if (currentScene >= 2) {
-      stage.classList.add('is-daylight', 'f-paper');
+      stage.classList.add('is-daylight');
     } else {
-      stage.classList.remove('is-daylight', 'f-paper');
+      stage.classList.remove('is-daylight');
     }
 
     if (tallyNumberEl && currentScene === 0) {
-      tallyNumberEl.textContent = '0';
+      tallyNumberEl.textContent = '1';
     }
 
     // Update narrative copy with clean animation reset
@@ -135,7 +135,6 @@
     if (delta > 2000) {
       delta = 16.6;
     } else {
-      // Normal frame, cap to 250ms max to catch up gracefully without freezing
       delta = Math.min(delta, 250);
     }
 
@@ -203,7 +202,7 @@
   // Play/Pause button
   playBtn.addEventListener('click', togglePlay);
 
-  // Prev button (if already more than 1.5s into current scene, rewind to start of scene; else jump to prev scene)
+  // Prev button
   if (prevBtn) {
     prevBtn.addEventListener('click', function() {
       var sceneOffset = currentTime % sceneDuration;
@@ -254,7 +253,7 @@
     });
   }
 
-  // Tab visibility changes (pause RAF when hidden to save battery & prevent time warp)
+  // Tab visibility changes
   document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
       if (isPlaying) {
