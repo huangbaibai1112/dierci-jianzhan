@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="gradClara" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#461E2C"/>
+      <stop offset="100%" stop-color="#261219"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#gradClara)"/>
+  <circle cx="300" cy="240" r="160" fill="#8B263E" opacity="0.3"/>
+  <g fill="#F5ECE1" opacity="0.9" transform="translate(300, 290)">
+    <ellipse cx="0" cy="-90" rx="58" ry="68"/>
+    <path d="M-60 -95 C-62 -145 62 -145 60 -95 C40 -120 -40 -120 -60 -95 Z"/>
+    <path d="M-20 -30 L20 -30 L24 15 L-24 15 Z"/>
+    <path d="M-24 15 Q-110 40 -160 180 L160 180 Q110 40 24 15 Z"/>
+  </g>
+  <rect x="180" y="500" width="240" height="40" rx="20" fill="#FFFFFF" opacity="0.95"/>
+  <text x="300" y="526" fill="#231C1A" font-family="'Plus Jakarta Sans', sans-serif" font-size="17" font-weight="700" text-anchor="middle">
+    Clara, 57 · Denver, CO
+  </text>
+  <text x="300" y="565" fill="#DBCFCB" font-family="'Inter', sans-serif" font-size="13" text-anchor="middle">
+    [ Placeholder · 600×600px ]
+  </text>
+</svg>

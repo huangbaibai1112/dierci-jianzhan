@@ -1,0 +1,169 @@
+<section class="comp-film" id="experience" aria-labelledby="filmHeading">
+  <div class="site-wrap">
+    
+    <!-- Section Intro Header (Directly matching reference structure) -->
+    <div class="section-header">
+      <span class="kicker">Conversation First</span>
+      <h2 id="filmHeading">Less Swiping. <em>More Talking.</em></h2>
+      <p>Built for genuine conversation and authentic companionship, not endless swiping.</p>
+    </div>
+
+    <!-- The Interactive Film Cinema Stage -->
+    <div class="film-player-wrap" id="filmPlayer">
+      
+      <div class="film-stage" id="filmStage" data-current-scene="0">
+        
+        <!-- Ambient Living Background (Drifting organic lines & glowing stars) -->
+        <div class="film-ambient-bg" aria-hidden="true">
+          <span class="ambient-glow glow-1"></span>
+          <span class="ambient-glow glow-2"></span>
+          <span class="ambient-glow glow-3"></span>
+          <svg class="ambient-strands" viewBox="0 0 1200 480" preserveAspectRatio="none">
+            <path class="strand-line line-1" d="M-50 140 C150 60 320 220 540 140 S880 50 1250 160"/>
+            <path class="strand-line line-2" d="M-50 280 C220 360 400 180 640 270 S980 350 1250 240"/>
+            <path class="strand-line line-3" d="M-50 360 C240 300 450 410 680 340 S1020 280 1250 350"/>
+            <!-- Subtle glowing particle dots -->
+            <circle cx="280" cy="110" r="2" fill="#FFFFFF" opacity="0.6"/>
+            <circle cx="430" cy="80" r="1.5" fill="#FFFFFF" opacity="0.5"/>
+            <circle cx="560" cy="380" r="2" fill="#FFFFFF" opacity="0.7"/>
+            <circle cx="750" cy="420" r="1.5" fill="#FFFFFF" opacity="0.4"/>
+            <circle cx="1080" cy="360" r="2" fill="#FFFFFF" opacity="0.6"/>
+          </svg>
+        </div>
+
+        <!-- Left Column: Scene Editorial Narration -->
+        <div class="film-narrative-box">
+          
+          <!-- Scene 0: The Old Way (Exact Match to Reference) -->
+          <div class="scene-copy active" data-scene-index="0">
+            <span class="scene-kicker">THE OLD WAY</span>
+            <h3 class="scene-title">Swiping turns people into <em>pictures</em>.</h3>
+            <p class="scene-desc">Hundreds of matches. Hardly any conversations.</p>
+            <div class="scene-floating-chips">
+              <span class="chip-tally"><b>26</b> matches · <b>0</b> conversations</span>
+              <span class="chip-popup chip-match">It&rsquo;s a match!</span>
+            </div>
+          </div>
+
+          <!-- Scene 1: The Paywall & Noise -->
+          <div class="scene-copy" data-scene-index="1">
+            <span class="scene-kicker">PAYWALLS &amp; GHOSTING</span>
+            <h3 class="scene-title">Locked messages and <em>empty profiles</em>.</h3>
+            <p class="scene-desc">Hidden fees just to read greetings. Superficial chatter that leads nowhere.</p>
+            <div class="scene-floating-chips">
+              <span class="chip-lock">🔒 99+ hidden likes</span>
+              <span class="chip-popup chip-paywall">Fee required to view</span>
+            </div>
+          </div>
+
+          <!-- Scene 2: Curated Compatibility for 50+ -->
+          <div class="scene-copy" data-scene-index="2">
+            <span class="scene-kicker">CURATED FOR 50+</span>
+            <h3 class="scene-title">Matched on <em>shared life values</em>.</h3>
+            <p class="scene-desc">Handpicked daily introductions based on core personality, values, and location.</p>
+            <div class="scene-floating-chips">
+              <span class="chip-juniper">✓ 96% Values Match</span>
+              <span class="chip-popup chip-mature">Manually verified</span>
+            </div>
+          </div>
+
+          <!-- Scene 3: Unhurried Dialogue -->
+          <div class="scene-copy" data-scene-index="3">
+            <span class="scene-kicker">GENUINE PACING</span>
+            <h3 class="scene-title">Conversations that <em>unfold naturally</em>.</h3>
+            <p class="scene-desc">No timer panic. Take your time sharing life stories, weekend passions, and morning coffee thoughts.</p>
+            <div class="scene-floating-chips">
+              <span class="chip-juniper">💬 Thoughtful dialogue</span>
+              <span class="chip-popup chip-mature">Zero pressure</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive Phone Mockup -->
+        <div class="film-phone-col" aria-hidden="true">
+          <div class="film-phone-frame">
+            <i class="phone-dynamic-island"></i>
+            
+            <div class="phone-screen-container">
+              <!-- iOS Status Bar -->
+              <div class="phone-status-bar">
+                <span class="status-clock">9:41</span>
+                <div class="status-icons">
+                  <span class="status-sig"></span>
+                  <span class="status-bat"></span>
+                </div>
+              </div>
+
+              <!-- Phone Screens (Active switches per scene) -->
+              <div class="phone-screen-view active" data-screen-for="0">
+                <img src="assets/placeholders/film-swipe-old.svg" alt="Generic swiping interface mockup" width="360" height="640" loading="lazy">
+                <div class="screen-corner-badge">✕</div>
+              </div>
+
+              <div class="phone-screen-view" data-screen-for="1">
+                <img src="assets/placeholders/film-swipe-old.svg" alt="Swiping app paywall mockup" width="360" height="640" loading="lazy">
+                <div class="phone-paywall-overlay">
+                  <div class="paywall-card">
+                    <span class="paywall-icon">🔒</span>
+                    <b>99+ Matches Waiting</b>
+                    <small>Upgrade to Gold to read messages</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phone-screen-view" data-screen-for="2">
+                <img src="assets/placeholders/film-chat-new.svg" alt="Compatibility introduction mockup" width="360" height="640" loading="lazy">
+              </div>
+
+              <div class="phone-screen-view" data-screen-for="3">
+                <img src="assets/placeholders/film-chat-new.svg" alt="Peaceful conversation stream mockup" width="360" height="640" loading="lazy">
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Cinema Timeline & Player Controls -->
+      <div class="film-ui-controls">
+        
+        <!-- Step Back Button -->
+        <button class="film-btn-control" id="filmPrevBtn" type="button" aria-label="Previous scene">
+          <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16" aria-hidden="true">
+            <path d="M3 2.5h2v11H3zM13.5 2.5v11L5.8 8z"/>
+          </svg>
+        </button>
+
+        <!-- Play / Pause Toggle Button -->
+        <button class="film-btn-control" id="filmPlayBtn" type="button" aria-label="Play or pause story preview">
+          <svg class="icon-play" viewBox="0 0 16 16" fill="currentColor" width="16" height="16" aria-hidden="true" style="display:none;">
+            <path d="M4 2.5v11l9-5.5z"/>
+          </svg>
+          <svg class="icon-pause" viewBox="0 0 16 16" fill="currentColor" width="16" height="16" aria-hidden="true">
+            <path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/>
+          </svg>
+        </button>
+
+        <!-- Segmented Scrubber Bar -->
+        <div class="film-timeline-bar" id="filmTimeline" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Story chapter progress" aria-valuetext="Chapter 1 of 4: The Old Way">
+          <div class="timeline-track">
+            <div class="timeline-fill" id="filmProgressFill" style="transform: scaleX(0);"></div>
+            
+            <!-- Chapter Segments -->
+            <div class="timeline-ticks">
+              <button type="button" class="timeline-segment active" data-step="0" aria-label="Chapter 1: The Old Way"></button>
+              <button type="button" class="timeline-segment" data-step="1" aria-label="Chapter 2: The Paywall &amp; Noise"></button>
+              <button type="button" class="timeline-segment" data-step="2" aria-label="Chapter 3: Curated for 50+"></button>
+              <button type="button" class="timeline-segment" data-step="3" aria-label="Chapter 4: Genuine Pacing"></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

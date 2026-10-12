@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 680" width="800" height="680">
+  <defs>
+    <linearGradient id="bgGradRob" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D1C24"/>
+      <stop offset="100%" stop-color="#1E1418"/>
+    </linearGradient>
+    <linearGradient id="glowRob" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#D47414" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#1E1418" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="680" fill="url(#bgGradRob)"/>
+  <circle cx="400" cy="260" r="220" fill="url(#glowRob)"/>
+  
+  <!-- Silhouette of mature man with jacket & collar -->
+  <g fill="#EFE8DE" opacity="0.9" transform="translate(400, 310)">
+    <!-- Head -->
+    <ellipse cx="0" cy="-110" rx="66" ry="78"/>
+    <!-- Short refined mature hair -->
+    <path d="M-66 -115 C-68 -185 68 -185 66 -115 C45 -140 -45 -140 -66 -115 Z"/>
+    <!-- Neck -->
+    <path d="M-24 -36 L24 -36 L30 14 L-30 14 Z"/>
+    <!-- Shoulders & Coat / Blazer -->
+    <path d="M-30 14 Q-130 45 -200 180 L200 180 Q130 45 30 14 Z"/>
+    <!-- Shirt collar V -->
+    <path d="M-18 14 L0 52 L18 14 Z" fill="#2D1C24" opacity="0.5"/>
+  </g>
+  
+  <!-- Warm overlay text -->
+  <rect x="250" y="560" width="300" height="50" rx="25" fill="#FFFFFF" opacity="0.95"/>
+  <text x="400" y="592" fill="#231C1A" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="700" text-anchor="middle">
+    Robert, 62 · Boulder, CO
+  </text>
+  <text x="400" y="640" fill="#DBCFCB" font-family="'Inter', sans-serif" font-size="14" text-anchor="middle">
+    [ Replace with your custom photo · 800×680px ]
+  </text>
+</svg>

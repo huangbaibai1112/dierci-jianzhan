@@ -1,0 +1,243 @@
+/* Component: Senior Dating Guide Scoped Styles (Warm Cashmere & Velvet Wine Architecture) */
+.comp-showcase {
+  padding: clamp(24px, 4vw, 44px) 0;
+}
+
+.showcase-island {
+  max-width: 1180px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--island-radius);
+  padding: var(--island-padding);
+  box-shadow: var(--shadow-card);
+}
+
+.guide-content-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  gap: clamp(24px, 3.5vw, 36px);
+  margin-top: var(--space-xl);
+  align-items: start;
+}
+
+/* Left Column: 4 Guiding Pillars */
+.guide-pillars-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.guide-pillar-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 18px;
+  align-items: flex-start;
+  transition: all var(--transition);
+}
+
+.guide-pillar-card:hover {
+  background: #FFFFFF;
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+
+.pillar-num-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent-wine-soft);
+  color: var(--accent-wine);
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(139, 38, 62, 0.2);
+  flex-shrink: 0;
+}
+
+.pillar-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  margin: 0 0 6px 0;
+}
+
+.pillar-desc {
+  font-size: 0.935rem;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+  margin: 0;
+}
+
+/* Right Column: First Coffee Date Checklist */
+.guide-checklist-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.checklist-card {
+  background: #FAF7F2;
+  border: 1.5px solid var(--border-medium);
+  border-radius: var(--radius-xl);
+  padding: clamp(22px, 3vw, 30px);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.checklist-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.checklist-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgba(212, 116, 20, 0.12);
+  color: var(--accent-honey);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(212, 116, 20, 0.25);
+}
+
+.checklist-icon-box svg {
+  width: 24px;
+  height: 24px;
+}
+
+.checklist-kicker {
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--accent-wine);
+  text-transform: uppercase;
+}
+
+.checklist-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  margin: 2px 0 0;
+}
+
+.checklist-intro {
+  font-size: 0.925rem;
+  line-height: 1.55;
+  color: var(--ink-secondary);
+  margin: 0;
+}
+
+.checklist-items {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checklist-item {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ink-secondary);
+}
+
+.checklist-item b {
+  color: var(--ink-primary);
+}
+
+.check-bullet {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(36, 110, 86, 0.15);
+  color: var(--accent-juniper);
+  font-weight: 800;
+  font-size: 12px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(36, 110, 86, 0.3);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checklist-cta-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-medium);
+  text-align: center;
+}
+
+.btn-block {
+  width: 100%;
+  justify-content: center;
+}
+
+.checklist-guarantee {
+  font-size: var(--text-xs);
+  color: var(--ink-muted);
+}
+
+/* Bottom Discovery Bar */
+.showcase-bottom-bar {
+  margin-top: var(--space-xl);
+  padding: 16px 24px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.bottom-bar-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+.bottom-bar-text svg {
+  color: var(--accent-wine);
+}
+
+@media (max-width: 900px) {
+  .guide-content-grid {
+    grid-template-columns: 1fr;
+  }
+  .guide-pillar-card {
+    grid-template-columns: 38px 1fr;
+    padding: 18px 20px;
+  }
+  .pillar-num-badge {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+  .showcase-bottom-bar {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+}

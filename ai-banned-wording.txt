@@ -1,0 +1,87 @@
+# ===================================================================
+# AI Wording Negative Word List (AI 高频特征词与套路句型库)
+# 用于自动化代码审计脚本 scratch/audit_ai_wording.py 静态扫描
+# ===================================================================
+
+# [Category: Abstract Verbs & Explanations]
+can make
+makes it easier to
+makes it easier
+might mean
+can mean
+this means
+brings together
+brings a sense of
+brings
+offers
+provides
+gives you
+allows you to
+helps you
+designed to
+aims to
+can help ensure
+by doing so
+
+# [Category: Overblown Comparisons & Rhetoric]
+whether you're
+whether you are
+from casual chats to
+not just
+more than just
+goes beyond
+is about more than
+plays an important role
+plays a key role
+is essential
+is crucial
+is important to
+take the time to
+keep in mind
+it's worth noting
+it's important to remember
+one of the key
+a range of
+a variety of
+
+# [Category: Hollow Openers & Essay Conclusions]
+when it comes to
+in today's world
+in today's fast-paced world
+in the world of
+in the realm of
+for those looking to
+ultimately
+at the end of the day
+in conclusion
+overall
+
+# [Category: Buzzwords, Tropes & Clichés]
+meaningful connection
+meaningful connections
+genuine connection
+genuine connections
+deeper connection
+deeper connections
+lasting connection
+lasting connections
+dating journey
+your journey
+navigate
+landscape
+realm
+opens the door to
+paves the way for
+fosters
+empowers
+embrace
+new chapter
+unlock
+elevate
+seamless
+tailored
+unique needs
+preferences and needs
+values and goals
+like-minded
+like-minded singles

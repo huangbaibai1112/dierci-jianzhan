@@ -1,0 +1,123 @@
+/* Component: Header Scoped Styles (Warm Cashmere & Velvet Wine Theme) */
+.comp-header {
+  position: relative;
+  z-index: 50;
+  padding: 16px 0;
+  background: rgba(250, 247, 242, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.header-nav-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.header-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-brand-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px -2px rgba(35, 28, 26, 0.08);
+}
+
+.header-brand-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.header-brand-text {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink-primary);
+}
+
+.header-brand-text .highlight {
+  color: var(--accent-wine);
+  font-weight: 800;
+}
+
+.header-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.header-nav-list a {
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  color: var(--ink-secondary);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  transition: color var(--transition), background-color var(--transition);
+}
+
+.header-nav-list a:hover {
+  color: var(--accent-wine);
+  background-color: var(--accent-wine-soft);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.header-menu-btn {
+  display: none;
+  background: #FFFFFF;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  padding: 8px;
+  color: var(--ink-primary);
+  cursor: pointer;
+}
+
+.header-menu-btn svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+@media (max-width: 860px) {
+  .header-nav-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: clamp(16px, 4vw, 24px);
+    right: clamp(16px, 4vw, 24px);
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-floating);
+    padding: var(--space-md);
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-nav-list.is-open {
+    display: flex;
+  }
+
+  .header-menu-btn {
+    display: block;
+  }
+}

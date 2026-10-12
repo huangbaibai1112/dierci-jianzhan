@@ -1,0 +1,88 @@
+/**
+ * Design Tokens & Variables
+ * Original Warm Velvet Bordeaux & Sunlit Honey Amber Palette
+ * Warm, comforting, romantic, and highly legible for adults 50+
+ */
+:root {
+  /* Warm Cashmere & Cream Canvas (Comforting & Inviting) */
+  --bg-primary: #FAF7F2;
+  --bg-secondary: #F3ECE1;
+  --bg-surface: #FFFFFF;
+  --bg-card-dark: #261219;
+  --bg-bordeaux-elevated: #3A1B25;
+  --bg-mist: #EBE3D7;
+
+  /* High-Contrast Warm Typography Colors (Soft on Senior Eyes) */
+  --ink-primary: #231C1A;
+  --ink-secondary: #524642;
+  --ink-muted: #7E706A;
+  --ink-inverse: #FFFFFF;
+  --ink-inverse-muted: #DBCFCB;
+
+  /* Primary Brand Warmth: Velvet Bordeaux & Mulberry Wine */
+  --accent-wine: #8B263E;
+  --accent-wine-dark: #721C30;
+  --accent-wine-soft: #FDF0F3;
+  --accent-rose: #C4687C;
+
+  /* High-Converting Warm Action: Sunlit Honey Amber */
+  --accent-honey: #D47414;
+  --accent-honey-dark: #B85F0B;
+  --accent-honey-soft: #FEF3E7;
+  --accent-honey-gold: #E58E26;
+
+  /* Trust & Verified Badges: Juniper Pine */
+  --accent-juniper: #246E56;
+  --accent-juniper-dark: #1A5341;
+  --accent-juniper-soft: #EBF5F1;
+
+  --accent-crimson: #C53030;
+  --accent-crimson-soft: #FDE8E8;
+
+  /* Architectural Warm Borders */
+  --border-light: #ECE4D8;
+  --border-medium: #DCCFBE;
+  --border-dark: #3A1B25;
+  --border-focus: #8B263E;
+
+  /* Modern, Crystal-Clear Typography */
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Senior-Friendly Typography Scales */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: 2.375rem;
+  --text-hero: clamp(2.35rem, 5.2vw, 4.15rem);
+
+  /* Spacing Rhythm */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --section-gap: clamp(40px, 5.5vw, 76px);
+  --island-radius: clamp(20px, 2.5vw, 28px);
+  --island-padding: clamp(28px, 4vw, 48px);
+
+  /* Radius & Shadows */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  --shadow-subtle: 0 4px 16px -4px rgba(35, 28, 26, 0.05);
+  --shadow-card: 0 12px 32px -8px rgba(35, 28, 26, 0.08), 0 2px 6px -1px rgba(35, 28, 26, 0.04);
+  --shadow-floating: 0 24px 50px -12px rgba(38, 18, 25, 0.28);
+  --shadow-button: 0 8px 24px -4px rgba(212, 116, 20, 0.42);
+  --shadow-button-wine: 0 8px 24px -4px rgba(139, 38, 62, 0.38);
+
+  --transition: 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}

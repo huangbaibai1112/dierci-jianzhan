@@ -1,0 +1,82 @@
+/* Component: FAQ Island Module (Warm Cashmere & Velvet Wine Architecture) */
+.comp-faq {
+  padding: clamp(24px, 4vw, 44px) 0;
+}
+
+.faq-island {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--island-radius);
+  padding: var(--island-padding);
+  box-shadow: var(--shadow-card);
+}
+
+.faq-accordion-group {
+  margin: 0 auto;
+  border-top: 1px solid var(--border-light);
+}
+
+.faq-card {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.faq-header {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 48px 22px 6px;
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  line-height: 1.35;
+  transition: color var(--transition);
+  user-select: none;
+}
+
+.faq-header::-webkit-details-marker {
+  display: none;
+}
+
+.faq-header:hover {
+  color: var(--accent-wine);
+}
+
+.faq-header::after {
+  content: "+";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  line-height: 1;
+}
+
+.faq-card[open] .faq-header {
+  color: var(--accent-wine-dark);
+}
+
+.faq-card[open] .faq-header::after {
+  content: "\2212";
+  color: var(--accent-wine);
+}
+
+.faq-content {
+  padding: 0 48px 24px 6px;
+  font-size: 1.0625rem;
+  color: var(--ink-secondary);
+  line-height: 1.65;
+}
+
+.faq-content p {
+  margin: 0;
+}
+
+.faq-content strong {
+  color: var(--ink-primary);
+}
