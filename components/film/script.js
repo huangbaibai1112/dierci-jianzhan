@@ -17,8 +17,8 @@
 
   var currentScene = 0;
   var totalScenes = 6;
-  var sceneDuration = 5200; // 5.2 seconds per chapter
-  var totalDuration = totalScenes * sceneDuration; // 31.2 seconds total cycle
+  var sceneDuration = 5800; // 5.8 seconds per chapter - relaxed, comfortable, unhurried cadence
+  var totalDuration = totalScenes * sceneDuration; // 34.8 seconds total cycle
 
   var currentTime = 0; // ms in loop: 0 to totalDuration
   var isPlaying = true;
@@ -69,12 +69,54 @@
       tallyNumberEl.textContent = '1';
     }
 
-    // Update narrative copy with clean animation reset
+    // 1. Update narrative copy with unhurried organic cadence and irregular delays
     var copies = stage.querySelectorAll('.scene-copy');
     copies.forEach(function(el) {
       var isTarget = parseInt(el.getAttribute('data-scene-index'), 10) === currentScene;
       if (isTarget) {
         el.classList.remove('active');
+
+        // Ensure word tokens exist
+        if (window.MotionEngine && window.MotionEngine.splitWords) {
+          var titleEl = el.querySelector('.scene-title');
+          if (titleEl && !titleEl.getAttribute('data-words-split')) {
+            window.MotionEngine.splitWords(titleEl, 0);
+          }
+        }
+
+        // Random organic jitter for kicker tag
+        var kicker = el.querySelector('.scene-kicker');
+        if (kicker) {
+          var kickerDelay = 90 + Math.floor(Math.random() * 80); // 90ms - 170ms
+          kicker.style.setProperty('--kicker-delay', kickerDelay + 'ms');
+        }
+
+        // Irregular, natural cadence across individual title words
+        var words = el.querySelectorAll('.scene-title .w');
+        var wordDelay = 180 + Math.floor(Math.random() * 60);
+        words.forEach(function(w) {
+          var step = 75 + Math.floor(Math.random() * 85); // 75ms - 160ms variation
+          wordDelay += step;
+          var wordDur = 780 + Math.floor(Math.random() * 140); // 780ms - 920ms unhurried duration
+          w.style.setProperty('--word-delay', wordDelay + 'ms');
+          w.style.setProperty('--word-duration', wordDur + 'ms');
+        });
+
+        // Unhurried description paragraph entrance
+        var desc = el.querySelector('.scene-desc');
+        var descDelay = Math.max(560, wordDelay - 140 + Math.floor(Math.random() * 100));
+        if (desc) {
+          desc.style.setProperty('--desc-delay', descDelay + 'ms');
+        }
+
+        // Stagger each chip individually with organic delay
+        var chips = el.querySelectorAll('.scene-floating-chips > *');
+        var chipDelay = (desc ? descDelay : 650) + 160;
+        chips.forEach(function(chip) {
+          chipDelay += 140 + Math.floor(Math.random() * 120);
+          chip.style.setProperty('--chip-delay', chipDelay + 'ms');
+        });
+
         // Force reflow so transitions re-trigger smoothly
         void el.offsetWidth;
         el.classList.add('active');
@@ -83,7 +125,7 @@
       }
     });
 
-    // Update phone screens
+    // 2. Update phone screens
     var screens = stage.querySelectorAll('.phone-screen-view');
     screens.forEach(function(el) {
       if (parseInt(el.getAttribute('data-screen-for'), 10) === currentScene) {
@@ -93,7 +135,31 @@
       }
     });
 
-    // Update segment active states
+    // 3. Update right-side floating pill popups with random, irregular spring pop delays
+    var allPops = stage.querySelectorAll('.phone-scene-pops');
+    allPops.forEach(function(popsEl) {
+      popsEl.classList.remove('is-active');
+    });
+
+    var currentPops = stage.querySelector('.pops-scene-' + currentScene);
+    if (currentPops) {
+      var pills = currentPops.children;
+      var baseDelays = [340, 920, 1540];
+      for (var p = 0; p < pills.length; p++) {
+        var pill = pills[p];
+        // Random organic jitter: -100ms to +140ms
+        var jitter = Math.floor(Math.random() * 240) - 100;
+        var delay = Math.max(220, (baseDelays[p] || (400 + p * 550)) + jitter);
+        var duration = 750 + Math.floor(Math.random() * 150); // 750ms - 900ms tactile pop
+        pill.style.setProperty('--pop-delay', delay + 'ms');
+        pill.style.setProperty('--pop-duration', duration + 'ms');
+      }
+      // Force reflow so animation restarts from scratch with the new random delays
+      void currentPops.offsetWidth;
+      currentPops.classList.add('is-active');
+    }
+
+    // 4. Update segment active states
     segments.forEach(function(seg, i) {
       if (i === currentScene) {
         seg.classList.add('active');

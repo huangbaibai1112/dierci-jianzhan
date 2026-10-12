@@ -261,8 +261,20 @@
   will-change: transform, opacity, filter;
 }
 
+/* Kicker: Crisp accent tag gliding down with unhurried cadence */
+.scene-kicker {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #F59E0B;
+  margin: 0;
+  will-change: transform, opacity, filter;
+}
+
 .scene-copy.active .scene-kicker {
-  animation: kickerEntrance 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: kickerEntrance 0.78s cubic-bezier(0.16, 1, 0.3, 1) var(--kicker-delay, 120ms) both;
 }
 
 /* Headline: Cinematic upward glide from blur into razor-sharp focus */
@@ -284,18 +296,17 @@
 }
 
 .scene-copy.active .scene-title {
-  animation: titleEntrance 0.78s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+  animation: titleEntrance 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
-/* Individual word tokens inside scene titles: sequential blur-to-sharp bloom */
+/* Individual word tokens inside scene titles: organic irregular blur-to-sharp bloom */
 .scene-title .w {
   display: inline-block;
   will-change: transform, opacity, filter;
 }
 
 .scene-copy.active .scene-title .w {
-  animation: wordBloom 0.72s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: calc(var(--i, 0) * 55ms + 80ms);
+  animation: wordBloom var(--word-duration, 0.84s) cubic-bezier(0.16, 1, 0.3, 1) var(--word-delay, calc(var(--i, 0) * 80ms + 160ms)) both;
 }
 
 /* Paragraph: Gentle staggered glide following the title */
@@ -309,29 +320,28 @@
 }
 
 .scene-copy.active .scene-desc {
-  animation: descEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
+  animation: descEntrance 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--desc-delay, 580ms) both;
 }
 
-/* Interactive Chips: Soft pop and upward reveal */
+/* Interactive Chips: Soft pop and upward reveal with staggered timing */
 .scene-floating-chips {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 10px;
   margin-top: 6px;
-  will-change: transform, opacity;
 }
 
-.scene-copy.active .scene-floating-chips {
-  animation: chipsEntrance 0.82s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
+.scene-copy.active .scene-floating-chips > * {
+  animation: chipsEntrance 0.85s cubic-bezier(0.16, 1, 0.3, 1) var(--chip-delay, 820ms) both;
 }
 
 /* Kinetic Entrance Keyframe Definitions */
 @keyframes kickerEntrance {
   0% {
     opacity: 0;
-    transform: translateY(-12px);
-    filter: blur(4px);
+    transform: translateY(-14px);
+    filter: blur(5px);
   }
   100% {
     opacity: 1;
@@ -356,8 +366,8 @@
 @keyframes descEntrance {
   0% {
     opacity: 0;
-    transform: translateY(16px);
-    filter: blur(5px);
+    transform: translateY(18px);
+    filter: blur(6px);
   }
   100% {
     opacity: 1;
@@ -369,8 +379,8 @@
 @keyframes chipsEntrance {
   0% {
     opacity: 0;
-    transform: translateY(14px) scale(0.97);
-    filter: blur(3px);
+    transform: translateY(16px) scale(0.92);
+    filter: blur(4px);
   }
   100% {
     opacity: 1;
@@ -482,9 +492,8 @@
   inset: 0;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 450ms ease, transform 450ms cubic-bezier(0.2, 0.8, 0.25, 1);
-  transform: scale(0.92);
   pointer-events: none;
+  transition: opacity 320ms ease;
 }
 
 [data-current-scene="0"] .pops-scene-0,
@@ -495,31 +504,94 @@
 [data-current-scene="5"] .pops-scene-5 {
   opacity: 1;
   visibility: visible;
-  transform: scale(1);
 }
 
-/* Scene 0 Floating Pills: Filters */
-.filter-floating-pill {
+/* Apple-grade Tactile Spring Pop Keyframe */
+@keyframes pillSpringPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(28px);
+    filter: blur(6px);
+  }
+  62% {
+    opacity: 1;
+    transform: scale(1.08) translateY(-4px);
+    filter: blur(0);
+  }
+  80% {
+    transform: scale(0.96) translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes pillFloatIdle1 {
+  0%, 100% {
+    transform: scale(1) translateY(0) rotate(-1.5deg);
+  }
+  50% {
+    transform: scale(1) translateY(-7px) rotate(0.8deg);
+  }
+}
+
+@keyframes pillFloatIdle2 {
+  0%, 100% {
+    transform: scale(1) translateY(0) rotate(1.8deg);
+  }
+  50% {
+    transform: scale(1) translateY(-8px) rotate(-0.5deg);
+  }
+}
+
+/* Floating Badges Base Shared Properties */
+.bubble-heart,
+.bubble-verified,
+.floating-tally-pill,
+.filter-floating-pill,
+.profile-floating-pill,
+.voice-floating-pill,
+.prompt-floating-pill,
+.coffee-floating-pill {
   position: absolute;
-  background: rgba(15, 23, 42, 0.92);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(245, 158, 11, 0.45);
-  color: #FDE68A;
-  font-size: 12.5px;
-  font-weight: 700;
-  padding: 8px 16px;
-  border-radius: var(--radius-full);
-  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25);
-  white-space: nowrap;
+  will-change: transform, opacity, filter;
+  opacity: 0;
 }
 
-.fp-1 { top: 18%; left: -48px; animation: floatPop1 4.2s ease-in-out infinite alternate; }
-.fp-2 { top: 74%; right: -42px; animation: floatPop2 4.6s ease-in-out infinite alternate; }
+/* Irregular, staggered spring pop animations triggered when scene is active */
+.pops-scene-0.is-active .bubble-heart,
+.pops-scene-1.is-active .fp-1,
+.pops-scene-2.is-active .prp-1,
+.pops-scene-3.is-active .vp-1,
+.pops-scene-4.is-active .tp-1,
+.pops-scene-5.is-active .co-1 {
+  animation: 
+    pillSpringPop var(--pop-duration, 0.78s) cubic-bezier(0.34, 1.4, 0.64, 1) var(--pop-delay, 360ms) both,
+    pillFloatIdle1 4.5s ease-in-out calc(var(--pop-delay, 360ms) + var(--pop-duration, 0.78s)) infinite alternate;
+}
 
-/* Scene 1 Floating Pills: Daily Picks */
+.pops-scene-0.is-active .bubble-verified,
+.pops-scene-1.is-active .fp-2,
+.pops-scene-2.is-active .prp-2,
+.pops-scene-3.is-active .vp-2,
+.pops-scene-4.is-active .tp-2,
+.pops-scene-5.is-active .co-2 {
+  animation: 
+    pillSpringPop var(--pop-duration, 0.82s) cubic-bezier(0.34, 1.4, 0.64, 1) var(--pop-delay, 920ms) both,
+    pillFloatIdle2 4.8s ease-in-out calc(var(--pop-delay, 920ms) + var(--pop-duration, 0.82s)) infinite alternate;
+}
+
+.pops-scene-0.is-active .floating-tally-pill,
+.pops-scene-3.is-active .vp-3 {
+  animation: 
+    pillSpringPop var(--pop-duration, 0.8s) cubic-bezier(0.34, 1.4, 0.64, 1) var(--pop-delay, 1480ms) both,
+    pillFloatIdle1 5.2s ease-in-out calc(var(--pop-delay, 1480ms) + var(--pop-duration, 0.8s)) infinite alternate;
+}
+
+/* Scene 0 Badges: Daily Picks */
 .bubble-heart {
-  position: absolute;
   top: 14%;
   left: -52px;
   background: linear-gradient(135deg, #FF6584 0%, #E94266 100%);
@@ -530,11 +602,9 @@
   border-radius: var(--radius-full);
   box-shadow: 0 8px 24px rgba(233, 66, 102, 0.45);
   white-space: nowrap;
-  animation: floatPop1 4s ease-in-out infinite alternate;
 }
 
 .bubble-verified {
-  position: absolute;
   top: 42%;
   right: -48px;
   background: rgba(30, 41, 59, 0.9);
@@ -548,11 +618,9 @@
   border-radius: var(--radius-full);
   box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
   white-space: nowrap;
-  animation: floatPop2 4.5s ease-in-out infinite alternate;
 }
 
 .floating-tally-pill {
-  position: absolute;
   bottom: 8%;
   left: -32px;
   background: rgba(15, 23, 42, 0.92);
@@ -565,7 +633,6 @@
   border-radius: var(--radius-full);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
   white-space: nowrap;
-  animation: floatPop1 5s ease-in-out infinite alternate;
 }
 
 .tally-number {
@@ -585,9 +652,26 @@
   font-weight: 500;
 }
 
-/* Scene 2 Floating Pills: Profile */
+/* Scene 1 Badges: Filters */
+.filter-floating-pill {
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  color: #FDE68A;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25);
+  white-space: nowrap;
+}
+
+.fp-1 { top: 18%; left: -48px; }
+.fp-2 { top: 74%; right: -42px; }
+
+/* Scene 2 Badges: Profile */
 .profile-floating-pill {
-  position: absolute;
   background: rgba(15, 23, 42, 0.9);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -601,12 +685,11 @@
   white-space: nowrap;
 }
 
-.prp-1 { top: 16%; left: -46px; animation: floatPop1 4s ease-in-out infinite alternate; }
-.prp-2 { top: 76%; right: -42px; animation: floatPop2 4.6s ease-in-out infinite alternate; }
+.prp-1 { top: 16%; left: -46px; }
+.prp-2 { top: 76%; right: -42px; }
 
-/* Scene 3 Floating Pills: Voice */
+/* Scene 3 Badges: Voice */
 .voice-floating-pill {
-  position: absolute;
   background: rgba(15, 23, 42, 0.9);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -620,13 +703,12 @@
   white-space: nowrap;
 }
 
-.vp-1 { top: 12%; left: -52px; animation: floatPop1 4s ease-in-out infinite alternate; }
-.vp-2 { top: 48%; right: -46px; animation: floatPop2 4.6s ease-in-out infinite alternate; }
-.vp-3 { bottom: 12%; left: -28px; animation: floatPop1 5s ease-in-out infinite alternate; }
+.vp-1 { top: 12%; left: -52px; }
+.vp-2 { top: 48%; right: -46px; }
+.vp-3 { bottom: 12%; left: -28px; }
 
-/* Scene 4 Floating Pills: Prompts */
+/* Scene 4 Badges: Prompts */
 .prompt-floating-pill {
-  position: absolute;
   background: rgba(15, 23, 42, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -640,12 +722,11 @@
   white-space: nowrap;
 }
 
-.tp-1 { top: 18%; left: -48px; animation: floatPop1 4.2s ease-in-out infinite alternate; }
-.tp-2 { top: 76%; right: -38px; animation: floatPop2 4.6s ease-in-out infinite alternate; }
+.tp-1 { top: 18%; left: -48px; }
+.tp-2 { top: 76%; right: -38px; }
 
-/* Scene 5 Floating Pills: Coffee */
+/* Scene 5 Badges: Coffee */
 .coffee-floating-pill {
-  position: absolute;
   background: rgba(28, 20, 16, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -659,8 +740,8 @@
   white-space: nowrap;
 }
 
-.co-1 { top: 16%; right: -42px; animation: floatPop2 4.4s ease-in-out infinite alternate; }
-.co-2 { top: 78%; left: -38px; animation: floatPop1 4.8s ease-in-out infinite alternate; }
+.co-1 { top: 16%; right: -42px; }
+.co-2 { top: 78%; left: -38px; }
 
 @keyframes floatPop1 {
   0% { transform: translateY(0) rotate(-2.5deg); }
