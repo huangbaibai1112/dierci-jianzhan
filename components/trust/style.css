@@ -1,49 +1,49 @@
-/* Component: Trust & Security Scoped Styles (Warm Cashmere & Velvet Wine Architecture) */
+/* Component: Trust & Security Scoped Styles (Warm Cashmere & Velvet Wine Architecture - Un-carded) */
 .comp-trust {
-  padding: clamp(24px, 4vw, 44px) 0;
-}
-
-.trust-island {
-  max-width: 1020px;
-  margin: 0 auto;
-  background: #FFFFFF;
-  border: 1px solid var(--border-light);
-  border-radius: var(--island-radius);
-  padding: var(--island-padding);
-  box-shadow: var(--shadow-card);
+  padding: clamp(32px, 5vw, 64px) 0;
 }
 
 .trust-shield-grid {
+  max-width: 1040px;
+  margin: var(--space-xl) auto 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(18px, 2.8vw, 28px);
-  margin-top: var(--space-xl);
+  gap: clamp(24px, 3.5vw, 44px);
 }
 
-.shield-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: clamp(20px, 3vw, 28px);
+.shield-item {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  transition: all var(--transition);
-}
-
-.shield-card:hover {
-  background: #FFFFFF;
-  border-color: var(--border-medium);
-  box-shadow: var(--shadow-subtle);
+  align-items: flex-start;
+  padding: 8px 0;
 }
 
 .shield-icon-badge {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: var(--radius-md);
   display: grid;
   place-items: center;
   align-self: flex-start;
+}
+
+.shield-icon-badge.badge-wine {
+  background: var(--accent-wine-soft);
+  color: var(--accent-wine);
+  border: 1px solid rgba(139, 38, 62, 0.2);
+}
+
+.shield-icon-badge.badge-juniper {
+  background: var(--accent-juniper-soft);
+  color: var(--accent-juniper);
+  border: 1px solid rgba(36, 110, 86, 0.2);
+}
+
+.shield-icon-badge.badge-honey {
+  background: var(--accent-honey-soft);
+  color: var(--accent-honey);
+  border: 1px solid rgba(212, 116, 20, 0.2);
 }
 
 .shield-icon-badge svg {
@@ -57,11 +57,11 @@
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: var(--accent-wine);
 }
 
 .shield-title {
-  font-size: 1.1875rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--ink-primary);
   margin: 0;
@@ -69,23 +69,25 @@
 }
 
 .shield-desc {
-  font-size: var(--text-sm);
-  line-height: 1.55;
+  font-size: 0.95rem;
+  line-height: 1.6;
   color: var(--ink-secondary);
   margin: 0;
 }
 
 /* Accord Certificate Card */
 .trust-accord-card {
-  margin-top: var(--space-2xl);
-  background: var(--bg-secondary);
-  border: 1.5px solid var(--border-medium);
+  max-width: 1040px;
+  margin: var(--space-2xl) auto 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
   border-radius: var(--radius-lg);
-  padding: clamp(20px, 3vw, 32px);
+  padding: clamp(22px, 3vw, 32px);
   display: grid;
   grid-template-columns: 56px 1fr;
   gap: 20px;
   align-items: center;
+  box-shadow: var(--shadow-subtle);
 }
 
 .accord-seal {
@@ -97,6 +99,7 @@
   display: grid;
   place-items: center;
   box-shadow: var(--shadow-button-wine);
+  flex-shrink: 0;
 }
 
 .accord-seal svg {
@@ -115,7 +118,7 @@
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent-wine);
+  color: var(--accent-honey);
 }
 
 .accord-title {
@@ -126,21 +129,20 @@
 }
 
 .accord-text {
-  font-size: var(--text-sm);
+  font-size: 0.9375rem;
   line-height: 1.6;
   color: var(--ink-secondary);
   margin: 0;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .trust-shield-grid {
     grid-template-columns: 1fr;
+    gap: 28px;
   }
   .trust-accord-card {
     grid-template-columns: 1fr;
     text-align: center;
-  }
-  .accord-seal {
-    margin: 0 auto;
+    justify-items: center;
   }
 }

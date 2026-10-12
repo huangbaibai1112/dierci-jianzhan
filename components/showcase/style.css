@@ -1,50 +1,41 @@
 /* Component: Senior Dating Guide Scoped Styles (Warm Cashmere & Velvet Wine Architecture) */
 .comp-showcase {
-  padding: clamp(24px, 4vw, 44px) 0;
-}
-
-.showcase-island {
-  max-width: 1180px;
-  margin: 0 auto;
-  background: #FFFFFF;
-  border: 1px solid var(--border-light);
-  border-radius: var(--island-radius);
-  padding: var(--island-padding);
-  box-shadow: var(--shadow-card);
+  padding: clamp(32px, 5vw, 64px) 0;
 }
 
 .guide-content-grid {
+  max-width: 1040px;
+  margin: var(--space-xl) auto 0;
   display: grid;
-  grid-template-columns: 1.25fr 0.95fr;
-  gap: clamp(24px, 3.5vw, 36px);
-  margin-top: var(--space-xl);
+  grid-template-columns: 1.2fr 0.88fr;
+  gap: clamp(28px, 4vw, 48px);
   align-items: start;
 }
 
-/* Left Column: 4 Guiding Pillars */
+/* Left Column: 4 Guiding Pillars (Open Editorial Thread - Un-carded) */
 .guide-pillars-col {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 0;
 }
 
-.guide-pillar-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: 22px 24px;
+.guide-pillar-item {
   display: grid;
   grid-template-columns: 46px 1fr;
   gap: 18px;
   align-items: flex-start;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border-medium);
   transition: all var(--transition);
 }
 
-.guide-pillar-card:hover {
-  background: #FFFFFF;
-  border-color: var(--border-medium);
-  box-shadow: var(--shadow-card);
-  transform: translateY(-2px);
+.guide-pillar-item:first-child {
+  padding-top: 0;
+}
+
+.guide-pillar-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .pillar-num-badge {
@@ -197,16 +188,18 @@
 
 /* Bottom Discovery Bar */
 .showcase-bottom-bar {
-  margin-top: var(--space-xl);
+  max-width: 1040px;
+  margin: 44px auto 0;
   padding: 16px 24px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
+  box-shadow: var(--shadow-subtle);
 }
 
 .bottom-bar-text {
@@ -226,9 +219,9 @@
   .guide-content-grid {
     grid-template-columns: 1fr;
   }
-  .guide-pillar-card {
+  .guide-pillar-item {
     grid-template-columns: 38px 1fr;
-    padding: 18px 20px;
+    padding: 18px 0;
   }
   .pillar-num-badge {
     width: 36px;
