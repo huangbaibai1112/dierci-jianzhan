@@ -507,7 +507,7 @@ img {
 /* [COMPONENT: hero] components\hero\style.css */
 /* Component: Hero Section (Editorial Asymmetrical Layout - Compact & Balanced) */
 .comp-hero {
-  padding: clamp(24px, 4vw, 48px) 0 clamp(32px, 5vw, 56px);
+  padding: clamp(20px, 3vw, 38px) 0 clamp(24px, 3.5vw, 42px);
   position: relative;
 }
 
@@ -517,7 +517,7 @@ img {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: clamp(24px, 3.5vw, 44px);
+  gap: clamp(20px, 3vw, 36px);
   align-items: center;
 }
 
@@ -525,7 +525,7 @@ img {
 .hero-left-col {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   max-width: 540px;
 }
 
@@ -533,7 +533,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .hero-headline {
@@ -560,48 +560,67 @@ img {
 /* 3-Step Value Stream with Connected Vertical Thread */
 /* ==========================================================================
    The Three Living Rhythms of Sincere Connection Console
-   Gradual flowing highlight, porcelain luxury cards, slow relaxed rhythm
+   Subtle resting background matching page, rich theme tint on active
    ========================================================================== */
 .hero-rhythm-console {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 7px;
   position: relative;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .rhythm-card {
   position: relative;
   display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: 14px;
+  grid-template-columns: 38px 1fr;
+  gap: 12px;
   align-items: center;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1.5px solid rgba(226, 232, 240, 0.9);
-  border-radius: 16px;
-  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(226, 232, 240, 0.7);
+  border-radius: 14px;
+  padding: 9px 15px;
   cursor: pointer;
   outline: none;
   overflow: hidden;
-  transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.55s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, box-shadow, border-color, background;
+  opacity: 0.88;
 }
 
 .rhythm-card:hover {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(212, 116, 20, 0.4);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px -4px rgba(35, 28, 26, 0.08);
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(203, 213, 225, 0.9);
+  opacity: 1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px -3px rgba(35, 28, 26, 0.06);
 }
 
-/* Living Flowing Highlight State */
+/* Base Active State */
 .rhythm-card.is-active {
-  background: #FFFFFF;
-  border-color: rgba(212, 116, 20, 0.55);
-  transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 12px 32px -6px rgba(212, 116, 20, 0.18), 0 2px 8px rgba(35, 28, 26, 0.04);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Theme-specific Rich Active Backgrounds */
+.rhythm-card-rose.is-active {
+  background: linear-gradient(135deg, rgba(255, 241, 242, 0.96) 0%, rgba(255, 248, 248, 0.99) 100%);
+  border-color: rgba(244, 63, 94, 0.45);
+  box-shadow: 0 8px 24px -5px rgba(244, 63, 94, 0.16), 0 2px 6px rgba(35, 28, 26, 0.03);
+}
+
+.rhythm-card-honey.is-active {
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.94) 0%, rgba(255, 251, 235, 0.99) 100%);
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 8px 24px -5px rgba(245, 158, 11, 0.16), 0 2px 6px rgba(35, 28, 26, 0.03);
+}
+
+.rhythm-card-juniper.is-active {
+  background: linear-gradient(135deg, rgba(240, 253, 244, 0.96) 0%, rgba(247, 254, 249, 0.99) 100%);
+  border-color: rgba(34, 197, 94, 0.45);
+  box-shadow: 0 8px 24px -5px rgba(34, 197, 94, 0.16), 0 2px 6px rgba(35, 28, 26, 0.03);
 }
 
 /* Glowing Flow Progress Beam on Active Card */
@@ -609,16 +628,28 @@ img {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 3px;
+  height: 2.5px;
   width: 0%;
-  background: linear-gradient(90deg, #E94266 0%, #F59E0B 50%, #27AE60 100%);
   border-radius: 0 2px 2px 0;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.35s ease;
 }
 
-.rhythm-card.is-active .rhythm-live-beam {
+.rhythm-card-rose.is-active .rhythm-live-beam {
   opacity: 1;
+  background: linear-gradient(90deg, #E11D48 0%, #FB7185 100%);
+  animation: rhythmBeamFill 4.2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+.rhythm-card-honey.is-active .rhythm-live-beam {
+  opacity: 1;
+  background: linear-gradient(90deg, #D97706 0%, #FBBF24 100%);
+  animation: rhythmBeamFill 4.2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+.rhythm-card-juniper.is-active .rhythm-live-beam {
+  opacity: 1;
+  background: linear-gradient(90deg, #16A34A 0%, #4ADE80 100%);
   animation: rhythmBeamFill 4.2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
 }
 
@@ -628,19 +659,19 @@ img {
 }
 
 .rhythm-icon-wrap {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.5s cubic-bezier(0.34, 1.3, 0.64, 1), box-shadow 0.5s ease;
+  transition: transform 0.45s cubic-bezier(0.34, 1.3, 0.64, 1), box-shadow 0.45s ease;
 }
 
 .rhythm-card.is-active .rhythm-icon-wrap {
-  transform: scale(1.08);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transform: scale(1.06);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
 }
 
 .icon-rose {
@@ -726,13 +757,13 @@ img {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-  margin-top: 8px;
+  gap: 10px;
+  margin-top: 4px;
 }
 
 .btn-hero-cta {
-  padding: 13px 28px;
-  font-size: 1rem;
+  padding: 12px 26px;
+  font-size: 0.96875rem;
   box-shadow: 0 8px 20px -4px rgba(212, 116, 20, 0.45);
 }
 
@@ -742,8 +773,8 @@ img {
 }
 
 .btn-hero-secondary {
-  padding: 13px 22px;
-  font-size: 1rem;
+  padding: 12px 20px;
+  font-size: 0.96875rem;
 }
 
 /* Trust Note */
@@ -780,12 +811,12 @@ img {
   max-width: 440px;
   background: #FFFFFF;
   border: 1px solid var(--border-light);
-  border-radius: 22px;
-  padding: 18px 20px;
-  box-shadow: 0 20px 48px -15px rgba(35, 28, 26, 0.12);
+  border-radius: 20px;
+  padding: 16px 18px;
+  box-shadow: 0 16px 40px -12px rgba(35, 28, 26, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 11px;
   position: relative;
   opacity: 0;
   transform: translateY(22px);
@@ -1052,7 +1083,7 @@ img {
 /* [COMPONENT: film] components\film\style.css */
 /* Component: Interactive Story Film Stage (6 Living Atmosphere Chapters & Real iOS App Showcase) */
 .comp-film {
-  padding: clamp(28px, 4.5vw, 56px) 0;
+  padding: clamp(20px, 3vw, 42px) 0;
 }
 
 .film-player-wrap {
@@ -3773,7 +3804,7 @@ img {
 /* [COMPONENT: comparison] components\comparison\style.css */
 /* Component: Benchmark Matrix Styles (Warm Cashmere & Velvet Wine Architecture - Un-carded) */
 .comp-comparison {
-  padding: clamp(32px, 5vw, 64px) 0;
+  padding: clamp(20px, 3vw, 42px) 0;
 }
 
 .benchmark-grid {
@@ -3943,16 +3974,16 @@ img {
 /* [COMPONENT: showcase] components\showcase\style.css */
 /* Component: Platform Core Ecosystem & Silver Select VIP Architecture */
 .comp-showcase {
-  padding: clamp(36px, 5.5vw, 72px) 0;
+  padding: clamp(24px, 3.5vw, 48px) 0;
   background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
 }
 
 .showcase-content-grid {
   max-width: 1080px;
-  margin: var(--space-xl) auto 0;
+  margin: var(--space-lg) auto 0;
   display: grid;
   grid-template-columns: 1.18fr 0.9fr;
-  gap: clamp(28px, 4vw, 48px);
+  gap: clamp(20px, 3vw, 36px);
   align-items: start;
 }
 
@@ -3960,7 +3991,7 @@ img {
 .showcase-pillars-col {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .showcase-pillar-card {
@@ -4240,7 +4271,7 @@ img {
 /* [COMPONENT: trust] components\trust\style.css */
 /* Component: Trust & Security Scoped Styles (Warm Cashmere & Velvet Wine Architecture - Un-carded) */
 .comp-trust {
-  padding: clamp(32px, 5vw, 64px) 0;
+  padding: clamp(20px, 3vw, 42px) 0;
 }
 
 .trust-shield-grid {
@@ -4391,7 +4422,7 @@ img {
 /* [COMPONENT: faq] components\faq\style.css */
 /* Component: FAQ Module (Clean Open Accordion Architecture - Un-carded) */
 .comp-faq {
-  padding: clamp(32px, 5vw, 64px) 0;
+  padding: clamp(20px, 3vw, 42px) 0;
 }
 
 .faq-container {
@@ -4731,7 +4762,7 @@ img {
         <div class="hero-rhythm-console" id="heroRhythmConsole" role="region" aria-label="Core living rhythms of mature connection">
           
           <!-- Rhythm 1: Morning Curation -->
-          <div class="rhythm-card is-active" data-rhythm="0" tabindex="0">
+          <div class="rhythm-card rhythm-card-rose is-active" data-rhythm="0" tabindex="0">
             <div class="rhythm-icon-wrap icon-rose">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="5"></circle>
@@ -4756,7 +4787,7 @@ img {
           </div>
 
           <!-- Rhythm 2: Unhurried Voice & Story Room -->
-          <div class="rhythm-card" data-rhythm="1" tabindex="0">
+          <div class="rhythm-card rhythm-card-honey" data-rhythm="1" tabindex="0">
             <div class="rhythm-icon-wrap icon-honey">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
@@ -4776,7 +4807,7 @@ img {
           </div>
 
           <!-- Rhythm 3: Daylight Cafe Meetups -->
-          <div class="rhythm-card" data-rhythm="2" tabindex="0">
+          <div class="rhythm-card rhythm-card-juniper" data-rhythm="2" tabindex="0">
             <div class="rhythm-icon-wrap icon-juniper">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>

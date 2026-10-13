@@ -1,6 +1,6 @@
 /* Component: Trust & Security Scoped Styles (Warm Cashmere & Velvet Wine Architecture - Un-carded) */
 .comp-trust {
-  padding: clamp(32px, 5vw, 64px) 0;
+  padding: clamp(20px, 3vw, 42px) 0;
 }
 
 .trust-shield-grid {

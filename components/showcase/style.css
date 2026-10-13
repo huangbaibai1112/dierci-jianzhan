@@ -1,15 +1,15 @@
 /* Component: Platform Core Ecosystem & Silver Select VIP Architecture */
 .comp-showcase {
-  padding: clamp(36px, 5.5vw, 72px) 0;
+  padding: clamp(24px, 3.5vw, 48px) 0;
   background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
 }
 
 .showcase-content-grid {
   max-width: 1080px;
-  margin: var(--space-xl) auto 0;
+  margin: var(--space-lg) auto 0;
   display: grid;
   grid-template-columns: 1.18fr 0.9fr;
-  gap: clamp(28px, 4vw, 48px);
+  gap: clamp(20px, 3vw, 36px);
   align-items: start;
 }
 
@@ -17,7 +17,7 @@
 .showcase-pillars-col {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .showcase-pillar-card {

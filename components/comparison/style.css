@@ -1,6 +1,6 @@
 /* Component: Benchmark Matrix Styles (Warm Cashmere & Velvet Wine Architecture - Un-carded) */
 .comp-comparison {
-  padding: clamp(32px, 5vw, 64px) 0;
+  padding: clamp(20px, 3vw, 42px) 0;
 }
 
 .benchmark-grid {

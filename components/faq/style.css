@@ -1,6 +1,6 @@
 /* Component: FAQ Module (Clean Open Accordion Architecture - Un-carded) */
 .comp-faq {
-  padding: clamp(32px, 5vw, 64px) 0;
+  padding: clamp(20px, 3vw, 42px) 0;
 }
 
 .faq-container {

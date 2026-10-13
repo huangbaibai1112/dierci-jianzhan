@@ -1,6 +1,6 @@
 /* Component: Interactive Story Film Stage (6 Living Atmosphere Chapters & Real iOS App Showcase) */
 .comp-film {
-  padding: clamp(28px, 4.5vw, 56px) 0;
+  padding: clamp(20px, 3vw, 42px) 0;
 }
 
 .film-player-wrap {
