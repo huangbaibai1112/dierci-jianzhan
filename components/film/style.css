@@ -148,7 +148,377 @@
   100% { transform: translate(-4cqw, 2cqw) scale(0.96); }
 }
 
-/* Master Organic Silk Ribbon Currents */
+/* ==========================================================================
+   Kinetic Graphic Symphony: Bouncing Shapes, Ripple Waves & Rhythm Spectrum
+   ========================================================================== */
+
+/* 1. Concentric Resonance Ripple System (Behind Phone) */
+.canvas-ripple-system {
+  position: absolute;
+  right: 18cqw;
+  top: 48%;
+  width: 0;
+  height: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ripple-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  will-change: transform, opacity;
+  transition: border-color 1s ease, box-shadow 1s ease;
+}
+
+.rr-1 {
+  width: 240px;
+  height: 240px;
+  border: 1.5px solid rgba(233, 66, 102, 0.3);
+  box-shadow: 0 0 24px rgba(233, 66, 102, 0.12), inset 0 0 20px rgba(233, 66, 102, 0.06);
+  animation: rippleSpringPulse 5.4s cubic-bezier(0.34, 1.3, 0.64, 1) infinite;
+}
+
+.rr-2 {
+  width: 380px;
+  height: 380px;
+  border: 1.5px dashed rgba(245, 158, 11, 0.28);
+  animation: rippleSpringPulse 6.2s cubic-bezier(0.34, 1.3, 0.64, 1) -1.8s infinite reverse;
+}
+
+.rr-3 {
+  width: 520px;
+  height: 520px;
+  border: 1.2px solid rgba(74, 144, 226, 0.22);
+  animation: rippleSpringPulse 7s cubic-bezier(0.34, 1.3, 0.64, 1) -3.2s infinite;
+}
+
+.ripple-satellite {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.rs-1 {
+  width: 8px;
+  height: 8px;
+  background: #E94266;
+  box-shadow: 0 0 10px 2px rgba(233, 66, 102, 0.55);
+  animation: orbitSatellite1 16s linear infinite;
+}
+
+.rs-2 {
+  width: 6px;
+  height: 6px;
+  background: #F59E0B;
+  box-shadow: 0 0 8px 2px rgba(245, 158, 11, 0.5);
+  animation: orbitSatellite2 22s linear infinite reverse;
+}
+
+@keyframes rippleSpringPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.92);
+    opacity: 0.45;
+  }
+  42% {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 0.85;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(0.98);
+    opacity: 0.6;
+  }
+}
+
+@keyframes orbitSatellite1 {
+  0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+}
+
+@keyframes orbitSatellite2 {
+  0% { transform: rotate(0deg) translateX(190px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(190px) rotate(-360deg); }
+}
+
+/* 2. Bouncing Graphic Rhythm Bars (Soundwave & Frequency Equalizer) */
+.canvas-rhythm-spectrum {
+  position: absolute;
+  right: 25cqw;
+  bottom: 11%;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 64px;
+  pointer-events: none;
+}
+
+.rhythm-bar {
+  width: 5px;
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, rgba(233, 66, 102, 0.45) 0%, rgba(74, 144, 226, 0.3) 100%);
+  transform-origin: bottom center;
+  will-change: transform, opacity;
+  animation: barHopBeat 1.8s cubic-bezier(0.34, 1.4, 0.64, 1) infinite;
+  box-shadow: 0 0 8px rgba(233, 66, 102, 0.2);
+}
+
+.rb-1 { height: 32px; animation-delay: 0s; animation-duration: 1.5s; background: linear-gradient(180deg, rgba(233, 66, 102, 0.5), rgba(245, 158, 11, 0.35)); }
+.rb-2 { height: 48px; animation-delay: -0.32s; animation-duration: 1.7s; }
+.rb-3 { height: 60px; animation-delay: -0.65s; animation-duration: 1.35s; background: linear-gradient(180deg, rgba(245, 158, 11, 0.5), rgba(233, 66, 102, 0.35)); }
+.rb-4 { height: 40px; animation-delay: -0.98s; animation-duration: 1.6s; }
+.rb-5 { height: 56px; animation-delay: -0.45s; animation-duration: 1.4s; background: linear-gradient(180deg, rgba(74, 144, 226, 0.5), rgba(39, 174, 96, 0.35)); }
+.rb-6 { height: 46px; animation-delay: -1.15s; animation-duration: 1.85s; }
+.rb-7 { height: 36px; animation-delay: -0.8s; animation-duration: 1.3s; }
+.rb-8 { height: 26px; animation-delay: -0.2s; animation-duration: 1.65s; background: linear-gradient(180deg, rgba(39, 174, 96, 0.5), rgba(74, 144, 226, 0.35)); }
+
+@keyframes barHopBeat {
+  0%, 100% {
+    transform: scaleY(0.32) translateY(0);
+    opacity: 0.45;
+  }
+  38% {
+    transform: scaleY(1.35) translateY(-12px);
+    opacity: 0.95;
+  }
+  65% {
+    transform: scaleY(0.75) translateY(2px);
+    opacity: 0.6;
+  }
+  82% {
+    transform: scaleY(1.08) translateY(-4px);
+    opacity: 0.85;
+  }
+}
+
+/* 3. Playful Bouncing 3D-Feel Geometric Shapes Field */
+.canvas-geometric-field {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.geo-shape {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* Frosted Donut Rings */
+.geo-donut {
+  border-radius: 50%;
+  background: transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.gd-1 {
+  left: 7cqw;
+  top: 19%;
+  width: 44px;
+  height: 44px;
+  border: 6px solid rgba(233, 66, 102, 0.35);
+  box-shadow: 0 8px 24px -4px rgba(233, 66, 102, 0.22);
+  animation: donutHop1 4.6s cubic-bezier(0.34, 1.35, 0.64, 1) infinite;
+}
+
+.gd-2 {
+  right: 7cqw;
+  bottom: 22%;
+  width: 36px;
+  height: 36px;
+  border: 5px solid rgba(74, 144, 226, 0.35);
+  box-shadow: 0 8px 20px -4px rgba(74, 144, 226, 0.2);
+  animation: donutHop2 5.2s cubic-bezier(0.34, 1.35, 0.64, 1) -1.6s infinite;
+}
+
+@keyframes donutHop1 {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  42% {
+    transform: translateY(-20px) rotate(24deg) scale(1.14);
+  }
+  72% {
+    transform: translateY(5px) rotate(-8deg) scale(0.95);
+  }
+}
+
+@keyframes donutHop2 {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  38% {
+    transform: translateY(-16px) rotate(-26deg) scale(1.12);
+  }
+  68% {
+    transform: translateY(4px) rotate(10deg) scale(0.96);
+  }
+}
+
+/* Floating Bouncing Capsules/Pills */
+.geo-capsule {
+  border-radius: 9999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+}
+
+.gc-1 {
+  left: 38cqw;
+  top: 13%;
+  width: 46px;
+  height: 22px;
+  background: linear-gradient(135deg, rgba(255, 101, 132, 0.26) 0%, rgba(245, 158, 11, 0.24) 100%);
+  box-shadow: 0 8px 20px -4px rgba(233, 66, 102, 0.16);
+  animation: capsuleHop1 5s cubic-bezier(0.34, 1.35, 0.64, 1) -0.8s infinite;
+}
+
+.gc-2 {
+  left: 14cqw;
+  bottom: 16%;
+  width: 38px;
+  height: 18px;
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.24) 0%, rgba(39, 174, 96, 0.22) 100%);
+  box-shadow: 0 8px 18px -4px rgba(74, 144, 226, 0.15);
+  animation: capsuleHop2 4.4s cubic-bezier(0.34, 1.35, 0.64, 1) -2.2s infinite;
+}
+
+@keyframes capsuleHop1 {
+  0%, 100% {
+    transform: translateY(0) rotate(-16deg) scale(1);
+  }
+  45% {
+    transform: translateY(-16px) rotate(-4deg) scale(1.1);
+  }
+  75% {
+    transform: translateY(3px) rotate(-20deg) scale(0.97);
+  }
+}
+
+@keyframes capsuleHop2 {
+  0%, 100% {
+    transform: translateY(0) rotate(18deg) scale(1);
+  }
+  40% {
+    transform: translateY(-15px) rotate(8deg) scale(1.1);
+  }
+  70% {
+    transform: translateY(4px) rotate(22deg) scale(0.96);
+  }
+}
+
+/* Floating Glass Orbs with Radial Highlights */
+.geo-orb {
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.go-1 {
+  left: 4cqw;
+  bottom: 30%;
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.95), rgba(255, 101, 132, 0.35) 60%, rgba(233, 66, 102, 0.12) 100%);
+  box-shadow: 0 8px 22px rgba(233, 66, 102, 0.2);
+  animation: orbHop1 4.8s ease-in-out infinite alternate;
+}
+
+.go-2 {
+  right: 4cqw;
+  top: 38%;
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.95), rgba(74, 144, 226, 0.32) 60%, rgba(74, 144, 226, 0.1) 100%);
+  box-shadow: 0 8px 22px rgba(74, 144, 226, 0.2);
+  animation: orbHop2 5.5s ease-in-out -1.4s infinite alternate;
+}
+
+.go-3 {
+  left: 49cqw;
+  top: 8%;
+  width: 22px;
+  height: 22px;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.95), rgba(245, 158, 11, 0.32) 60%, rgba(245, 158, 11, 0.1) 100%);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.18);
+  animation: orbHop3 4.2s ease-in-out -2.5s infinite alternate;
+}
+
+@keyframes orbHop1 {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-18px) scale(1.12); }
+  100% { transform: translateY(4px) scale(0.94); }
+}
+
+@keyframes orbHop2 {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-16px) scale(1.1); }
+  100% { transform: translateY(3px) scale(0.95); }
+}
+
+@keyframes orbHop3 {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-14px) scale(1.15); }
+  100% { transform: translateY(3px) scale(0.92); }
+}
+
+/* Sparkling 4-Point Prismatic Diamond Stars */
+.geo-sparkle {
+  filter: drop-shadow(0 2px 8px rgba(233, 66, 102, 0.3));
+}
+
+.gs-1 {
+  left: 22cqw;
+  top: 22%;
+  width: 22px;
+  height: 22px;
+  fill: #E94266;
+  animation: sparkleHopTwinkle 3.8s ease-in-out infinite;
+}
+
+.gs-2 {
+  right: 12cqw;
+  top: 15%;
+  width: 20px;
+  height: 20px;
+  fill: #F59E0B;
+  animation: sparkleHopTwinkle 4.4s ease-in-out -1.5s infinite;
+}
+
+.gs-3 {
+  left: 46cqw;
+  bottom: 24%;
+  width: 17px;
+  height: 17px;
+  fill: #0EA5E9;
+  animation: sparkleHopTwinkle 4s ease-in-out -2.7s infinite;
+}
+
+@keyframes sparkleHopTwinkle {
+  0%, 100% {
+    transform: scale(0.65) rotate(0deg) translateY(0);
+    opacity: 0.35;
+  }
+  45% {
+    transform: scale(1.3) rotate(90deg) translateY(-10px);
+    opacity: 0.95;
+  }
+  75% {
+    transform: scale(0.9) rotate(60deg) translateY(2px);
+    opacity: 0.6;
+  }
+}
+
+/* 4. Enhanced Flowing Silk Ribbons & Dashed Currents */
 .master-silk-strands {
   position: absolute;
   inset: 0;
@@ -168,24 +538,40 @@
 }
 
 .ribbon-1 {
-  stroke-width: 2px;
-  stroke-dasharray: 120 40;
-  opacity: 0.45;
-  animation: silkFlow1 30s linear infinite;
+  stroke-width: 2.8px;
+  stroke-dasharray: 140 45;
+  opacity: 0.65;
+  animation: silkFlow1 26s linear infinite;
 }
 
 .ribbon-2 {
-  stroke-width: 1.6px;
-  stroke-dasharray: 90 50;
-  opacity: 0.35;
-  animation: silkFlow2 38s linear infinite reverse;
+  stroke-width: 2.2px;
+  stroke-dasharray: 100 55;
+  opacity: 0.55;
+  animation: silkFlow2 34s linear infinite reverse;
 }
 
 .ribbon-3 {
-  stroke-width: 1.4px;
-  stroke-dasharray: 80 40;
-  opacity: 0.3;
-  animation: silkFlow3 34s linear infinite;
+  stroke-width: 2px;
+  stroke-dasharray: 90 45;
+  opacity: 0.5;
+  animation: silkFlow3 30s linear infinite;
+}
+
+.ribbon-dashed-1 {
+  stroke: url(#silkRibbonSubtle);
+  stroke-width: 2px;
+  stroke-dasharray: 16 12;
+  opacity: 0.55;
+  animation: silkFlow1 24s linear infinite;
+}
+
+.ribbon-dashed-2 {
+  stroke: url(#silkRibbonGradient);
+  stroke-width: 1.8px;
+  stroke-dasharray: 20 14;
+  opacity: 0.5;
+  animation: silkFlow2 28s linear infinite reverse;
 }
 
 @keyframes silkFlow1 {
@@ -203,31 +589,66 @@
   100% { stroke-dashoffset: -800; }
 }
 
+/* Scene-specific dynamic background enhancements */
+.film-stage[data-current-scene="0"] .rr-1 {
+  border-color: rgba(233, 66, 102, 0.45);
+  box-shadow: 0 0 32px rgba(233, 66, 102, 0.22);
+}
+
+.film-stage[data-current-scene="1"] .rr-2 {
+  border-color: rgba(245, 158, 11, 0.45);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.film-stage[data-current-scene="2"] .geo-orb {
+  box-shadow: 0 8px 24px rgba(39, 174, 96, 0.3);
+}
+
+.film-stage[data-current-scene="3"] .canvas-rhythm-spectrum {
+  height: 85px;
+}
+
+.film-stage[data-current-scene="3"] .rhythm-bar {
+  opacity: 0.95;
+  box-shadow: 0 0 14px rgba(74, 144, 226, 0.4);
+}
+
+.film-stage[data-current-scene="4"] .gs-1,
+.film-stage[data-current-scene="4"] .gs-2 {
+  animation-duration: 2.2s;
+  opacity: 1;
+}
+
+.film-stage[data-current-scene="5"] .rr-1 {
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 0 28px rgba(245, 158, 11, 0.25);
+}
+
 /* Star Dust Micro Glimmers */
 .star-glimmer {
   position: absolute;
-  width: 3px;
-  height: 3px;
+  width: 3.5px;
+  height: 3.5px;
   border-radius: 50%;
   background: #E94266;
   pointer-events: none;
-  box-shadow: 0 0 6px 1px rgba(233, 66, 102, 0.35);
+  box-shadow: 0 0 8px 1.5px rgba(233, 66, 102, 0.45);
   animation: starGlimmerFloat 5s ease-in-out infinite;
   will-change: transform, opacity;
 }
 
 .sg-1 { left: 12%; top: 24%; animation-delay: 0s; }
-.sg-2 { left: 28%; top: 76%; animation-delay: -1.2s; width: 2.5px; height: 2.5px; }
-.sg-3 { left: 42%; top: 18%; animation-delay: -2.5s; width: 3.5px; height: 3.5px; }
+.sg-2 { left: 28%; top: 76%; animation-delay: -1.2s; width: 3px; height: 3px; }
+.sg-3 { left: 42%; top: 18%; animation-delay: -2.5s; width: 4px; height: 4px; }
 .sg-4 { left: 58%; top: 82%; animation-delay: -3.8s; }
-.sg-5 { left: 68%; top: 14%; animation-delay: -0.7s; width: 2.5px; height: 2.5px; }
-.sg-6 { left: 82%; top: 70%; animation-delay: -2.1s; width: 3.5px; height: 3.5px; }
+.sg-5 { left: 68%; top: 14%; animation-delay: -0.7s; width: 3px; height: 3px; }
+.sg-6 { left: 82%; top: 70%; animation-delay: -2.1s; width: 4px; height: 4px; }
 .sg-7 { left: 88%; top: 28%; animation-delay: -3.2s; }
-.sg-8 { left: 20%; top: 52%; animation-delay: -4.4s; width: 2px; height: 2px; }
+.sg-8 { left: 20%; top: 52%; animation-delay: -4.4s; width: 2.5px; height: 2.5px; }
 
 @keyframes starGlimmerFloat {
-  0%, 100% { opacity: 0.15; transform: scale(0.6); }
-  50% { opacity: 0.75; transform: scale(1.3); }
+  0%, 100% { opacity: 0.2; transform: scale(0.65); }
+  50% { opacity: 0.9; transform: scale(1.4); }
 }
 
 /* ==========================================================================
@@ -1196,8 +1617,20 @@
   .tp-1 { left: -14px; font-size: 11px; padding: 6px 13px; }
   .tp-2 { right: -14px; font-size: 11px; padding: 6px 13px; }
   .co-1 { right: -14px; font-size: 11px; padding: 6px 13px; }
-  .co-2 { left: -14px; font-size: 11px; padding: 6px 13px; }
   .segment-label { display: none; }
+  .canvas-ripple-system {
+    right: 50%;
+    top: 65%;
+  }
+  .canvas-rhythm-spectrum {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 6%;
+    opacity: 0.65;
+  }
+  .geo-donut.gd-1 { left: 4%; top: 8%; width: 32px; height: 32px; }
+  .geo-donut.gd-2 { right: 4%; bottom: 10%; width: 28px; height: 28px; }
+  .geo-capsule.gc-1 { display: none; }
 }
 
 @media (max-width: 480px) {
