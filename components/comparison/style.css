@@ -291,3 +291,30 @@
     align-items: flex-start;
   }
 }
+
+@media (max-width: 640px) {
+  .benchmark-stage {
+    padding: clamp(24px, 4vw, 32px) clamp(14px, 3.5vw, 18px);
+    border-radius: clamp(20px, 3.5vw, 26px);
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .benchmark-card {
+    padding: 16px 14px;
+    border-radius: 16px;
+  }
+  .benchmark-header {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .benchmark-cta-strip {
+    padding: 14px 16px;
+  }
+  .benchmark-cta-strip .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .motif-benchmark-rings {
+    display: none;
+  }
+}

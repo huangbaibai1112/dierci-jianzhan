@@ -387,3 +387,47 @@
     position: static;
   }
 }
+
+@media (max-width: 640px) {
+  .showcase-stage {
+    padding: clamp(24px, 4vw, 32px) clamp(14px, 3.5vw, 18px);
+    border-radius: clamp(20px, 3.5vw, 26px);
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .showcase-pillar-card {
+    grid-template-columns: 40px 1fr;
+    gap: 12px;
+    padding: 16px 14px;
+    border-radius: 16px;
+  }
+  .pillar-icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+  .pillar-icon-wrap svg {
+    width: 20px;
+    height: 20px;
+  }
+  .pillar-title {
+    font-size: 1rem;
+  }
+  .vip-experience-card {
+    padding: 20px 14px;
+    border-radius: 20px;
+  }
+  .showcase-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 16px;
+    gap: 12px;
+  }
+  .showcase-bottom-bar .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .motif-showcase-circles {
+    display: none;
+  }
+}

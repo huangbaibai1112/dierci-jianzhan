@@ -157,6 +157,7 @@
   ];
 
   function randomizeSceneElements(sceneIdx) {
+    if (window.innerWidth <= 768) return;
     var motifEl = stage.querySelector('.motif-scene-' + sceneIdx);
     if (!motifEl) return;
 

@@ -279,3 +279,23 @@
     justify-items: center;
   }
 }
+
+@media (max-width: 640px) {
+  .trust-stage {
+    padding: clamp(24px, 4vw, 32px) clamp(14px, 3.5vw, 18px);
+    border-radius: clamp(20px, 3.5vw, 26px);
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .trust-vault-card {
+    padding: 18px 14px;
+    border-radius: 16px;
+  }
+  .trust-accord-card {
+    padding: 18px 14px;
+    border-radius: 16px;
+  }
+  .motif-trust-shield-radar {
+    display: none;
+  }
+}

@@ -1996,8 +1996,19 @@
 @media (max-width: 900px) {
   .film-stage {
     grid-template-columns: 1fr;
-    padding: 32px 18px;
+    padding: clamp(24px, 4vw, 32px) clamp(14px, 3.5vw, 18px);
+    border-radius: clamp(20px, 3.5vw, 28px);
     overflow: hidden;
+    max-width: 100%;
+  }
+  .dyn-sampled-motifs {
+    display: none !important;
+  }
+  .motif-pulse-rings {
+    display: none !important;
+  }
+  .motif-radar-dial {
+    display: none !important;
   }
   .film-phone-frame {
     max-width: 265px;
@@ -2005,19 +2016,19 @@
   .phone-floating-elements {
     max-width: 265px;
   }
-  .fp-1 { left: -14px; font-size: 11px; padding: 6px 12px; }
-  .fp-2 { right: -14px; font-size: 11px; padding: 6px 12px; }
-  .pop-1 { left: -14px; font-size: 11px; padding: 6px 12px; }
-  .bubble-verified { right: -14px; font-size: 11px; padding: 6px 12px; }
-  .floating-tally-pill { left: -10px; font-size: 11px; padding: 7px 13px; }
-  .prp-1 { left: -14px; font-size: 11px; padding: 6px 12px; }
-  .prp-2 { right: -14px; font-size: 11px; padding: 6px 12px; }
-  .vp-1 { left: -12px; font-size: 11px; }
-  .vp-2 { right: -12px; font-size: 11px; }
-  .vp-3 { left: -12px; font-size: 11px; }
-  .tp-1 { left: -14px; font-size: 11px; padding: 6px 13px; }
-  .tp-2 { right: -14px; font-size: 11px; padding: 6px 13px; }
-  .co-1 { right: -14px; font-size: 11px; padding: 6px 13px; }
+  .fp-1 { left: 0; font-size: 11px; padding: 6px 12px; }
+  .fp-2 { right: 0; font-size: 11px; padding: 6px 12px; }
+  .pop-1 { left: 0; font-size: 11px; padding: 6px 12px; }
+  .bubble-verified { right: 0; font-size: 11px; padding: 6px 12px; }
+  .floating-tally-pill { left: 0; font-size: 11px; padding: 7px 13px; }
+  .prp-1 { left: 0; font-size: 11px; padding: 6px 12px; }
+  .prp-2 { right: 0; font-size: 11px; padding: 6px 12px; }
+  .vp-1 { left: 0; font-size: 11px; }
+  .vp-2 { right: 0; font-size: 11px; }
+  .vp-3 { left: 0; font-size: 11px; }
+  .tp-1 { left: 0; font-size: 11px; padding: 6px 13px; }
+  .tp-2 { right: 0; font-size: 11px; padding: 6px 13px; }
+  .co-1 { right: 0; font-size: 11px; padding: 6px 13px; }
   .segment-label { display: none; }
   .canvas-ripple-system {
     right: 50%;
@@ -2035,26 +2046,33 @@
 }
 
 @media (max-width: 480px) {
+  .film-stage {
+    padding: 22px 12px;
+    border-radius: 20px;
+  }
   .film-phone-frame {
-    max-width: 245px;
+    max-width: 240px;
   }
   .phone-floating-elements {
-    max-width: 245px;
+    max-width: 240px;
   }
-  .fp-1 { left: -6px; }
-  .fp-2 { right: -6px; }
-  .pop-1 { left: -6px; }
-  .bubble-verified { right: -6px; }
-  .floating-tally-pill { left: -6px; }
-  .prp-1 { left: -6px; }
-  .prp-2 { right: -6px; }
-  .vp-1 { left: -6px; }
-  .vp-2 { right: -6px; }
-  .vp-3 { left: -6px; }
-  .tp-1 { left: -6px; }
-  .tp-2 { right: -6px; }
-  .co-1 { right: -6px; }
-  .co-2 { left: -6px; }
+  .film-ui-controls {
+    gap: 10px;
+    padding: 0 4px;
+  }
+  .film-btn-control {
+    width: 34px;
+    height: 34px;
+  }
+  .timeline-track {
+    height: 5px;
+  }
+  .fp-1, .pop-1, .floating-tally-pill, .prp-1, .vp-1, .vp-3, .tp-1, .co-2 {
+    left: 2px !important;
+  }
+  .fp-2, .bubble-verified, .prp-2, .vp-2, .tp-2, .co-1 {
+    right: 2px !important;
+  }
 }
 
 
