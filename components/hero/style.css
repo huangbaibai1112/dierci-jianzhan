@@ -51,86 +51,167 @@
 }
 
 /* 3-Step Value Stream with Connected Vertical Thread */
-.hero-thread-list {
-  list-style: none;
-  margin: 4px 0;
-  padding: 0;
-  display: grid;
-  gap: 14px;
-  position: relative;
-}
-
-.thread-step {
-  position: relative;
-  display: grid;
-  grid-template-columns: 36px 1fr;
+/* ==========================================================================
+   The Three Living Rhythms of Sincere Connection Console
+   Gradual flowing highlight, porcelain luxury cards, slow relaxed rhythm
+   ========================================================================== */
+.hero-rhythm-console {
+  display: flex;
+  flex-direction: column;
   gap: 12px;
-  align-items: start;
+  position: relative;
+  margin-top: 4px;
 }
 
-.thread-step:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  left: 18px;
-  top: 36px;
-  bottom: -12px;
-  width: 2px;
-  background: linear-gradient(180deg, rgba(139, 38, 62, 0.4) 0%, rgba(212, 116, 20, 0.3) 100%);
-  transform: translateX(-50%);
-  border-radius: 2px;
+.rhythm-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 14px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(226, 232, 240, 0.9);
+  border-radius: 16px;
+  padding: 12px 18px;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow, border-color, background;
 }
 
-.thread-num {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+.rhythm-card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(212, 116, 20, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(35, 28, 26, 0.08);
+}
+
+/* Living Flowing Highlight State */
+.rhythm-card.is-active {
   background: #FFFFFF;
-  border: 1.5px solid var(--border-medium);
+  border-color: rgba(212, 116, 20, 0.55);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 12px 32px -6px rgba(212, 116, 20, 0.18), 0 2px 8px rgba(35, 28, 26, 0.04);
+}
+
+/* Glowing Flow Progress Beam on Active Card */
+.rhythm-live-beam {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #E94266 0%, #F59E0B 50%, #27AE60 100%);
+  border-radius: 0 2px 2px 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.rhythm-card.is-active .rhythm-live-beam {
+  opacity: 1;
+  animation: rhythmBeamFill 4.2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+@keyframes rhythmBeamFill {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.rhythm-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 800;
-  font-size: 0.8125rem;
-  color: var(--accent-wine);
-  box-shadow: 0 4px 10px rgba(35, 28, 26, 0.05);
   flex-shrink: 0;
-  position: relative;
-  z-index: 1;
+  transition: transform 0.5s cubic-bezier(0.34, 1.3, 0.64, 1), box-shadow 0.5s ease;
 }
 
-.step-2 .thread-num {
-  color: var(--accent-honey);
-  border-color: rgba(212, 116, 20, 0.35);
+.rhythm-card.is-active .rhythm-icon-wrap {
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
-.step-3 .thread-num {
-  color: var(--accent-juniper);
-  border-color: rgba(36, 110, 86, 0.35);
+.icon-rose {
+  background: rgba(254, 242, 242, 0.95);
+  color: #E11D48;
+  border: 1px solid rgba(244, 63, 94, 0.25);
 }
 
-.thread-num i {
-  font-style: normal;
+.icon-honey {
+  background: rgba(254, 243, 199, 0.95);
+  color: #D97706;
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
-.thread-content {
+.icon-juniper {
+  background: rgba(240, 253, 244, 0.95);
+  color: #16A34A;
+  border: 1px solid rgba(34, 197, 94, 0.28);
+}
+
+.rhythm-content {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding-top: 1px;
+  gap: 3px;
 }
 
-.thread-content b {
+.rhythm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.rhythm-title {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.96875rem;
   font-weight: 700;
   color: var(--ink-primary);
   line-height: 1.25;
 }
 
-.thread-content span {
-  font-size: 0.84375rem;
+.rhythm-card.is-active .rhythm-title {
+  color: #1E293B;
+}
+
+.rhythm-pill {
+  font-family: var(--font-display);
+  font-size: 0.71875rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+}
+
+.pill-rose {
+  background: rgba(255, 241, 242, 0.9);
+  color: #E11D48;
+  border: 1px solid rgba(244, 63, 94, 0.25);
+}
+
+.pill-honey {
+  background: rgba(254, 243, 199, 0.9);
+  color: #B45309;
+  border: 1px solid rgba(245, 158, 11, 0.28);
+}
+
+.pill-juniper {
+  background: rgba(240, 253, 244, 0.9);
+  color: #15803D;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.rhythm-desc {
+  font-size: 0.8125rem;
   color: var(--ink-secondary);
   line-height: 1.45;
+  margin: 0;
 }
 
 /* Action Deck: High-converting direct buttons */
@@ -189,7 +270,7 @@
 
 .hero-story-art-card {
   width: 100%;
-  max-width: 395px;
+  max-width: 440px;
   background: #FFFFFF;
   border: 1px solid var(--border-light);
   border-radius: 22px;
@@ -248,22 +329,25 @@
   gap: 12px;
 }
 
+.art-collage-frame,
 .art-polaroid-frame {
   position: relative;
   background: var(--bg-primary);
   border: 1px solid var(--border-light);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 8px;
   box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
 
+.art-collage-img,
 .art-photo {
   width: 100%;
-  height: 180px;
+  height: clamp(280px, 32vw, 340px);
+  min-height: 280px;
   object-fit: cover;
   object-position: center 25%;
-  border-radius: 10px;
+  border-radius: 12px;
   display: block;
 }
 
