@@ -93,7 +93,7 @@ async function main() {
   const edgeProc = spawn(EDGE_PATH, [
     `--remote-debugging-port=${CDP_PORT}`,
     '--headless=new',
-    '--window-size=1280,1050',
+    '--window-size=1440,1050',
     '--disable-gpu',
     'about:blank'
   ]);
@@ -118,13 +118,14 @@ async function main() {
       });
 
       await client.send('Page.navigate', { url: `http://127.0.0.1:${port}/` });
-      await sleep(1500);
+      // Allow fonts to load and initial entry unblur animations to settle
+      await sleep(2200);
 
       const result = await client.send('Runtime.evaluate', {
         returnByValue: true,
         expression: `
           (function() {
-            var targets = Array.from(document.querySelectorAll('h1, h2, h3, h4, .section-header p, .hero-why, .b-title, .b-desc, .pillar-title, .pillar-desc, .scene-title, .scene-desc, .footer-cta-heading, .footer-cta-text'));
+            var targets = Array.from(document.querySelectorAll('h1, h2, h3, h4, .section-header p, .hero-why, .b-title, .b-desc, .pillar-title, .pillar-desc, .scene-title, .scene-desc, .footer-cta-heading, .footer-cta-text, .trust-stage-title, .trust-stage-lead, .faq-stage-title, .faq-stage-lead, .showcase-stage-title, .showcase-stage-lead, .benchmark-stage-title, .benchmark-stage-lead, .shield-title, .shield-desc'));
             var issues = [];
 
             targets.forEach(function(el) {
@@ -135,7 +136,7 @@ async function main() {
               // Break text into words using Range to detect line breaks
               var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
               var node;
-              var lineWords = {};
+              var lines = [];
 
               while (node = walker.nextNode()) {
                 var words = node.nodeValue.split(/(\\s+)/);
@@ -147,26 +148,33 @@ async function main() {
                     range.setStart(node, offset);
                     range.setEnd(node, offset + word.length);
                     var rect = range.getBoundingClientRect();
-                    var lineTop = Math.round(rect.top);
-                    if (!lineWords[lineTop]) lineWords[lineTop] = [];
-                    lineWords[lineTop].push(clean);
+                    var wordTop = rect.top;
+                    
+                    // Match existing line within 6px threshold
+                    var matchedLine = lines.find(l => Math.abs(l.top - wordTop) < 8);
+                    if (matchedLine) {
+                      matchedLine.words.push(clean);
+                    } else {
+                      lines.push({ top: wordTop, words: [clean] });
+                    }
                   }
                   offset += word.length;
                 });
               }
 
-              var lineKeys = Object.keys(lineWords).map(Number).sort((a,b) => a - b);
-              if (lineKeys.length > 1) {
-                var lastLineTop = lineKeys[lineKeys.length - 1];
-                var lastWords = lineWords[lastLineTop];
-                // Check if last line has only 1 word or if last line length is very short
-                if (lastWords.length === 1) {
+              // Sort lines by vertical position
+              lines.sort((a,b) => a.top - b.top);
+
+              if (lines.length > 1) {
+                var lastLine = lines[lines.length - 1];
+                // Check if last line has only 1 word
+                if (lastLine.words.length === 1) {
                   issues.push({
                     tag: el.tagName,
                     id: el.id || el.className,
                     text: text,
-                    lines: lineKeys.map(k => lineWords[k].join(' ')),
-                    orphan: lastWords[0]
+                    lines: lines.map(l => l.words.join(' ')),
+                    orphan: lastLine.words[0]
                   });
                 }
               }
@@ -185,16 +193,18 @@ async function main() {
         issues.forEach(iss => {
           console.log(`     [${iss.tag}#${iss.id}] Orphan word: "${iss.orphan}"`);
           console.log(`     Lines:`);
-          iss.lines.forEach((l, i) => console.log(`       Line ${i+1}: "${l}"`));
+          iss.lines.forEach((l, idx) => console.log(`       Line ${idx+1}: "${l}"`));
         });
       }
     }
 
     client.close();
+  } catch (err) {
+    console.error('Error running test:', err);
   } finally {
     edgeProc.kill();
     server.close();
   }
 }
 
-main().catch(console.error);
+main();

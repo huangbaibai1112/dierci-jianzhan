@@ -1,23 +1,112 @@
 /* Component: Platform Core Ecosystem & Silver Select VIP Architecture */
 .comp-showcase {
-  padding: clamp(24px, 3.5vw, 48px) 0;
-  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
+  padding: clamp(20px, 3vw, 42px) 0;
 }
 
+.showcase-stage-wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Master Island Stage Container (Mirroring Cinema Stage Luxury Palette) */
+.showcase-stage {
+  position: relative;
+  background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%);
+  border-radius: clamp(24px, 3.5vw, 38px);
+  padding: clamp(36px, 5vw, 64px) clamp(28px, 4.5vw, 60px);
+  overflow: hidden;
+  container-type: inline-size;
+  isolation: isolate;
+  color: var(--ink-primary);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 24px 64px -16px rgba(30, 41, 59, 0.08), 0 2px 8px -2px rgba(30, 41, 59, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3.5vw, 40px);
+}
+
+/* Atmospheric Aurora Blooms & Graphic Motifs */
+.motif-showcase-circles {
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  border: 1px dashed rgba(36, 110, 86, 0.16);
+  box-shadow: inset 0 0 70px rgba(36, 110, 86, 0.04);
+  pointer-events: none;
+}
+
+.motif-showcase-circles::after {
+  content: '';
+  position: absolute;
+  inset: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+}
+
+/* Stage Header inside Island */
+.showcase-stage-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.showcase-stage-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  color: var(--ink-primary);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.showcase-stage-title .highlight {
+  color: var(--accent-wine);
+}
+
+.showcase-stage-lead {
+  font-size: clamp(0.95rem, 1.25vw, 1.0625rem);
+  color: var(--ink-secondary);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 640px;
+  text-wrap: pretty;
+}
+
+/* Floating Reassurance Badges below Header */
+.showcase-floating-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* Two-Column Architecture Grid inside Stage Island */
 .showcase-content-grid {
-  max-width: 1080px;
-  margin: var(--space-lg) auto 0;
   display: grid;
   grid-template-columns: 1.18fr 0.9fr;
   gap: clamp(20px, 3vw, 36px);
   align-items: start;
+  position: relative;
+  z-index: 1;
 }
 
 /* Left Column: 4 Architecture Pillar Cards */
 .showcase-pillars-col {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .showcase-pillar-card {
@@ -26,17 +115,19 @@
   gap: 18px;
   align-items: flex-start;
   padding: 20px 22px;
-  background: #FFFFFF;
-  border: 1.5px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
   border-radius: var(--radius-lg);
-  box-shadow: 0 4px 16px -2px rgba(35, 28, 26, 0.04);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  box-shadow: 0 4px 16px -2px rgba(30, 41, 59, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .showcase-pillar-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(212, 116, 20, 0.4);
-  box-shadow: 0 10px 24px -4px rgba(35, 28, 26, 0.09);
+  border-color: rgba(212, 116, 20, 0.45);
+  box-shadow: 0 12px 28px -6px rgba(30, 41, 59, 0.09);
 }
 
 .pillar-icon-wrap {
@@ -140,11 +231,13 @@
 }
 
 .vip-experience-card {
-  background: #FAF7F2;
-  border: 1.5px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(212, 116, 20, 0.28);
   border-radius: var(--radius-xl);
   padding: clamp(24px, 3.2vw, 32px);
-  box-shadow: 0 16px 38px -10px rgba(35, 28, 26, 0.08);
+  box-shadow: 0 16px 40px -12px rgba(30, 41, 59, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -257,18 +350,20 @@
 
 /* Bottom Discovery Bar */
 .showcase-bottom-bar {
-  max-width: 1080px;
-  margin: 44px auto 0;
+  width: 100%;
   padding: 18px 26px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
-  box-shadow: var(--shadow-subtle);
+  box-shadow: 0 4px 14px -2px rgba(30, 41, 59, 0.04);
+  position: relative;
+  z-index: 1;
 }
 
 .bottom-bar-text {

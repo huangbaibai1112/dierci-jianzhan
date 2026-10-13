@@ -3811,40 +3811,132 @@ img {
 
 
 /* [COMPONENT: comparison] components\comparison\style.css */
-/* Component: Benchmark Matrix Styles (Warm Cashmere & Velvet Wine Architecture - Un-carded) */
+/* Component: Master Benchmark Stage Island (Mirroring Cinema Stage Luxury Palette) */
 .comp-comparison {
   padding: clamp(20px, 3vw, 42px) 0;
 }
 
+.benchmark-stage-wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Master Island Stage Container */
+.benchmark-stage {
+  position: relative;
+  background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%);
+  border-radius: clamp(24px, 3.5vw, 38px);
+  padding: clamp(36px, 5vw, 64px) clamp(28px, 4.5vw, 60px);
+  overflow: hidden;
+  container-type: inline-size;
+  isolation: isolate;
+  color: var(--ink-primary);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 24px 64px -16px rgba(30, 41, 59, 0.08), 0 2px 8px -2px rgba(30, 41, 59, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3.5vw, 40px);
+}
+
+/* Atmospheric Aurora Blooms & Graphic Motifs */
+.motif-benchmark-rings {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 1px dashed rgba(233, 66, 102, 0.14);
+  box-shadow: inset 0 0 60px rgba(233, 66, 102, 0.04);
+  pointer-events: none;
+}
+
+.motif-benchmark-rings::after {
+  content: '';
+  position: absolute;
+  inset: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 158, 11, 0.12);
+}
+
+/* Stage Header inside Island */
+.benchmark-stage-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.benchmark-stage-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  color: var(--ink-primary);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.benchmark-stage-title .highlight {
+  color: var(--accent-wine);
+}
+
+.benchmark-stage-lead {
+  font-size: clamp(0.95rem, 1.25vw, 1.0625rem);
+  color: var(--ink-secondary);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 620px;
+  text-wrap: pretty;
+}
+
+/* Floating Reassurance Tags below Header */
+.benchmark-floating-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* 2x2 Comparative Benchmark Audit Grid */
 .benchmark-grid {
-  max-width: 1040px;
-  margin: var(--space-xl) auto 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: clamp(20px, 3vw, 32px);
+  gap: clamp(16px, 2.5vw, 24px);
+  position: relative;
+  z-index: 1;
 }
 
 .benchmark-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-lg);
-  padding: clamp(22px, 3.2vw, 32px);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 20px;
+  padding: clamp(20px, 2.8vw, 28px);
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  box-shadow: var(--shadow-subtle);
-  transition: all var(--transition);
+  gap: 12px;
+  box-shadow: 0 4px 16px -2px rgba(30, 41, 59, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .benchmark-card:hover {
-  border-color: var(--accent-wine);
-  box-shadow: var(--shadow-card);
   transform: translateY(-2px);
+  border-color: rgba(212, 116, 20, 0.45);
+  box-shadow: 0 12px 28px -6px rgba(30, 41, 59, 0.09);
 }
 
 .benchmark-card.card-featured {
-  background: #FFFFFF;
-  border: 1.5px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(233, 66, 102, 0.22);
 }
 
 .benchmark-card.card-featured:hover {
@@ -3859,53 +3951,58 @@ img {
 }
 
 .b-pill {
-  font-size: var(--text-xs);
+  font-family: var(--font-display);
+  font-size: 0.71875rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 4px 12px;
-  border-radius: var(--radius-full);
+  padding: 3px 10px;
+  border-radius: 9999px;
 }
 
 .b-pill-wine {
-  background: var(--accent-wine-soft);
-  color: var(--accent-wine);
-  border: 1px solid rgba(139, 38, 62, 0.2);
+  background: rgba(255, 241, 242, 0.95);
+  color: #E11D48;
+  border: 1px solid rgba(244, 63, 94, 0.25);
 }
 
 .b-pill-honey {
-  background: var(--accent-honey-soft);
-  color: var(--accent-honey);
-  border: 1px solid rgba(212, 116, 20, 0.2);
+  background: rgba(254, 243, 199, 0.95);
+  color: #B45309;
+  border: 1px solid rgba(245, 158, 11, 0.28);
 }
 
 .b-pill-juniper {
-  background: var(--accent-juniper-soft);
-  color: var(--accent-juniper);
-  border: 1px solid rgba(36, 110, 86, 0.2);
+  background: rgba(240, 253, 244, 0.95);
+  color: #15803D;
+  border: 1px solid rgba(34, 197, 94, 0.25);
 }
 
 .b-ratio {
-  font-size: var(--text-xs);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
   font-weight: 800;
   color: var(--accent-wine);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .b-title {
-  font-size: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--ink-primary);
   margin: 0;
   line-height: 1.3;
+  text-wrap: balance;
 }
 
 .b-desc {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  line-height: 1.55;
   color: var(--ink-secondary);
   margin: 0;
+  text-wrap: pretty;
 }
 
 .b-metric-row {
@@ -3913,69 +4010,98 @@ img {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border-light);
+  padding-top: 12px;
+  border-top: 1px solid rgba(226, 232, 240, 0.65);
 }
 
 .metric-good, .metric-bad {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: 0.8125rem;
+  line-height: 1.4;
 }
 
 .metric-good {
-  color: var(--accent-juniper);
+  color: #15803D;
+}
+
+.metric-good .metric-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  background: rgba(240, 253, 244, 0.95);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 50%;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
 }
 
 .metric-bad {
   color: var(--ink-muted);
 }
 
-.metric-icon {
-  font-size: 1rem;
-  font-weight: 900;
+.metric-bad .metric-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid rgba(203, 213, 225, 0.6);
+  border-radius: 50%;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
 }
 
-/* Action Footer Strip */
+/* Integrated Stage Island Action Strip */
 .benchmark-cta-strip {
-  max-width: 1040px;
-  margin: var(--space-2xl) auto 0;
-  padding: 22px 28px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  box-shadow: var(--shadow-subtle);
-  flex-wrap: wrap;
+  padding: 18px 24px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 18px;
+  box-shadow: 0 4px 14px -3px rgba(30, 41, 59, 0.04);
+  position: relative;
+  z-index: 1;
+}
+
+.cta-strip-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .cta-strip-text b {
-  display: block;
-  font-size: 1.0625rem;
+  font-family: var(--font-display);
+  font-size: 0.96875rem;
   color: var(--ink-primary);
+  text-wrap: balance;
 }
 
 .cta-strip-text span {
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   color: var(--ink-secondary);
+  text-wrap: pretty;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 840px) {
   .benchmark-grid {
     grid-template-columns: 1fr;
   }
+  
   .benchmark-cta-strip {
     flex-direction: column;
-    align-items: stretch;
-    text-align: center;
-  }
-  .benchmark-cta-strip .btn {
-    width: 100%;
+    align-items: flex-start;
   }
 }
 
@@ -3983,24 +4109,113 @@ img {
 /* [COMPONENT: showcase] components\showcase\style.css */
 /* Component: Platform Core Ecosystem & Silver Select VIP Architecture */
 .comp-showcase {
-  padding: clamp(24px, 3.5vw, 48px) 0;
-  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
+  padding: clamp(20px, 3vw, 42px) 0;
 }
 
+.showcase-stage-wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* Master Island Stage Container (Mirroring Cinema Stage Luxury Palette) */
+.showcase-stage {
+  position: relative;
+  background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%);
+  border-radius: clamp(24px, 3.5vw, 38px);
+  padding: clamp(36px, 5vw, 64px) clamp(28px, 4.5vw, 60px);
+  overflow: hidden;
+  container-type: inline-size;
+  isolation: isolate;
+  color: var(--ink-primary);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 24px 64px -16px rgba(30, 41, 59, 0.08), 0 2px 8px -2px rgba(30, 41, 59, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3.5vw, 40px);
+}
+
+/* Atmospheric Aurora Blooms & Graphic Motifs */
+.motif-showcase-circles {
+  position: absolute;
+  top: -80px;
+  left: -80px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  border: 1px dashed rgba(36, 110, 86, 0.16);
+  box-shadow: inset 0 0 70px rgba(36, 110, 86, 0.04);
+  pointer-events: none;
+}
+
+.motif-showcase-circles::after {
+  content: '';
+  position: absolute;
+  inset: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+}
+
+/* Stage Header inside Island */
+.showcase-stage-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.showcase-stage-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  color: var(--ink-primary);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.showcase-stage-title .highlight {
+  color: var(--accent-wine);
+}
+
+.showcase-stage-lead {
+  font-size: clamp(0.95rem, 1.25vw, 1.0625rem);
+  color: var(--ink-secondary);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 640px;
+  text-wrap: pretty;
+}
+
+/* Floating Reassurance Badges below Header */
+.showcase-floating-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* Two-Column Architecture Grid inside Stage Island */
 .showcase-content-grid {
-  max-width: 1080px;
-  margin: var(--space-lg) auto 0;
   display: grid;
   grid-template-columns: 1.18fr 0.9fr;
   gap: clamp(20px, 3vw, 36px);
   align-items: start;
+  position: relative;
+  z-index: 1;
 }
 
 /* Left Column: 4 Architecture Pillar Cards */
 .showcase-pillars-col {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .showcase-pillar-card {
@@ -4009,17 +4224,19 @@ img {
   gap: 18px;
   align-items: flex-start;
   padding: 20px 22px;
-  background: #FFFFFF;
-  border: 1.5px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
   border-radius: var(--radius-lg);
-  box-shadow: 0 4px 16px -2px rgba(35, 28, 26, 0.04);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  box-shadow: 0 4px 16px -2px rgba(30, 41, 59, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .showcase-pillar-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(212, 116, 20, 0.4);
-  box-shadow: 0 10px 24px -4px rgba(35, 28, 26, 0.09);
+  border-color: rgba(212, 116, 20, 0.45);
+  box-shadow: 0 12px 28px -6px rgba(30, 41, 59, 0.09);
 }
 
 .pillar-icon-wrap {
@@ -4123,11 +4340,13 @@ img {
 }
 
 .vip-experience-card {
-  background: #FAF7F2;
-  border: 1.5px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(212, 116, 20, 0.28);
   border-radius: var(--radius-xl);
   padding: clamp(24px, 3.2vw, 32px);
-  box-shadow: 0 16px 38px -10px rgba(35, 28, 26, 0.08);
+  box-shadow: 0 16px 40px -12px rgba(30, 41, 59, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -4240,18 +4459,20 @@ img {
 
 /* Bottom Discovery Bar */
 .showcase-bottom-bar {
-  max-width: 1080px;
-  margin: 44px auto 0;
+  width: 100%;
   padding: 18px 26px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
-  box-shadow: var(--shadow-subtle);
+  box-shadow: 0 4px 14px -2px rgba(30, 41, 59, 0.04);
+  position: relative;
+  z-index: 1;
 }
 
 .bottom-bar-text {
@@ -4278,113 +4499,246 @@ img {
 
 
 /* [COMPONENT: trust] components\trust\style.css */
-/* Component: Trust & Security Scoped Styles (Warm Cashmere & Velvet Wine Architecture - Un-carded) */
+/* Component: Senior Protection Architecture Master Stage Island */
 .comp-trust {
   padding: clamp(20px, 3vw, 42px) 0;
 }
 
-.trust-shield-grid {
-  max-width: 1040px;
-  margin: var(--space-xl) auto 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(24px, 3.5vw, 44px);
+.trust-stage-wrap {
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
-.shield-item {
+/* Master Island Stage Container (Mirroring Cinema Stage Luxury Palette) */
+.trust-stage {
+  position: relative;
+  background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%);
+  border-radius: clamp(24px, 3.5vw, 38px);
+  padding: clamp(36px, 5vw, 64px) clamp(28px, 4.5vw, 60px);
+  overflow: hidden;
+  container-type: inline-size;
+  isolation: isolate;
+  color: var(--ink-primary);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 24px 64px -16px rgba(30, 41, 59, 0.08), 0 2px 8px -2px rgba(30, 41, 59, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3.5vw, 38px);
+}
+
+/* Atmospheric Aurora Blooms & Graphic Motifs */
+.motif-trust-shield-radar {
+  position: absolute;
+  top: -90px;
+  right: -90px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  border: 1px dashed rgba(139, 38, 62, 0.15);
+  box-shadow: inset 0 0 70px rgba(139, 38, 62, 0.04);
+  pointer-events: none;
+}
+
+.motif-trust-shield-radar::after {
+  content: '';
+  position: absolute;
+  inset: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(36, 110, 86, 0.12);
+}
+
+/* Stage Header inside Island */
+.trust-stage-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.trust-stage-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  color: var(--ink-primary);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.trust-stage-title .highlight {
+  color: var(--accent-wine);
+}
+
+.trust-stage-lead {
+  font-size: clamp(0.95rem, 1.25vw, 1.0625rem);
+  color: var(--ink-secondary);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 620px;
+  text-wrap: pretty;
+}
+
+/* Floating Reassurance Badges below Header */
+.trust-floating-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* 3-Tier Protection Vault Grid */
+.trust-shield-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2.5vw, 24px);
+  position: relative;
+  z-index: 1;
+}
+
+.trust-vault-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 20px;
+  padding: clamp(22px, 2.8vw, 28px);
   display: flex;
   flex-direction: column;
   gap: 12px;
-  align-items: flex-start;
-  padding: 8px 0;
+  box-shadow: 0 4px 16px -2px rgba(30, 41, 59, 0.04);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.trust-vault-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 116, 20, 0.45);
+  box-shadow: 0 12px 28px -6px rgba(30, 41, 59, 0.09);
+}
+
+.vault-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .shield-icon-badge {
-  width: 52px;
-  height: 52px;
-  border-radius: var(--radius-md);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   display: grid;
   place-items: center;
-  align-self: flex-start;
+  flex-shrink: 0;
 }
 
 .shield-icon-badge.badge-wine {
-  background: var(--accent-wine-soft);
+  background: rgba(253, 242, 244, 0.95);
   color: var(--accent-wine);
-  border: 1px solid rgba(139, 38, 62, 0.2);
+  border: 1px solid rgba(139, 38, 62, 0.25);
 }
 
 .shield-icon-badge.badge-juniper {
-  background: var(--accent-juniper-soft);
+  background: rgba(240, 253, 244, 0.95);
   color: var(--accent-juniper);
-  border: 1px solid rgba(36, 110, 86, 0.2);
+  border: 1px solid rgba(36, 110, 86, 0.25);
 }
 
 .shield-icon-badge.badge-honey {
-  background: var(--accent-honey-soft);
+  background: rgba(254, 243, 199, 0.95);
   color: var(--accent-honey);
-  border: 1px solid rgba(212, 116, 20, 0.2);
+  border: 1px solid rgba(212, 116, 20, 0.3);
 }
 
 .shield-icon-badge svg {
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
 }
 
 .shield-tier {
   font-family: var(--font-display);
-  font-size: var(--text-xs);
+  font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent-wine);
+  background: var(--accent-wine-soft);
+  padding: 3px 8px;
+  border-radius: 6px;
 }
 
 .shield-title {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
   font-weight: 700;
   color: var(--ink-primary);
   margin: 0;
   line-height: 1.3;
+  text-wrap: balance;
 }
 
 .shield-desc {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.8875rem;
+  line-height: 1.55;
   color: var(--ink-secondary);
   margin: 0;
 }
 
-/* Accord Certificate Card */
+.vault-feature-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.vpill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  background: rgba(241, 245, 249, 0.7);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  padding: 3px 9px;
+  border-radius: 9999px;
+}
+
+/* Accord Certificate Card inside Island */
 .trust-accord-card {
-  max-width: 1040px;
-  margin: var(--space-2xl) auto 0;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: var(--radius-lg);
-  padding: clamp(22px, 3vw, 32px);
+  padding: clamp(22px, 3vw, 30px);
   display: grid;
-  grid-template-columns: 56px 1fr;
+  grid-template-columns: 52px 1fr;
   gap: 20px;
   align-items: center;
-  box-shadow: var(--shadow-subtle);
+  box-shadow: 0 4px 16px -2px rgba(30, 41, 59, 0.04);
+  position: relative;
+  z-index: 1;
 }
 
 .accord-seal {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: var(--accent-wine);
   color: #FFFFFF;
   display: grid;
   place-items: center;
-  box-shadow: var(--shadow-button-wine);
+  box-shadow: 0 4px 14px -2px rgba(139, 38, 62, 0.35);
   flex-shrink: 0;
 }
 
 .accord-seal svg {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
 }
 
 .accord-body {
@@ -4402,15 +4756,15 @@ img {
 }
 
 .accord-title {
-  font-size: 1.25rem;
+  font-size: 1.18rem;
   font-weight: 700;
   color: var(--ink-primary);
   margin: 0;
 }
 
 .accord-text {
-  font-size: 0.9375rem;
-  line-height: 1.6;
+  font-size: 0.90625rem;
+  line-height: 1.55;
   color: var(--ink-secondary);
   margin: 0;
 }
@@ -4418,7 +4772,7 @@ img {
 @media (max-width: 900px) {
   .trust-shield-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 16px;
   }
   .trust-accord-card {
     grid-template-columns: 1fr;
@@ -4429,38 +4783,139 @@ img {
 
 
 /* [COMPONENT: faq] components\faq\style.css */
-/* Component: FAQ Module (Clean Open Accordion Architecture - Un-carded) */
+/* Component: Member Concierge Desk Master Stage Island */
 .comp-faq {
   padding: clamp(20px, 3vw, 42px) 0;
 }
 
-.faq-container {
-  max-width: 820px;
+.faq-stage-wrap {
+  max-width: 980px;
   margin: 0 auto;
 }
 
+/* Master Island Stage Container (Mirroring Cinema Stage Luxury Palette) */
+.faq-stage {
+  position: relative;
+  background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%);
+  border-radius: clamp(24px, 3.5vw, 38px);
+  padding: clamp(36px, 5vw, 64px) clamp(28px, 4.5vw, 60px);
+  overflow: hidden;
+  container-type: inline-size;
+  isolation: isolate;
+  color: var(--ink-primary);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 24px 64px -16px rgba(30, 41, 59, 0.08), 0 2px 8px -2px rgba(30, 41, 59, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 3.5vw, 38px);
+}
+
+/* Atmospheric Aurora Blooms & Graphic Motifs */
+.motif-faq-arcs {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  border: 1px dashed rgba(245, 158, 11, 0.16);
+  box-shadow: inset 0 0 60px rgba(245, 158, 11, 0.04);
+  pointer-events: none;
+}
+
+.motif-faq-arcs::after {
+  content: '';
+  position: absolute;
+  inset: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(139, 38, 62, 0.12);
+}
+
+/* Stage Header inside Island */
+.faq-stage-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.faq-stage-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  color: var(--ink-primary);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.faq-stage-title .highlight {
+  color: var(--accent-wine);
+}
+
+.faq-stage-lead {
+  font-size: clamp(0.95rem, 1.25vw, 1.0625rem);
+  color: var(--ink-secondary);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 620px;
+  text-wrap: pretty;
+}
+
+/* Floating Reassurance Badges below Header */
+.faq-floating-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* Porcelain Card Accordion Group */
 .faq-accordion-group {
-  margin: var(--space-xl) auto 0;
-  border-top: 1px solid var(--border-medium);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
 }
 
 .faq-row {
-  border-bottom: 1px solid var(--border-medium);
-  background: transparent;
-  transition: all var(--transition);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px -1px rgba(30, 41, 59, 0.03);
+}
+
+.faq-row:hover {
+  border-color: rgba(212, 116, 20, 0.4);
+  box-shadow: 0 6px 18px -2px rgba(30, 41, 59, 0.06);
+}
+
+.faq-row[open] {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(212, 116, 20, 0.45);
+  box-shadow: 0 10px 24px -4px rgba(30, 41, 59, 0.08);
 }
 
 .faq-header {
   list-style: none;
   cursor: pointer;
-  padding: 22px 48px 22px 4px;
-  position: relative;
-  font-family: var(--font-display);
-  font-size: 1.1875rem;
-  font-weight: 700;
-  color: var(--ink-primary);
-  line-height: 1.35;
-  transition: color var(--transition);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   user-select: none;
 }
 
@@ -4468,48 +4923,85 @@ img {
   display: none;
 }
 
-.faq-header:hover {
-  color: var(--accent-wine);
-}
-
-.faq-header::after {
-  content: "+";
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
+.faq-header-title {
   font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 500;
-  color: var(--ink-muted);
-  line-height: 1;
-  transition: transform var(--transition), color var(--transition);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--ink-primary);
+  line-height: 1.35;
+  transition: color var(--transition);
 }
 
-.faq-row[open] .faq-header {
-  color: var(--accent-wine-dark);
-}
-
-.faq-row[open] .faq-header::after {
-  content: "\2212";
+.faq-header:hover .faq-header-title {
   color: var(--accent-wine);
+}
+
+.faq-row[open] .faq-header-title {
+  color: var(--accent-wine);
+}
+
+.faq-toggle-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  position: relative;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.faq-toggle-icon::before,
+.faq-toggle-icon::after {
+  content: '';
+  position: absolute;
+  background: var(--ink-secondary);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, background-color 0.3s ease;
+}
+
+/* Horizontal bar */
+.faq-toggle-icon::before {
+  width: 12px;
+  height: 2px;
+}
+
+/* Vertical bar */
+.faq-toggle-icon::after {
+  width: 2px;
+  height: 12px;
+}
+
+.faq-row[open] .faq-toggle-icon {
+  background: var(--accent-wine-soft);
+  border-color: rgba(139, 38, 62, 0.3);
+}
+
+.faq-row[open] .faq-toggle-icon::before {
+  background: var(--accent-wine);
+}
+
+.faq-row[open] .faq-toggle-icon::after {
+  transform: rotate(90deg);
+  opacity: 0;
 }
 
 .faq-content {
-  padding: 0 48px 24px 4px;
-  font-size: 1.0625rem;
+  padding: 0 24px 22px 24px;
+  font-size: 0.9375rem;
   color: var(--ink-secondary);
-  line-height: 1.65;
-}
-
-.faq-row[open] .faq-content {
+  line-height: 1.62;
+  border-top: 1px solid rgba(226, 232, 240, 0.5);
+  padding-top: 14px;
   animation: faqExpand 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes faqExpand {
   0% {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-6px);
   }
   100% {
     opacity: 1;
@@ -4519,10 +5011,62 @@ img {
 
 .faq-content p {
   margin: 0;
+  text-wrap: pretty;
 }
 
 .faq-content strong {
   color: var(--ink-primary);
+}
+
+/* Bottom Concierge Care Strip inside Island */
+.faq-concierge-strip {
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 14px -2px rgba(30, 41, 59, 0.04);
+  position: relative;
+  z-index: 1;
+}
+
+.concierge-strip-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--text-sm);
+  color: var(--ink-secondary);
+  flex-wrap: wrap;
+}
+
+.concierge-strip-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-wine);
+  background: var(--accent-wine-soft);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+@media (max-width: 640px) {
+  .faq-header {
+    padding: 18px 20px;
+  }
+  .faq-content {
+    padding: 0 20px 18px 20px;
+    padding-top: 12px;
+  }
+  .faq-concierge-strip {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 
@@ -5318,112 +5862,142 @@ img {
 <section class="comp-comparison" id="why-us" aria-labelledby="standardsTitle">
   <div class="site-wrap">
     
-    <div class="section-header" id="standards">
-      <span class="kicker">The Quality Benchmark</span>
-      <h2 id="standardsTitle">The Mature Standard:<br><span class="highlight">Built for Adults&nbsp;50+</span></h2>
-      <p>A transparent look at how our environment protects your dignity, time, and peace of mind.</p>
-    </div>
+    <!-- Big Benchmark Stage Island (Matching Cinema Stage Luxury Style) -->
+    <div class="benchmark-stage-wrap" id="standards">
+      <div class="benchmark-stage">
+        
+        <!-- Ambient Atmosphere & Motifs -->
+        <div class="stage-master-canvas" aria-hidden="true">
+          <span class="ambient-aurora aurora-rose"></span>
+          <span class="ambient-aurora aurora-amber"></span>
+          <span class="ambient-aurora aurora-cyan"></span>
+          <div class="motif-benchmark-rings" aria-hidden="true"></div>
+        </div>
 
-    <!-- Bento-Style Benchmark Grid (Un-carded Canvas) -->
-    <div class="benchmark-grid">
-      
-      <!-- Pillar 1: Age Exclusivity -->
-      <div class="benchmark-card card-featured">
-        <div class="benchmark-header">
-          <span class="b-pill b-pill-wine">Age Exclusivity</span>
-          <div class="b-ratio">100% Members 50+</div>
-        </div>
-        <h3 class="b-title">Dedicated Exclusively to Mature Adults</h3>
-        <p class="b-desc">
-          Unlike generic platforms dominated by 20-somethings pursuing casual dating, our entire community consists of single adults aged 50 and older who share similar life chapters and&nbsp;milestones.
-        </p>
-        <div class="b-metric-row">
-          <div class="metric-good">
-            <span class="metric-icon">&#x2713;</span>
-            <span>Our Platform: 100% aged 50+ looking for partnership</span>
-          </div>
-          <div class="metric-bad">
-            <span class="metric-icon">&#x2715;</span>
-            <span>Generic Apps: 85% under 35 pursuing casual encounters</span>
+        <!-- Section Intro Header inside the Island -->
+        <div class="benchmark-stage-header">
+          <span class="kicker">The Quality Benchmark</span>
+          <h2 id="standardsTitle" class="benchmark-stage-title">
+            The Mature Standard:<br>
+            <span class="highlight">Built for Adults&nbsp;50+</span>
+          </h2>
+          <p class="benchmark-stage-lead">
+            A transparent look at how our environment protects your dignity, time, and peace of&nbsp;mind.
+          </p>
+
+          <!-- Floating Reassurance Chips -->
+          <div class="benchmark-floating-tags" aria-hidden="true">
+            <span class="chip-popup chip-rose">&#x2713; Age 50+ Exclusivity</span>
+            <span class="chip-popup chip-juniper">&#x1F6E1; 100% ID Confirmed</span>
+            <span class="chip-popup chip-amber">&#x2615; Unhurried Pacing</span>
           </div>
         </div>
+
+        <!-- 4 Comparative Benchmark Audit Cards (2x2 Grid) -->
+        <div class="benchmark-grid">
+          
+          <!-- Pillar 1: Age Exclusivity -->
+          <article class="benchmark-card card-featured">
+            <div class="benchmark-header">
+              <span class="b-pill b-pill-wine">Age Exclusivity</span>
+              <div class="b-ratio">100% Members 50+</div>
+            </div>
+            <h3 class="b-title">Dedicated Exclusively to Mature Adults</h3>
+            <p class="b-desc">
+              Unlike generic platforms dominated by 20-somethings pursuing casual dating, our entire community consists of single adults aged 50 and older who share similar life chapters and&nbsp;milestones.
+            </p>
+            <div class="b-metric-row">
+              <div class="metric-good">
+                <span class="metric-icon">&#x2713;</span>
+                <span>Our Platform: 100% aged 50+ looking for partnership</span>
+              </div>
+              <div class="metric-bad">
+                <span class="metric-icon">&#x2715;</span>
+                <span>Generic Apps: 85% under 35 pursuing casual encounters</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pillar 2: Intentional Matching -->
+          <article class="benchmark-card">
+            <div class="benchmark-header">
+              <span class="b-pill b-pill-honey">Curated Matching</span>
+              <div class="b-ratio">Zero Fatigue</div>
+            </div>
+            <h3 class="b-title">Curated Daily Matches &amp; Lifestyle Criteria</h3>
+            <p class="b-desc">
+              Introductions are guided by your selected age bracket (50&ndash;99), regional radius, and genuine lifestyle preferences rather than split-second photo&nbsp;glances.
+            </p>
+            <div class="b-metric-row">
+              <div class="metric-good">
+                <span class="metric-icon">&#x2713;</span>
+                <span>Curated Daily Matches &amp; verified profiles</span>
+              </div>
+              <div class="metric-bad">
+                <span class="metric-icon">&#x2715;</span>
+                <span>Endless random photo catalogues</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pillar 3: Human Verification -->
+          <article class="benchmark-card">
+            <div class="benchmark-header">
+              <span class="b-pill b-pill-juniper">Safety Screening</span>
+              <div class="b-ratio">Zero Bots</div>
+            </div>
+            <h3 class="b-title">Strict Manual Inspection</h3>
+            <p class="b-desc">
+              Dedicated customer care specialists inspect new profile submissions and photos. Financial solicitations and deceptive accounts are intercepted&nbsp;immediately.
+            </p>
+            <div class="b-metric-row">
+              <div class="metric-good">
+                <span class="metric-icon">&#x2713;</span>
+                <span>Manual profile &amp; image verification</span>
+              </div>
+              <div class="metric-bad">
+                <span class="metric-icon">&#x2715;</span>
+                <span>Frequent catfishes and automated bots</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pillar 4: Unhurried Pacing -->
+          <article class="benchmark-card card-featured">
+            <div class="benchmark-header">
+              <span class="b-pill b-pill-wine">Pacing</span>
+              <div class="b-ratio">Zero Pressure</div>
+            </div>
+            <h3 class="b-title">Conversations That Unfold Naturally</h3>
+            <p class="b-desc">
+              No countdown timers, expiration warnings, or rush. Take your time sharing life stories, favorite morning routines, and future travel plans with genuine peace of&nbsp;mind.
+            </p>
+            <div class="b-metric-row">
+              <div class="metric-good">
+                <span class="metric-icon">&#x2713;</span>
+                <span>Calm, dignified communication pacing</span>
+              </div>
+              <div class="metric-bad">
+                <span class="metric-icon">&#x2715;</span>
+                <span>24-hour match expirations &amp; rapid ghosting</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Integrated Action Footer Strip inside Stage Island -->
+        <div class="benchmark-cta-strip">
+          <div class="cta-strip-text">
+            <b>Ready to experience dating built on mutual&nbsp;respect?</b>
+            <span>Join thousands of active mature singles today. Free to get&nbsp;started.</span>
+          </div>
+          <button class="btn btn-primary" data-action="join-partner" data-source="comparison_section">
+            Sign Up
+          </button>
+        </div>
+
       </div>
-
-      <!-- Pillar 2: Intentional Matching -->
-      <div class="benchmark-card">
-        <div class="benchmark-header">
-          <span class="b-pill b-pill-honey">Curated Matching</span>
-        </div>
-        <h3 class="b-title">Curated Daily Matches &amp; Lifestyle Criteria</h3>
-        <p class="b-desc">
-          Introductions are guided by your selected age bracket (50&ndash;99), regional radius, and genuine lifestyle preferences rather than split-second photo&nbsp;glances.
-        </p>
-        <div class="b-metric-row">
-          <div class="metric-good">
-            <span class="metric-icon">&#x2713;</span>
-            <span>Curated Daily Matches &amp; verified profiles</span>
-          </div>
-          <div class="metric-bad">
-            <span class="metric-icon">&#x2715;</span>
-            <span>Endless random photo catalogues</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Pillar 3: Human Verification -->
-      <div class="benchmark-card">
-        <div class="benchmark-header">
-          <span class="b-pill b-pill-juniper">Safety Screening</span>
-        </div>
-        <h3 class="b-title">Strict Manual Inspection</h3>
-        <p class="b-desc">
-          Dedicated customer care specialists inspect new profile submissions and photos. Financial solicitations and deceptive accounts are intercepted&nbsp;immediately.
-        </p>
-        <div class="b-metric-row">
-          <div class="metric-good">
-            <span class="metric-icon">&#x2713;</span>
-            <span>Manual profile &amp; image verification</span>
-          </div>
-          <div class="metric-bad">
-            <span class="metric-icon">&#x2715;</span>
-            <span>Frequent catfishes and automated bots</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Pillar 4: Unhurried Pacing -->
-      <div class="benchmark-card card-featured">
-        <div class="benchmark-header">
-          <span class="b-pill b-pill-wine">Pacing</span>
-          <div class="b-ratio">Zero Pressure</div>
-        </div>
-        <h3 class="b-title">Conversations That Unfold Naturally</h3>
-        <p class="b-desc">
-          No countdown timers, expiration warnings, or rush. Take your time sharing life stories, favorite morning routines, and future travel plans with genuine peace of&nbsp;mind.
-        </p>
-        <div class="b-metric-row">
-          <div class="metric-good">
-            <span class="metric-icon">&#x2713;</span>
-            <span>Calm, dignified communication pacing</span>
-          </div>
-          <div class="metric-bad">
-            <span class="metric-icon">&#x2715;</span>
-            <span>24-hour match expirations &amp; rapid ghosting</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Action Footer Strip -->
-    <div class="benchmark-cta-strip">
-      <div class="cta-strip-text">
-        <b>Ready to experience dating built on mutual&nbsp;respect?</b>
-        <span>Join thousands of active mature singles today. Free to get&nbsp;started.</span>
-      </div>
-      <button class="btn btn-primary" data-action="join-partner" data-source="comparison_section">
-        Sign Up
-      </button>
     </div>
 
   </div>
@@ -5437,177 +6011,207 @@ img {
 <section class="comp-showcase" id="features" aria-labelledby="showcaseTitle">
   <div class="site-wrap">
     
-    <div class="section-header">
-      <span class="kicker">Built Exclusively For Singles 50+</span>
-      <h2 id="showcaseTitle">Every Platform Feature Crafted for Real Connection.<br><span class="highlight">Not Social Media Noise.</span></h2>
-      <p>From double-layer identity verification to number-protected calling, explore the comprehensive platform built for genuine mature&nbsp;companionship.</p>
-    </div>
-
-    <!-- Two-Column Architecture Grid -->
-    <div class="showcase-content-grid">
-      
-      <!-- Left Column: 4 Core Platform Pillars -->
-      <div class="showcase-pillars-col">
+    <!-- Big Platform Ecosystem Stage Island (Matching Cinema Stage Luxury Style) -->
+    <div class="showcase-stage-wrap">
+      <div class="showcase-stage">
         
-        <!-- Pillar 1 -->
-        <article class="showcase-pillar-card">
-          <div class="pillar-icon-wrap icon-emerald" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          </div>
-          <div class="pillar-text">
-            <div class="pillar-top-meta">
-              <span class="pillar-index">01</span>
-              <h3 class="pillar-title">Verified Real-Person Identity System</h3>
-            </div>
-            <p class="pillar-desc">
-              Live facial verification, optional video account checks, and view-once photo protection. A strict 50+ age gate keeps community standards authentic and free of&nbsp;pretenders.
-            </p>
-            <div class="pillar-tags">
-              <span class="ptag">Live Verification</span>
-              <span class="ptag">Video Checked</span>
-              <span class="ptag">Age 50+ Gate</span>
-            </div>
-          </div>
-        </article>
+        <!-- Ambient Atmosphere & Motifs -->
+        <div class="stage-master-canvas" aria-hidden="true">
+          <span class="ambient-aurora aurora-emerald"></span>
+          <span class="ambient-aurora aurora-cyan"></span>
+          <span class="ambient-aurora aurora-amber"></span>
+          <span class="ambient-aurora aurora-rose"></span>
+          <div class="motif-showcase-circles" aria-hidden="true"></div>
+        </div>
 
-        <!-- Pillar 2 -->
-        <article class="showcase-pillar-card">
-          <div class="pillar-icon-wrap icon-sapphire" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          </div>
-          <div class="pillar-text">
-            <div class="pillar-top-meta">
-              <span class="pillar-index">02</span>
-              <h3 class="pillar-title">Gallery Discovery &amp; Multidimensional Filters</h3>
-            </div>
-            <p class="pillar-desc">
-              Browse curated member galleries or filter with surgical precision by age (50–99), location radius, lifestyle habits, and keyword search. Revisit passed profiles whenever you&nbsp;choose.
-            </p>
-            <div class="pillar-tags">
-              <span class="ptag">Gallery Discovery</span>
-              <span class="ptag">Age 50–99 Radius</span>
-              <span class="ptag">Profile Rewinds</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Pillar 3 -->
-        <article class="showcase-pillar-card">
-          <div class="pillar-icon-wrap icon-violet" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          </div>
-          <div class="pillar-text">
-            <div class="pillar-top-meta">
-              <span class="pillar-index">03</span>
-              <h3 class="pillar-title">Number-Protected Calling &amp; Audio Warmth</h3>
-            </div>
-            <p class="pillar-desc">
-              Exchange voice notes, enjoy video calls, and place voice calls without ever revealing your personal telephone number. Built-in spam blocking filters unwanted inquiries&nbsp;automatically.
-            </p>
-            <div class="pillar-tags">
-              <span class="ptag">Zero Number Exposure</span>
-              <span class="ptag">Voice Messages</span>
-              <span class="ptag">Spam Block</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Pillar 4 -->
-        <article class="showcase-pillar-card">
-          <div class="pillar-icon-wrap icon-amber" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
-          </div>
-          <div class="pillar-text">
-            <div class="pillar-top-meta">
-              <span class="pillar-index">04</span>
-              <h3 class="pillar-title">1-on-1 Offline Meetups &amp; Community Moments</h3>
-            </div>
-            <p class="pillar-desc">
-              Share life moments with fellow members, participate in local activities, and send structured 1-on-1 coffee or tea meetup requests designed for relaxed public&nbsp;venues.
-            </p>
-            <div class="pillar-tags">
-              <span class="ptag">1-to-1 Coffee Meetups</span>
-              <span class="ptag">Community Moments</span>
-              <span class="ptag">Public Venue Safe</span>
-            </div>
-          </div>
-        </article>
-
-      </div>
-
-      <!-- Right Column: Silver Select VIP Experience Console -->
-      <aside class="showcase-vip-col" aria-label="Silver Select VIP Membership Privileges">
-        <div class="vip-experience-card">
-          <div class="vip-card-header">
-            <div class="vip-icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="8" r="7"></circle>
-                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-              </svg>
-            </div>
-            <div>
-              <span class="vip-kicker">MEMBERSHIP PRIVILEGES</span>
-              <h3 class="vip-title">Silver Select Experience</h3>
-            </div>
-          </div>
-
-          <p class="vip-intro">
-            Access unhurried communication, priority discovery, and complete privacy controls:
+        <!-- Section Intro Header inside Stage Island -->
+        <div class="showcase-stage-header">
+          <span class="kicker">Built Exclusively For Singles 50+</span>
+          <h2 id="showcaseTitle" class="showcase-stage-title">
+            Every Platform Feature Crafted for Real Connection.<br>
+            <span class="highlight">Not Social Media Noise.</span>
+          </h2>
+          <p class="showcase-stage-lead">
+            From double-layer identity verification to number-protected calling, explore the comprehensive platform built for genuine mature&nbsp;companionship.
           </p>
 
-          <ul class="vip-privilege-list">
-            <li class="vip-item">
-              <span class="vip-check">&#10003;</span>
-              <div>
-                <b>Active Private Messaging &amp; Unlimited Winks:</b> Start conversations and send greeting cards without arbitrary daily limits.
-              </div>
-            </li>
-            <li class="vip-item">
-              <span class="vip-check">&#10003;</span>
-              <div>
-                <b>Reveal Who Liked You &amp; Viewed You:</b> See mutual affinity, profile visitors, and mutual interest transparently.
-              </div>
-            </li>
-            <li class="vip-item">
-              <span class="vip-check">&#10003;</span>
-              <div>
-                <b>Advanced Filters &amp; Priority Exposure:</b> Target exact lifestyle parameters and get seen by newer members earlier.
-              </div>
-            </li>
-            <li class="vip-item">
-              <span class="vip-check">&#10003;</span>
-              <div>
-                <b>Reconnect with Expired Matches:</b> Revisit matches that passed by accident with unlimited profile rewinds.
-              </div>
-            </li>
-            <li class="vip-item">
-              <span class="vip-check">&#10003;</span>
-              <div>
-                <b>On-Demand Invisibility &amp; Read Receipts:</b> Browse discreetly whenever you need, with read receipts and zero ads.
-              </div>
-            </li>
-          </ul>
-
-          <div class="vip-cta-box">
-            <button class="btn btn-primary btn-block" data-action="join-partner" data-source="showcase_vip">
-              Sign Up &amp; Explore Privileges
-            </button>
-            <small class="vip-guarantee">Free &amp; confidential to register · 100% human-verified community</small>
+          <!-- Floating Ecosystem Badges -->
+          <div class="showcase-floating-tags" aria-hidden="true">
+            <span class="chip-popup chip-juniper">&#x2713; Live Face Checked</span>
+            <span class="chip-popup chip-voice">&#x1F512; Zero Number Exposure</span>
+            <span class="chip-popup chip-amber">&#x2615; Daylight Coffee Safe</span>
+            <span class="chip-popup chip-rose">&#x2728; Silver Select VIP</span>
           </div>
         </div>
-      </aside>
 
-    </div>
+        <!-- Two-Column Architecture Grid inside Stage Island -->
+        <div class="showcase-content-grid">
+          
+          <!-- Left Column: 4 Core Platform Pillars -->
+          <div class="showcase-pillars-col">
+            
+            <!-- Pillar 1 -->
+            <article class="showcase-pillar-card">
+              <div class="pillar-icon-wrap icon-emerald" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div class="pillar-text">
+                <div class="pillar-top-meta">
+                  <span class="pillar-index">01</span>
+                  <h3 class="pillar-title">Verified Real-Person Identity System</h3>
+                </div>
+                <p class="pillar-desc">
+                  Live facial verification, optional video account checks, and view-once photo protection. A strict 50+ age gate keeps community standards authentic and free of&nbsp;pretenders.
+                </p>
+                <div class="pillar-tags">
+                  <span class="ptag">Live Verification</span>
+                  <span class="ptag">Video Checked</span>
+                  <span class="ptag">Age 50+ Gate</span>
+                </div>
+              </div>
+            </article>
 
-    <!-- Bottom Reader Discovery Strip -->
-    <div class="showcase-bottom-bar">
-      <div class="bottom-bar-text">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-        <span>Ready to explore sincere companionship with mature adults in your area?</span>
+            <!-- Pillar 2 -->
+            <article class="showcase-pillar-card">
+              <div class="pillar-icon-wrap icon-sapphire" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </div>
+              <div class="pillar-text">
+                <div class="pillar-top-meta">
+                  <span class="pillar-index">02</span>
+                  <h3 class="pillar-title">Gallery Discovery &amp; Multidimensional Filters</h3>
+                </div>
+                <p class="pillar-desc">
+                  Browse curated member galleries or filter with surgical precision by age (50–99), location radius, lifestyle habits, and keyword search. Revisit passed profiles whenever you&nbsp;choose.
+                </p>
+                <div class="pillar-tags">
+                  <span class="ptag">Gallery Discovery</span>
+                  <span class="ptag">Age 50–99 Radius</span>
+                  <span class="ptag">Profile Rewinds</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Pillar 3 -->
+            <article class="showcase-pillar-card">
+              <div class="pillar-icon-wrap icon-violet" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="pillar-text">
+                <div class="pillar-top-meta">
+                  <span class="pillar-index">03</span>
+                  <h3 class="pillar-title">Number-Protected Calling &amp; Audio Warmth</h3>
+                </div>
+                <p class="pillar-desc">
+                  Exchange voice notes, enjoy video calls, and place voice calls without ever revealing your personal telephone number. Built-in spam blocking filters unwanted inquiries&nbsp;automatically.
+                </p>
+                <div class="pillar-tags">
+                  <span class="ptag">Zero Number Exposure</span>
+                  <span class="ptag">Voice Messages</span>
+                  <span class="ptag">Spam Block</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Pillar 4 -->
+            <article class="showcase-pillar-card">
+              <div class="pillar-icon-wrap icon-amber" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+              </div>
+              <div class="pillar-text">
+                <div class="pillar-top-meta">
+                  <span class="pillar-index">04</span>
+                  <h3 class="pillar-title">1-on-1 Offline Meetups &amp; Community Moments</h3>
+                </div>
+                <p class="pillar-desc">
+                  Share life moments with fellow members, participate in local activities, and send structured 1-on-1 coffee or tea meetup requests designed for relaxed public&nbsp;venues.
+                </p>
+                <div class="pillar-tags">
+                  <span class="ptag">1-to-1 Coffee Meetups</span>
+                  <span class="ptag">Community Moments</span>
+                  <span class="ptag">Public Venue Safe</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Right Column: Silver Select VIP Experience Console (Prestigious Member Pass) -->
+          <aside class="showcase-vip-col" aria-label="Silver Select VIP Membership Privileges">
+            <div class="vip-experience-card">
+              <div class="vip-card-header">
+                <div class="vip-icon-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <span class="vip-kicker">MEMBERSHIP PRIVILEGES</span>
+                  <h3 class="vip-title">Silver Select Experience</h3>
+                </div>
+              </div>
+
+              <p class="vip-intro">
+                Access unhurried communication, priority discovery, and complete privacy controls:
+              </p>
+
+              <ul class="vip-privilege-list">
+                <li class="vip-item">
+                  <span class="vip-check">&#10003;</span>
+                  <div>
+                    <b>Active Private Messaging &amp; Unlimited Winks:</b> Start conversations and send greeting cards without arbitrary daily limits.
+                  </div>
+                </li>
+                <li class="vip-item">
+                  <span class="vip-check">&#10003;</span>
+                  <div>
+                    <b>Reveal Who Liked You &amp; Viewed You:</b> See mutual affinity, profile visitors, and mutual interest transparently.
+                  </div>
+                </li>
+                <li class="vip-item">
+                  <span class="vip-check">&#10003;</span>
+                  <div>
+                    <b>Advanced Filters &amp; Priority Exposure:</b> Target exact lifestyle parameters and get seen by newer members earlier.
+                  </div>
+                </li>
+                <li class="vip-item">
+                  <span class="vip-check">&#10003;</span>
+                  <div>
+                    <b>Reconnect with Expired Matches:</b> Revisit matches that passed by accident with unlimited profile rewinds.
+                  </div>
+                </li>
+                <li class="vip-item">
+                  <span class="vip-check">&#10003;</span>
+                  <div>
+                    <b>On-Demand Invisibility &amp; Read Receipts:</b> Browse discreetly whenever you need, with read receipts and zero ads.
+                  </div>
+                </li>
+              </ul>
+
+              <div class="vip-cta-box">
+                <button class="btn btn-primary btn-block" data-action="join-partner" data-source="showcase_vip">
+                  Sign Up &amp; Explore Privileges
+                </button>
+                <small class="vip-guarantee">Free &amp; confidential to register · 100% human-verified community</small>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+
+        <!-- Integrated Bottom Reader Discovery Strip inside Stage Island -->
+        <div class="showcase-bottom-bar">
+          <div class="bottom-bar-text">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span>Ready to explore sincere companionship with mature adults in your area?</span>
+          </div>
+          <button class="btn btn-wine btn-sm" data-action="join-partner" data-source="showcase_bottom">
+            Sign Up
+          </button>
+        </div>
+
       </div>
-      <button class="btn btn-wine btn-sm" data-action="join-partner" data-source="showcase_bottom">
-        Sign Up
-      </button>
     </div>
 
   </div>
@@ -5621,66 +6225,114 @@ img {
 <section class="comp-trust" id="safety" aria-labelledby="trustTitle">
   <div class="site-wrap">
     
-    <div class="section-header">
-      <span class="kicker">Security &amp; Peace of Mind</span>
-      <h2 id="trustTitle">The Triple-Shield<br><span class="highlight">Senior Protection Architecture</span></h2>
-      <p>Your privacy and safety are paramount. We implement multi-layered defenses so you can connect with total&nbsp;confidence.</p>
-    </div>
-
-    <!-- 3-Tier Protection Grid (Open Columns - Un-carded) -->
-    <div class="trust-shield-grid">
-      
-      <!-- Shield 1 -->
-      <div class="shield-item">
-        <div class="shield-icon-badge badge-wine" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+    <!-- Big Senior Protection Stage Island (Matching Cinema Stage Luxury Style) -->
+    <div class="trust-stage-wrap">
+      <div class="trust-stage">
+        
+        <!-- Ambient Atmosphere & Motifs -->
+        <div class="stage-master-canvas" aria-hidden="true">
+          <span class="ambient-aurora aurora-rose"></span>
+          <span class="ambient-aurora aurora-emerald"></span>
+          <span class="ambient-aurora aurora-cyan"></span>
+          <span class="ambient-aurora aurora-amber"></span>
+          <div class="motif-trust-shield-radar" aria-hidden="true"></div>
         </div>
-        <span class="shield-tier">Shield 01</span>
-        <h3 class="shield-title">100% Manual Human Review</h3>
-        <p class="shield-desc">
-          Customer care teams inspect profile photos and written descriptions to confirm genuine identity before profiles become&nbsp;visible.
-        </p>
-      </div>
 
-      <!-- Shield 2 -->
-      <div class="shield-item">
-        <div class="shield-icon-badge badge-juniper" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        <!-- Section Intro Header inside Stage Island -->
+        <div class="trust-stage-header">
+          <span class="kicker">Security &amp; Peace of Mind</span>
+          <h2 id="trustTitle" class="trust-stage-title">
+            The Triple-Shield<br>
+            <span class="highlight">Protection Architecture</span>
+          </h2>
+          <p class="trust-stage-lead">
+            Your privacy and safety are paramount. We implement multi-layered defenses so you can connect with total&nbsp;confidence.
+          </p>
+
+          <!-- Floating Reassurance Status Badges -->
+          <div class="trust-floating-tags" aria-hidden="true">
+            <span class="chip-popup chip-juniper">&#x2713; 100% Human Reviewed</span>
+            <span class="chip-popup chip-voice">&#x1F512; Strict Phone Cloaking</span>
+            <span class="chip-popup chip-amber">&#x1F6E1;&#xFE0F; Anti-Scam Heuristics</span>
+            <span class="chip-popup chip-rose">&#x2615; Daylight Venue Safe</span>
+          </div>
         </div>
-        <span class="shield-tier">Shield 02</span>
-        <h3 class="shield-title">Complete Privacy Protection</h3>
-        <p class="shield-desc">
-          Your phone number, home address, and personal details stay 100% private. Nothing is ever shared or visible to the public without your&nbsp;permission.
-        </p>
-      </div>
 
-      <!-- Shield 3 -->
-      <div class="shield-item">
-        <div class="shield-icon-badge badge-honey" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+        <!-- 3-Tier Protection Vault Grid -->
+        <div class="trust-shield-grid">
+          
+          <!-- Shield 1 -->
+          <article class="trust-vault-card">
+            <div class="vault-card-top">
+              <div class="shield-icon-badge badge-wine" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <span class="shield-tier">Shield 01</span>
+            </div>
+            <h3 class="shield-title">100% Manual Human&nbsp;Review</h3>
+            <p class="shield-desc">
+              Customer care teams inspect profile photos and written descriptions to confirm genuine identity before profiles become&nbsp;visible.
+            </p>
+            <div class="vault-feature-pills">
+              <span class="vpill">Manual Photo Verification</span>
+              <span class="vpill">Zero Bot Profiles</span>
+            </div>
+          </article>
+
+          <!-- Shield 2 -->
+          <article class="trust-vault-card">
+            <div class="vault-card-top">
+              <div class="shield-icon-badge badge-juniper" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <span class="shield-tier">Shield 02</span>
+            </div>
+            <h3 class="shield-title">Total Privacy&nbsp;Protection</h3>
+            <p class="shield-desc">
+              Your phone number, home address, and personal details stay 100% private. Nothing is ever shared or visible to the public without your&nbsp;permission.
+            </p>
+            <div class="vault-feature-pills">
+              <span class="vpill">Zero Number Exposure</span>
+              <span class="vpill">Incognito Mode Available</span>
+            </div>
+          </article>
+
+          <!-- Shield 3 -->
+          <article class="trust-vault-card">
+            <div class="vault-card-top">
+              <div class="shield-icon-badge badge-honey" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+              </div>
+              <span class="shield-tier">Shield 03</span>
+            </div>
+            <h3 class="shield-title">Proactive Scam&nbsp;Defense</h3>
+            <p class="shield-desc">
+              Automated behavioural filters immediately identify and intercept financial requests, external wire solicitations, and fake&nbsp;profiles.
+            </p>
+            <div class="vault-feature-pills">
+              <span class="vpill">Financial Keyword Block</span>
+              <span class="vpill">One-Tap Staff Escalation</span>
+            </div>
+          </article>
+
         </div>
-        <span class="shield-tier">Shield 03</span>
-        <h3 class="shield-title">Proactive Anti-Scam Shield</h3>
-        <p class="shield-desc">
-          Automated behavioural filters immediately identify and intercept financial requests, external wire solicitations, and fake&nbsp;profiles.
-        </p>
-      </div>
 
-    </div>
+        <!-- The Senior Community Honor Accord Certificate inside Island -->
+        <div class="trust-accord-card">
+          <div class="accord-seal" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+            </svg>
+          </div>
+          <div class="accord-body">
+            <span class="accord-tag">Community Safety Accord</span>
+            <h3 class="accord-title">The Mature Member Honor Code</h3>
+            <p class="accord-text">
+              Every registered member agrees to unambiguous standards: treat everyone with courtesy, respect a polite refusal without pressure, never solicit monetary help, and report suspicious conduct. A supportive, mature space begins with mutual&nbsp;consideration.
+            </p>
+          </div>
+        </div>
 
-    <!-- The Senior Community Honor Accord Banner -->
-    <div class="trust-accord-card">
-      <div class="accord-seal" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
-        </svg>
-      </div>
-      <div class="accord-body">
-        <span class="accord-tag">Community Safety Accord</span>
-        <h3 class="accord-title">The Mature Member Honor Code</h3>
-        <p class="accord-text">
-          Every registered member agrees to unambiguous standards: treat everyone with courtesy, respect a polite refusal without pressure, never solicit monetary help, and report suspicious conduct. A supportive, mature space begins with mutual&nbsp;consideration.
-        </p>
       </div>
     </div>
 
@@ -5695,63 +6347,116 @@ img {
 <section class="comp-faq" id="faq" aria-labelledby="faqTitle">
   <div class="site-wrap">
     
-    <div class="faq-container">
-      
-      <div class="section-header">
-        <span class="kicker">Common Questions</span>
-        <h2 id="faqTitle">Everything You Need to&nbsp;Know</h2>
-        <p>Clear, direct answers about joining and what to&nbsp;expect.</p>
-      </div>
-
-      <div class="faq-accordion-group">
+    <!-- Big Concierge Help Desk Stage Island (Matching Cinema Stage Luxury Style) -->
+    <div class="faq-stage-wrap">
+      <div class="faq-stage">
         
-        <details class="faq-row" name="faq-group" open>
-          <summary class="faq-header">Is registration free to start?</summary>
-          <div class="faq-content">
-            <p>
-              <strong>Yes.</strong> Anyone aged 50 and above can create an account, complete their profile, upload photos, and receive curated Daily Matches at zero initial cost. If you choose to activate full private messaging, advanced filters, and voice or video calling controls, our Silver Select membership features transparent terms with no hidden fees.
-            </p>
-          </div>
-        </details>
+        <!-- Ambient Atmosphere & Motifs -->
+        <div class="stage-master-canvas" aria-hidden="true">
+          <span class="ambient-aurora aurora-amber"></span>
+          <span class="ambient-aurora aurora-rose"></span>
+          <span class="ambient-aurora aurora-cyan"></span>
+          <span class="ambient-aurora aurora-emerald"></span>
+          <div class="motif-faq-arcs" aria-hidden="true"></div>
+        </div>
 
-        <details class="faq-row" name="faq-group">
-          <summary class="faq-header">Who can join this platform?</summary>
-          <div class="faq-content">
-            <p>
-              Registration is reserved exclusively for adults aged 50 and older. For divorced, widowed, or single adults looking for sincere companionship, our community connects mature peers who appreciate dignified conversation and shared life milestones.
-            </p>
-          </div>
-        </details>
+        <!-- Section Intro Header inside Stage Island -->
+        <div class="faq-stage-header">
+          <span class="kicker">Member Concierge Desk</span>
+          <h2 id="faqTitle" class="faq-stage-title">
+            Everything You Need to Know.<br>
+            <span class="highlight">Answers for Mature Adults.</span>
+          </h2>
+          <p class="faq-stage-lead">
+            Direct, transparent details regarding security, daily recommendations, and privacy&nbsp;protection.
+          </p>
 
-        <details class="faq-row" name="faq-group">
-          <summary class="faq-header">How do member discovery and daily recommendations work?</summary>
-          <div class="faq-content">
-            <p>
-              Rather than overwhelming you with endless catalogs, you receive handpicked Daily Matches based on your chosen age bracket (50&ndash;99), regional radius, and lifestyle preferences. You can also explore the Gallery, refine custom filters, send friendly Winks, or save favorite profiles to revisit whenever you wish.
-            </p>
+          <!-- Floating Reassurance Status Badges -->
+          <div class="faq-floating-tags" aria-hidden="true">
+            <span class="chip-popup chip-juniper">&#x2713; Free to Register</span>
+            <span class="chip-popup chip-voice">&#x1F512; Zero Number Exposure</span>
+            <span class="chip-popup chip-amber">&#x2615; Daylight Coffee Protocols</span>
+            <span class="chip-popup chip-rose">&#x2728; Human Concierge Care</span>
           </div>
-        </details>
+        </div>
 
-        <details class="faq-row" name="faq-group">
-          <summary class="faq-header">How is my personal phone number and identity protected?</summary>
-          <div class="faq-content">
-            <p>
-              <strong>Your privacy comes first.</strong> Built-in video and voice chat keeps your personal phone number completely private during conversations. You also have full control over profile visibility in discovery, country and region visibility settings, and live verification checks.
-            </p>
-          </div>
-        </details>
+        <!-- Porcelain Accordion Group inside Stage Island -->
+        <div class="faq-accordion-group">
+          
+          <details class="faq-row" name="faq-group" open>
+            <summary class="faq-header">
+              <span class="faq-header-title">Is registration free to start?</span>
+              <span class="faq-toggle-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-content">
+              <p>
+                <strong>Yes.</strong> Anyone aged 50 and above can create an account, complete their profile, upload photos, and receive curated Daily Matches at zero initial cost. If you choose to activate full private messaging, advanced filters, and voice calling controls, our Silver Select membership features transparent terms with no hidden&nbsp;fees.
+              </p>
+            </div>
+          </details>
 
-        <details class="faq-row" name="faq-group">
-          <summary class="faq-header">How do 1-to-1 meetups work when we want to meet in person?</summary>
-          <div class="faq-content">
-            <p>
-              When you feel comfortable taking the conversation forward, members can send or receive 1-to-1 Meetup requests for casual daytime coffee or community activities at an unhurried, comfortable pace. Practical dating advice and safety tips help keep get-togethers relaxed, dignified, and safe.
-            </p>
+          <details class="faq-row" name="faq-group">
+            <summary class="faq-header">
+              <span class="faq-header-title">Who can join this community?</span>
+              <span class="faq-toggle-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-content">
+              <p>
+                Registration is reserved exclusively for adults aged 50 and older. For divorced, widowed, or single adults wanting sincere companionship, our community connects mature peers who appreciate dignified conversation and shared life&nbsp;milestones.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-row" name="faq-group">
+            <summary class="faq-header">
+              <span class="faq-header-title">How do member discovery and daily recommendations work?</span>
+              <span class="faq-toggle-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-content">
+              <p>
+                Rather than overwhelming you with endless catalogs, you receive handpicked Daily Matches based on your chosen age bracket (50&ndash;99), regional radius, and lifestyle preferences. You can also explore the Gallery, refine custom filters, send friendly Winks, or save favorite profiles to revisit whenever you&nbsp;wish.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-row" name="faq-group">
+            <summary class="faq-header">
+              <span class="faq-header-title">How is my personal phone number and identity protected?</span>
+              <span class="faq-toggle-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-content">
+              <p>
+                <strong>Your privacy comes first.</strong> Built-in video and voice chat keeps your personal telephone number completely private during conversations. You also enjoy full control over profile visibility in discovery, country and region visibility settings, and live verification&nbsp;checks.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-row" name="faq-group">
+            <summary class="faq-header">
+              <span class="faq-header-title">How do 1-on-1 meetups work when we decide to meet in person?</span>
+              <span class="faq-toggle-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-content">
+              <p>
+                When you feel comfortable taking the conversation forward, members can send or receive 1-on-1 Meetup requests for casual daytime coffee or community activities at an unhurried, comfortable pace. Clear public venue guidelines and community safety standards ensure every first meetup takes place in comfortable daylight&nbsp;surroundings.
+              </p>
+            </div>
+          </details>
+
+        </div>
+
+        <!-- Integrated Concierge Care Strip inside Island -->
+        <div class="faq-concierge-strip">
+          <div class="concierge-strip-text">
+            <span class="concierge-strip-badge">Member Support</span>
+            <span>Have a specific question not covered here? Our customer care team responds within 24&nbsp;hours.</span>
           </div>
-        </details>
+          <button class="btn btn-wine btn-sm" data-action="join-partner" data-source="faq_concierge">
+            Contact Support
+          </button>
+        </div>
 
       </div>
-
     </div>
 
   </div>
