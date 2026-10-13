@@ -1,34 +1,43 @@
-/* Component: Interactive Story Film Stage (6 Living Atmosphere Chapters & Real iOS App Showcase) */
+/* Component: Interactive Story Film Stage (Full Viewport Module - 100% Width) */
 .comp-film {
-  padding: clamp(20px, 3vw, 42px) 0;
+  width: 100%;
+  padding: clamp(64px, 7vw, 96px) 0 clamp(48px, 5vw, 76px);
+  position: relative;
+  overflow: hidden;
+  background: 
+    radial-gradient(at 100% 0%, rgba(254, 242, 242, 0.5) 0, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(240, 249, 255, 0.6) 0, transparent 50%),
+    linear-gradient(180deg, #FAFAF9 0%, #FFFFFF 50%, #F8FAFC 100%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  box-sizing: border-box;
 }
 
 .film-player-wrap {
+  width: 100%;
   max-width: 1140px;
   margin: 0 auto;
 }
 
-/* Big Cinematic Stage Island (Warm Porcelain & Pearl Luxury Palette) */
+/* Open Cinema Showcase - Full Module Content (Not a Floating Card Box) */
 .film-stage {
   --rose-accent: #E94266;
   --emerald-accent: #27AE60;
   --sky-accent: #4A90E2;
   position: relative;
-  background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%);
-  border-radius: clamp(24px, 3.5vw, 38px);
-  padding: clamp(36px, 5vw, 68px) clamp(28px, 4.5vw, 64px);
-  overflow: hidden;
+  background: transparent;
+  border-radius: 0;
+  padding: clamp(16px, 2.5vw, 32px) 0 clamp(24px, 3.5vw, 40px);
+  overflow: visible;
   container-type: inline-size;
   isolation: isolate;
   color: var(--ink-primary);
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  box-shadow: 0 24px 64px -16px rgba(30, 41, 59, 0.08), 0 2px 8px -2px rgba(30, 41, 59, 0.04);
+  border: none;
+  box-shadow: none;
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
   gap: clamp(28px, 4vw, 56px);
   min-height: 520px;
-  transition: background 1.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 1.2s ease, border-color 1.2s ease;
 }
 
 /* ==========================================================================
@@ -40,34 +49,34 @@
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  border-radius: inherit;
-  background: radial-gradient(circle at 68% 38%, #FFFFFF 0%, #F8FAFC 52%, #EEF2F6 100%);
+  border-radius: 0;
+  background: transparent;
   transition: background 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s ease;
 }
 
 /* Subtle, cohesive ambient scene mood nuances (Low-contrast pastel washes matching website palette) */
 .film-stage[data-current-scene="0"] .stage-master-canvas {
-  background: radial-gradient(circle at 70% 36%, #FFF5F7 0%, #FFF9FA 42%, #F8FAFC 75%, #F1F5F9 100%);
+  background: radial-gradient(circle at 70% 36%, rgba(255, 245, 247, 0.85) 0%, rgba(255, 249, 250, 0.45) 42%, transparent 75%);
 }
 
 .film-stage[data-current-scene="1"] .stage-master-canvas {
-  background: radial-gradient(circle at 66% 38%, #F0F7FF 0%, #F6FAFF 42%, #F8FAFC 75%, #F1F5F9 100%);
+  background: radial-gradient(circle at 66% 38%, rgba(240, 247, 255, 0.85) 0%, rgba(246, 250, 255, 0.45) 42%, transparent 75%);
 }
 
 .film-stage[data-current-scene="2"] .stage-master-canvas {
-  background: radial-gradient(circle at 68% 35%, #F0FDF4 0%, #F7FCF9 42%, #F8FAFC 75%, #F1F5F9 100%);
+  background: radial-gradient(circle at 68% 35%, rgba(240, 253, 244, 0.85) 0%, rgba(247, 252, 249, 0.45) 42%, transparent 75%);
 }
 
 .film-stage[data-current-scene="3"] .stage-master-canvas {
-  background: radial-gradient(circle at 72% 38%, #F5F3FF 0%, #FAF8FF 42%, #F8FAFC 75%, #F1F5F9 100%);
+  background: radial-gradient(circle at 72% 38%, rgba(245, 243, 255, 0.85) 0%, rgba(250, 248, 255, 0.45) 42%, transparent 75%);
 }
 
 .film-stage[data-current-scene="4"] .stage-master-canvas {
-  background: radial-gradient(circle at 68% 40%, #FFF7ED 0%, #FFF9F5 42%, #F8FAFC 75%, #F1F5F9 100%);
+  background: radial-gradient(circle at 68% 40%, rgba(255, 247, 237, 0.85) 0%, rgba(255, 249, 245, 0.45) 42%, transparent 75%);
 }
 
 .film-stage[data-current-scene="5"] .stage-master-canvas {
-  background: radial-gradient(circle at 70% 36%, #FEF9C3 0%, #FFFBEB 38%, #F8FAFC 75%, #F1F5F9 100%);
+  background: radial-gradient(circle at 70% 36%, rgba(254, 249, 195, 0.85) 0%, rgba(255, 251, 235, 0.45) 38%, transparent 75%);
 }
 
 /* Ambient Floating Aurora Blooms (Dreamy watercolor pastels) */
@@ -1996,9 +2005,9 @@
 @media (max-width: 900px) {
   .film-stage {
     grid-template-columns: 1fr;
-    padding: clamp(24px, 4vw, 32px) clamp(14px, 3.5vw, 18px);
-    border-radius: clamp(20px, 3.5vw, 28px);
-    overflow: hidden;
+    padding: clamp(20px, 3.5vw, 28px) 0;
+    border-radius: 0;
+    overflow: visible;
     max-width: 100%;
   }
   .dyn-sampled-motifs {
@@ -2047,8 +2056,8 @@
 
 @media (max-width: 480px) {
   .film-stage {
-    padding: 22px 12px;
-    border-radius: 20px;
+    padding: 16px 0;
+    border-radius: 0;
   }
   .film-phone-frame {
     max-width: 240px;

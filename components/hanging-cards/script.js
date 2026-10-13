@@ -1,9 +1,10 @@
 /**
- * Hanging ID Badge Cards - Interactive Controller
+ * Hanging Cards - Interactive Platform Advantages Controller
  * Features:
- * - 3D Click / Tap Card Flip with Physical Pendulum Kick
- * - Real-time Holographic Prism Shimmer & Glare Tracking
- * - Responsive Touch & Keyboard Accessibility
+ * - Unhurried sequential highlight flow when idle (cycling through the 4 standards)
+ * - Instant hover-to-highlight upon mouseover with auto-flow pause
+ * - Subtle physical micro-tilt and smooth transition
+ * - Keyboard focus accessibility
  */
 
 (function () {
@@ -13,96 +14,98 @@
     const stage = document.getElementById('hangingStage');
     if (!stage) return;
 
+    const suspensions = stage.querySelectorAll('.card-suspension');
     const cards = stage.querySelectorAll('.hanging-card');
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!cards.length) return;
 
-    cards.forEach((card) => {
-      const flipper = card.querySelector('.card-flipper');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let activeIndex = 0;
+    let autoFlowTimer = null;
+    let isUserInteracting = false;
+    const CYCLE_INTERVAL = 3800; // Unhurried, dignified cadence
+
+    function setActiveCard(index, manual = false) {
+      if (index < 0 || index >= cards.length) return;
+      activeIndex = index;
+
+      cards.forEach((card, i) => {
+        const isCurrent = i === index;
+        card.classList.toggle('is-active', isCurrent);
+        card.setAttribute('aria-current', isCurrent ? 'true' : 'false');
+      });
+    }
+
+    function startAutoFlow() {
+      stopAutoFlow();
+      if (prefersReducedMotion || isUserInteracting) return;
+
+      autoFlowTimer = setInterval(() => {
+        if (!isUserInteracting) {
+          activeIndex = (activeIndex + 1) % cards.length;
+          setActiveCard(activeIndex, false);
+        }
+      }, CYCLE_INTERVAL);
+    }
+
+    function stopAutoFlow() {
+      if (autoFlowTimer) {
+        clearInterval(autoFlowTimer);
+        autoFlowTimer = null;
+      }
+    }
+
+    // Set initial active card
+    setActiveCard(0);
+    startAutoFlow();
+
+    // Attach interaction handlers per card
+    cards.forEach((card, index) => {
       const suspension = card.closest('.card-suspension');
       const baseRestAngle = parseFloat(suspension?.style.getPropertyValue('--rest-angle') || '0');
 
-      let isFlipped = false;
-      let isHovered = false;
-
-      // 1. Flip Trigger Function
-      function triggerFlip(e) {
-        // Prevent default if triggered via keyboard to prevent page scrolling
-        if (e && e.type === 'keydown' && (e.key === ' ' || e.key === 'Spacebar')) {
-          e.preventDefault();
-        }
-
-        isFlipped = !isFlipped;
-        card.classList.toggle('is-flipped', isFlipped);
-        card.setAttribute('aria-expanded', isFlipped ? 'true' : 'false');
-
-        // Physical swing kick impulse on flip
-        if (!prefersReducedMotion && suspension) {
-          const impulseAngle = isFlipped ? baseRestAngle + 3.5 : baseRestAngle - 3.5;
-          suspension.style.transition = 'transform 0.25s cubic-bezier(0.1, 0.9, 0.2, 1)';
-          suspension.style.transform = `translateY(var(--sag-offset, 0px)) rotate(${impulseAngle}deg)`;
-
-          setTimeout(() => {
-            suspension.style.transition = 'transform 0.8s cubic-bezier(0.25, 1.3, 0.5, 1)';
-            suspension.style.transform = `translateY(var(--sag-offset, 0px)) rotate(${baseRestAngle}deg)`;
-          }, 240);
-        }
-      }
-
-      // Click / Tap listener
-      card.addEventListener('click', (e) => {
-        // Don't trigger flip if user clicked directly on an email link
-        if (e.target.closest('a')) return;
-        triggerFlip(e);
-      });
-
-      // Keyboard accessible flip
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
-          triggerFlip(e);
-        }
-      });
-
-      // 2. Mouse Move: Hologram Shimmer & Micro 3D Parallax Tilt
+      // Mouse Enter: Highlight immediately & pause auto-flow
       card.addEventListener('mouseenter', () => {
-        isHovered = true;
+        isUserInteracting = true;
+        stopAutoFlow();
+        setActiveCard(index, true);
       });
 
+      // Subtle Micro-tilt on Mouse Move
       card.addEventListener('mousemove', (e) => {
-        if (prefersReducedMotion) return;
+        if (prefersReducedMotion || !suspension) return;
 
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        const normalizedX = (x / rect.width) - 0.5; // -0.5 to +0.5
+        const tiltDelta = normalizedX * 2.2; // subtle +/- 1.1deg swing
 
-        // Normalized percentages (0% to 100%)
-        const px = Math.max(0, Math.min(100, (x / rect.width) * 100));
-        const py = Math.max(0, Math.min(100, (y / rect.height) * 100));
-
-        // Update holographic shimmer coordinates
-        card.style.setProperty('--mouse-x', `${px.toFixed(1)}%`);
-        card.style.setProperty('--mouse-y', `${py.toFixed(1)}%`);
-        card.style.setProperty('--shimmer-tilt', `${((px - 50) * 0.9).toFixed(1)}deg`);
-
-        // Subtle dynamic 3D tilt
-        const tiltX = (((py - 50) / 50) * -5.5).toFixed(2);
-        const tiltY = (((px - 50) / 50) * 5.5).toFixed(2);
-
-        if (flipper) {
-          const rotY = isFlipped ? 180 + parseFloat(tiltY) : parseFloat(tiltY);
-          flipper.style.transform = `rotateX(${tiltX}deg) rotateY(${rotY}deg)`;
-        }
+        suspension.style.transform = `translateY(calc(var(--sag-offset, 0px) - 6px)) rotate(${baseRestAngle + tiltDelta}deg)`;
       });
 
+      // Mouse Leave: Settle suspension & resume unhurried cycle
       card.addEventListener('mouseleave', () => {
-        isHovered = false;
-        // Smoothly settle flipper transform back to natural orientation
-        if (flipper) {
-          flipper.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+        if (suspension) {
+          suspension.style.transform = `translateY(var(--sag-offset, 0px)) rotate(${baseRestAngle}deg)`;
         }
-        card.style.setProperty('--mouse-x', '50%');
-        card.style.setProperty('--mouse-y', '40%');
-        card.style.setProperty('--shimmer-tilt', '0deg');
       });
+
+      // Focus Accessibility (keyboard navigation)
+      card.addEventListener('focusin', () => {
+        isUserInteracting = true;
+        stopAutoFlow();
+        setActiveCard(index, true);
+      });
+
+      card.addEventListener('focusout', () => {
+        isUserInteracting = false;
+        startAutoFlow();
+      });
+    });
+
+    // When mouse completely leaves the hanging stage
+    stage.addEventListener('mouseleave', () => {
+      isUserInteracting = false;
+      startAutoFlow();
     });
   }
 
@@ -113,6 +116,5 @@
     initHangingCards();
   }
 
-  // Export for external initializers if needed
   window.initHangingCards = initHangingCards;
 })();

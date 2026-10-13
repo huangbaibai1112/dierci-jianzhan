@@ -1,36 +1,19 @@
 /* ==========================================================================
-   HANGING ID BADGE CARDS COMPONENT (FRAMER REPLICATION)
-   Wire Suspension, Metallic Hardware Clips, 3D Pendulum Sway & Hologram Foil Flip
+   COMPONENT: HANGING CARDS (PLATFORM ADVANTAGES & STANDARDS)
+   Full-width section module with 4 suspended cards, hardware clips & hover highlight
    ========================================================================== */
 
-:root {
-  --hanging-bg: #FAFAF9;
-  --card-width: 254px;
-  --card-height: 382px;
-  --wire-color: #CBD5E1;
-  --clip-metal-light: #F8FAFC;
-  --clip-metal-mid: #94A3B8;
-  --clip-metal-dark: #475569;
-}
-
 .hanging-cards-section {
-  position: relative;
   width: 100%;
-  background-color: #FAFAFB;
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(241, 245, 249, 0.8) 0, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(248, 250, 252, 0.9) 0, transparent 50%);
-  padding: 80px 24px 70px;
-  overflow: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  color: #0F172A;
-  box-sizing: border-box;
-}
-
-.hanging-cards-container {
-  max-width: 1240px;
-  margin: 0 auto;
+  padding: clamp(64px, 7vw, 96px) 0 clamp(54px, 6vw, 84px);
   position: relative;
+  overflow: hidden;
+  background: 
+    radial-gradient(at 0% 0%, rgba(254, 242, 242, 0.6) 0, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(240, 253, 244, 0.5) 0, transparent 50%),
+    linear-gradient(180deg, #FAFAF9 0%, #FFFFFF 50%, #F8FAFC 100%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  box-sizing: border-box;
 }
 
 /* ================= HEADER SECTION ================= */
@@ -39,13 +22,13 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 56px;
+  margin-bottom: 52px;
   gap: 32px;
   flex-wrap: wrap;
 }
 
 .hanging-header-left {
-  max-width: 580px;
+  max-width: 620px;
 }
 
 .hanging-eyebrow {
@@ -53,32 +36,32 @@
   align-items: center;
   gap: 8px;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #64748B;
-  margin-bottom: 14px;
+  color: var(--ink-muted);
+  margin-bottom: 12px;
 }
 
 .eyebrow-bullet {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: #6366F1;
+  background: var(--accent-wine);
 }
 
 .hanging-title {
-  font-size: clamp(34px, 4.2vw, 48px);
-  font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.035em;
+  font-size: clamp(28px, 3.4vw, 42px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   margin: 0;
-  color: #090A0F;
+  color: var(--ink-primary);
 }
 
 .title-highlight {
-  color: #7B68EE; /* Lavender violet from original Framer design */
-  font-weight: 600;
+  color: var(--accent-wine);
+  font-weight: 700;
 }
 
 .hanging-header-right {
@@ -86,13 +69,13 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 12px;
 }
 
 .hanging-intro {
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.55;
-  color: #64748B;
+  color: var(--ink-secondary);
   margin: 0;
 }
 
@@ -102,37 +85,36 @@
   gap: 7px;
   padding: 5px 12px;
   border-radius: 999px;
-  background: rgba(226, 232, 240, 0.6);
-  border: 1px solid rgba(203, 213, 225, 0.6);
+  background: rgba(226, 232, 240, 0.65);
+  border: 1px solid rgba(203, 213, 225, 0.7);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.08em;
-  color: #475569;
+  color: var(--ink-secondary);
 }
 
 .pill-status-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #10B981;
+  background: var(--accent-juniper);
 }
 
-/* ================= SUSPENSION STAGE ================= */
+/* ================= SUSPENSION RIG & WIRE ================= */
 
 .hanging-stage {
   position: relative;
   width: 100%;
-  min-height: 520px;
-  margin: 10px 0 30px;
+  min-height: 530px;
+  margin: 10px 0 24px;
 }
 
-/* Catenary Wire across top */
 .wire-container {
   position: absolute;
   top: 14px;
   left: 0;
   width: 100%;
-  height: 60px;
+  height: 65px;
   pointer-events: none;
   z-index: 2;
 }
@@ -150,7 +132,7 @@
   stroke-linecap: round;
 }
 
-/* Cards Rail Layout */
+/* Cards Rail */
 .cards-rail {
   display: flex;
   justify-content: space-between;
@@ -161,18 +143,18 @@
   padding-top: 18px;
 }
 
-/* Individual Hanging Rig (Thread + Clip + 3D Card) */
+/* Individual Hanging Rig */
 .card-suspension {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  perspective: 1200px;
   transform-origin: 50% 0px;
   transform: translateY(var(--sag-offset, 0px)) rotate(var(--rest-angle, 0deg));
-  animation: gentlePendulumSway var(--sway-duration, 6s) ease-in-out infinite alternate;
+  animation: gentlePendulumSway var(--sway-duration, 6.2s) ease-in-out infinite alternate;
   animation-delay: var(--sway-delay, 0s);
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  width: clamp(236px, 22vw, 272px);
 }
 
 @keyframes gentlePendulumSway {
@@ -184,14 +166,13 @@
   }
 }
 
-/* ================= METALLIC LANYARD & CLIP ================= */
-
+/* Metallic Lanyard Rig */
 .lanyard-rig {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 26px;
-  margin-bottom: -13px; /* Overlaps clip over card punch hole */
+  width: 24px;
+  margin-bottom: -13px;
   z-index: 10;
   pointer-events: none;
 }
@@ -203,13 +184,12 @@
   border-radius: 1px;
 }
 
-/* Realistic Bulldog / Swivel Hardware Clip */
 .metallic-clip {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 24px;
+  width: 22px;
 }
 
 .clip-loop {
@@ -222,7 +202,7 @@
 }
 
 .clip-barrel {
-  width: 16px;
+  width: 15px;
   height: 6px;
   background: linear-gradient(180deg, #F1F5F9 0%, #94A3B8 50%, #475569 100%);
   border-radius: 2px;
@@ -230,7 +210,7 @@
 }
 
 .clip-jaw {
-  width: 20px;
+  width: 19px;
   height: 11px;
   background: linear-gradient(135deg, #F8FAFC 0%, #CBD5E1 40%, #64748B 100%);
   border-radius: 3px 3px 4px 4px;
@@ -251,68 +231,29 @@
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
 }
 
-/* ================= 3D HANGING CARD ================= */
+/* ================= HANGING CARD BODY ================= */
 
 .hanging-card {
-  width: var(--card-width);
-  height: var(--card-height);
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 20px;
+  padding: 16px 14px 14px;
+  box-shadow: 
+    0 16px 36px -12px rgba(35, 28, 26, 0.08),
+    0 4px 12px -4px rgba(35, 28, 26, 0.04);
   position: relative;
   cursor: pointer;
-  user-select: none;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-  transform-style: preserve-3d;
-}
-
-.hanging-card:focus-visible {
-  border-radius: 20px;
-  box-shadow: 0 0 0 3px #6366F1, 0 15px 35px rgba(0, 0, 0, 0.15);
-}
-
-.card-flipper {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1);
-  will-change: transform;
-}
-
-/* Card Flipped State */
-.hanging-card.is-flipped .card-flipper {
-  transform: rotateY(180deg);
-}
-
-/* Shared Face Style */
-.card-face {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  box-sizing: border-box;
-  padding: 16px 16px 14px;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
-  box-shadow: 
-    0 18px 38px -10px rgba(15, 23, 42, 0.13),
-    0 8px 16px -6px rgba(15, 23, 42, 0.08),
-    0 0 0 1px rgba(15, 23, 42, 0.07);
-  transition: box-shadow 0.3s ease;
+  outline: none;
+  user-select: none;
+  min-height: 430px;
+  box-sizing: border-box;
 }
 
-.hanging-card:hover .card-face {
-  box-shadow: 
-    0 24px 48px -12px rgba(15, 23, 42, 0.18),
-    0 10px 20px -6px rgba(15, 23, 42, 0.1),
-    0 0 0 1px rgba(15, 23, 42, 0.09);
-}
-
-/* Slot punch at top of card */
 .card-slot-punch {
   position: absolute;
   top: 9px;
@@ -326,103 +267,128 @@
   z-index: 4;
 }
 
-.slot-cutout {
-  width: 100%;
-  height: 100%;
-}
-
-/* ================= CARD FRONT FACE ================= */
-
-.card-front {
-  background: #FFFFFF;
-}
-
 .card-top-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: #94A3B8;
-  padding-top: 6px;
-  padding-bottom: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  padding: 4px 2px 8px;
 }
 
 .meta-id {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  color: #64748B;
   font-size: 11px;
+  color: var(--ink-secondary);
 }
 
-.card-portrait-wrap {
+/* Spacious Media Canvas for collages */
+.card-media-canvas {
   width: 100%;
-  height: 184px;
+  height: 205px;
   border-radius: 14px;
   overflow: hidden;
   position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  background: #F8FAFC;
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.05);
 }
 
-/* Subtle background tints for each character */
-.bg-soft-pink {
-  background: linear-gradient(180deg, #FCE7F3 0%, #F5D0FE 100%);
-}
-
-.bg-soft-slate {
-  background: linear-gradient(180deg, #F1F5F9 0%, #E2E8F0 100%);
-}
-
-.bg-soft-amber {
-  background: linear-gradient(180deg, #FEF08A 0%, #FDE047 100%);
-}
-
-.bg-soft-purple {
-  background: linear-gradient(180deg, #EDE9FE 0%, #DDD6FE 100%);
-}
-
-.portrait-img {
+.card-media-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center;
   display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.floating-media-badge {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink-primary);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fbadge-bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-juniper);
+}
+
+.fbadge-bullet.bullet-honey { background: #D97706; }
+.fbadge-bullet.bullet-juniper { background: var(--accent-juniper); }
+.fbadge-bullet.bullet-wine { background: var(--accent-wine); }
+
+/* Text Content Area */
 .card-info {
-  padding: 8px 0 2px;
+  padding: 10px 2px 4px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-name {
-  font-size: 17.5px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
   letter-spacing: -0.02em;
-  color: #0F172A;
-  margin: 0 0 3px 0;
+  color: var(--ink-primary);
+  margin: 0 0 5px 0;
 }
 
-.card-role {
-  font-size: 12.5px;
-  color: #64748B;
-  margin: 0;
-  font-weight: 400;
+.card-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-secondary);
+  margin: 0 0 8px 0;
 }
 
+.card-tag-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: auto;
+}
+
+.advantage-pill {
+  display: inline-block;
+  padding: 3px 7px;
+  border-radius: 5px;
+  background: rgba(241, 245, 249, 0.85);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
+/* Action Bar */
 .card-action-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 8px;
-  border-top: 1px solid #F1F5F9;
+  padding-top: 10px;
+  margin-top: 10px;
+  border-top: 1px solid rgba(241, 245, 249, 0.9);
 }
 
 .action-btn-text {
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 10.5px;
+  font-weight: 700;
   letter-spacing: 0.08em;
-  color: #64748B;
+  color: var(--ink-secondary);
   text-transform: uppercase;
 }
 
@@ -435,257 +401,104 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.25s ease, background-color 0.2s ease;
+  transition: transform 0.3s ease, background-color 0.2s ease;
 }
 
-.hanging-card:hover .action-circle-icon {
-  transform: rotate(45deg) scale(1.06);
+/* ================= HOVER & FLOWING HIGHLIGHT STATES ================= */
+
+.hanging-card:hover,
+.hanging-card.is-active {
+  box-shadow: 
+    0 24px 48px -12px rgba(35, 28, 26, 0.16),
+    0 8px 20px -6px rgba(35, 28, 26, 0.08),
+    0 0 0 1px rgba(35, 28, 26, 0.06);
+}
+
+.hanging-card:hover .action-circle-icon,
+.hanging-card.is-active .action-circle-icon {
+  transform: rotate(45deg) scale(1.08);
   background: #000000;
 }
 
-/* ================= CARD BACK FACE (HOLOGRAPHIC FOIL) ================= */
-
-.card-back {
-  background: #F8FAFC;
-  transform: rotateY(180deg);
-  position: absolute;
-  inset: 0;
+.hanging-card:hover .card-media-img,
+.hanging-card.is-active .card-media-img {
+  transform: scale(1.03);
 }
 
-/* Dynamic Holographic Iridescent Prism Foil Overlay */
-.hologram-shimmer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: 20px;
-  background: 
-    radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 40%), rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.2) 35%, transparent 65%),
-    linear-gradient(calc(125deg + var(--shimmer-tilt, 0deg)), 
-      rgba(255, 182, 193, 0.45) 0%, 
-      rgba(199, 210, 254, 0.5) 22%, 
-      rgba(167, 243, 208, 0.45) 44%, 
-      rgba(254, 240, 138, 0.45) 66%, 
-      rgba(251, 207, 232, 0.5) 85%, 
-      rgba(199, 210, 254, 0.45) 100%
-    ),
-    linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%);
-  mix-blend-mode: normal;
-  opacity: 0.95;
-  transition: opacity 0.3s ease;
+/* Theme Highlights */
+.card-suspension[data-theme="rose"] .hanging-card.is-active,
+.card-suspension[data-theme="rose"] .hanging-card:hover {
+  background: linear-gradient(180deg, #FFF8F8 0%, #FFFFFF 100%);
+  border-color: rgba(225, 29, 72, 0.35);
 }
 
-.card-back .card-top-meta {
-  position: relative;
-  z-index: 2;
-  color: #475569;
+.card-suspension[data-theme="honey"] .hanging-card.is-active,
+.card-suspension[data-theme="honey"] .hanging-card:hover {
+  background: linear-gradient(180deg, #FFFDF2 0%, #FFFFFF 100%);
+  border-color: rgba(217, 119, 6, 0.35);
 }
 
-.meta-loc {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  color: #475569;
+.card-suspension[data-theme="juniper"] .hanging-card.is-active,
+.card-suspension[data-theme="juniper"] .hanging-card:hover {
+  background: linear-gradient(180deg, #F2FBF5 0%, #FFFFFF 100%);
+  border-color: rgba(22, 101, 52, 0.35);
 }
 
-.loc-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #3B82F6;
+.card-suspension[data-theme="wine"] .hanging-card.is-active,
+.card-suspension[data-theme="wine"] .hanging-card:hover {
+  background: linear-gradient(180deg, #FAF4F7 0%, #FFFFFF 100%);
+  border-color: rgba(136, 19, 55, 0.35);
 }
 
-.back-profile-header {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 6px 0;
+.card-suspension:hover {
+  transform: translateY(calc(var(--sag-offset, 0px) - 6px)) rotate(var(--rest-angle, 0deg));
 }
 
-.mini-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15), 0 0 0 2px #FFFFFF;
-  flex-shrink: 0;
-}
-
-.mini-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.mini-meta {
-  display: flex;
-  flex-direction: column;
-}
-
-.mini-name {
-  font-size: 15px;
-  font-weight: 600;
-  color: #0F172A;
-  margin: 0;
-}
-
-.mini-role {
-  font-size: 11.5px;
-  color: #64748B;
-  margin: 1px 0 0 0;
-}
-
-.back-bio {
-  position: relative;
-  z-index: 2;
-  font-size: 12.5px;
-  line-height: 1.5;
-  color: #334155;
-  font-style: normal;
-  margin: 6px 0;
-  padding: 0;
-}
-
-.back-section {
-  position: relative;
-  z-index: 2;
-}
-
-.section-label {
-  font-size: 9.5px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: #64748B;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-
-.project-tags {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.tag-pill {
-  display: inline-block;
-  padding: 5px 9px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  font-size: 11px;
-  font-weight: 500;
-  color: #1E293B;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.back-footer {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding-top: 8px;
-  border-top: 1px solid rgba(203, 213, 225, 0.5);
-}
-
-.contact-block {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.contact-label {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: #64748B;
-  text-transform: uppercase;
-}
-
-.contact-email {
-  font-size: 11px;
-  font-weight: 600;
-  color: #0F172A;
-  text-decoration: none;
-}
-
-.contact-email:hover {
-  text-decoration: underline;
-}
-
-.qr-code-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  background: rgba(255, 255, 255, 0.85);
-  padding: 4px;
-  border-radius: 6px;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.qr-svg {
-  display: block;
-}
-
-.qr-sub {
-  font-size: 7.5px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: #64748B;
-}
-
-/* ================= BOTTOM HINT BAR ================= */
-
+/* Bottom Microcopy Bar */
 .hanging-bottom-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 48px;
-  padding-top: 18px;
+  margin-top: 36px;
+  padding-top: 16px;
   border-top: 1px solid rgba(226, 232, 240, 0.8);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.1em;
-  color: #94A3B8;
+  color: var(--ink-muted);
   text-transform: uppercase;
 }
 
 /* ================= RESPONSIVE DESIGN ================= */
 
 @media (max-width: 1180px) {
-  :root {
-    --card-width: 220px;
-    --card-height: 350px;
+  .card-suspension {
+    width: clamp(220px, 22vw, 250px);
   }
-  .card-portrait-wrap {
-    height: 156px;
+  .card-media-canvas {
+    height: 180px;
   }
 }
 
 @media (max-width: 960px) {
   .hanging-cards-section {
-    padding: 60px 16px 50px;
+    padding: 48px 16px 36px;
   }
-  
+
   .hanging-header {
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 36px;
+    margin-bottom: 28px;
+    gap: 16px;
   }
-  
-  /* Horizontal swipe rail for tablet & mobile */
+
   .hanging-stage {
-    min-height: 440px;
+    min-height: 470px;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 24px;
+    padding-bottom: 20px;
   }
 
   .hanging-stage::-webkit-scrollbar {
@@ -705,21 +518,17 @@
 
   .card-suspension {
     scroll-snap-align: center;
+    width: 250px;
   }
 
   .wire-container {
-    width: 1040px;
+    width: 1080px;
   }
 }
 
 @media (max-width: 640px) {
-  :root {
-    --card-width: 236px;
-    --card-height: 364px;
-  }
-  
   .hanging-title {
-    font-size: 30px;
+    font-size: 26px;
   }
 
   .hanging-bottom-bar {
