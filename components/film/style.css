@@ -2054,3 +2054,665 @@
   .co-1 { right: -6px; }
   .co-2 { left: -6px; }
 }
+
+
+/* ==========================================================================
+   DYNAMIC SAMPLED FEATURE MOTIFS
+   Directly derived from 网站与APP功能清单.md
+   Porcelain luxury styling, backdrop blur, delicate borders & typography
+   ========================================================================== */
+
+/* Dynamic Sampled Motifs Full-Canvas Stage Wrapper */
+.dyn-sampled-motifs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Feature Pill / Badge Common */
+.dmi-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-family: var(--font-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px -2px rgba(180, 140, 110, 0.14), 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+/* --------------------------------------------------------------------------
+   POOL 0: CURATED DAILY PICKS (每日推荐 & 配对)
+   Tints: Coral Rose, Golden Amber, Cashmere
+   -------------------------------------------------------------------------- */
+.dmi-card-badge {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(233, 66, 102, 0.28);
+  color: #BE123C;
+}
+.dmi-card-badge .dmi-star {
+  color: #F59E0B;
+  font-size: 13px;
+}
+
+.dmi-sunrise-arc {
+  width: 140px;
+  height: 80px;
+  filter: drop-shadow(0 4px 14px rgba(233, 66, 102, 0.16));
+}
+.dmi-sunrise-arc svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dmi-heart-pill {
+  background: rgba(255, 241, 242, 0.92);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  color: #E11D48;
+}
+.dmi-heart-pill .dmi-heart-icon {
+  font-size: 14px;
+  color: #E11D48;
+}
+
+.dmi-curated-ribbon {
+  background: rgba(254, 243, 199, 0.92);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #B45309;
+}
+
+.dmi-picks-count {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(233, 66, 102, 0.25);
+  color: #9F1239;
+}
+.dmi-picks-count .dmi-count-num {
+  font-weight: 800;
+  color: #E11D48;
+}
+
+.dmi-rewind-pill {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  color: #92400E;
+}
+.dmi-rewind-pill svg {
+  width: 14px;
+  height: 14px;
+  color: #D97706;
+}
+
+.dmi-resonance-rings {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dmi-resonance-rings .ring-core {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(233, 66, 102, 0.45);
+}
+.dmi-resonance-rings .ring-ripple {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(245, 158, 11, 0.35);
+  animation: heartPulseRing 2.6s ease-out infinite;
+}
+
+.dmi-twinkle-diamond {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.35));
+}
+.dmi-twinkle-diamond svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   POOL 1: AGE 50–99 FILTERS & DISCOVERY (按条件筛选 & 画廊)
+   Tints: Sapphire Blue, Ocean Cerulean, Slate
+   -------------------------------------------------------------------------- */
+.dmi-filter-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(74, 144, 226, 0.32);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px -2px rgba(74, 144, 226, 0.16);
+  min-width: 120px;
+}
+.dmi-filter-slider .dfs-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #1E40AF;
+}
+.dmi-filter-slider .dfs-bar {
+  width: 100%;
+  height: 5px;
+  background: #E2E8F0;
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+}
+.dmi-filter-slider .dfs-bar i {
+  display: block;
+  height: 100%;
+  width: 78%;
+  background: linear-gradient(90deg, #60A5FA, #2563EB);
+  border-radius: 9999px;
+}
+
+.dmi-geo-pill {
+  background: rgba(240, 247, 255, 0.92);
+  border: 1px solid rgba(59, 130, 246, 0.32);
+  color: #1D4ED8;
+}
+.dmi-geo-pill svg {
+  width: 14px;
+  height: 14px;
+  color: #2563EB;
+}
+
+.dmi-verified-pill {
+  background: rgba(240, 253, 244, 0.92);
+  border: 1px solid rgba(34, 197, 94, 0.32);
+  color: #15803D;
+}
+.dmi-verified-pill .dmi-check {
+  font-weight: 800;
+  color: #16A34A;
+}
+
+.dmi-keyword-tag {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(74, 144, 226, 0.28);
+  color: #1E3A8A;
+}
+.dmi-keyword-tag .dmi-kw-lens {
+  font-size: 12px;
+}
+
+.dmi-reticle-view {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.dmi-reticle-view .reticle-circ {
+  position: absolute;
+  inset: 4px;
+  border: 1.5px dashed rgba(74, 144, 226, 0.5);
+  border-radius: 50%;
+  animation: reticlePulse 3.2s ease-in-out infinite;
+}
+.dmi-reticle-view .reticle-dot {
+  width: 5px;
+  height: 5px;
+  background: #2563EB;
+  border-radius: 50%;
+}
+
+.dmi-gallery-tile {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  color: #1E40AF;
+}
+.dmi-gallery-tile .gt-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #3B82F6;
+}
+
+.dmi-lifestyle-badge {
+  background: rgba(248, 250, 252, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  color: #334155;
+}
+
+.dmi-compass-rose {
+  width: 38px;
+  height: 38px;
+  color: rgba(37, 99, 235, 0.55);
+}
+.dmi-compass-rose svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   POOL 2: IN-DEPTH PROFILES & LIVE VERIFICATION (真人核验 & 故事)
+   Tints: Emerald Jade, Forest Sage, Olive
+   -------------------------------------------------------------------------- */
+.dmi-seal-badge {
+  background: rgba(240, 253, 244, 0.94);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #15803D;
+}
+.dmi-seal-badge svg {
+  width: 15px;
+  height: 15px;
+  color: #16A34A;
+}
+
+.dmi-video-pill {
+  background: rgba(236, 253, 245, 0.94);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #047857;
+}
+.dmi-video-pill svg {
+  width: 14px;
+  height: 14px;
+  color: #059669;
+}
+
+.dmi-completion-meter {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(16, 185, 129, 0.32);
+  color: #065F46;
+}
+.dmi-completion-meter .dcm-num {
+  font-weight: 800;
+  color: #059669;
+}
+
+.dmi-story-journal {
+  width: 54px;
+  height: 36px;
+  color: #059669;
+  filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.16));
+}
+.dmi-story-journal svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dmi-silver-crest {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(241, 245, 249, 0.92));
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  color: #334155;
+}
+.dmi-silver-crest .dsc-gem {
+  color: #64748B;
+  font-size: 11px;
+}
+
+.dmi-album-frame {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(34, 197, 94, 0.28);
+  color: #166534;
+}
+.dmi-album-frame svg {
+  width: 14px;
+  height: 14px;
+  color: #15803D;
+}
+
+.dmi-botanical-vine {
+  width: 48px;
+  height: 72px;
+  color: #10B981;
+}
+.dmi-botanical-vine svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dmi-privacy-shield {
+  background: rgba(248, 250, 252, 0.92);
+  border: 1px solid rgba(100, 116, 139, 0.28);
+  color: #475569;
+}
+
+/* --------------------------------------------------------------------------
+   POOL 3: VOICE CONNECTION & PRIVATE CALLING (语音与视频通话)
+   Tints: Violet, Lavender, Amethyst
+   -------------------------------------------------------------------------- */
+.dmi-voice-capsule {
+  background: rgba(245, 243, 255, 0.94);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  color: #6D28D9;
+}
+.dmi-voice-capsule .dvc-play {
+  font-size: 10px;
+  color: #7C3AED;
+}
+.dmi-voice-capsule .dvc-wave {
+  display: flex;
+  gap: 2.5px;
+  align-items: center;
+  height: 14px;
+}
+.dmi-voice-capsule .dvc-wave i {
+  display: block;
+  width: 2.5px;
+  border-radius: 9999px;
+  background: #8B5CF6;
+  animation: voiceBarJump 1.4s ease-in-out infinite;
+}
+.dmi-voice-capsule .dvc-wave i:nth-child(1) { height: 6px; }
+.dmi-voice-capsule .dvc-wave i:nth-child(2) { height: 12px; animation-delay: 0.15s; }
+.dmi-voice-capsule .dvc-wave i:nth-child(3) { height: 14px; animation-delay: 0.3s; }
+.dmi-voice-capsule .dvc-wave i:nth-child(4) { height: 9px; animation-delay: 0.45s; }
+.dmi-voice-capsule .dvc-wave i:nth-child(5) { height: 6px; animation-delay: 0.2s; }
+.dmi-voice-capsule .dvc-dur {
+  font-size: 10.5px;
+  color: #7C3AED;
+  font-weight: 700;
+}
+
+.dmi-eq-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 28px;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 10px;
+}
+.dmi-eq-bars span {
+  width: 3.5px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #8B5CF6, #6D28D9);
+  animation: voiceBarJump 1.3s ease-in-out infinite;
+}
+.dmi-eq-bars span:nth-child(1) { height: 10px; animation-delay: -0.2s; }
+.dmi-eq-bars span:nth-child(2) { height: 18px; animation-delay: -0.5s; }
+.dmi-eq-bars span:nth-child(3) { height: 24px; animation-delay: -0.1s; }
+.dmi-eq-bars span:nth-child(4) { height: 14px; animation-delay: -0.7s; }
+.dmi-eq-bars span:nth-child(5) { height: 20px; animation-delay: -0.3s; }
+.dmi-eq-bars span:nth-child(6) { height: 12px; animation-delay: -0.6s; }
+
+.dmi-private-call {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: #5B21B6;
+}
+.dmi-private-call svg {
+  width: 14px;
+  height: 14px;
+  color: #7C3AED;
+}
+
+.dmi-sound-arcs {
+  width: 44px;
+  height: 36px;
+  color: #8B5CF6;
+  filter: drop-shadow(0 2px 8px rgba(139, 92, 246, 0.2));
+}
+.dmi-sound-arcs svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dmi-video-frame {
+  background: rgba(245, 243, 255, 0.92);
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  color: #6D28D9;
+}
+.dmi-video-frame .dvf-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 6px #10B981;
+}
+
+.dmi-call-guard {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(139, 92, 246, 0.28);
+  color: #5B21B6;
+}
+
+.dmi-audio-node {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dmi-audio-node .an-core {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8B5CF6;
+}
+.dmi-audio-node .an-ripple {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid rgba(139, 92, 246, 0.4);
+  border-radius: 50%;
+  animation: nodeRingPulse 2.2s ease-out infinite;
+}
+
+.dmi-clef-trail {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(139, 92, 246, 0.28);
+  color: #6D28D9;
+}
+.dmi-clef-trail .dmi-clef-glyph {
+  font-size: 13px;
+  color: #7C3AED;
+}
+
+/* --------------------------------------------------------------------------
+   POOL 4: CONVERSATION STARTERS & WINKS (私信、打招呼与破冰)
+   Tints: Warm Amber, Honey, Tangerine, Coral
+   -------------------------------------------------------------------------- */
+.dmi-wink-tag {
+  background: rgba(254, 243, 199, 0.94);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #B45309;
+}
+.dmi-wink-tag .dmi-wink-icon {
+  font-size: 13px;
+}
+
+.dmi-speech-bubble {
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(245, 158, 11, 0.32);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px -2px rgba(245, 158, 11, 0.16);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.dmi-speech-bubble .dsb-dots {
+  display: flex;
+  gap: 3.5px;
+}
+.dmi-speech-bubble .dsb-dots i {
+  display: block;
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 50%;
+  background: #F59E0B;
+  animation: typingDotPulse 1.3s ease-in-out infinite;
+}
+.dmi-speech-bubble .dsb-dots i:nth-child(2) { animation-delay: 0.2s; }
+.dmi-speech-bubble .dsb-dots i:nth-child(3) { animation-delay: 0.4s; }
+.dmi-speech-bubble .dsb-tail {
+  position: absolute;
+  bottom: -5px;
+  left: 12px;
+  width: 8px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.92);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.dmi-pinned-ribbon {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(233, 66, 102, 0.28);
+  color: #BE123C;
+}
+.dmi-pinned-ribbon .dmi-pin-icon {
+  font-size: 12px;
+}
+
+.dmi-card-envelope {
+  background: rgba(254, 242, 242, 0.92);
+  border: 1px solid rgba(244, 63, 94, 0.28);
+  color: #BE123C;
+}
+.dmi-card-envelope svg {
+  width: 16px;
+  height: 12px;
+  color: #E11D48;
+}
+
+.dmi-emoji-bubble {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #92400E;
+}
+.dmi-emoji-bubble .dmi-emoji-symbol {
+  font-size: 13px;
+}
+
+.dmi-idea-burst {
+  width: 26px;
+  height: 26px;
+  color: #F59E0B;
+  filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.35));
+}
+.dmi-idea-burst svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dmi-read-receipt {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: #1D4ED8;
+}
+.dmi-read-receipt .dmi-checks {
+  font-weight: 800;
+  color: #2563EB;
+}
+
+.dmi-icebreaker-quote {
+  padding: 6px 12px;
+  background: rgba(255, 251, 235, 0.92);
+  border: 1px dashed rgba(245, 158, 11, 0.4);
+  border-radius: 12px;
+  font-style: italic;
+  font-family: Georgia, serif;
+  font-size: 11.5px;
+  color: #92400E;
+}
+
+/* --------------------------------------------------------------------------
+   POOL 5: 1-ON-1 COFFEE MEETUPS & COMMUNITY (线下见面与活动)
+   Tints: Amber, Cinnamon, Warm Ochre
+   -------------------------------------------------------------------------- */
+.dmi-meetup-card {
+  background: rgba(254, 243, 199, 0.94);
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  color: #92400E;
+}
+.dmi-meetup-card .dmc-icon {
+  font-size: 13px;
+}
+
+.dmi-ceramic-cup {
+  width: 48px;
+  height: 38px;
+  color: #D97706;
+  filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.16));
+}
+.dmi-ceramic-cup svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dmi-venue-shield {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(217, 119, 6, 0.3);
+  color: #78350F;
+}
+.dmi-venue-shield svg {
+  width: 14px;
+  height: 14px;
+  color: #D97706;
+}
+
+.dmi-calendar-dial {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(217, 119, 6, 0.28);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px -2px rgba(217, 119, 6, 0.14);
+}
+.dmi-calendar-dial .dcd-time {
+  font-size: 11px;
+  font-weight: 800;
+  color: #B45309;
+}
+.dmi-calendar-dial .dcd-day {
+  font-size: 9.5px;
+  color: #92400E;
+}
+
+.dmi-event-ticket {
+  background: rgba(255, 251, 235, 0.94);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #92400E;
+}
+.dmi-event-ticket .det-dot {
+  color: #F59E0B;
+  font-size: 10px;
+}
+
+.dmi-moments-badge {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  color: #78350F;
+}
+.dmi-moments-badge .dmi-camera-glyph {
+  font-size: 12px;
+}
+
+.dmi-amber-drop {
+  background: rgba(254, 243, 199, 0.9);
+  border: 1px solid rgba(245, 158, 11, 0.32);
+  color: #B45309;
+}
+.dmi-amber-drop .ad-gem {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #F59E0B;
+}
+
+.dmi-cheers-badge {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(217, 119, 6, 0.28);
+  color: #92400E;
+}
+.dmi-cheers-badge .dmi-cheers-icon {
+  font-size: 12px;
+}

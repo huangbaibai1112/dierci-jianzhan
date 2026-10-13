@@ -57,51 +57,148 @@
     }
   }
 
-  // 13 Stratified candidate zones covering the entire stage background canvas
-  // Guarantees balanced distribution without clumping while covering 100% of the canvas area
+  // 14 Stratified candidate zones covering the entire stage background canvas
+  // Positioned across the top horizon, bottom baseline, center gutter and right flank
+  // Guarantees balanced distribution without clumping while keeping left editorial text 100% legible
   var STAGE_ZONES = [
-    // Top row (across entire stage width)
-    { minX: 3,  maxX: 18, minY: 4,  maxY: 22 }, // Top-Left edge
-    { minX: 20, maxX: 36, minY: 5,  maxY: 20 }, // Top-Left inner
-    { minX: 38, maxX: 54, minY: 5,  maxY: 22 }, // Top-Gutter
-    { minX: 56, maxX: 72, minY: 5,  maxY: 22 }, // Top-Right inner
-    { minX: 74, maxX: 90, minY: 4,  maxY: 22 }, // Top-Right edge
+    // Top horizon band (across full canvas width)
+    { minX: 4,  maxX: 22, minY: 5,  maxY: 18 }, // Top-Left corner (above kicker)
+    { minX: 24, maxX: 42, minY: 5,  maxY: 18 }, // Top-Left inner
+    { minX: 44, maxX: 60, minY: 5,  maxY: 19 }, // Top-Gutter
+    { minX: 62, maxX: 78, minY: 5,  maxY: 18 }, // Top-Right above phone
+    { minX: 80, maxX: 94, minY: 5,  maxY: 18 }, // Top-Right outer corner
 
-    // Middle band (left flank, center gutter, right flank)
-    { minX: 2,  maxX: 15, minY: 28, maxY: 56 }, // Mid-Left edge
-    { minX: 38, maxX: 54, minY: 26, maxY: 60 }, // Mid-Gutter
-    { minX: 82, maxX: 94, minY: 28, maxY: 60 }, // Mid-Right edge
+    // Center channel & Right flank (clear of text and phone core)
+    { minX: 44, maxX: 56, minY: 24, maxY: 44 }, // Mid-Gutter upper
+    { minX: 44, maxX: 56, minY: 48, maxY: 68 }, // Mid-Gutter lower
+    { minX: 85, maxX: 95, minY: 26, maxY: 48 }, // Mid-Right outer upper
+    { minX: 85, maxX: 95, minY: 52, maxY: 72 }, // Mid-Right outer lower
 
-    // Bottom row (across entire stage width)
-    { minX: 3,  maxX: 18, minY: 68, maxY: 88 }, // Bot-Left edge
-    { minX: 20, maxX: 36, minY: 70, maxY: 88 }, // Bot-Left inner
-    { minX: 38, maxX: 54, minY: 68, maxY: 88 }, // Bot-Gutter
-    { minX: 56, maxX: 72, minY: 70, maxY: 88 }, // Bot-Right inner
-    { minX: 74, maxX: 90, minY: 68, maxY: 88 }  // Bot-Right edge
+    // Bottom baseline band (across full canvas width)
+    { minX: 4,  maxX: 20, minY: 76, maxY: 89 }, // Bot-Left corner
+    { minX: 22, maxX: 40, minY: 76, maxY: 89 }, // Bot-Left below chips
+    { minX: 42, maxX: 60, minY: 76, maxY: 89 }, // Bot-Gutter
+    { minX: 62, maxX: 78, minY: 76, maxY: 89 }, // Bot-Right below phone
+    { minX: 80, maxX: 94, minY: 76, maxY: 89 }  // Bot-Right outer
+  ];
+
+  // =========================================================================
+  // Dedicated Feature Graphic Pools (Directly from 网站与APP功能清单.md)
+  // Each chapter has 8 distinct semantic vector badges & interactive motifs.
+  // When a chapter is selected or re-clicked, a random sample is drawn from the array.
+  // =========================================================================
+  var SCENE_FEATURE_POOLS = [
+    // Chapter 0: Curated Daily Picks (每日推荐 / 补充推荐 / 喜欢与配对)
+    [
+      '<div class="dyn-motif-item dmi-card-badge dmi-badge-pill"><span class="dmi-star">&#9733;</span><span>98% Daily Match</span></div>',
+      '<div class="dyn-motif-item dmi-sunrise-arc"><svg viewBox="0 0 140 80" class="sunrise-svg"><defs><linearGradient id="sunGrad0" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="rgba(233, 66, 102, 0.35)"/><stop offset="100%" stop-color="rgba(245, 158, 11, 0.15)"/></linearGradient></defs><path d="M10 75 A 60 60 0 0 1 130 75 Z" fill="url(#sunGrad0)" stroke="rgba(233, 66, 102, 0.45)" stroke-width="1.5"/><line x1="70" y1="12" x2="70" y2="2" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/><line x1="32" y1="26" x2="24" y2="18" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/><line x1="108" y1="26" x2="116" y2="18" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/></svg></div>',
+      '<div class="dyn-motif-item dmi-heart-pill dmi-badge-pill"><span class="dmi-heart-icon">&hearts;</span><span>Mutual Match</span></div>',
+      '<div class="dyn-motif-item dmi-curated-ribbon dmi-badge-pill"><span>&#9734; Curated at 9 AM</span></div>',
+      '<div class="dyn-motif-item dmi-picks-count dmi-badge-pill"><span class="dmi-count-num">+3</span><span>Daily Additions</span></div>',
+      '<div class="dyn-motif-item dmi-rewind-pill dmi-badge-pill"><svg class="dmi-svg-rewind" viewBox="0 0 24 24"><path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z" fill="currentColor"/></svg><span>Revisit Passed</span></div>',
+      '<div class="dyn-motif-item dmi-resonance-rings"><span class="ring-core"></span><span class="ring-ripple"></span></div>',
+      '<div class="dyn-motif-item dmi-twinkle-diamond"><svg viewBox="0 0 32 32"><path d="M16 2 L19 13 L30 16 L19 19 L16 30 L13 19 L2 16 L13 13 Z" fill="#F59E0B"/></svg></div>'
+    ],
+    // Chapter 1: Age 50–99 Filters & Discovery (按条件筛选 / Gallery / 关键字查找)
+    [
+      '<div class="dyn-motif-item dmi-filter-slider"><div class="dfs-header"><span>Age Range</span><span>50–99</span></div><div class="dfs-bar"><i></i></div></div>',
+      '<div class="dyn-motif-item dmi-geo-pill dmi-badge-pill"><svg class="dmi-icon-pin" viewBox="0 0 20 20"><path d="M10 2C6.69 2 4 4.69 4 8c0 4.5 6 10 6 10s6-5.5 6-10c0-3.31-2.69-6-6-6zm0 8.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg><span>Within 25 mi</span></div>',
+      '<div class="dyn-motif-item dmi-verified-pill dmi-badge-pill"><span class="dmi-check">&#10003;</span><span>Photo Verified</span></div>',
+      '<div class="dyn-motif-item dmi-keyword-tag dmi-badge-pill"><span class="dmi-kw-lens">&#x1F50D;</span><span>Garden &amp; Travel</span></div>',
+      '<div class="dyn-motif-item dmi-reticle-view"><span class="reticle-circ"></span><span class="reticle-dot"></span></div>',
+      '<div class="dyn-motif-item dmi-gallery-tile dmi-badge-pill"><span class="gt-dot"></span><span>Gallery View</span></div>',
+      '<div class="dyn-motif-item dmi-lifestyle-badge dmi-badge-pill"><span>Active Lifestyle</span></div>',
+      '<div class="dyn-motif-item dmi-compass-rose"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 3"/><polygon points="20,6 23,17 34,20 23,23 20,34 17,23 6,20 17,17" fill="currentColor"/></svg></div>'
+    ],
+    // Chapter 2: In-Depth Profiles & Live Verification (真人核验 / 故事相册 / 隐私)
+    [
+      '<div class="dyn-motif-item dmi-seal-badge dmi-badge-pill"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="currentColor"/></svg><span>Real-Person Verified</span></div>',
+      '<div class="dyn-motif-item dmi-video-pill dmi-badge-pill"><svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" fill="currentColor"/></svg><span>Video Verified &#10003;</span></div>',
+      '<div class="dyn-motif-item dmi-completion-meter dmi-badge-pill"><span class="dcm-num">100%</span><span>Profile Complete</span></div>',
+      '<div class="dyn-motif-item dmi-story-journal"><svg viewBox="0 0 54 36"><path d="M4 6 C15 4 23 8 27 10 C31 8 39 4 50 6 L50 30 C39 28 31 32 27 34 C23 32 15 28 4 30 Z" fill="rgba(255,255,255,0.92)" stroke="currentColor" stroke-width="1.5"/><line x1="9" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.2"/><line x1="9" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="1.2"/><line x1="32" y1="12" x2="45" y2="12" stroke="currentColor" stroke-width="1.2"/><line x1="32" y1="18" x2="43" y2="18" stroke="currentColor" stroke-width="1.2"/></svg></div>',
+      '<div class="dyn-motif-item dmi-silver-crest dmi-badge-pill"><span class="dsc-gem">&#9670;</span><span>Silver Select</span></div>',
+      '<div class="dyn-motif-item dmi-album-frame dmi-badge-pill"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" fill="currentColor"/></svg><span>Custom Albums</span></div>',
+      '<div class="dyn-motif-item dmi-botanical-vine"><svg viewBox="0 0 48 72"><path d="M24 68 C24 40 32 20 24 4" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="16" cy="16" rx="6" ry="3.5" transform="rotate(-30 16 16)" fill="currentColor" opacity="0.6"/><ellipse cx="32" cy="28" rx="6" ry="3.5" transform="rotate(30 32 28)" fill="currentColor" opacity="0.6"/><ellipse cx="14" cy="40" rx="6" ry="3.5" transform="rotate(-30 14 40)" fill="currentColor" opacity="0.6"/><ellipse cx="34" cy="52" rx="6" ry="3.5" transform="rotate(30 34 52)" fill="currentColor" opacity="0.6"/></svg></div>',
+      '<div class="dyn-motif-item dmi-privacy-shield dmi-badge-pill"><span>&#x1F512; Privacy Protected</span></div>'
+    ],
+    // Chapter 3: Voice Connection & Private Calling (语音与视频通话)
+    [
+      '<div class="dyn-motif-item dmi-voice-capsule dmi-badge-pill"><span class="dvc-play">&#9658;</span><span class="dvc-wave"><i></i><i></i><i></i><i></i><i></i></span><span class="dvc-dur">0:42</span></div>',
+      '<div class="dyn-motif-item dmi-eq-bars"><span></span><span></span><span></span><span></span><span></span><span></span></div>',
+      '<div class="dyn-motif-item dmi-private-call dmi-badge-pill"><svg viewBox="0 0 20 20"><path d="M10 1L3 4v5c0 5 7 9 7 9s7-4 7-9V4l-7-3zm-1 12H8v-2h1v2zm0-4H8V5h1v4z" fill="currentColor"/></svg><span>Number Protected</span></div>',
+      '<div class="dyn-motif-item dmi-sound-arcs"><svg viewBox="0 0 44 36"><path d="M6 10 L6 26 L14 26 L24 34 L24 2 L14 10 Z" fill="currentColor"/><path d="M29 12 A 8 8 0 0 1 29 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M34 7 A 14 14 0 0 1 34 29" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/></svg></div>',
+      '<div class="dyn-motif-item dmi-video-frame dmi-badge-pill"><span class="dvf-dot"></span><span>Video Chat</span></div>',
+      '<div class="dyn-motif-item dmi-call-guard dmi-badge-pill"><span>&#x2714; Call Guard Active</span></div>',
+      '<div class="dyn-motif-item dmi-audio-node"><span class="an-core"></span><span class="an-ripple"></span></div>',
+      '<div class="dyn-motif-item dmi-clef-trail dmi-badge-pill"><span class="dmi-clef-glyph">&#9835;</span><span>Warm Tone</span></div>'
+    ],
+    // Chapter 4: Conversation Starters & Winks (私信、打招呼与破冰)
+    [
+      '<div class="dyn-motif-item dmi-wink-tag dmi-badge-pill"><span class="dmi-wink-icon">&#128521;</span><span>Wink Sent &#10024;</span></div>',
+      '<div class="dyn-motif-item dmi-speech-bubble"><span class="dsb-dots"><i></i><i></i><i></i></span><span class="dsb-tail"></span></div>',
+      '<div class="dyn-motif-item dmi-pinned-ribbon dmi-badge-pill"><span class="dmi-pin-icon">&#128204;</span><span>Pinned Chat</span></div>',
+      '<div class="dyn-motif-item dmi-card-envelope dmi-badge-pill"><svg viewBox="0 0 24 18"><path d="M2 2h20v14H2z" fill="rgba(255,255,255,0.92)" stroke="currentColor" stroke-width="1.5"/><path d="M2 2l10 8L22 2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2" fill="#E94266"/></svg><span>Greeting Card</span></div>',
+      '<div class="dyn-motif-item dmi-emoji-bubble dmi-badge-pill"><span class="dmi-emoji-symbol">&#128156;</span><span>Heartfelt</span></div>',
+      '<div class="dyn-motif-item dmi-idea-burst"><svg viewBox="0 0 26 26"><path d="M13 0 L15 10 L25 13 L15 16 L13 26 L11 16 L1 13 L11 10 Z" fill="currentColor"/></svg></div>',
+      '<div class="dyn-motif-item dmi-read-receipt dmi-badge-pill"><span class="dmi-checks">&#10003;&#10003;</span><span>Delivered</span></div>',
+      '<div class="dyn-motif-item dmi-icebreaker-quote"><span>&ldquo;Weekend hike?&rdquo;</span></div>'
+    ],
+    // Chapter 5: 1-on-1 Coffee Meetups & Community (线下见面与活动)
+    [
+      '<div class="dyn-motif-item dmi-meetup-card dmi-badge-pill"><span class="dmc-icon">&#9749;</span><span>1-to-1 Tea Meetup</span></div>',
+      '<div class="dyn-motif-item dmi-ceramic-cup"><svg viewBox="0 0 48 38"><path d="M8 32 C16 36 32 36 40 32" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 14 L15 28 C16 31 34 31 35 28 L38 14 Z" fill="rgba(255,255,255,0.92)" stroke="currentColor" stroke-width="1.5"/><path d="M38 17 C42 17 44 21 41 24 C39 25 37 25 36 24" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M20 10 Q23 6 20 2" stroke="#F59E0B" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M28 10 Q31 6 28 2" stroke="#F59E0B" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>',
+      '<div class="dyn-motif-item dmi-venue-shield dmi-badge-pill"><svg viewBox="0 0 20 20"><path d="M10 2L3 5v6c0 4.5 3.5 8.5 7 9.5 3.5-1 7-5 7-9.5V5l-7-3z" fill="currentColor"/></svg><span>Public Venue Safe</span></div>',
+      '<div class="dyn-motif-item dmi-calendar-dial"><span class="dcd-time">3:00 PM</span><span class="dcd-day">Saturday</span></div>',
+      '<div class="dyn-motif-item dmi-event-ticket dmi-badge-pill"><span class="det-dot">&#9679;</span><span>Art Walk &amp; Talk</span></div>',
+      '<div class="dyn-motif-item dmi-moments-badge dmi-badge-pill"><span class="dmi-camera-glyph">&#128247;</span><span>Moments</span></div>',
+      '<div class="dyn-motif-item dmi-amber-drop dmi-badge-pill"><span class="ad-gem"></span><span>Golden Hour</span></div>',
+      '<div class="dyn-motif-item dmi-cheers-badge dmi-badge-pill"><span class="dmi-cheers-icon">&#127861;</span><span>Relaxed Setting</span></div>'
+    ]
   ];
 
   function randomizeSceneElements(sceneIdx) {
     var motifEl = stage.querySelector('.motif-scene-' + sceneIdx);
     if (!motifEl) return;
 
-    var items = motifEl.querySelectorAll('.dyn-motif-item');
-    if (!items.length) return;
+    var container = motifEl.querySelector('.dyn-sampled-motifs') || motifEl;
+    var pool = SCENE_FEATURE_POOLS[sceneIdx];
+    if (!pool || !pool.length) return;
 
-    // Shuffle candidate zones so each item receives a distinct zone across the canvas
-    var shuffledZones = STAGE_ZONES.slice().sort(function() {
-      return 0.5 - Math.random();
-    });
+    // 1. Randomly draw 5 to 6 distinct items from the feature pool without replacement
+    var sampleCount = 5 + Math.floor(Math.random() * 2);
+    var poolIndices = [];
+    for (var k = 0; k < pool.length; k++) poolIndices.push(k);
+    for (var p = poolIndices.length - 1; p > 0; p--) {
+      var rp = Math.floor(Math.random() * (p + 1));
+      var tmpP = poolIndices[p];
+      poolIndices[p] = poolIndices[rp];
+      poolIndices[rp] = tmpP;
+    }
+    var chosen = poolIndices.slice(0, sampleCount);
 
-    items.forEach(function(el, i) {
+    // 2. Shuffle candidate zones across 100% of canvas
+    var shuffledZones = STAGE_ZONES.slice();
+    for (var z = shuffledZones.length - 1; z > 0; z--) {
+      var rz = Math.floor(Math.random() * (z + 1));
+      var tmpZ = shuffledZones[z];
+      shuffledZones[z] = shuffledZones[rz];
+      shuffledZones[rz] = tmpZ;
+    }
+
+    // 3. Clear container and inject drawn items with position-aware kinetic physics
+    container.innerHTML = '';
+    var tempWrap = document.createElement('div');
+
+    chosen.forEach(function(poolIdx, i) {
+      tempWrap.innerHTML = pool[poolIdx];
+      var el = tempWrap.firstElementChild;
+      if (!el) return;
+
       var zone = shuffledZones[i % shuffledZones.length];
       var posX = zone.minX + Math.random() * (zone.maxX - zone.minX);
       var posY = zone.minY + Math.random() * (zone.maxY - zone.minY);
 
-      // Position-aware kinetic motion dynamics ("根据位置来随机出现随机设"):
-      // 1. Vertical physics based on spawn height:
-      // - Upper elements (posY <= 35) float/glide downward into view; idle drifts downward
-      // - Lower elements (posY >= 65) spring/hop upward into view; idle drifts upward
-      // - Middle elements (35 < posY < 65) pop radially with elastic expansion
+      // Position-aware kinetic motion dynamics:
       var entranceY = 0;
       var driftY = 0;
       if (posY <= 35) {
@@ -115,10 +212,6 @@
         driftY = (Math.random() > 0.5 ? 1 : -1) * (10 + Math.floor(Math.random() * 14));
       }
 
-      // 2. Horizontal physics based on spawn lateral position:
-      // - Left elements (posX <= 32) drift inward towards right
-      // - Right elements (posX >= 68) drift inward towards left, flanking phone
-      // - Center elements (32 < posX < 68) sway laterally
       var entranceX = 0;
       var driftX = 0;
       if (posX <= 32) {
@@ -132,21 +225,18 @@
         driftX = (Math.random() > 0.5 ? 1 : -1) * (8 + Math.floor(Math.random() * 14));
       }
 
-      // 3. Orientation, scale & timing jitter:
       var baseRot = (posX < 50 ? -1 : 1) * (3 + Math.floor(Math.random() * 11)); // -14deg to +14deg
       var swing = 3 + Math.floor(Math.random() * 5); // 3deg to 7deg
-      var scale = (0.86 + Math.random() * 0.28).toFixed(2); // 0.86 to 1.14
+      var scale = (0.88 + Math.random() * 0.24).toFixed(2); // 0.88 to 1.12
       var dur = (3.4 + Math.random() * 2.6).toFixed(2); // 3.4s to 6.0s
-      var delay = Math.floor(50 + Math.random() * 520); // 50ms to 570ms
-      var popDur = (0.64 + Math.random() * 0.22).toFixed(2); // 0.64s to 0.86s
+      var delay = Math.floor(50 + Math.random() * 480); // 50ms to 530ms
+      var popDur = (0.64 + Math.random() * 0.22).toFixed(2);
 
-      // Apply coordinates spanning the entire stage canvas
       el.style.left = posX.toFixed(1) + '%';
       el.style.top = posY.toFixed(1) + '%';
       el.style.right = 'auto';
       el.style.bottom = 'auto';
 
-      // Apply dynamic kinetic CSS properties
       el.style.setProperty('--entrance-x', entranceX + 'px');
       el.style.setProperty('--entrance-y', entranceY + 'px');
       el.style.setProperty('--rnd-drift-x', driftX + 'px');
@@ -157,6 +247,8 @@
       el.style.setProperty('--rnd-dur', dur + 's');
       el.style.setProperty('--pop-delay', delay + 'ms');
       el.style.setProperty('--pop-dur', popDur + 's');
+
+      container.appendChild(el);
     });
 
     // Re-trigger CSS animations smoothly

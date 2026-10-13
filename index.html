@@ -3024,6 +3024,668 @@ img {
 }
 
 
+/* ==========================================================================
+   DYNAMIC SAMPLED FEATURE MOTIFS
+   Directly derived from 网站与APP功能清单.md
+   Porcelain luxury styling, backdrop blur, delicate borders & typography
+   ========================================================================== */
+
+/* Dynamic Sampled Motifs Full-Canvas Stage Wrapper */
+.dyn-sampled-motifs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Feature Pill / Badge Common */
+.dmi-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-family: var(--font-display, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px -2px rgba(180, 140, 110, 0.14), 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+/* --------------------------------------------------------------------------
+   POOL 0: CURATED DAILY PICKS (每日推荐 & 配对)
+   Tints: Coral Rose, Golden Amber, Cashmere
+   -------------------------------------------------------------------------- */
+.dmi-card-badge {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(233, 66, 102, 0.28);
+  color: #BE123C;
+}
+.dmi-card-badge .dmi-star {
+  color: #F59E0B;
+  font-size: 13px;
+}
+
+.dmi-sunrise-arc {
+  width: 140px;
+  height: 80px;
+  filter: drop-shadow(0 4px 14px rgba(233, 66, 102, 0.16));
+}
+.dmi-sunrise-arc svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dmi-heart-pill {
+  background: rgba(255, 241, 242, 0.92);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  color: #E11D48;
+}
+.dmi-heart-pill .dmi-heart-icon {
+  font-size: 14px;
+  color: #E11D48;
+}
+
+.dmi-curated-ribbon {
+  background: rgba(254, 243, 199, 0.92);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #B45309;
+}
+
+.dmi-picks-count {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(233, 66, 102, 0.25);
+  color: #9F1239;
+}
+.dmi-picks-count .dmi-count-num {
+  font-weight: 800;
+  color: #E11D48;
+}
+
+.dmi-rewind-pill {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  color: #92400E;
+}
+.dmi-rewind-pill svg {
+  width: 14px;
+  height: 14px;
+  color: #D97706;
+}
+
+.dmi-resonance-rings {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dmi-resonance-rings .ring-core {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(233, 66, 102, 0.45);
+}
+.dmi-resonance-rings .ring-ripple {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(245, 158, 11, 0.35);
+  animation: heartPulseRing 2.6s ease-out infinite;
+}
+
+.dmi-twinkle-diamond {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.35));
+}
+.dmi-twinkle-diamond svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   POOL 1: AGE 50–99 FILTERS & DISCOVERY (按条件筛选 & 画廊)
+   Tints: Sapphire Blue, Ocean Cerulean, Slate
+   -------------------------------------------------------------------------- */
+.dmi-filter-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(74, 144, 226, 0.32);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px -2px rgba(74, 144, 226, 0.16);
+  min-width: 120px;
+}
+.dmi-filter-slider .dfs-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #1E40AF;
+}
+.dmi-filter-slider .dfs-bar {
+  width: 100%;
+  height: 5px;
+  background: #E2E8F0;
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+}
+.dmi-filter-slider .dfs-bar i {
+  display: block;
+  height: 100%;
+  width: 78%;
+  background: linear-gradient(90deg, #60A5FA, #2563EB);
+  border-radius: 9999px;
+}
+
+.dmi-geo-pill {
+  background: rgba(240, 247, 255, 0.92);
+  border: 1px solid rgba(59, 130, 246, 0.32);
+  color: #1D4ED8;
+}
+.dmi-geo-pill svg {
+  width: 14px;
+  height: 14px;
+  color: #2563EB;
+}
+
+.dmi-verified-pill {
+  background: rgba(240, 253, 244, 0.92);
+  border: 1px solid rgba(34, 197, 94, 0.32);
+  color: #15803D;
+}
+.dmi-verified-pill .dmi-check {
+  font-weight: 800;
+  color: #16A34A;
+}
+
+.dmi-keyword-tag {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(74, 144, 226, 0.28);
+  color: #1E3A8A;
+}
+.dmi-keyword-tag .dmi-kw-lens {
+  font-size: 12px;
+}
+
+.dmi-reticle-view {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.dmi-reticle-view .reticle-circ {
+  position: absolute;
+  inset: 4px;
+  border: 1.5px dashed rgba(74, 144, 226, 0.5);
+  border-radius: 50%;
+  animation: reticlePulse 3.2s ease-in-out infinite;
+}
+.dmi-reticle-view .reticle-dot {
+  width: 5px;
+  height: 5px;
+  background: #2563EB;
+  border-radius: 50%;
+}
+
+.dmi-gallery-tile {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  color: #1E40AF;
+}
+.dmi-gallery-tile .gt-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #3B82F6;
+}
+
+.dmi-lifestyle-badge {
+  background: rgba(248, 250, 252, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  color: #334155;
+}
+
+.dmi-compass-rose {
+  width: 38px;
+  height: 38px;
+  color: rgba(37, 99, 235, 0.55);
+}
+.dmi-compass-rose svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   POOL 2: IN-DEPTH PROFILES & LIVE VERIFICATION (真人核验 & 故事)
+   Tints: Emerald Jade, Forest Sage, Olive
+   -------------------------------------------------------------------------- */
+.dmi-seal-badge {
+  background: rgba(240, 253, 244, 0.94);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #15803D;
+}
+.dmi-seal-badge svg {
+  width: 15px;
+  height: 15px;
+  color: #16A34A;
+}
+
+.dmi-video-pill {
+  background: rgba(236, 253, 245, 0.94);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #047857;
+}
+.dmi-video-pill svg {
+  width: 14px;
+  height: 14px;
+  color: #059669;
+}
+
+.dmi-completion-meter {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(16, 185, 129, 0.32);
+  color: #065F46;
+}
+.dmi-completion-meter .dcm-num {
+  font-weight: 800;
+  color: #059669;
+}
+
+.dmi-story-journal {
+  width: 54px;
+  height: 36px;
+  color: #059669;
+  filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.16));
+}
+.dmi-story-journal svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dmi-silver-crest {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(241, 245, 249, 0.92));
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  color: #334155;
+}
+.dmi-silver-crest .dsc-gem {
+  color: #64748B;
+  font-size: 11px;
+}
+
+.dmi-album-frame {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(34, 197, 94, 0.28);
+  color: #166534;
+}
+.dmi-album-frame svg {
+  width: 14px;
+  height: 14px;
+  color: #15803D;
+}
+
+.dmi-botanical-vine {
+  width: 48px;
+  height: 72px;
+  color: #10B981;
+}
+.dmi-botanical-vine svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dmi-privacy-shield {
+  background: rgba(248, 250, 252, 0.92);
+  border: 1px solid rgba(100, 116, 139, 0.28);
+  color: #475569;
+}
+
+/* --------------------------------------------------------------------------
+   POOL 3: VOICE CONNECTION & PRIVATE CALLING (语音与视频通话)
+   Tints: Violet, Lavender, Amethyst
+   -------------------------------------------------------------------------- */
+.dmi-voice-capsule {
+  background: rgba(245, 243, 255, 0.94);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  color: #6D28D9;
+}
+.dmi-voice-capsule .dvc-play {
+  font-size: 10px;
+  color: #7C3AED;
+}
+.dmi-voice-capsule .dvc-wave {
+  display: flex;
+  gap: 2.5px;
+  align-items: center;
+  height: 14px;
+}
+.dmi-voice-capsule .dvc-wave i {
+  display: block;
+  width: 2.5px;
+  border-radius: 9999px;
+  background: #8B5CF6;
+  animation: voiceBarJump 1.4s ease-in-out infinite;
+}
+.dmi-voice-capsule .dvc-wave i:nth-child(1) { height: 6px; }
+.dmi-voice-capsule .dvc-wave i:nth-child(2) { height: 12px; animation-delay: 0.15s; }
+.dmi-voice-capsule .dvc-wave i:nth-child(3) { height: 14px; animation-delay: 0.3s; }
+.dmi-voice-capsule .dvc-wave i:nth-child(4) { height: 9px; animation-delay: 0.45s; }
+.dmi-voice-capsule .dvc-wave i:nth-child(5) { height: 6px; animation-delay: 0.2s; }
+.dmi-voice-capsule .dvc-dur {
+  font-size: 10.5px;
+  color: #7C3AED;
+  font-weight: 700;
+}
+
+.dmi-eq-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 28px;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 10px;
+}
+.dmi-eq-bars span {
+  width: 3.5px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #8B5CF6, #6D28D9);
+  animation: voiceBarJump 1.3s ease-in-out infinite;
+}
+.dmi-eq-bars span:nth-child(1) { height: 10px; animation-delay: -0.2s; }
+.dmi-eq-bars span:nth-child(2) { height: 18px; animation-delay: -0.5s; }
+.dmi-eq-bars span:nth-child(3) { height: 24px; animation-delay: -0.1s; }
+.dmi-eq-bars span:nth-child(4) { height: 14px; animation-delay: -0.7s; }
+.dmi-eq-bars span:nth-child(5) { height: 20px; animation-delay: -0.3s; }
+.dmi-eq-bars span:nth-child(6) { height: 12px; animation-delay: -0.6s; }
+
+.dmi-private-call {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: #5B21B6;
+}
+.dmi-private-call svg {
+  width: 14px;
+  height: 14px;
+  color: #7C3AED;
+}
+
+.dmi-sound-arcs {
+  width: 44px;
+  height: 36px;
+  color: #8B5CF6;
+  filter: drop-shadow(0 2px 8px rgba(139, 92, 246, 0.2));
+}
+.dmi-sound-arcs svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dmi-video-frame {
+  background: rgba(245, 243, 255, 0.92);
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  color: #6D28D9;
+}
+.dmi-video-frame .dvf-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 6px #10B981;
+}
+
+.dmi-call-guard {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(139, 92, 246, 0.28);
+  color: #5B21B6;
+}
+
+.dmi-audio-node {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dmi-audio-node .an-core {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8B5CF6;
+}
+.dmi-audio-node .an-ripple {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid rgba(139, 92, 246, 0.4);
+  border-radius: 50%;
+  animation: nodeRingPulse 2.2s ease-out infinite;
+}
+
+.dmi-clef-trail {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(139, 92, 246, 0.28);
+  color: #6D28D9;
+}
+.dmi-clef-trail .dmi-clef-glyph {
+  font-size: 13px;
+  color: #7C3AED;
+}
+
+/* --------------------------------------------------------------------------
+   POOL 4: CONVERSATION STARTERS & WINKS (私信、打招呼与破冰)
+   Tints: Warm Amber, Honey, Tangerine, Coral
+   -------------------------------------------------------------------------- */
+.dmi-wink-tag {
+  background: rgba(254, 243, 199, 0.94);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #B45309;
+}
+.dmi-wink-tag .dmi-wink-icon {
+  font-size: 13px;
+}
+
+.dmi-speech-bubble {
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(245, 158, 11, 0.32);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px -2px rgba(245, 158, 11, 0.16);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.dmi-speech-bubble .dsb-dots {
+  display: flex;
+  gap: 3.5px;
+}
+.dmi-speech-bubble .dsb-dots i {
+  display: block;
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 50%;
+  background: #F59E0B;
+  animation: typingDotPulse 1.3s ease-in-out infinite;
+}
+.dmi-speech-bubble .dsb-dots i:nth-child(2) { animation-delay: 0.2s; }
+.dmi-speech-bubble .dsb-dots i:nth-child(3) { animation-delay: 0.4s; }
+.dmi-speech-bubble .dsb-tail {
+  position: absolute;
+  bottom: -5px;
+  left: 12px;
+  width: 8px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.92);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.dmi-pinned-ribbon {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(233, 66, 102, 0.28);
+  color: #BE123C;
+}
+.dmi-pinned-ribbon .dmi-pin-icon {
+  font-size: 12px;
+}
+
+.dmi-card-envelope {
+  background: rgba(254, 242, 242, 0.92);
+  border: 1px solid rgba(244, 63, 94, 0.28);
+  color: #BE123C;
+}
+.dmi-card-envelope svg {
+  width: 16px;
+  height: 12px;
+  color: #E11D48;
+}
+
+.dmi-emoji-bubble {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #92400E;
+}
+.dmi-emoji-bubble .dmi-emoji-symbol {
+  font-size: 13px;
+}
+
+.dmi-idea-burst {
+  width: 26px;
+  height: 26px;
+  color: #F59E0B;
+  filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.35));
+}
+.dmi-idea-burst svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dmi-read-receipt {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: #1D4ED8;
+}
+.dmi-read-receipt .dmi-checks {
+  font-weight: 800;
+  color: #2563EB;
+}
+
+.dmi-icebreaker-quote {
+  padding: 6px 12px;
+  background: rgba(255, 251, 235, 0.92);
+  border: 1px dashed rgba(245, 158, 11, 0.4);
+  border-radius: 12px;
+  font-style: italic;
+  font-family: Georgia, serif;
+  font-size: 11.5px;
+  color: #92400E;
+}
+
+/* --------------------------------------------------------------------------
+   POOL 5: 1-ON-1 COFFEE MEETUPS & COMMUNITY (线下见面与活动)
+   Tints: Amber, Cinnamon, Warm Ochre
+   -------------------------------------------------------------------------- */
+.dmi-meetup-card {
+  background: rgba(254, 243, 199, 0.94);
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  color: #92400E;
+}
+.dmi-meetup-card .dmc-icon {
+  font-size: 13px;
+}
+
+.dmi-ceramic-cup {
+  width: 48px;
+  height: 38px;
+  color: #D97706;
+  filter: drop-shadow(0 4px 12px rgba(217, 119, 6, 0.16));
+}
+.dmi-ceramic-cup svg {
+  width: 100%;
+  height: 100%;
+}
+
+.dmi-venue-shield {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(217, 119, 6, 0.3);
+  color: #78350F;
+}
+.dmi-venue-shield svg {
+  width: 14px;
+  height: 14px;
+  color: #D97706;
+}
+
+.dmi-calendar-dial {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(217, 119, 6, 0.28);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px -2px rgba(217, 119, 6, 0.14);
+}
+.dmi-calendar-dial .dcd-time {
+  font-size: 11px;
+  font-weight: 800;
+  color: #B45309;
+}
+.dmi-calendar-dial .dcd-day {
+  font-size: 9.5px;
+  color: #92400E;
+}
+
+.dmi-event-ticket {
+  background: rgba(255, 251, 235, 0.94);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #92400E;
+}
+.dmi-event-ticket .det-dot {
+  color: #F59E0B;
+  font-size: 10px;
+}
+
+.dmi-moments-badge {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  color: #78350F;
+}
+.dmi-moments-badge .dmi-camera-glyph {
+  font-size: 12px;
+}
+
+.dmi-amber-drop {
+  background: rgba(254, 243, 199, 0.9);
+  border: 1px solid rgba(245, 158, 11, 0.32);
+  color: #B45309;
+}
+.dmi-amber-drop .ad-gem {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #F59E0B;
+}
+
+.dmi-cheers-badge {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(217, 119, 6, 0.28);
+  color: #92400E;
+}
+.dmi-cheers-badge .dmi-cheers-icon {
+  font-size: 12px;
+}
+
+
 /* [COMPONENT: comparison] components\comparison\style.css */
 /* Component: Benchmark Matrix Styles (Warm Cashmere & Velvet Wine Architecture - Un-carded) */
 .comp-comparison {
@@ -4080,327 +4742,67 @@ img {
           <span class="ambient-aurora aurora-cyan"></span>
           <span class="ambient-aurora aurora-phone-glow"></span>
 
-          <!-- ==================== SCENE 0 MOTIF: CURATED DAILY PICKS (Morning Dawn & Heartbeat Pulse) ==================== -->
+          <!-- ==================== SCENE 0 MOTIF: CURATED DAILY PICKS ==================== -->
           <div class="scene-motif motif-scene-0" aria-hidden="true">
-            <!-- Concentric Heartbeat Pulse Rings -->
+            <!-- Concentric Heartbeat Pulse Rings (Soft Ambient Watermark) -->
             <div class="motif-pulse-rings">
               <span class="pulse-ring pr-1"></span>
               <span class="pulse-ring pr-2"></span>
               <span class="pulse-ring pr-3"></span>
             </div>
-
-            <!-- Morning Sunrise Arc & Radiating Dawn Rays -->
-            <svg class="sunrise-arc dyn-motif-item" viewBox="0 0 320 180">
-              <defs>
-                <linearGradient id="sunRayGrad0" x1="0%" y1="100%" x2="0%" y2="0%">
-                  <stop offset="0%" stop-color="rgba(233, 66, 102, 0.3)" />
-                  <stop offset="100%" stop-color="rgba(245, 158, 11, 0.02)" />
-                </linearGradient>
-              </defs>
-              <path class="sun-ray" d="M160 170 L80 40" stroke="url(#sunRayGrad0)" stroke-width="2.5" stroke-linecap="round" />
-              <path class="sun-ray" d="M160 170 L120 20" stroke="url(#sunRayGrad0)" stroke-width="2.5" stroke-linecap="round" />
-              <path class="sun-ray" d="M160 170 L160 10" stroke="url(#sunRayGrad0)" stroke-width="3" stroke-linecap="round" />
-              <path class="sun-ray" d="M160 170 L200 20" stroke="url(#sunRayGrad0)" stroke-width="2.5" stroke-linecap="round" />
-              <path class="sun-ray" d="M160 170 L240 40" stroke="url(#sunRayGrad0)" stroke-width="2.5" stroke-linecap="round" />
-              <circle class="sun-core" cx="160" cy="170" r="54" fill="rgba(255, 235, 240, 0.55)" stroke="rgba(233, 66, 102, 0.32)" stroke-width="2" />
-            </svg>
-
-            <!-- Hopping Morning Profile Cards (Bouncing in staggered rhythm) -->
-            <div class="motif-floating-cards">
-              <div class="mini-card mc-1 dyn-motif-item">
-                <span class="mc-avatar"></span>
-                <span class="mc-line mc-line-long"></span>
-                <span class="mc-line mc-line-short"></span>
-                <span class="mc-heart">&hearts;</span>
-              </div>
-              <div class="mini-card mc-2 dyn-motif-item">
-                <span class="mc-avatar"></span>
-                <span class="mc-line mc-line-long"></span>
-                <span class="mc-line mc-line-short"></span>
-                <span class="mc-heart">&hearts;</span>
-              </div>
-              <div class="mini-card mc-3 dyn-motif-item">
-                <span class="mc-avatar"></span>
-                <span class="mc-line mc-line-long"></span>
-                <span class="mc-line mc-line-short"></span>
-                <span class="mc-heart">&hearts;</span>
-              </div>
-            </div>
-
-            <!-- Floating Heart Praise Bursts -->
-            <div class="motif-hearts-field">
-              <svg class="float-heart fh-1 dyn-motif-item" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-              <svg class="float-heart fh-2 dyn-motif-item" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-              <svg class="float-heart fh-3 dyn-motif-item" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-            </div>
-
-            <!-- Morning Dawn Twinkle Diamonds -->
-            <div class="motif-starburst-field">
-              <span class="burst-diamond bd-1 dyn-motif-item"></span>
-              <span class="burst-diamond bd-2 dyn-motif-item"></span>
-              <span class="burst-diamond bd-3 dyn-motif-item"></span>
+            <!-- Dynamic Randomized Sampled Feature Motifs -->
+            <div class="dyn-sampled-motifs">
+              <div class="dyn-motif-item dmi-card-badge dmi-badge-pill" style="left:8%;top:16%;"><span class="dmi-star">&#9733;</span><span>98% Daily Match</span></div>
+              <div class="dyn-motif-item dmi-heart-pill dmi-badge-pill" style="left:76%;top:18%;"><span class="dmi-heart-icon">&hearts;</span><span>Mutual Match</span></div>
+              <div class="dyn-motif-item dmi-curated-ribbon dmi-badge-pill" style="left:12%;top:74%;"><span>&#9734; Curated at 9 AM</span></div>
+              <div class="dyn-motif-item dmi-picks-count dmi-badge-pill" style="left:80%;top:76%;"><span class="dmi-count-num">+3</span><span>Daily Additions</span></div>
             </div>
           </div>
 
-          <!-- ==================== SCENE 1 MOTIF: AGE 50–99 FILTERS (Radar Compass & Precision Scales) ==================== -->
+          <!-- ==================== SCENE 1 MOTIF: AGE 50–99 FILTERS & DISCOVERY ==================== -->
           <div class="scene-motif motif-scene-1" aria-hidden="true">
-            <!-- Rotating Calibrated Compass Dial -->
-            <div class="motif-radar-dial dyn-motif-item">
+            <!-- Rotating Calibrated Compass Dial (Soft Ambient Watermark) -->
+            <div class="motif-radar-dial">
               <svg class="radar-svg" viewBox="0 0 280 280">
                 <circle class="radar-outer-ring" cx="140" cy="140" r="130" fill="none" stroke="rgba(74, 144, 226, 0.28)" stroke-width="1.5" stroke-dasharray="4 8" />
                 <circle class="radar-mid-ring" cx="140" cy="140" r="92" fill="none" stroke="rgba(74, 144, 226, 0.35)" stroke-width="1.2" />
                 <circle class="radar-inner-ring" cx="140" cy="140" r="54" fill="rgba(240, 247, 255, 0.45)" stroke="rgba(74, 144, 226, 0.45)" stroke-width="1.5" />
-                <line x1="140" y1="10" x2="140" y2="270" stroke="rgba(74, 144, 226, 0.22)" stroke-width="1" />
-                <line x1="10" y1="140" x2="270" y2="140" stroke="rgba(74, 144, 226, 0.22)" stroke-width="1" />
-                <circle cx="140" cy="10" r="3.5" fill="#4A90E2" />
-                <circle cx="270" cy="140" r="3.5" fill="#4A90E2" />
-                <circle cx="140" cy="270" r="3.5" fill="#4A90E2" />
-                <circle cx="10" cy="140" r="3.5" fill="#4A90E2" />
               </svg>
-              <!-- 360-Degree Radar Sweep Beam -->
               <div class="radar-sweep-cone"></div>
             </div>
-
-            <!-- Gliding Precision Range Slider Scales -->
-            <div class="motif-slider-system">
-              <div class="calibrated-track ct-1 dyn-motif-item">
-                <span class="track-tick"></span><span class="track-tick"></span><span class="track-tick"></span><span class="track-tick"></span><span class="track-tick"></span>
-                <span class="slider-thumb st-1"><span class="thumb-val">50</span></span>
-              </div>
-              <div class="calibrated-track ct-2 dyn-motif-item">
-                <span class="track-tick"></span><span class="track-tick"></span><span class="track-tick"></span><span class="track-tick"></span><span class="track-tick"></span>
-                <span class="slider-thumb st-2"><span class="thumb-val">99</span></span>
-              </div>
-            </div>
-
-            <!-- Precision Target Reticles (Crosshairs focusing & hopping) -->
-            <div class="motif-reticles">
-              <div class="target-reticle tr-1 dyn-motif-item">
-                <span class="reticle-ring"></span>
-                <span class="reticle-cross rc-h"></span>
-                <span class="reticle-cross rc-v"></span>
-              </div>
-              <div class="target-reticle tr-2 dyn-motif-item">
-                <span class="reticle-ring"></span>
-                <span class="reticle-cross rc-h"></span>
-                <span class="reticle-cross rc-v"></span>
-              </div>
-            </div>
-
-            <!-- Calibrated Metric Tags -->
-            <div class="motif-geo-markers">
-              <span class="geo-marker gm-1 dyn-motif-item">50&ndash;99</span>
-              <span class="geo-marker gm-2 dyn-motif-item">25 mi</span>
-              <span class="geo-marker gm-3 dyn-motif-item">&#x2713; Photo</span>
-            </div>
+            <!-- Dynamic Randomized Sampled Feature Motifs -->
+            <div class="dyn-sampled-motifs"></div>
           </div>
 
-          <!-- ==================== SCENE 2 MOTIF: IN-DEPTH PROFILES (Story Journal & Botanical Leaves) ==================== -->
+          <!-- ==================== SCENE 2 MOTIF: IN-DEPTH PROFILES & LIVE VERIFICATION ==================== -->
           <div class="scene-motif motif-scene-2" aria-hidden="true">
-            <!-- Floating Open Story Journal -->
-            <div class="motif-journal-frame dyn-motif-item">
-              <svg class="journal-svg" viewBox="0 0 260 160">
-                <defs>
-                  <linearGradient id="bookCoverGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="rgba(39, 174, 96, 0.3)" />
-                    <stop offset="100%" stop-color="rgba(74, 144, 226, 0.22)" />
-                  </linearGradient>
-                </defs>
-                <path class="journal-page page-left" d="M130 140 C90 135 40 142 16 132 L16 32 C40 42 90 35 130 40 Z" fill="rgba(240, 253, 244, 0.65)" stroke="url(#bookCoverGrad2)" stroke-width="2" />
-                <path class="journal-page page-right" d="M130 140 C170 135 220 142 244 132 L244 32 C220 42 170 35 130 40 Z" fill="rgba(255, 255, 255, 0.85)" stroke="url(#bookCoverGrad2)" stroke-width="2" />
-                <line x1="36" y1="58" x2="110" y2="58" stroke="rgba(39, 174, 96, 0.32)" stroke-width="2" stroke-linecap="round" />
-                <line x1="36" y1="78" x2="100" y2="78" stroke="rgba(39, 174, 96, 0.26)" stroke-width="2" stroke-linecap="round" />
-                <line x1="36" y1="98" x2="90" y2="98" stroke="rgba(39, 174, 96, 0.2)" stroke-width="2" stroke-linecap="round" />
-                <line x1="150" y1="58" x2="224" y2="58" stroke="rgba(74, 144, 226, 0.32)" stroke-width="2" stroke-linecap="round" />
-                <line x1="150" y1="78" x2="214" y2="78" stroke="rgba(74, 144, 226, 0.26)" stroke-width="2" stroke-linecap="round" />
-                <line x1="150" y1="98" x2="204" y2="98" stroke="rgba(74, 144, 226, 0.2)" stroke-width="2" stroke-linecap="round" />
-              </svg>
-            </div>
-
-            <!-- Swaying Botanical Vines & Leaves -->
-            <div class="motif-botanical-vines">
-              <svg class="vine-svg vine-left dyn-motif-item" viewBox="0 0 160 220">
-                <path class="vine-stem" d="M20 210 Q 50 130 30 20" fill="none" stroke="rgba(39, 174, 96, 0.36)" stroke-width="2.2" stroke-linecap="round" />
-                <path class="vine-leaf vl-1" d="M36 170 C 60 160 65 140 42 145 C 32 155 34 165 36 170 Z" fill="rgba(39, 174, 96, 0.24)" stroke="rgba(39, 174, 96, 0.42)" stroke-width="1.2" />
-                <path class="vine-leaf vl-2" d="M28 115 C 8 100 6 80 25 90 C 30 100 29 110 28 115 Z" fill="rgba(39, 174, 96, 0.22)" stroke="rgba(39, 174, 96, 0.38)" stroke-width="1.2" />
-                <path class="vine-leaf vl-3" d="M32 60 C 55 50 58 32 38 40 C 30 48 31 55 32 60 Z" fill="rgba(39, 174, 96, 0.26)" stroke="rgba(39, 174, 96, 0.42)" stroke-width="1.2" />
-              </svg>
-              <svg class="vine-svg vine-right dyn-motif-item" viewBox="0 0 160 220">
-                <path class="vine-stem" d="M140 210 Q 110 130 130 20" fill="none" stroke="rgba(39, 174, 96, 0.34)" stroke-width="2.2" stroke-linecap="round" />
-                <path class="vine-leaf vl-4" d="M124 165 C 100 155 96 135 118 140 C 128 150 126 160 124 165 Z" fill="rgba(39, 174, 96, 0.22)" stroke="rgba(39, 174, 96, 0.4)" stroke-width="1.2" />
-                <path class="vine-leaf vl-5" d="M132 110 C 150 95 152 75 135 85 C 130 95 131 105 132 110 Z" fill="rgba(39, 174, 96, 0.24)" stroke="rgba(39, 174, 96, 0.38)" stroke-width="1.2" />
-              </svg>
-            </div>
-
-            <!-- Authenticity Rosette Seal -->
-            <div class="motif-authenticity-seal dyn-motif-item">
-              <svg class="seal-svg" viewBox="0 0 96 96">
-                <circle class="seal-outer" cx="48" cy="48" r="42" fill="rgba(240, 253, 244, 0.55)" stroke="rgba(39, 174, 96, 0.45)" stroke-width="2" stroke-dasharray="6 3" />
-                <circle class="seal-inner" cx="48" cy="48" r="32" fill="none" stroke="rgba(39, 174, 96, 0.35)" stroke-width="1.5" />
-                <path class="seal-check" d="M34 48 L44 58 L62 38" fill="none" stroke="#27AE60" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-            </div>
-
-            <!-- Floating Story Bookmark Ribbons -->
-            <div class="motif-ribbon-stream">
-              <span class="story-ribbon srib-1 dyn-motif-item"></span>
-              <span class="story-ribbon srib-2 dyn-motif-item"></span>
-            </div>
+            <!-- Dynamic Randomized Sampled Feature Motifs -->
+            <div class="dyn-sampled-motifs"></div>
           </div>
 
-          <!-- ==================== SCENE 3 MOTIF: VOICE CONNECTION (Jumping Audio Spectrum & Speaker Waves) ==================== -->
+          <!-- ==================== SCENE 3 MOTIF: VOICE & VIDEO CALLING ==================== -->
           <div class="scene-motif motif-scene-3" aria-hidden="true">
-            <!-- Dynamic 14-Bar Jumping Frequency Spectrum Equalizer -->
-            <div class="motif-voice-equalizer dyn-motif-item">
-              <span class="v-eq-bar ve-1"></span>
-              <span class="v-eq-bar ve-2"></span>
-              <span class="v-eq-bar ve-3"></span>
-              <span class="v-eq-bar ve-4"></span>
-              <span class="v-eq-bar ve-5"></span>
-              <span class="v-eq-bar ve-6"></span>
-              <span class="v-eq-bar ve-7"></span>
-              <span class="v-eq-bar ve-8"></span>
-              <span class="v-eq-bar ve-9"></span>
-              <span class="v-eq-bar ve-10"></span>
-              <span class="v-eq-bar ve-11"></span>
-              <span class="v-eq-bar ve-12"></span>
-              <span class="v-eq-bar ve-13"></span>
-              <span class="v-eq-bar ve-14"></span>
-            </div>
-
-            <!-- Concentric Speaker Soundwave Arcs -->
-            <div class="motif-soundwave-arcs dyn-motif-item">
-              <svg class="sound-arcs-svg" viewBox="0 0 300 240">
-                <path class="sound-arc arc-1" d="M40 70 A 60 60 0 0 1 40 170" fill="none" stroke="rgba(139, 92, 246, 0.45)" stroke-width="2.5" stroke-linecap="round" />
-                <path class="sound-arc arc-2" d="M60 50 A 90 90 0 0 1 60 190" fill="none" stroke="rgba(139, 92, 246, 0.38)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 4" />
-                <path class="sound-arc arc-3" d="M85 30 A 120 120 0 0 1 85 210" fill="none" stroke="rgba(74, 144, 226, 0.32)" stroke-width="2" stroke-linecap="round" />
-                <path class="sound-arc arc-4" d="M115 15 A 150 150 0 0 1 115 225" fill="none" stroke="rgba(74, 144, 226, 0.22)" stroke-width="1.8" stroke-linecap="round" />
-              </svg>
-            </div>
-
-            <!-- Floating Audio Cadence Resonance Nodes -->
-            <div class="motif-audio-nodes">
-              <div class="audio-node an-1 dyn-motif-item">
-                <span class="node-dot"></span>
-                <span class="node-ring"></span>
-              </div>
-              <div class="audio-node an-2 dyn-motif-item">
-                <span class="node-dot"></span>
-                <span class="node-ring"></span>
-              </div>
-              <div class="audio-node an-3 dyn-motif-item">
-                <span class="node-dot"></span>
-                <span class="node-ring"></span>
-              </div>
-            </div>
-
-            <!-- Floating Audio Clef & Wave Capsule -->
-            <div class="motif-voice-pill dyn-motif-item">
-              <span class="voice-glyph">&#x266A;</span>
-              <span class="voice-sine-trail"></span>
-            </div>
+            <!-- Dynamic Randomized Sampled Feature Motifs -->
+            <div class="dyn-sampled-motifs"></div>
           </div>
 
-          <!-- ==================== SCENE 4 MOTIF: THOUGHTFUL ICEBREAKERS (Speech Bubbles & Starbursts) ==================== -->
+          <!-- ==================== SCENE 4 MOTIF: CONVERSATION STARTERS & WINKS ==================== -->
           <div class="scene-motif motif-scene-4" aria-hidden="true">
-            <!-- Bouncing Conversational Speech Bubbles -->
-            <div class="motif-speech-bubbles">
-              <div class="speech-bubble-shape sb-1 dyn-motif-item">
-                <span class="sb-dots"><i></i><i></i><i></i></span>
-                <span class="sb-tail"></span>
-              </div>
-              <div class="speech-bubble-shape sb-2 dyn-motif-item">
-                <span class="sb-line"></span>
-                <span class="sb-tail"></span>
-              </div>
-              <div class="speech-bubble-shape sb-3 dyn-motif-item">
-                <span class="sb-heart">&hearts;</span>
-                <span class="sb-tail"></span>
-              </div>
-              <div class="speech-bubble-shape sb-4 dyn-motif-item">
-                <span class="sb-dots"><i></i><i></i></span>
-                <span class="sb-tail"></span>
-              </div>
-            </div>
-
-            <!-- Oversized Decorative Quotation Marks -->
-            <div class="motif-big-quotes">
-              <span class="big-quote bq-left dyn-motif-item">&ldquo;</span>
-              <span class="big-quote bq-right dyn-motif-item">&rdquo;</span>
-            </div>
-
-            <!-- Kinetic Idea Starbursts -->
-            <div class="motif-idea-sparks">
-              <svg class="idea-burst ib-1 dyn-motif-item" viewBox="0 0 32 32">
-                <path d="M16 0 L19 12 L31 16 L19 20 L16 32 L13 20 L1 16 L13 12 Z" fill="#F59E0B" />
-              </svg>
-              <svg class="idea-burst ib-2 dyn-motif-item" viewBox="0 0 32 32">
-                <path d="M16 0 L19 12 L31 16 L19 20 L16 32 L13 20 L1 16 L13 12 Z" fill="#E94266" />
-              </svg>
-              <svg class="idea-burst ib-3 dyn-motif-item" viewBox="0 0 32 32">
-                <path d="M16 0 L19 12 L31 16 L19 20 L16 32 L13 20 L1 16 L13 12 Z" fill="#4A90E2" />
-              </svg>
-            </div>
-
-            <!-- Animated Dashed Dialogue Connector Trail -->
-            <svg class="dialogue-trail-svg" viewBox="0 0 400 200">
-              <path class="dialogue-path" d="M40 160 C 120 40, 260 220, 360 80" fill="none" stroke="rgba(245, 158, 11, 0.35)" stroke-width="2" stroke-dasharray="6 6" />
-            </svg>
+            <!-- Dynamic Randomized Sampled Feature Motifs -->
+            <div class="dyn-sampled-motifs"></div>
           </div>
 
-          <!-- ==================== SCENE 5 MOTIF: REAL COMPANIONSHIP (Steam Spirals, Clock Dial & Warm Sunbeams) ==================== -->
+          <!-- ==================== SCENE 5 MOTIF: 1-ON-1 COFFEE MEETUPS & COMMUNITY ==================== -->
           <div class="scene-motif motif-scene-5" aria-hidden="true">
-            <!-- Rising Helical Steam Vapor Spirals -->
-            <div class="motif-steam-system dyn-motif-item">
+            <!-- Helical Rising Steam Spirals (Soft Ambient Watermark) -->
+            <div class="motif-steam-system">
               <svg class="steam-svg" viewBox="0 0 160 260">
-                <defs>
-                  <linearGradient id="steamGrad5" x1="0%" y1="100%" x2="0%" y2="0%">
-                    <stop offset="0%" stop-color="rgba(245, 158, 11, 0.45)" />
-                    <stop offset="50%" stop-color="rgba(233, 66, 102, 0.32)" />
-                    <stop offset="100%" stop-color="rgba(255, 255, 255, 0.05)" />
-                  </linearGradient>
-                </defs>
-                <path class="steam-trail st-1" d="M50 240 C 30 190, 70 150, 40 100 S 60 40, 48 10" fill="none" stroke="url(#steamGrad5)" stroke-width="3" stroke-linecap="round" />
-                <path class="steam-trail st-2" d="M85 230 C 105 180, 65 140, 95 90 S 75 30, 90 10" fill="none" stroke="url(#steamGrad5)" stroke-width="3.5" stroke-linecap="round" />
-                <path class="steam-trail st-3" d="M120 245 C 100 200, 130 160, 110 110 S 130 50, 120 15" fill="none" stroke="url(#steamGrad5)" stroke-width="2.5" stroke-linecap="round" />
+                <path class="steam-path st-1" d="M40 240 Q15 170 45 110 T40 10" fill="none" stroke="rgba(245, 158, 11, 0.3)" stroke-width="2.5" stroke-linecap="round" />
+                <path class="steam-path st-2" d="M75 250 Q105 180 70 120 T80 15" fill="none" stroke="rgba(245, 158, 11, 0.24)" stroke-width="2.5" stroke-linecap="round" />
               </svg>
             </div>
-
-            <!-- Meetup Calendar & Clock Face Dial -->
-            <div class="motif-cafe-clock dyn-motif-item">
-              <svg class="clock-svg" viewBox="0 0 180 180">
-                <circle class="clock-face" cx="90" cy="90" r="80" fill="rgba(254, 243, 199, 0.55)" stroke="rgba(245, 158, 11, 0.38)" stroke-width="2" />
-                <circle class="clock-inner" cx="90" cy="90" r="68" fill="none" stroke="rgba(245, 158, 11, 0.22)" stroke-width="1.2" stroke-dasharray="3 6" />
-                <line x1="90" y1="20" x2="90" y2="28" stroke="#D97706" stroke-width="2.5" stroke-linecap="round" />
-                <line x1="160" y1="90" x2="152" y2="90" stroke="#D97706" stroke-width="2.5" stroke-linecap="round" />
-                <line x1="90" y1="160" x2="90" y2="152" stroke="#D97706" stroke-width="2.5" stroke-linecap="round" />
-                <line x1="20" y1="90" x2="28" y2="90" stroke="#D97706" stroke-width="2.5" stroke-linecap="round" />
-                <line class="clock-hand hand-hour" x1="90" y1="90" x2="90" y2="52" stroke="#B45309" stroke-width="3" stroke-linecap="round" />
-                <line class="clock-hand hand-minute" x1="90" y1="90" x2="128" y2="90" stroke="#D97706" stroke-width="2" stroke-linecap="round" />
-                <circle cx="90" cy="90" r="4.5" fill="#B45309" />
-              </svg>
-              <div class="calendar-chip-tag">&#x1F4C5; Oct 3</div>
-            </div>
-
-            <!-- Minimalist Ceramic Cup & Saucer Line Art -->
-            <div class="motif-cup-contour dyn-motif-item">
-              <svg class="cup-svg" viewBox="0 0 160 120">
-                <path d="M10 98 C 40 114 120 114 150 98" fill="none" stroke="rgba(245, 158, 11, 0.35)" stroke-width="2.5" stroke-linecap="round" />
-                <path d="M35 50 L45 88 C 50 98 110 98 115 88 L125 50 Z" fill="rgba(255, 251, 235, 0.6)" stroke="rgba(245, 158, 11, 0.4)" stroke-width="2" />
-                <path d="M123 58 C 142 60 142 82 118 84" fill="none" stroke="rgba(245, 158, 11, 0.35)" stroke-width="2.5" stroke-linecap="round" />
-              </svg>
-            </div>
-
-            <!-- Warm Golden Sunbeam Ribbons & Rising Amber Drops -->
-            <div class="motif-sunbeam-field">
-              <span class="sunbeam-ray sr-1"></span>
-              <span class="sunbeam-ray sr-2"></span>
-            </div>
-            <div class="motif-amber-droplets">
-              <span class="amber-drop ad-1 dyn-motif-item"></span>
-              <span class="amber-drop ad-2 dyn-motif-item"></span>
-              <span class="amber-drop ad-3 dyn-motif-item"></span>
-            </div>
+            <!-- Dynamic Randomized Sampled Feature Motifs -->
+            <div class="dyn-sampled-motifs"></div>
           </div>
         </div>
 
@@ -5478,51 +5880,148 @@ window.APP_CONFIG = {
     }
   }
 
-  // 13 Stratified candidate zones covering the entire stage background canvas
-  // Guarantees balanced distribution without clumping while covering 100% of the canvas area
+  // 14 Stratified candidate zones covering the entire stage background canvas
+  // Positioned across the top horizon, bottom baseline, center gutter and right flank
+  // Guarantees balanced distribution without clumping while keeping left editorial text 100% legible
   var STAGE_ZONES = [
-    // Top row (across entire stage width)
-    { minX: 3,  maxX: 18, minY: 4,  maxY: 22 }, // Top-Left edge
-    { minX: 20, maxX: 36, minY: 5,  maxY: 20 }, // Top-Left inner
-    { minX: 38, maxX: 54, minY: 5,  maxY: 22 }, // Top-Gutter
-    { minX: 56, maxX: 72, minY: 5,  maxY: 22 }, // Top-Right inner
-    { minX: 74, maxX: 90, minY: 4,  maxY: 22 }, // Top-Right edge
+    // Top horizon band (across full canvas width)
+    { minX: 4,  maxX: 22, minY: 5,  maxY: 18 }, // Top-Left corner (above kicker)
+    { minX: 24, maxX: 42, minY: 5,  maxY: 18 }, // Top-Left inner
+    { minX: 44, maxX: 60, minY: 5,  maxY: 19 }, // Top-Gutter
+    { minX: 62, maxX: 78, minY: 5,  maxY: 18 }, // Top-Right above phone
+    { minX: 80, maxX: 94, minY: 5,  maxY: 18 }, // Top-Right outer corner
 
-    // Middle band (left flank, center gutter, right flank)
-    { minX: 2,  maxX: 15, minY: 28, maxY: 56 }, // Mid-Left edge
-    { minX: 38, maxX: 54, minY: 26, maxY: 60 }, // Mid-Gutter
-    { minX: 82, maxX: 94, minY: 28, maxY: 60 }, // Mid-Right edge
+    // Center channel & Right flank (clear of text and phone core)
+    { minX: 44, maxX: 56, minY: 24, maxY: 44 }, // Mid-Gutter upper
+    { minX: 44, maxX: 56, minY: 48, maxY: 68 }, // Mid-Gutter lower
+    { minX: 85, maxX: 95, minY: 26, maxY: 48 }, // Mid-Right outer upper
+    { minX: 85, maxX: 95, minY: 52, maxY: 72 }, // Mid-Right outer lower
 
-    // Bottom row (across entire stage width)
-    { minX: 3,  maxX: 18, minY: 68, maxY: 88 }, // Bot-Left edge
-    { minX: 20, maxX: 36, minY: 70, maxY: 88 }, // Bot-Left inner
-    { minX: 38, maxX: 54, minY: 68, maxY: 88 }, // Bot-Gutter
-    { minX: 56, maxX: 72, minY: 70, maxY: 88 }, // Bot-Right inner
-    { minX: 74, maxX: 90, minY: 68, maxY: 88 }  // Bot-Right edge
+    // Bottom baseline band (across full canvas width)
+    { minX: 4,  maxX: 20, minY: 76, maxY: 89 }, // Bot-Left corner
+    { minX: 22, maxX: 40, minY: 76, maxY: 89 }, // Bot-Left below chips
+    { minX: 42, maxX: 60, minY: 76, maxY: 89 }, // Bot-Gutter
+    { minX: 62, maxX: 78, minY: 76, maxY: 89 }, // Bot-Right below phone
+    { minX: 80, maxX: 94, minY: 76, maxY: 89 }  // Bot-Right outer
+  ];
+
+  // =========================================================================
+  // Dedicated Feature Graphic Pools (Directly from 网站与APP功能清单.md)
+  // Each chapter has 8 distinct semantic vector badges & interactive motifs.
+  // When a chapter is selected or re-clicked, a random sample is drawn from the array.
+  // =========================================================================
+  var SCENE_FEATURE_POOLS = [
+    // Chapter 0: Curated Daily Picks (每日推荐 / 补充推荐 / 喜欢与配对)
+    [
+      '<div class="dyn-motif-item dmi-card-badge dmi-badge-pill"><span class="dmi-star">&#9733;</span><span>98% Daily Match</span></div>',
+      '<div class="dyn-motif-item dmi-sunrise-arc"><svg viewBox="0 0 140 80" class="sunrise-svg"><defs><linearGradient id="sunGrad0" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" stop-color="rgba(233, 66, 102, 0.35)"/><stop offset="100%" stop-color="rgba(245, 158, 11, 0.15)"/></linearGradient></defs><path d="M10 75 A 60 60 0 0 1 130 75 Z" fill="url(#sunGrad0)" stroke="rgba(233, 66, 102, 0.45)" stroke-width="1.5"/><line x1="70" y1="12" x2="70" y2="2" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/><line x1="32" y1="26" x2="24" y2="18" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/><line x1="108" y1="26" x2="116" y2="18" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/></svg></div>',
+      '<div class="dyn-motif-item dmi-heart-pill dmi-badge-pill"><span class="dmi-heart-icon">&hearts;</span><span>Mutual Match</span></div>',
+      '<div class="dyn-motif-item dmi-curated-ribbon dmi-badge-pill"><span>&#9734; Curated at 9 AM</span></div>',
+      '<div class="dyn-motif-item dmi-picks-count dmi-badge-pill"><span class="dmi-count-num">+3</span><span>Daily Additions</span></div>',
+      '<div class="dyn-motif-item dmi-rewind-pill dmi-badge-pill"><svg class="dmi-svg-rewind" viewBox="0 0 24 24"><path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z" fill="currentColor"/></svg><span>Revisit Passed</span></div>',
+      '<div class="dyn-motif-item dmi-resonance-rings"><span class="ring-core"></span><span class="ring-ripple"></span></div>',
+      '<div class="dyn-motif-item dmi-twinkle-diamond"><svg viewBox="0 0 32 32"><path d="M16 2 L19 13 L30 16 L19 19 L16 30 L13 19 L2 16 L13 13 Z" fill="#F59E0B"/></svg></div>'
+    ],
+    // Chapter 1: Age 50–99 Filters & Discovery (按条件筛选 / Gallery / 关键字查找)
+    [
+      '<div class="dyn-motif-item dmi-filter-slider"><div class="dfs-header"><span>Age Range</span><span>50–99</span></div><div class="dfs-bar"><i></i></div></div>',
+      '<div class="dyn-motif-item dmi-geo-pill dmi-badge-pill"><svg class="dmi-icon-pin" viewBox="0 0 20 20"><path d="M10 2C6.69 2 4 4.69 4 8c0 4.5 6 10 6 10s6-5.5 6-10c0-3.31-2.69-6-6-6zm0 8.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg><span>Within 25 mi</span></div>',
+      '<div class="dyn-motif-item dmi-verified-pill dmi-badge-pill"><span class="dmi-check">&#10003;</span><span>Photo Verified</span></div>',
+      '<div class="dyn-motif-item dmi-keyword-tag dmi-badge-pill"><span class="dmi-kw-lens">&#x1F50D;</span><span>Garden &amp; Travel</span></div>',
+      '<div class="dyn-motif-item dmi-reticle-view"><span class="reticle-circ"></span><span class="reticle-dot"></span></div>',
+      '<div class="dyn-motif-item dmi-gallery-tile dmi-badge-pill"><span class="gt-dot"></span><span>Gallery View</span></div>',
+      '<div class="dyn-motif-item dmi-lifestyle-badge dmi-badge-pill"><span>Active Lifestyle</span></div>',
+      '<div class="dyn-motif-item dmi-compass-rose"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 3"/><polygon points="20,6 23,17 34,20 23,23 20,34 17,23 6,20 17,17" fill="currentColor"/></svg></div>'
+    ],
+    // Chapter 2: In-Depth Profiles & Live Verification (真人核验 / 故事相册 / 隐私)
+    [
+      '<div class="dyn-motif-item dmi-seal-badge dmi-badge-pill"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" fill="currentColor"/></svg><span>Real-Person Verified</span></div>',
+      '<div class="dyn-motif-item dmi-video-pill dmi-badge-pill"><svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" fill="currentColor"/></svg><span>Video Verified &#10003;</span></div>',
+      '<div class="dyn-motif-item dmi-completion-meter dmi-badge-pill"><span class="dcm-num">100%</span><span>Profile Complete</span></div>',
+      '<div class="dyn-motif-item dmi-story-journal"><svg viewBox="0 0 54 36"><path d="M4 6 C15 4 23 8 27 10 C31 8 39 4 50 6 L50 30 C39 28 31 32 27 34 C23 32 15 28 4 30 Z" fill="rgba(255,255,255,0.92)" stroke="currentColor" stroke-width="1.5"/><line x1="9" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.2"/><line x1="9" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="1.2"/><line x1="32" y1="12" x2="45" y2="12" stroke="currentColor" stroke-width="1.2"/><line x1="32" y1="18" x2="43" y2="18" stroke="currentColor" stroke-width="1.2"/></svg></div>',
+      '<div class="dyn-motif-item dmi-silver-crest dmi-badge-pill"><span class="dsc-gem">&#9670;</span><span>Silver Select</span></div>',
+      '<div class="dyn-motif-item dmi-album-frame dmi-badge-pill"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" fill="currentColor"/></svg><span>Custom Albums</span></div>',
+      '<div class="dyn-motif-item dmi-botanical-vine"><svg viewBox="0 0 48 72"><path d="M24 68 C24 40 32 20 24 4" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="16" cy="16" rx="6" ry="3.5" transform="rotate(-30 16 16)" fill="currentColor" opacity="0.6"/><ellipse cx="32" cy="28" rx="6" ry="3.5" transform="rotate(30 32 28)" fill="currentColor" opacity="0.6"/><ellipse cx="14" cy="40" rx="6" ry="3.5" transform="rotate(-30 14 40)" fill="currentColor" opacity="0.6"/><ellipse cx="34" cy="52" rx="6" ry="3.5" transform="rotate(30 34 52)" fill="currentColor" opacity="0.6"/></svg></div>',
+      '<div class="dyn-motif-item dmi-privacy-shield dmi-badge-pill"><span>&#x1F512; Privacy Protected</span></div>'
+    ],
+    // Chapter 3: Voice Connection & Private Calling (语音与视频通话)
+    [
+      '<div class="dyn-motif-item dmi-voice-capsule dmi-badge-pill"><span class="dvc-play">&#9658;</span><span class="dvc-wave"><i></i><i></i><i></i><i></i><i></i></span><span class="dvc-dur">0:42</span></div>',
+      '<div class="dyn-motif-item dmi-eq-bars"><span></span><span></span><span></span><span></span><span></span><span></span></div>',
+      '<div class="dyn-motif-item dmi-private-call dmi-badge-pill"><svg viewBox="0 0 20 20"><path d="M10 1L3 4v5c0 5 7 9 7 9s7-4 7-9V4l-7-3zm-1 12H8v-2h1v2zm0-4H8V5h1v4z" fill="currentColor"/></svg><span>Number Protected</span></div>',
+      '<div class="dyn-motif-item dmi-sound-arcs"><svg viewBox="0 0 44 36"><path d="M6 10 L6 26 L14 26 L24 34 L24 2 L14 10 Z" fill="currentColor"/><path d="M29 12 A 8 8 0 0 1 29 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M34 7 A 14 14 0 0 1 34 29" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/></svg></div>',
+      '<div class="dyn-motif-item dmi-video-frame dmi-badge-pill"><span class="dvf-dot"></span><span>Video Chat</span></div>',
+      '<div class="dyn-motif-item dmi-call-guard dmi-badge-pill"><span>&#x2714; Call Guard Active</span></div>',
+      '<div class="dyn-motif-item dmi-audio-node"><span class="an-core"></span><span class="an-ripple"></span></div>',
+      '<div class="dyn-motif-item dmi-clef-trail dmi-badge-pill"><span class="dmi-clef-glyph">&#9835;</span><span>Warm Tone</span></div>'
+    ],
+    // Chapter 4: Conversation Starters & Winks (私信、打招呼与破冰)
+    [
+      '<div class="dyn-motif-item dmi-wink-tag dmi-badge-pill"><span class="dmi-wink-icon">&#128521;</span><span>Wink Sent &#10024;</span></div>',
+      '<div class="dyn-motif-item dmi-speech-bubble"><span class="dsb-dots"><i></i><i></i><i></i></span><span class="dsb-tail"></span></div>',
+      '<div class="dyn-motif-item dmi-pinned-ribbon dmi-badge-pill"><span class="dmi-pin-icon">&#128204;</span><span>Pinned Chat</span></div>',
+      '<div class="dyn-motif-item dmi-card-envelope dmi-badge-pill"><svg viewBox="0 0 24 18"><path d="M2 2h20v14H2z" fill="rgba(255,255,255,0.92)" stroke="currentColor" stroke-width="1.5"/><path d="M2 2l10 8L22 2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="2" fill="#E94266"/></svg><span>Greeting Card</span></div>',
+      '<div class="dyn-motif-item dmi-emoji-bubble dmi-badge-pill"><span class="dmi-emoji-symbol">&#128156;</span><span>Heartfelt</span></div>',
+      '<div class="dyn-motif-item dmi-idea-burst"><svg viewBox="0 0 26 26"><path d="M13 0 L15 10 L25 13 L15 16 L13 26 L11 16 L1 13 L11 10 Z" fill="currentColor"/></svg></div>',
+      '<div class="dyn-motif-item dmi-read-receipt dmi-badge-pill"><span class="dmi-checks">&#10003;&#10003;</span><span>Delivered</span></div>',
+      '<div class="dyn-motif-item dmi-icebreaker-quote"><span>&ldquo;Weekend hike?&rdquo;</span></div>'
+    ],
+    // Chapter 5: 1-on-1 Coffee Meetups & Community (线下见面与活动)
+    [
+      '<div class="dyn-motif-item dmi-meetup-card dmi-badge-pill"><span class="dmc-icon">&#9749;</span><span>1-to-1 Tea Meetup</span></div>',
+      '<div class="dyn-motif-item dmi-ceramic-cup"><svg viewBox="0 0 48 38"><path d="M8 32 C16 36 32 36 40 32" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 14 L15 28 C16 31 34 31 35 28 L38 14 Z" fill="rgba(255,255,255,0.92)" stroke="currentColor" stroke-width="1.5"/><path d="M38 17 C42 17 44 21 41 24 C39 25 37 25 36 24" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M20 10 Q23 6 20 2" stroke="#F59E0B" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M28 10 Q31 6 28 2" stroke="#F59E0B" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>',
+      '<div class="dyn-motif-item dmi-venue-shield dmi-badge-pill"><svg viewBox="0 0 20 20"><path d="M10 2L3 5v6c0 4.5 3.5 8.5 7 9.5 3.5-1 7-5 7-9.5V5l-7-3z" fill="currentColor"/></svg><span>Public Venue Safe</span></div>',
+      '<div class="dyn-motif-item dmi-calendar-dial"><span class="dcd-time">3:00 PM</span><span class="dcd-day">Saturday</span></div>',
+      '<div class="dyn-motif-item dmi-event-ticket dmi-badge-pill"><span class="det-dot">&#9679;</span><span>Art Walk &amp; Talk</span></div>',
+      '<div class="dyn-motif-item dmi-moments-badge dmi-badge-pill"><span class="dmi-camera-glyph">&#128247;</span><span>Moments</span></div>',
+      '<div class="dyn-motif-item dmi-amber-drop dmi-badge-pill"><span class="ad-gem"></span><span>Golden Hour</span></div>',
+      '<div class="dyn-motif-item dmi-cheers-badge dmi-badge-pill"><span class="dmi-cheers-icon">&#127861;</span><span>Relaxed Setting</span></div>'
+    ]
   ];
 
   function randomizeSceneElements(sceneIdx) {
     var motifEl = stage.querySelector('.motif-scene-' + sceneIdx);
     if (!motifEl) return;
 
-    var items = motifEl.querySelectorAll('.dyn-motif-item');
-    if (!items.length) return;
+    var container = motifEl.querySelector('.dyn-sampled-motifs') || motifEl;
+    var pool = SCENE_FEATURE_POOLS[sceneIdx];
+    if (!pool || !pool.length) return;
 
-    // Shuffle candidate zones so each item receives a distinct zone across the canvas
-    var shuffledZones = STAGE_ZONES.slice().sort(function() {
-      return 0.5 - Math.random();
-    });
+    // 1. Randomly draw 5 to 6 distinct items from the feature pool without replacement
+    var sampleCount = 5 + Math.floor(Math.random() * 2);
+    var poolIndices = [];
+    for (var k = 0; k < pool.length; k++) poolIndices.push(k);
+    for (var p = poolIndices.length - 1; p > 0; p--) {
+      var rp = Math.floor(Math.random() * (p + 1));
+      var tmpP = poolIndices[p];
+      poolIndices[p] = poolIndices[rp];
+      poolIndices[rp] = tmpP;
+    }
+    var chosen = poolIndices.slice(0, sampleCount);
 
-    items.forEach(function(el, i) {
+    // 2. Shuffle candidate zones across 100% of canvas
+    var shuffledZones = STAGE_ZONES.slice();
+    for (var z = shuffledZones.length - 1; z > 0; z--) {
+      var rz = Math.floor(Math.random() * (z + 1));
+      var tmpZ = shuffledZones[z];
+      shuffledZones[z] = shuffledZones[rz];
+      shuffledZones[rz] = tmpZ;
+    }
+
+    // 3. Clear container and inject drawn items with position-aware kinetic physics
+    container.innerHTML = '';
+    var tempWrap = document.createElement('div');
+
+    chosen.forEach(function(poolIdx, i) {
+      tempWrap.innerHTML = pool[poolIdx];
+      var el = tempWrap.firstElementChild;
+      if (!el) return;
+
       var zone = shuffledZones[i % shuffledZones.length];
       var posX = zone.minX + Math.random() * (zone.maxX - zone.minX);
       var posY = zone.minY + Math.random() * (zone.maxY - zone.minY);
 
-      // Position-aware kinetic motion dynamics ("根据位置来随机出现随机设"):
-      // 1. Vertical physics based on spawn height:
-      // - Upper elements (posY <= 35) float/glide downward into view; idle drifts downward
-      // - Lower elements (posY >= 65) spring/hop upward into view; idle drifts upward
-      // - Middle elements (35 < posY < 65) pop radially with elastic expansion
+      // Position-aware kinetic motion dynamics:
       var entranceY = 0;
       var driftY = 0;
       if (posY <= 35) {
@@ -5536,10 +6035,6 @@ window.APP_CONFIG = {
         driftY = (Math.random() > 0.5 ? 1 : -1) * (10 + Math.floor(Math.random() * 14));
       }
 
-      // 2. Horizontal physics based on spawn lateral position:
-      // - Left elements (posX <= 32) drift inward towards right
-      // - Right elements (posX >= 68) drift inward towards left, flanking phone
-      // - Center elements (32 < posX < 68) sway laterally
       var entranceX = 0;
       var driftX = 0;
       if (posX <= 32) {
@@ -5553,21 +6048,18 @@ window.APP_CONFIG = {
         driftX = (Math.random() > 0.5 ? 1 : -1) * (8 + Math.floor(Math.random() * 14));
       }
 
-      // 3. Orientation, scale & timing jitter:
       var baseRot = (posX < 50 ? -1 : 1) * (3 + Math.floor(Math.random() * 11)); // -14deg to +14deg
       var swing = 3 + Math.floor(Math.random() * 5); // 3deg to 7deg
-      var scale = (0.86 + Math.random() * 0.28).toFixed(2); // 0.86 to 1.14
+      var scale = (0.88 + Math.random() * 0.24).toFixed(2); // 0.88 to 1.12
       var dur = (3.4 + Math.random() * 2.6).toFixed(2); // 3.4s to 6.0s
-      var delay = Math.floor(50 + Math.random() * 520); // 50ms to 570ms
-      var popDur = (0.64 + Math.random() * 0.22).toFixed(2); // 0.64s to 0.86s
+      var delay = Math.floor(50 + Math.random() * 480); // 50ms to 530ms
+      var popDur = (0.64 + Math.random() * 0.22).toFixed(2);
 
-      // Apply coordinates spanning the entire stage canvas
       el.style.left = posX.toFixed(1) + '%';
       el.style.top = posY.toFixed(1) + '%';
       el.style.right = 'auto';
       el.style.bottom = 'auto';
 
-      // Apply dynamic kinetic CSS properties
       el.style.setProperty('--entrance-x', entranceX + 'px');
       el.style.setProperty('--entrance-y', entranceY + 'px');
       el.style.setProperty('--rnd-drift-x', driftX + 'px');
@@ -5578,6 +6070,8 @@ window.APP_CONFIG = {
       el.style.setProperty('--rnd-dur', dur + 's');
       el.style.setProperty('--pop-delay', delay + 'ms');
       el.style.setProperty('--pop-dur', popDur + 's');
+
+      container.appendChild(el);
     });
 
     // Re-trigger CSS animations smoothly
