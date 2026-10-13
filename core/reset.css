@@ -50,6 +50,7 @@ h1 span.honey, h2 span.honey, h3 span.honey {
 
 p {
   color: var(--ink-secondary);
+  text-wrap: pretty;
 }
 
 a {
@@ -173,6 +174,7 @@ img {
   font-size: var(--text-lg);
   color: var(--ink-secondary);
   max-width: 640px;
+  text-wrap: pretty;
 }
 
 .kicker {

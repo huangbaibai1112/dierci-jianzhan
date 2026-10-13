@@ -27,13 +27,14 @@
         var text = node.textContent;
         if (!text || !text.trim()) return;
 
-        // Split by whitespace boundaries while preserving punctuation
-        var tokens = text.split(/(\s+)/);
+        // Split by standard whitespace boundaries (space, tab, newline)
+        // EXCLUDING non-breaking spaces (\u00A0) so non-breaking word pairs stay together!
+        var tokens = text.split(/([^\S\u00A0]+)/);
         var fragment = document.createDocumentFragment();
 
         for (var i = 0; i < tokens.length; i++) {
           var token = tokens[i];
-          if (/^\s+$/.test(token)) {
+          if (/^[^\S\u00A0]+$/.test(token)) {
             fragment.appendChild(document.createTextNode(token));
           } else if (token.length > 0) {
             // Check if punctuation only (e.g. trailing period after </em>)

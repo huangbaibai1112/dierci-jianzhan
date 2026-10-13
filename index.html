@@ -162,6 +162,7 @@ h1 span.honey, h2 span.honey, h3 span.honey {
 
 p {
   color: var(--ink-secondary);
+  text-wrap: pretty;
 }
 
 a {
@@ -285,6 +286,7 @@ img {
   font-size: var(--text-lg);
   color: var(--ink-secondary);
   max-width: 640px;
+  text-wrap: pretty;
 }
 
 .kicker {
@@ -539,16 +541,18 @@ img {
 }
 
 .hero-headline {
-  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  font-size: clamp(1.85rem, 3vw, 2.75rem);
   font-weight: 800;
   color: var(--ink-primary);
-  line-height: 1.16;
+  line-height: 1.18;
   letter-spacing: -0.025em;
   margin: 0;
+  text-wrap: balance;
 }
 
 .hero-headline .highlight {
   color: var(--accent-wine);
+  white-space: nowrap;
 }
 
 .hero-why {
@@ -557,6 +561,7 @@ img {
   line-height: 1.55;
   max-width: 500px;
   margin: 0;
+  text-wrap: pretty;
 }
 
 /* 3-Step Value Stream with Connected Vertical Thread */
@@ -2173,12 +2178,13 @@ img {
 /* Headline: Cinematic upward glide from blur into razor-sharp focus */
 .scene-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.8vw, 3.35rem);
+  font-size: clamp(1.85rem, 3.4vw, 3.1rem);
   font-weight: 700;
   color: var(--ink-primary, #1E293B);
-  line-height: 1.15;
+  line-height: 1.18;
   letter-spacing: -0.025em;
   margin: 0;
+  text-wrap: balance;
   will-change: transform, opacity, filter;
 }
 
@@ -2186,6 +2192,7 @@ img {
   font-style: italic;
   font-weight: 600;
   color: var(--accent-wine, #E94266);
+  white-space: nowrap;
 }
 
 .scene-copy.active .scene-title {
@@ -4753,11 +4760,11 @@ img {
 
         <h1 class="hero-headline" id="heroTitle">
           Thoughtful Dating for Singles&nbsp;50+.<br>
-          <span class="highlight">Connect With Intention.</span>
+          <span class="highlight">Connect with&nbsp;Intention.</span>
         </h1>
 
         <p class="hero-why">
-          Swiping turns people into pictures. Our platform introduces mature adults one person at a time, matched on shared life values, unhurried dialogue, and genuine mutual respect.
+          Swiping turns people into pictures. Our platform introduces mature adults one person at a time, matched on shared life values, unhurried dialogue, and genuine mutual&nbsp;respect.
         </p>
 
         <!-- The Three Living Rhythms of Sincere Connection (Gradual Flowing Highlight Console) -->
@@ -5033,8 +5040,8 @@ img {
           <!-- Scene 0: Curated Daily Picks (No Swiping Exhaustion) -->
           <div class="scene-copy active" data-scene-index="0">
             <span class="scene-kicker">CURATED DAILY PICKS</span>
-            <h3 class="scene-title">Handpicked every morning. <em>No endless swiping.</em></h3>
-            <p class="scene-desc">Every morning at 9 AM, receive handpicked introductions matched on personality, values, and location. Verified profiles with clear intentions.</p>
+            <h3 class="scene-title">Handpicked every morning.<br><em>No endless&nbsp;swiping.</em></h3>
+            <p class="scene-desc">Every morning at 9 AM, receive handpicked introductions matched on personality, values, and location. Verified profiles with clear&nbsp;intentions.</p>
             <div class="scene-floating-chips">
               <span class="chip-juniper">&#x2713; Verified Mature Profiles</span>
               <span class="chip-popup chip-rose">Heartbeat Praise &amp; React</span>
@@ -5044,8 +5051,8 @@ img {
           <!-- Scene 1: Age 50-99 Custom Filters -->
           <div class="scene-copy" data-scene-index="1">
             <span class="scene-kicker">AGE 50&ndash;99 FILTERS</span>
-            <h3 class="scene-title">Preferences for 50+. <em>Never compromise.</em></h3>
-            <p class="scene-desc">Built exclusively for mature singles. Set exact age brackets (50&ndash;99), regional radius, and lifestyle preferences without twenty-something noise.</p>
+            <h3 class="scene-title">Preferences for 50+.<br><em>Never compromise.</em></h3>
+            <p class="scene-desc">Built exclusively for mature singles. Set exact age brackets (50&ndash;99), regional radius, and lifestyle preferences without twenty-something&nbsp;noise.</p>
             <div class="scene-floating-chips">
               <span class="chip-juniper">&#x1F3AF; Age 50&ndash;99 Slider</span>
               <span class="chip-popup chip-rose">Custom criteria</span>
@@ -5055,8 +5062,8 @@ img {
           <!-- Scene 2: Sincere In-Depth Profiles -->
           <div class="scene-copy" data-scene-index="2">
             <span class="scene-kicker">IN-DEPTH PROFILES</span>
-            <h3 class="scene-title">Connect on life stories, <em>not fast impressions.</em></h3>
-            <p class="scene-desc">Browse heartfelt answers, weekend passions, favorite morning routines, and genuine life values. Learn who they truly are before reaching out.</p>
+            <h3 class="scene-title">Connect on life stories,<br><em>not fast impressions.</em></h3>
+            <p class="scene-desc">Browse heartfelt answers, weekend passions, favorite morning routines, and genuine life values. Learn who they truly are before reaching&nbsp;out.</p>
             <div class="scene-floating-chips">
               <span class="chip-juniper">&#x1F4D6; Heartfelt Life Answers</span>
               <span class="chip-popup chip-rose">Direct &ldquo;Say Hi&rdquo;</span>
@@ -5066,8 +5073,8 @@ img {
           <!-- Scene 3: Voice Connection (Real Voices, Real Warmth) -->
           <div class="scene-copy" data-scene-index="3">
             <span class="scene-kicker">VOICE CONNECTION</span>
-            <h3 class="scene-title">Hear their laugh <em>before saying hello.</em></h3>
-            <p class="scene-desc">Text alone cannot convey warmth. Listen to authentic voice clips—hear cadence, kind humor, and gentle tone before reaching out.</p>
+            <h3 class="scene-title">Hear their laugh<br><em>before saying hello.</em></h3>
+            <p class="scene-desc">Text alone cannot convey warmth. Listen to authentic voice clips—hear cadence, kind humor, and gentle tone before reaching&nbsp;out.</p>
             <div class="scene-floating-chips">
               <span class="chip-sky">&#x1F399; Voice Introductions</span>
               <span class="chip-popup chip-voice">Acoustic connection</span>
@@ -5077,8 +5084,8 @@ img {
           <!-- Scene 4: Guided Conversation Starters (No Awkward Silence) -->
           <div class="scene-copy" data-scene-index="4">
             <span class="scene-kicker">THOUGHTFUL ICEBREAKERS</span>
-            <h3 class="scene-title">No awkward silence. <em>Curated prompts.</em></h3>
-            <p class="scene-desc">Skip repetitive small talk. Four guided prompt cards make opening up effortless, dignified, and comfortable for both people.</p>
+            <h3 class="scene-title">No awkward silence.<br><em>Curated prompts.</em></h3>
+            <p class="scene-desc">Skip repetitive small talk. Four guided prompt cards make opening up effortless, dignified, and comfortable for both&nbsp;people.</p>
             <div class="scene-floating-chips">
               <span class="chip-juniper">&#x1F4A1; 4 Guided Icebreakers</span>
               <span class="chip-popup chip-mature">Unhurried pacing</span>
@@ -5088,8 +5095,8 @@ img {
           <!-- Scene 5: 1-on-1 Coffee & Tea Events (Real Life Companionship) -->
           <div class="scene-copy" data-scene-index="5">
             <span class="scene-kicker">REAL COMPANIONSHIP</span>
-            <h3 class="scene-title">From quiet chats to <em>morning coffee meetups.</em></h3>
-            <p class="scene-desc">Move comfortably from friendly dialogue into relaxed 1-on-1 tea, cafe, and concert meetups. Plan casual get-togethers at your own pace.</p>
+            <h3 class="scene-title">From quiet chats to<br><em>morning coffee meetups.</em></h3>
+            <p class="scene-desc">Move comfortably from friendly dialogue into relaxed 1-on-1 tea, cafe, and concert meetups. Plan casual get-togethers at your own&nbsp;pace.</p>
             <div class="scene-floating-chips">
               <span class="chip-juniper">&#x2615; Coffee &amp; Tea &middot; 1-on-1</span>
               <span class="chip-popup chip-mature">Zero pressure</span>
@@ -5328,7 +5335,7 @@ img {
         </div>
         <h3 class="b-title">Dedicated Exclusively to Mature Adults</h3>
         <p class="b-desc">
-          Unlike generic platforms dominated by 20-somethings pursuing casual dating, our entire community consists of single adults aged 50 and older who share similar life chapters and milestones.
+          Unlike generic platforms dominated by 20-somethings pursuing casual dating, our entire community consists of single adults aged 50 and older who share similar life chapters and&nbsp;milestones.
         </p>
         <div class="b-metric-row">
           <div class="metric-good">
@@ -5349,7 +5356,7 @@ img {
         </div>
         <h3 class="b-title">Curated Daily Matches &amp; Lifestyle Criteria</h3>
         <p class="b-desc">
-          Introductions are guided by your selected age bracket (50&ndash;99), regional radius, and genuine lifestyle preferences rather than split-second photo glances.
+          Introductions are guided by your selected age bracket (50&ndash;99), regional radius, and genuine lifestyle preferences rather than split-second photo&nbsp;glances.
         </p>
         <div class="b-metric-row">
           <div class="metric-good">
@@ -5370,7 +5377,7 @@ img {
         </div>
         <h3 class="b-title">Strict Manual Inspection</h3>
         <p class="b-desc">
-          Dedicated customer care specialists inspect new profile submissions and photos. Financial solicitations and deceptive accounts are intercepted immediately.
+          Dedicated customer care specialists inspect new profile submissions and photos. Financial solicitations and deceptive accounts are intercepted&nbsp;immediately.
         </p>
         <div class="b-metric-row">
           <div class="metric-good">
@@ -5392,7 +5399,7 @@ img {
         </div>
         <h3 class="b-title">Conversations That Unfold Naturally</h3>
         <p class="b-desc">
-          No countdown timers, expiration warnings, or rush. Take your time sharing life stories, favorite morning routines, and future travel plans with genuine peace of mind.
+          No countdown timers, expiration warnings, or rush. Take your time sharing life stories, favorite morning routines, and future travel plans with genuine peace of&nbsp;mind.
         </p>
         <div class="b-metric-row">
           <div class="metric-good">
@@ -5411,8 +5418,8 @@ img {
     <!-- Action Footer Strip -->
     <div class="benchmark-cta-strip">
       <div class="cta-strip-text">
-        <b>Ready to experience dating built on mutual respect?</b>
-        <span>Join thousands of active mature singles today. Free to get started.</span>
+        <b>Ready to experience dating built on mutual&nbsp;respect?</b>
+        <span>Join thousands of active mature singles today. Free to get&nbsp;started.</span>
       </div>
       <button class="btn btn-primary" data-action="join-partner" data-source="comparison_section">
         Sign Up
@@ -5433,7 +5440,7 @@ img {
     <div class="section-header">
       <span class="kicker">Built Exclusively For Singles 50+</span>
       <h2 id="showcaseTitle">Every Platform Feature Crafted for Real Connection.<br><span class="highlight">Not Social Media Noise.</span></h2>
-      <p>From double-layer identity verification to number-protected calling, explore the comprehensive platform built for genuine mature companionship.</p>
+      <p>From double-layer identity verification to number-protected calling, explore the comprehensive platform built for genuine mature&nbsp;companionship.</p>
     </div>
 
     <!-- Two-Column Architecture Grid -->
@@ -5453,7 +5460,7 @@ img {
               <h3 class="pillar-title">Verified Real-Person Identity System</h3>
             </div>
             <p class="pillar-desc">
-              Live facial verification, optional video account checks, and view-once photo protection. A strict 50+ age gate keeps community standards authentic and free of pretenders.
+              Live facial verification, optional video account checks, and view-once photo protection. A strict 50+ age gate keeps community standards authentic and free of&nbsp;pretenders.
             </p>
             <div class="pillar-tags">
               <span class="ptag">Live Verification</span>
@@ -5474,7 +5481,7 @@ img {
               <h3 class="pillar-title">Gallery Discovery &amp; Multidimensional Filters</h3>
             </div>
             <p class="pillar-desc">
-              Browse curated member galleries or filter with surgical precision by age (50–99), location radius, lifestyle habits, and keyword search. Revisit passed profiles whenever you choose.
+              Browse curated member galleries or filter with surgical precision by age (50–99), location radius, lifestyle habits, and keyword search. Revisit passed profiles whenever you&nbsp;choose.
             </p>
             <div class="pillar-tags">
               <span class="ptag">Gallery Discovery</span>
@@ -5495,7 +5502,7 @@ img {
               <h3 class="pillar-title">Number-Protected Calling &amp; Audio Warmth</h3>
             </div>
             <p class="pillar-desc">
-              Exchange voice notes, enjoy video calls, and place voice calls without ever revealing your personal telephone number. Built-in spam blocking filters unwanted inquiries automatically.
+              Exchange voice notes, enjoy video calls, and place voice calls without ever revealing your personal telephone number. Built-in spam blocking filters unwanted inquiries&nbsp;automatically.
             </p>
             <div class="pillar-tags">
               <span class="ptag">Zero Number Exposure</span>
@@ -5516,7 +5523,7 @@ img {
               <h3 class="pillar-title">1-on-1 Offline Meetups &amp; Community Moments</h3>
             </div>
             <p class="pillar-desc">
-              Share life moments with fellow members, participate in local activities, and send structured 1-on-1 coffee or tea meetup requests designed for relaxed public venues.
+              Share life moments with fellow members, participate in local activities, and send structured 1-on-1 coffee or tea meetup requests designed for relaxed public&nbsp;venues.
             </p>
             <div class="pillar-tags">
               <span class="ptag">1-to-1 Coffee Meetups</span>
@@ -5617,7 +5624,7 @@ img {
     <div class="section-header">
       <span class="kicker">Security &amp; Peace of Mind</span>
       <h2 id="trustTitle">The Triple-Shield<br><span class="highlight">Senior Protection Architecture</span></h2>
-      <p>Your privacy and safety are paramount. We implement multi-layered defenses so you can connect with total confidence.</p>
+      <p>Your privacy and safety are paramount. We implement multi-layered defenses so you can connect with total&nbsp;confidence.</p>
     </div>
 
     <!-- 3-Tier Protection Grid (Open Columns - Un-carded) -->
@@ -5631,7 +5638,7 @@ img {
         <span class="shield-tier">Shield 01</span>
         <h3 class="shield-title">100% Manual Human Review</h3>
         <p class="shield-desc">
-          Customer care teams inspect profile photos and written descriptions to confirm genuine identity before profiles become visible.
+          Customer care teams inspect profile photos and written descriptions to confirm genuine identity before profiles become&nbsp;visible.
         </p>
       </div>
 
@@ -5643,7 +5650,7 @@ img {
         <span class="shield-tier">Shield 02</span>
         <h3 class="shield-title">Complete Privacy Protection</h3>
         <p class="shield-desc">
-          Your phone number, home address, and personal details stay 100% private. Nothing is ever shared or visible to the public without your permission.
+          Your phone number, home address, and personal details stay 100% private. Nothing is ever shared or visible to the public without your&nbsp;permission.
         </p>
       </div>
 
@@ -5655,7 +5662,7 @@ img {
         <span class="shield-tier">Shield 03</span>
         <h3 class="shield-title">Proactive Anti-Scam Shield</h3>
         <p class="shield-desc">
-          Automated behavioural filters immediately identify and intercept financial requests, external wire solicitations, and fake profiles.
+          Automated behavioural filters immediately identify and intercept financial requests, external wire solicitations, and fake&nbsp;profiles.
         </p>
       </div>
 
@@ -5672,7 +5679,7 @@ img {
         <span class="accord-tag">Community Safety Accord</span>
         <h3 class="accord-title">The Mature Member Honor Code</h3>
         <p class="accord-text">
-          Every registered member agrees to unambiguous standards: treat everyone with courtesy, respect a polite refusal without pressure, never solicit monetary help, and report suspicious conduct. A supportive, mature space begins with mutual consideration.
+          Every registered member agrees to unambiguous standards: treat everyone with courtesy, respect a polite refusal without pressure, never solicit monetary help, and report suspicious conduct. A supportive, mature space begins with mutual&nbsp;consideration.
         </p>
       </div>
     </div>
@@ -5692,8 +5699,8 @@ img {
       
       <div class="section-header">
         <span class="kicker">Common Questions</span>
-        <h2 id="faqTitle">Everything You Need to Know</h2>
-        <p>Clear, direct answers about joining and what to expect.</p>
+        <h2 id="faqTitle">Everything You Need to&nbsp;Know</h2>
+        <p>Clear, direct answers about joining and what to&nbsp;expect.</p>
       </div>
 
       <div class="faq-accordion-group">
@@ -5760,9 +5767,9 @@ img {
     
     <!-- Pre-Footer Banner Island -->
     <div class="footer-cta-banner">
-      <h2 class="footer-cta-heading">Ready for Companionship Rooted in Mutual Respect?</h2>
+      <h2 class="footer-cta-heading">Ready for Companionship<br>Rooted in Mutual&nbsp;Respect?</h2>
       <p class="footer-cta-text">
-        Take the first step toward sincere conversation. Complete the free personality questionnaire today.
+        Take the first step toward sincere conversation. Complete the free personality questionnaire&nbsp;today.
       </p>
       <button class="btn btn-primary" data-action="join-partner" data-source="footer_banner">
         Sign Up
@@ -5893,13 +5900,14 @@ window.APP_CONFIG = {
         var text = node.textContent;
         if (!text || !text.trim()) return;
 
-        // Split by whitespace boundaries while preserving punctuation
-        var tokens = text.split(/(\s+)/);
+        // Split by standard whitespace boundaries (space, tab, newline)
+        // EXCLUDING non-breaking spaces (\u00A0) so non-breaking word pairs stay together!
+        var tokens = text.split(/([^\S\u00A0]+)/);
         var fragment = document.createDocumentFragment();
 
         for (var i = 0; i < tokens.length; i++) {
           var token = tokens[i];
-          if (/^\s+$/.test(token)) {
+          if (/^[^\S\u00A0]+$/.test(token)) {
             fragment.appendChild(document.createTextNode(token));
           } else if (token.length > 0) {
             // Check if punctuation only (e.g. trailing period after </em>)

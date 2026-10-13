@@ -1088,12 +1088,13 @@
 /* Headline: Cinematic upward glide from blur into razor-sharp focus */
 .scene-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.8vw, 3.35rem);
+  font-size: clamp(1.85rem, 3.4vw, 3.1rem);
   font-weight: 700;
   color: var(--ink-primary, #1E293B);
-  line-height: 1.15;
+  line-height: 1.18;
   letter-spacing: -0.025em;
   margin: 0;
+  text-wrap: balance;
   will-change: transform, opacity, filter;
 }
 
@@ -1101,6 +1102,7 @@
   font-style: italic;
   font-weight: 600;
   color: var(--accent-wine, #E94266);
+  white-space: nowrap;
 }
 
 .scene-copy.active .scene-title {

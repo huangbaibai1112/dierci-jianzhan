@@ -30,16 +30,18 @@
 }
 
 .hero-headline {
-  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  font-size: clamp(1.85rem, 3vw, 2.75rem);
   font-weight: 800;
   color: var(--ink-primary);
-  line-height: 1.16;
+  line-height: 1.18;
   letter-spacing: -0.025em;
   margin: 0;
+  text-wrap: balance;
 }
 
 .hero-headline .highlight {
   color: var(--accent-wine);
+  white-space: nowrap;
 }
 
 .hero-why {
@@ -48,6 +50,7 @@
   line-height: 1.55;
   max-width: 500px;
   margin: 0;
+  text-wrap: pretty;
 }
 
 /* 3-Step Value Stream with Connected Vertical Thread */
