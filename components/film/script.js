@@ -57,6 +57,114 @@
     }
   }
 
+  // 13 Stratified candidate zones covering the entire stage background canvas
+  // Guarantees balanced distribution without clumping while covering 100% of the canvas area
+  var STAGE_ZONES = [
+    // Top row (across entire stage width)
+    { minX: 3,  maxX: 18, minY: 4,  maxY: 22 }, // Top-Left edge
+    { minX: 20, maxX: 36, minY: 5,  maxY: 20 }, // Top-Left inner
+    { minX: 38, maxX: 54, minY: 5,  maxY: 22 }, // Top-Gutter
+    { minX: 56, maxX: 72, minY: 5,  maxY: 22 }, // Top-Right inner
+    { minX: 74, maxX: 90, minY: 4,  maxY: 22 }, // Top-Right edge
+
+    // Middle band (left flank, center gutter, right flank)
+    { minX: 2,  maxX: 15, minY: 28, maxY: 56 }, // Mid-Left edge
+    { minX: 38, maxX: 54, minY: 26, maxY: 60 }, // Mid-Gutter
+    { minX: 82, maxX: 94, minY: 28, maxY: 60 }, // Mid-Right edge
+
+    // Bottom row (across entire stage width)
+    { minX: 3,  maxX: 18, minY: 68, maxY: 88 }, // Bot-Left edge
+    { minX: 20, maxX: 36, minY: 70, maxY: 88 }, // Bot-Left inner
+    { minX: 38, maxX: 54, minY: 68, maxY: 88 }, // Bot-Gutter
+    { minX: 56, maxX: 72, minY: 70, maxY: 88 }, // Bot-Right inner
+    { minX: 74, maxX: 90, minY: 68, maxY: 88 }  // Bot-Right edge
+  ];
+
+  function randomizeSceneElements(sceneIdx) {
+    var motifEl = stage.querySelector('.motif-scene-' + sceneIdx);
+    if (!motifEl) return;
+
+    var items = motifEl.querySelectorAll('.dyn-motif-item');
+    if (!items.length) return;
+
+    // Shuffle candidate zones so each item receives a distinct zone across the canvas
+    var shuffledZones = STAGE_ZONES.slice().sort(function() {
+      return 0.5 - Math.random();
+    });
+
+    items.forEach(function(el, i) {
+      var zone = shuffledZones[i % shuffledZones.length];
+      var posX = zone.minX + Math.random() * (zone.maxX - zone.minX);
+      var posY = zone.minY + Math.random() * (zone.maxY - zone.minY);
+
+      // Position-aware kinetic motion dynamics ("根据位置来随机出现随机设"):
+      // 1. Vertical physics based on spawn height:
+      // - Upper elements (posY <= 35) float/glide downward into view; idle drifts downward
+      // - Lower elements (posY >= 65) spring/hop upward into view; idle drifts upward
+      // - Middle elements (35 < posY < 65) pop radially with elastic expansion
+      var entranceY = 0;
+      var driftY = 0;
+      if (posY <= 35) {
+        entranceY = -(22 + Math.floor(Math.random() * 24));
+        driftY = 8 + Math.floor(Math.random() * 16);
+      } else if (posY >= 65) {
+        entranceY = 24 + Math.floor(Math.random() * 26);
+        driftY = -(10 + Math.floor(Math.random() * 18));
+      } else {
+        entranceY = (Math.random() > 0.5 ? 1 : -1) * (14 + Math.floor(Math.random() * 16));
+        driftY = (Math.random() > 0.5 ? 1 : -1) * (10 + Math.floor(Math.random() * 14));
+      }
+
+      // 2. Horizontal physics based on spawn lateral position:
+      // - Left elements (posX <= 32) drift inward towards right
+      // - Right elements (posX >= 68) drift inward towards left, flanking phone
+      // - Center elements (32 < posX < 68) sway laterally
+      var entranceX = 0;
+      var driftX = 0;
+      if (posX <= 32) {
+        entranceX = -(16 + Math.floor(Math.random() * 18));
+        driftX = 6 + Math.floor(Math.random() * 16);
+      } else if (posX >= 68) {
+        entranceX = 16 + Math.floor(Math.random() * 18);
+        driftX = -(6 + Math.floor(Math.random() * 16));
+      } else {
+        entranceX = (Math.random() > 0.5 ? 1 : -1) * (10 + Math.floor(Math.random() * 14));
+        driftX = (Math.random() > 0.5 ? 1 : -1) * (8 + Math.floor(Math.random() * 14));
+      }
+
+      // 3. Orientation, scale & timing jitter:
+      var baseRot = (posX < 50 ? -1 : 1) * (3 + Math.floor(Math.random() * 11)); // -14deg to +14deg
+      var swing = 3 + Math.floor(Math.random() * 5); // 3deg to 7deg
+      var scale = (0.86 + Math.random() * 0.28).toFixed(2); // 0.86 to 1.14
+      var dur = (3.4 + Math.random() * 2.6).toFixed(2); // 3.4s to 6.0s
+      var delay = Math.floor(50 + Math.random() * 520); // 50ms to 570ms
+      var popDur = (0.64 + Math.random() * 0.22).toFixed(2); // 0.64s to 0.86s
+
+      // Apply coordinates spanning the entire stage canvas
+      el.style.left = posX.toFixed(1) + '%';
+      el.style.top = posY.toFixed(1) + '%';
+      el.style.right = 'auto';
+      el.style.bottom = 'auto';
+
+      // Apply dynamic kinetic CSS properties
+      el.style.setProperty('--entrance-x', entranceX + 'px');
+      el.style.setProperty('--entrance-y', entranceY + 'px');
+      el.style.setProperty('--rnd-drift-x', driftX + 'px');
+      el.style.setProperty('--rnd-drift-y', driftY + 'px');
+      el.style.setProperty('--rnd-rot', baseRot + 'deg');
+      el.style.setProperty('--rnd-swing', swing + 'deg');
+      el.style.setProperty('--rnd-scale', scale);
+      el.style.setProperty('--rnd-dur', dur + 's');
+      el.style.setProperty('--pop-delay', delay + 'ms');
+      el.style.setProperty('--pop-dur', popDur + 's');
+    });
+
+    // Re-trigger CSS animations smoothly
+    motifEl.classList.remove('is-spawned');
+    void motifEl.offsetWidth; // force reflow
+    motifEl.classList.add('is-spawned');
+  }
+
   function applySceneUI(sceneIndex) {
     if (sceneIndex < 0) sceneIndex = 0;
     if (sceneIndex >= totalScenes) sceneIndex = totalScenes - 1;
@@ -135,7 +243,7 @@
       }
     });
 
-    // 3. Update right-side floating pill popups with random, irregular spring pop delays
+    // 3. Update right-side floating pill popups with random, irregular spring pop delays and position jitter
     var allPops = stage.querySelectorAll('.phone-scene-pops');
     allPops.forEach(function(popsEl) {
       popsEl.classList.remove('is-active');
@@ -149,17 +257,27 @@
         var pill = pills[p];
         // Random organic jitter: -100ms to +140ms
         var jitter = Math.floor(Math.random() * 240) - 100;
-        var delay = Math.max(220, (baseDelays[p] || (400 + p * 550)) + jitter);
+        var delay = Math.max(200, (baseDelays[p] || (400 + p * 550)) + jitter);
         var duration = 750 + Math.floor(Math.random() * 150); // 750ms - 900ms tactile pop
+        var pillJitterX = Math.floor(Math.random() * 28) - 14; // -14px to +14px
+        var pillJitterY = Math.floor(Math.random() * 24) - 12; // -12px to +12px
+        var pillRot = Math.floor(Math.random() * 10) - 5; // -5deg to +5deg
+
         pill.style.setProperty('--pop-delay', delay + 'ms');
         pill.style.setProperty('--pop-duration', duration + 'ms');
+        pill.style.setProperty('--pill-jitter-x', pillJitterX + 'px');
+        pill.style.setProperty('--pill-jitter-y', pillJitterY + 'px');
+        pill.style.setProperty('--pill-rot', pillRot + 'deg');
       }
       // Force reflow so animation restarts from scratch with the new random delays
       void currentPops.offsetWidth;
       currentPops.classList.add('is-active');
     }
 
-    // 4. Update segment active states
+    // 4. Randomize and animate background motif elements across the entire canvas with position-aware kinetics
+    randomizeSceneElements(currentScene);
+
+    // 5. Update segment active states
     segments.forEach(function(seg, i) {
       if (i === currentScene) {
         seg.classList.add('active');

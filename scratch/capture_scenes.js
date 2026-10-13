@@ -84,27 +84,50 @@ async function main() {
     await client.send('Page.navigate', { url: 'http://localhost:8080/' });
     await sleep(2500);
 
-    for (let scene = 0; scene < 6; scene++) {
+    // Test re-randomization on clicking the same scene (Scene 0 twice)
+    console.log("Testing Scene 0 click 1...");
+    await client.send('Runtime.evaluate', {
+      expression: `
+        (function() {
+          var seg = document.querySelector('.timeline-segment[data-step="0"]');
+          if (seg) seg.click();
+          var player = document.getElementById('filmPlayer');
+          if (player) {
+            var top = player.getBoundingClientRect().top + window.pageYOffset - 20;
+            window.scrollTo(0, top);
+          }
+        })();
+      `
+    });
+    await sleep(1000);
+    let ss = await client.send('Page.captureScreenshot');
+    fs.writeFileSync(path.join(__dirname, 'scene_0_click1.png'), Buffer.from(ss.data, 'base64'));
+
+    console.log("Testing Scene 0 click 2 (re-randomization)...");
+    await client.send('Runtime.evaluate', {
+      expression: `
+        (function() {
+          var seg = document.querySelector('.timeline-segment[data-step="0"]');
+          if (seg) seg.click();
+        })();
+      `
+    });
+    await sleep(1000);
+    ss = await client.send('Page.captureScreenshot');
+    fs.writeFileSync(path.join(__dirname, 'scene_0_click2.png'), Buffer.from(ss.data, 'base64'));
+
+    for (let scene = 1; scene < 6; scene++) {
       console.log(`Setting scene ${scene}...`);
       await client.send('Runtime.evaluate', {
         expression: `
           (function() {
             var seg = document.querySelector('.timeline-segment[data-step="${scene}"]');
             if (seg) seg.click();
-            var playBtn = document.getElementById('filmPlayBtn');
-            if (playBtn && playBtn.querySelector('.icon-pause').style.display !== 'none') {
-              playBtn.click();
-            }
-            var player = document.getElementById('filmPlayer');
-            if (player) {
-              var top = player.getBoundingClientRect().top + window.pageYOffset - 20;
-              window.scrollTo(0, top);
-            }
           })();
         `
       });
 
-      await sleep(1200); // allow transition & animations
+      await sleep(2000); // allow full text bloom
 
       const screenshot = await client.send('Page.captureScreenshot');
       const buffer = Buffer.from(screenshot.data, 'base64');

@@ -1150,6 +1150,55 @@ img {
   transform: scale(1) translateY(0);
 }
 
+/* ==========================================================================
+   Dynamic Motif Item Suite: Full-Canvas Randomized Kinetic Motion Engine
+   Position-aware spring entrance pop & continuous organic floating physics
+   ========================================================================== */
+.dyn-motif-item {
+  position: absolute;
+  will-change: transform, opacity, filter;
+  pointer-events: none;
+}
+
+/* Kinetic Spring Entrance & Continuous Position-Aware Organic Drift */
+.scene-motif.is-spawned .dyn-motif-item {
+  animation: dynamicSpringPopIn var(--pop-dur, 0.74s) cubic-bezier(0.34, 1.45, 0.64, 1) var(--pop-delay, 0s) both,
+             dynamicKineticHop var(--rnd-dur, 4.6s) cubic-bezier(0.34, 1.35, 0.64, 1) calc(var(--pop-delay, 0s) + var(--pop-dur, 0.74s)) infinite;
+}
+
+@keyframes dynamicSpringPopIn {
+  0% {
+    opacity: 0;
+    transform: translate(var(--entrance-x, 0px), var(--entrance-y, 24px)) rotate(var(--rnd-rot, 0deg)) scale(calc(var(--rnd-scale, 1) * 0.35));
+    filter: blur(8px);
+  }
+  62% {
+    opacity: 1;
+    transform: translate(calc(var(--entrance-x, 0px) * -0.15), calc(var(--entrance-y, 24px) * -0.15)) rotate(calc(var(--rnd-rot, 0deg) + var(--rnd-swing, 4deg))) scale(calc(var(--rnd-scale, 1) * 1.08));
+    filter: blur(0);
+  }
+  80% {
+    transform: translate(0, 0) rotate(calc(var(--rnd-rot, 0deg) - var(--rnd-swing, 2deg))) scale(calc(var(--rnd-scale, 1) * 0.96));
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(var(--rnd-rot, 0deg)) scale(var(--rnd-scale, 1));
+    filter: blur(0);
+  }
+}
+
+@keyframes dynamicKineticHop {
+  0%, 100% {
+    transform: translate(0, 0) rotate(var(--rnd-rot, 0deg)) scale(var(--rnd-scale, 1));
+  }
+  42% {
+    transform: translate(var(--rnd-drift-x, 0px), var(--rnd-drift-y, -16px)) rotate(calc(var(--rnd-rot, 0deg) + var(--rnd-swing, 4deg))) scale(calc(var(--rnd-scale, 1) * 1.05));
+  }
+  74% {
+    transform: translate(calc(var(--rnd-drift-x, 0px) * 0.35), calc(var(--rnd-drift-y, -16px) * -0.2)) rotate(calc(var(--rnd-rot, 0deg) - var(--rnd-swing, 2deg))) scale(var(--rnd-scale, 1));
+  }
+}
+
 /* --------------------------------------------------------------------------
    CHAPTER 0 MOTIF: CURATED DAILY PICKS (Morning Dawn & Heartbeat Pulse)
    -------------------------------------------------------------------------- */
@@ -1212,21 +1261,13 @@ img {
 /* Morning Sunrise Arc & Radiating Dawn Rays */
 .sunrise-arc {
   position: absolute;
-  left: 14cqw;
-  top: 3%;
   width: 240px;
   height: 140px;
   filter: drop-shadow(0 6px 16px rgba(233, 66, 102, 0.15));
-  animation: sunriseBreathe 5.8s ease-in-out infinite alternate;
 }
 
 .sun-ray {
   animation: sunRayFlutter 3.4s ease-in-out infinite alternate;
-}
-
-@keyframes sunriseBreathe {
-  0% { transform: translateY(0) scale(0.96); opacity: 0.7; }
-  100% { transform: translateY(-8px) scale(1.04); opacity: 1; }
 }
 
 @keyframes sunRayFlutter {
@@ -1282,42 +1323,6 @@ img {
   animation: heartMiniBeat 1.4s ease-in-out infinite;
 }
 
-.mc-1 {
-  left: 3cqw;
-  top: 13%;
-  animation: miniCardHop1 4.6s cubic-bezier(0.34, 1.35, 0.64, 1) infinite;
-}
-
-.mc-2 {
-  left: 42cqw;
-  bottom: 18%;
-  animation: miniCardHop2 5.2s cubic-bezier(0.34, 1.35, 0.64, 1) -1.6s infinite;
-}
-
-.mc-3 {
-  right: 6cqw;
-  top: 18%;
-  animation: miniCardHop3 4.8s cubic-bezier(0.34, 1.35, 0.64, 1) -3s infinite;
-}
-
-@keyframes miniCardHop1 {
-  0%, 100% { transform: translateY(0) rotate(-3deg); }
-  42% { transform: translateY(-16px) rotate(2deg) scale(1.06); }
-  72% { transform: translateY(3px) rotate(-4deg); }
-}
-
-@keyframes miniCardHop2 {
-  0%, 100% { transform: translateY(0) rotate(4deg); }
-  45% { transform: translateY(-18px) rotate(-1deg) scale(1.05); }
-  75% { transform: translateY(4px) rotate(5deg); }
-}
-
-@keyframes miniCardHop3 {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  40% { transform: translateY(-15px) rotate(3deg) scale(1.07); }
-  70% { transform: translateY(3px) rotate(-1deg); }
-}
-
 @keyframes heartMiniBeat {
   0%, 100% { transform: scale(1); }
   35% { transform: scale(1.35); }
@@ -1336,39 +1341,9 @@ img {
   will-change: transform, opacity;
 }
 
-.fh-1 {
-  left: 20cqw;
-  top: 18%;
-  width: 22px;
-  height: 22px;
-  animation: heartFlutter1 4.5s ease-in-out infinite;
-}
-
-.fh-2 {
-  left: 48cqw;
-  top: 24%;
-  width: 18px;
-  height: 18px;
-  animation: heartFlutter2 4s ease-in-out -1.8s infinite;
-}
-
-.fh-3 {
-  right: 14cqw;
-  bottom: 22%;
-  width: 26px;
-  height: 26px;
-  animation: heartFlutter1 5.2s ease-in-out -2.6s infinite;
-}
-
-@keyframes heartFlutter1 {
-  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.65; }
-  50% { transform: translateY(-20px) rotate(14deg) scale(1.18); opacity: 0.95; }
-}
-
-@keyframes heartFlutter2 {
-  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.55; }
-  50% { transform: translateY(-16px) rotate(-18deg) scale(1.22); opacity: 0.95; }
-}
+.fh-1 { width: 22px; height: 22px; }
+.fh-2 { width: 18px; height: 18px; }
+.fh-3 { width: 26px; height: 26px; }
 
 /* Morning Dawn Twinkle Diamonds */
 .motif-starburst-field {
@@ -1381,20 +1356,13 @@ img {
   width: 10px;
   height: 10px;
   background: linear-gradient(135deg, #F59E0B, #E94266);
-  transform: rotate(45deg);
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
-  animation: diamondHopTwinkle 3.8s ease-in-out infinite;
 }
 
-.bd-1 { left: 16cqw; bottom: 28%; animation-delay: 0s; }
-.bd-2 { right: 28cqw; top: 12%; animation-delay: -1.3s; width: 8px; height: 8px; }
-.bd-3 { left: 36cqw; top: 14%; animation-delay: -2.4s; width: 12px; height: 12px; }
-
-@keyframes diamondHopTwinkle {
-  0%, 100% { transform: rotate(45deg) scale(0.8); opacity: 0.4; }
-  50% { transform: rotate(135deg) scale(1.3) translateY(-6px); opacity: 1; }
-}
+.bd-1 { width: 10px; height: 10px; }
+.bd-2 { width: 8px; height: 8px; }
+.bd-3 { width: 12px; height: 12px; }
 
 /* --------------------------------------------------------------------------
    CHAPTER 1 MOTIF: AGE 50–99 FILTERS (Radar Compass & Precision Scales)
@@ -1443,15 +1411,12 @@ img {
 /* Gliding Precision Range Slider Scales */
 .motif-slider-system {
   position: absolute;
-  left: 4cqw;
-  top: 10%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  inset: 0;
+  pointer-events: none;
 }
 
 .calibrated-track {
-  position: relative;
+  position: absolute;
   width: 190px;
   height: 10px;
   background: rgba(226, 232, 240, 0.7);
@@ -1541,31 +1506,9 @@ img {
 .rc-h { width: 100%; height: 1.5px; opacity: 0.55; }
 .rc-v { height: 100%; width: 1.5px; opacity: 0.55; }
 
-.tr-1 {
-  left: 40cqw;
-  bottom: 22%;
-  animation: reticleHop1 5s ease-in-out infinite;
-}
-
-.tr-2 {
-  right: 8cqw;
-  top: 14%;
-  animation: reticleHop2 4.5s ease-in-out -2s infinite;
-}
-
 @keyframes reticlePulse {
   0%, 100% { transform: scale(0.9); opacity: 0.5; }
   50% { transform: scale(1.15); opacity: 0.95; }
-}
-
-@keyframes reticleHop1 {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-@keyframes reticleHop2 {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
 }
 
 /* Calibrated Metric Tags */
@@ -1589,37 +1532,20 @@ img {
   -webkit-backdrop-filter: blur(6px);
 }
 
-.gm-1 { left: 24cqw; top: 12%; animation: markerHop 4s ease-in-out infinite; }
-.gm-2 { left: 45cqw; top: 18%; animation: markerHop 4.6s ease-in-out -1.2s infinite; }
-.gm-3 { right: 28cqw; bottom: 16%; animation: markerHop 5s ease-in-out -2.4s infinite; }
-
-@keyframes markerHop {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-8px) scale(1.05); }
-}
-
 /* --------------------------------------------------------------------------
    CHAPTER 2 MOTIF: IN-DEPTH PROFILES (Story Journal & Botanical Leaves)
    -------------------------------------------------------------------------- */
 /* Floating Open Story Journal */
 .motif-journal-frame {
   position: absolute;
-  left: 3cqw;
-  top: 7%;
   width: 220px;
   height: 140px;
-  animation: journalFloatHop 6s ease-in-out infinite;
   filter: drop-shadow(0 10px 24px rgba(39, 174, 96, 0.12));
 }
 
 .journal-svg {
   width: 100%;
   height: 100%;
-}
-
-@keyframes journalFloatHop {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-16px) rotate(1deg) scale(1.03); }
 }
 
 /* Swaying Botanical Vines & Olive Leaves */
@@ -1635,30 +1561,8 @@ img {
   filter: drop-shadow(0 6px 14px rgba(39, 174, 96, 0.14));
 }
 
-.vine-left {
-  left: 2cqw;
-  bottom: 8%;
-  animation: vineSwayLeft 7s ease-in-out infinite alternate;
-}
-
-.vine-right {
-  right: 5cqw;
-  top: 10%;
-  animation: vineSwayRight 6.5s ease-in-out -2s infinite alternate;
-}
-
 .vine-leaf {
   animation: leafFlutter 3.8s ease-in-out infinite alternate;
-}
-
-@keyframes vineSwayLeft {
-  0% { transform: rotate(-4deg) translateY(0); }
-  100% { transform: rotate(5deg) translateY(-8px); }
-}
-
-@keyframes vineSwayRight {
-  0% { transform: rotate(4deg) translateY(0); }
-  100% { transform: rotate(-5deg) translateY(-10px); }
 }
 
 @keyframes leafFlutter {
@@ -1669,11 +1573,8 @@ img {
 /* Authenticity Rosette Seal */
 .motif-authenticity-seal {
   position: absolute;
-  left: 45cqw;
-  top: 48%;
   width: 86px;
   height: 86px;
-  animation: sealFloatBreath 5s ease-in-out infinite;
 }
 
 .seal-svg {
@@ -1691,11 +1592,6 @@ img {
   100% { transform: rotate(360deg); }
 }
 
-@keyframes sealFloatBreath {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-12px) scale(1.08); }
-}
-
 /* Floating Story Bookmark Ribbons */
 .motif-ribbon-stream {
   position: absolute;
@@ -1708,16 +1604,9 @@ img {
   height: 80px;
   border-radius: 9999px;
   background: linear-gradient(180deg, rgba(39, 174, 96, 0.45) 0%, rgba(74, 144, 226, 0.1) 100%);
-  animation: ribbonWave 4.6s ease-in-out infinite alternate;
 }
 
-.srib-1 { left: 44cqw; top: 12%; animation-delay: 0s; }
-.srib-2 { left: 47cqw; bottom: 20%; animation-delay: -2.3s; height: 60px; }
-
-@keyframes ribbonWave {
-  0% { transform: translateY(0) skewX(-4deg); opacity: 0.5; }
-  100% { transform: translateY(-14px) skewX(4deg); opacity: 0.9; }
-}
+.srib-2 { height: 60px; }
 
 /* --------------------------------------------------------------------------
    CHAPTER 3 MOTIF: VOICE CONNECTION (Jumping Audio Spectrum & Speaker Waves)
@@ -1781,8 +1670,6 @@ img {
 /* Concentric Speaker Soundwave Arcs */
 .motif-soundwave-arcs {
   position: absolute;
-  left: 4cqw;
-  top: 7%;
   width: 250px;
   height: 200px;
 }
@@ -1844,20 +1731,9 @@ img {
   100% { transform: scale(1.6); opacity: 0; }
 }
 
-.an-1 { left: 38cqw; top: 16%; animation: nodeHop 4.2s ease-in-out infinite; }
-.an-2 { left: 46cqw; bottom: 24%; animation: nodeHop 5s ease-in-out -1.6s infinite; }
-.an-3 { right: 8cqw; top: 22%; animation: nodeHop 4.6s ease-in-out -3s infinite; }
-
-@keyframes nodeHop {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
-}
-
 /* Floating Audio Clef & Wave Capsule */
 .motif-voice-pill {
   position: absolute;
-  left: 22cqw;
-  bottom: 20%;
   padding: 6px 14px;
   background: rgba(245, 243, 255, 0.9);
   border: 1px solid rgba(139, 92, 246, 0.35);
@@ -1867,12 +1743,6 @@ img {
   box-shadow: 0 6px 18px rgba(139, 92, 246, 0.16);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  animation: voicePillHop 4.8s ease-in-out infinite;
-}
-
-@keyframes voicePillHop {
-  0%, 100% { transform: translateY(0) rotate(-4deg); }
-  50% { transform: translateY(-16px) rotate(4deg) scale(1.08); }
 }
 
 /* --------------------------------------------------------------------------
@@ -1943,55 +1813,10 @@ img {
   animation: heartMiniBeat 1.5s ease-in-out infinite;
 }
 
-.sb-1 {
-  left: 4cqw;
-  top: 9%;
-  width: 58px;
-  height: 34px;
-  animation: bubbleHopSpring1 4.5s cubic-bezier(0.34, 1.35, 0.64, 1) infinite;
-}
-
-.sb-2 {
-  left: 42cqw;
-  top: 14%;
-  width: 66px;
-  height: 32px;
-  animation: bubbleHopSpring2 5.2s cubic-bezier(0.34, 1.35, 0.64, 1) -1.8s infinite;
-}
-
-.sb-3 {
-  right: 8cqw;
-  top: 20%;
-  width: 44px;
-  height: 36px;
-  animation: bubbleHopSpring3 4.8s cubic-bezier(0.34, 1.35, 0.64, 1) -3.2s infinite;
-}
-
-.sb-4 {
-  left: 20cqw;
-  bottom: 22%;
-  width: 52px;
-  height: 32px;
-  animation: bubbleHopSpring1 4.2s cubic-bezier(0.34, 1.35, 0.64, 1) -2.1s infinite;
-}
-
-@keyframes bubbleHopSpring1 {
-  0%, 100% { transform: translateY(0) rotate(-6deg); }
-  40% { transform: translateY(-18px) rotate(4deg) scale(1.1); }
-  70% { transform: translateY(4px) rotate(-8deg); }
-}
-
-@keyframes bubbleHopSpring2 {
-  0%, 100% { transform: translateY(0) rotate(5deg); }
-  45% { transform: translateY(-20px) rotate(-3deg) scale(1.08); }
-  75% { transform: translateY(3px) rotate(6deg); }
-}
-
-@keyframes bubbleHopSpring3 {
-  0%, 100% { transform: translateY(0) rotate(-3deg); }
-  38% { transform: translateY(-16px) rotate(6deg) scale(1.12); }
-  68% { transform: translateY(4px) rotate(-4deg); }
-}
+.sb-1 { width: 58px; height: 34px; }
+.sb-2 { width: 66px; height: 32px; }
+.sb-3 { width: 44px; height: 36px; }
+.sb-4 { width: 52px; height: 32px; }
 
 /* Oversized Decorative Quotation Marks */
 .motif-big-quotes {
@@ -2007,16 +1832,9 @@ img {
   color: rgba(245, 158, 11, 0.22);
   user-select: none;
   pointer-events: none;
-  animation: quoteTiltHop 5.5s ease-in-out infinite alternate;
 }
 
-.bq-left { left: 4cqw; bottom: 18%; }
-.bq-right { right: 28cqw; top: 12%; animation-delay: -2.5s; color: rgba(233, 66, 102, 0.2); }
-
-@keyframes quoteTiltHop {
-  0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(-14px) rotate(12deg); }
-}
+.bq-right { color: rgba(233, 66, 102, 0.2); }
 
 /* Kinetic Idea Starbursts */
 .motif-idea-sparks {
@@ -2029,17 +1847,10 @@ img {
   width: 24px;
   height: 24px;
   filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.35));
-  animation: ideaBurstPop 3.8s ease-in-out infinite;
 }
 
-.ib-1 { left: 28cqw; top: 16%; animation-delay: 0s; }
-.ib-2 { right: 14cqw; bottom: 24%; animation-delay: -1.4s; width: 20px; height: 20px; }
-.ib-3 { left: 48cqw; bottom: 18%; animation-delay: -2.7s; width: 22px; height: 22px; }
-
-@keyframes ideaBurstPop {
-  0%, 100% { transform: scale(0.7) rotate(0deg); opacity: 0.4; }
-  50% { transform: scale(1.3) rotate(90deg) translateY(-8px); opacity: 1; }
-}
+.ib-2 { width: 20px; height: 20px; }
+.ib-3 { width: 22px; height: 22px; }
 
 /* Animated Dashed Dialogue Connector Trail */
 .dialogue-trail-svg {
@@ -2064,8 +1875,6 @@ img {
 /* Rising Helical Steam Vapor Spirals */
 .motif-steam-system {
   position: absolute;
-  left: 4cqw;
-  top: 7%;
   width: 160px;
   height: 260px;
 }
@@ -2106,8 +1915,6 @@ img {
 /* Meetup Calendar & Clock Face Dial */
 .motif-cafe-clock {
   position: absolute;
-  left: 45cqw;
-  top: 20%;
   width: 150px;
   height: 150px;
 }
@@ -2161,25 +1968,14 @@ img {
 /* Minimalist Ceramic Cup & Saucer Line Art */
 .motif-cup-contour {
   position: absolute;
-  left: 4cqw;
-  bottom: 16%;
   width: 130px;
   height: 95px;
   filter: drop-shadow(0 6px 16px rgba(245, 158, 11, 0.18));
-  animation: cupWarmthFloat 5.2s ease-in-out infinite alternate;
-}
-  filter: drop-shadow(0 6px 16px rgba(245, 158, 11, 0.18));
-  animation: cupWarmthFloat 5.2s ease-in-out infinite alternate;
 }
 
 .cup-svg {
   width: 100%;
   height: 100%;
-}
-
-@keyframes cupWarmthFloat {
-  0% { transform: translateY(0) scale(1); }
-  100% { transform: translateY(-10px) scale(1.04); }
 }
 
 /* Warm Golden Sunbeam Ribbons & Rising Amber Drops */
@@ -2216,17 +2012,11 @@ img {
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #F59E0B 60%, #D97706 100%);
   box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
-  animation: amberDropRise 4.6s ease-in-out infinite;
 }
 
-.ad-1 { left: 42cqw; bottom: 22%; width: 14px; height: 14px; animation-delay: 0s; }
-.ad-2 { right: 8cqw; top: 16%; width: 18px; height: 18px; animation-delay: -1.6s; }
-.ad-3 { left: 16cqw; top: 28%; width: 10px; height: 10px; animation-delay: -3s; }
-
-@keyframes amberDropRise {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.55; }
-  50% { transform: translateY(-18px) scale(1.2); opacity: 0.95; }
-}
+.ad-1 { width: 14px; height: 14px; }
+.ad-2 { width: 18px; height: 18px; }
+.ad-3 { width: 10px; height: 10px; }
 
 /* ==========================================================================
    Left Editorial Narrative Box & Kinetic Typography Entrance
@@ -2496,43 +2286,43 @@ img {
   visibility: visible;
 }
 
-/* Apple-grade Tactile Spring Pop Keyframe */
+/* Apple-grade Tactile Spring Pop Keyframe with randomized position jitter & tilt */
 @keyframes pillSpringPop {
   0% {
     opacity: 0;
-    transform: scale(0.3) translateY(28px);
+    transform: translate(var(--pill-jitter-x, 0px), calc(var(--pill-jitter-y, 0px) + 28px)) scale(0.3) rotate(var(--pill-rot, 0deg));
     filter: blur(6px);
   }
   62% {
     opacity: 1;
-    transform: scale(1.08) translateY(-4px);
+    transform: translate(var(--pill-jitter-x, 0px), calc(var(--pill-jitter-y, 0px) - 4px)) scale(1.08) rotate(calc(var(--pill-rot, 0deg) + 2deg));
     filter: blur(0);
   }
   80% {
-    transform: scale(0.96) translateY(2px);
+    transform: translate(var(--pill-jitter-x, 0px), calc(var(--pill-jitter-y, 0px) + 2px)) scale(0.96) rotate(calc(var(--pill-rot, 0deg) - 1deg));
   }
   100% {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: translate(var(--pill-jitter-x, 0px), var(--pill-jitter-y, 0px)) scale(1) rotate(var(--pill-rot, 0deg));
     filter: blur(0);
   }
 }
 
 @keyframes pillFloatIdle1 {
   0%, 100% {
-    transform: scale(1) translateY(0) rotate(-1.5deg);
+    transform: translate(var(--pill-jitter-x, 0px), var(--pill-jitter-y, 0px)) scale(1) rotate(calc(var(--pill-rot, 0deg) - 1.5deg));
   }
   50% {
-    transform: scale(1) translateY(-7px) rotate(0.8deg);
+    transform: translate(var(--pill-jitter-x, 0px), calc(var(--pill-jitter-y, 0px) - 7px)) scale(1) rotate(calc(var(--pill-rot, 0deg) + 0.8deg));
   }
 }
 
 @keyframes pillFloatIdle2 {
   0%, 100% {
-    transform: scale(1) translateY(0) rotate(1.8deg);
+    transform: translate(var(--pill-jitter-x, 0px), var(--pill-jitter-y, 0px)) scale(1) rotate(calc(var(--pill-rot, 0deg) + 1.8deg));
   }
   50% {
-    transform: scale(1) translateY(-8px) rotate(-0.5deg);
+    transform: translate(var(--pill-jitter-x, 0px), calc(var(--pill-jitter-y, 0px) - 8px)) scale(1) rotate(calc(var(--pill-rot, 0deg) - 0.5deg));
   }
 }
 
@@ -4300,7 +4090,7 @@ img {
             </div>
 
             <!-- Morning Sunrise Arc & Radiating Dawn Rays -->
-            <svg class="sunrise-arc" viewBox="0 0 320 180">
+            <svg class="sunrise-arc dyn-motif-item" viewBox="0 0 320 180">
               <defs>
                 <linearGradient id="sunRayGrad0" x1="0%" y1="100%" x2="0%" y2="0%">
                   <stop offset="0%" stop-color="rgba(233, 66, 102, 0.3)" />
@@ -4317,19 +4107,19 @@ img {
 
             <!-- Hopping Morning Profile Cards (Bouncing in staggered rhythm) -->
             <div class="motif-floating-cards">
-              <div class="mini-card mc-1">
+              <div class="mini-card mc-1 dyn-motif-item">
                 <span class="mc-avatar"></span>
                 <span class="mc-line mc-line-long"></span>
                 <span class="mc-line mc-line-short"></span>
                 <span class="mc-heart">&hearts;</span>
               </div>
-              <div class="mini-card mc-2">
+              <div class="mini-card mc-2 dyn-motif-item">
                 <span class="mc-avatar"></span>
                 <span class="mc-line mc-line-long"></span>
                 <span class="mc-line mc-line-short"></span>
                 <span class="mc-heart">&hearts;</span>
               </div>
-              <div class="mini-card mc-3">
+              <div class="mini-card mc-3 dyn-motif-item">
                 <span class="mc-avatar"></span>
                 <span class="mc-line mc-line-long"></span>
                 <span class="mc-line mc-line-short"></span>
@@ -4339,23 +4129,23 @@ img {
 
             <!-- Floating Heart Praise Bursts -->
             <div class="motif-hearts-field">
-              <svg class="float-heart fh-1" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-              <svg class="float-heart fh-2" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-              <svg class="float-heart fh-3" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <svg class="float-heart fh-1 dyn-motif-item" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <svg class="float-heart fh-2 dyn-motif-item" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+              <svg class="float-heart fh-3 dyn-motif-item" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
             </div>
 
             <!-- Morning Dawn Twinkle Diamonds -->
             <div class="motif-starburst-field">
-              <span class="burst-diamond bd-1"></span>
-              <span class="burst-diamond bd-2"></span>
-              <span class="burst-diamond bd-3"></span>
+              <span class="burst-diamond bd-1 dyn-motif-item"></span>
+              <span class="burst-diamond bd-2 dyn-motif-item"></span>
+              <span class="burst-diamond bd-3 dyn-motif-item"></span>
             </div>
           </div>
 
           <!-- ==================== SCENE 1 MOTIF: AGE 50–99 FILTERS (Radar Compass & Precision Scales) ==================== -->
           <div class="scene-motif motif-scene-1" aria-hidden="true">
             <!-- Rotating Calibrated Compass Dial -->
-            <div class="motif-radar-dial">
+            <div class="motif-radar-dial dyn-motif-item">
               <svg class="radar-svg" viewBox="0 0 280 280">
                 <circle class="radar-outer-ring" cx="140" cy="140" r="130" fill="none" stroke="rgba(74, 144, 226, 0.28)" stroke-width="1.5" stroke-dasharray="4 8" />
                 <circle class="radar-mid-ring" cx="140" cy="140" r="92" fill="none" stroke="rgba(74, 144, 226, 0.35)" stroke-width="1.2" />
@@ -4373,11 +4163,11 @@ img {
 
             <!-- Gliding Precision Range Slider Scales -->
             <div class="motif-slider-system">
-              <div class="calibrated-track ct-1">
+              <div class="calibrated-track ct-1 dyn-motif-item">
                 <span class="track-tick"></span><span class="track-tick"></span><span class="track-tick"></span><span class="track-tick"></span><span class="track-tick"></span>
                 <span class="slider-thumb st-1"><span class="thumb-val">50</span></span>
               </div>
-              <div class="calibrated-track ct-2">
+              <div class="calibrated-track ct-2 dyn-motif-item">
                 <span class="track-tick"></span><span class="track-tick"></span><span class="track-tick"></span><span class="track-tick"></span><span class="track-tick"></span>
                 <span class="slider-thumb st-2"><span class="thumb-val">99</span></span>
               </div>
@@ -4385,12 +4175,12 @@ img {
 
             <!-- Precision Target Reticles (Crosshairs focusing & hopping) -->
             <div class="motif-reticles">
-              <div class="target-reticle tr-1">
+              <div class="target-reticle tr-1 dyn-motif-item">
                 <span class="reticle-ring"></span>
                 <span class="reticle-cross rc-h"></span>
                 <span class="reticle-cross rc-v"></span>
               </div>
-              <div class="target-reticle tr-2">
+              <div class="target-reticle tr-2 dyn-motif-item">
                 <span class="reticle-ring"></span>
                 <span class="reticle-cross rc-h"></span>
                 <span class="reticle-cross rc-v"></span>
@@ -4399,16 +4189,16 @@ img {
 
             <!-- Calibrated Metric Tags -->
             <div class="motif-geo-markers">
-              <span class="geo-marker gm-1">50&ndash;99</span>
-              <span class="geo-marker gm-2">25 mi</span>
-              <span class="geo-marker gm-3">&#x2713; Photo</span>
+              <span class="geo-marker gm-1 dyn-motif-item">50&ndash;99</span>
+              <span class="geo-marker gm-2 dyn-motif-item">25 mi</span>
+              <span class="geo-marker gm-3 dyn-motif-item">&#x2713; Photo</span>
             </div>
           </div>
 
           <!-- ==================== SCENE 2 MOTIF: IN-DEPTH PROFILES (Story Journal & Botanical Leaves) ==================== -->
           <div class="scene-motif motif-scene-2" aria-hidden="true">
             <!-- Floating Open Story Journal -->
-            <div class="motif-journal-frame">
+            <div class="motif-journal-frame dyn-motif-item">
               <svg class="journal-svg" viewBox="0 0 260 160">
                 <defs>
                   <linearGradient id="bookCoverGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -4429,13 +4219,13 @@ img {
 
             <!-- Swaying Botanical Vines & Leaves -->
             <div class="motif-botanical-vines">
-              <svg class="vine-svg vine-left" viewBox="0 0 160 220">
+              <svg class="vine-svg vine-left dyn-motif-item" viewBox="0 0 160 220">
                 <path class="vine-stem" d="M20 210 Q 50 130 30 20" fill="none" stroke="rgba(39, 174, 96, 0.36)" stroke-width="2.2" stroke-linecap="round" />
                 <path class="vine-leaf vl-1" d="M36 170 C 60 160 65 140 42 145 C 32 155 34 165 36 170 Z" fill="rgba(39, 174, 96, 0.24)" stroke="rgba(39, 174, 96, 0.42)" stroke-width="1.2" />
                 <path class="vine-leaf vl-2" d="M28 115 C 8 100 6 80 25 90 C 30 100 29 110 28 115 Z" fill="rgba(39, 174, 96, 0.22)" stroke="rgba(39, 174, 96, 0.38)" stroke-width="1.2" />
                 <path class="vine-leaf vl-3" d="M32 60 C 55 50 58 32 38 40 C 30 48 31 55 32 60 Z" fill="rgba(39, 174, 96, 0.26)" stroke="rgba(39, 174, 96, 0.42)" stroke-width="1.2" />
               </svg>
-              <svg class="vine-svg vine-right" viewBox="0 0 160 220">
+              <svg class="vine-svg vine-right dyn-motif-item" viewBox="0 0 160 220">
                 <path class="vine-stem" d="M140 210 Q 110 130 130 20" fill="none" stroke="rgba(39, 174, 96, 0.34)" stroke-width="2.2" stroke-linecap="round" />
                 <path class="vine-leaf vl-4" d="M124 165 C 100 155 96 135 118 140 C 128 150 126 160 124 165 Z" fill="rgba(39, 174, 96, 0.22)" stroke="rgba(39, 174, 96, 0.4)" stroke-width="1.2" />
                 <path class="vine-leaf vl-5" d="M132 110 C 150 95 152 75 135 85 C 130 95 131 105 132 110 Z" fill="rgba(39, 174, 96, 0.24)" stroke="rgba(39, 174, 96, 0.38)" stroke-width="1.2" />
@@ -4443,7 +4233,7 @@ img {
             </div>
 
             <!-- Authenticity Rosette Seal -->
-            <div class="motif-authenticity-seal">
+            <div class="motif-authenticity-seal dyn-motif-item">
               <svg class="seal-svg" viewBox="0 0 96 96">
                 <circle class="seal-outer" cx="48" cy="48" r="42" fill="rgba(240, 253, 244, 0.55)" stroke="rgba(39, 174, 96, 0.45)" stroke-width="2" stroke-dasharray="6 3" />
                 <circle class="seal-inner" cx="48" cy="48" r="32" fill="none" stroke="rgba(39, 174, 96, 0.35)" stroke-width="1.5" />
@@ -4453,15 +4243,15 @@ img {
 
             <!-- Floating Story Bookmark Ribbons -->
             <div class="motif-ribbon-stream">
-              <span class="story-ribbon srib-1"></span>
-              <span class="story-ribbon srib-2"></span>
+              <span class="story-ribbon srib-1 dyn-motif-item"></span>
+              <span class="story-ribbon srib-2 dyn-motif-item"></span>
             </div>
           </div>
 
           <!-- ==================== SCENE 3 MOTIF: VOICE CONNECTION (Jumping Audio Spectrum & Speaker Waves) ==================== -->
           <div class="scene-motif motif-scene-3" aria-hidden="true">
             <!-- Dynamic 14-Bar Jumping Frequency Spectrum Equalizer -->
-            <div class="motif-voice-equalizer">
+            <div class="motif-voice-equalizer dyn-motif-item">
               <span class="v-eq-bar ve-1"></span>
               <span class="v-eq-bar ve-2"></span>
               <span class="v-eq-bar ve-3"></span>
@@ -4479,7 +4269,7 @@ img {
             </div>
 
             <!-- Concentric Speaker Soundwave Arcs -->
-            <div class="motif-soundwave-arcs">
+            <div class="motif-soundwave-arcs dyn-motif-item">
               <svg class="sound-arcs-svg" viewBox="0 0 300 240">
                 <path class="sound-arc arc-1" d="M40 70 A 60 60 0 0 1 40 170" fill="none" stroke="rgba(139, 92, 246, 0.45)" stroke-width="2.5" stroke-linecap="round" />
                 <path class="sound-arc arc-2" d="M60 50 A 90 90 0 0 1 60 190" fill="none" stroke="rgba(139, 92, 246, 0.38)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 4" />
@@ -4490,22 +4280,22 @@ img {
 
             <!-- Floating Audio Cadence Resonance Nodes -->
             <div class="motif-audio-nodes">
-              <div class="audio-node an-1">
+              <div class="audio-node an-1 dyn-motif-item">
                 <span class="node-dot"></span>
                 <span class="node-ring"></span>
               </div>
-              <div class="audio-node an-2">
+              <div class="audio-node an-2 dyn-motif-item">
                 <span class="node-dot"></span>
                 <span class="node-ring"></span>
               </div>
-              <div class="audio-node an-3">
+              <div class="audio-node an-3 dyn-motif-item">
                 <span class="node-dot"></span>
                 <span class="node-ring"></span>
               </div>
             </div>
 
             <!-- Floating Audio Clef & Wave Capsule -->
-            <div class="motif-voice-pill">
+            <div class="motif-voice-pill dyn-motif-item">
               <span class="voice-glyph">&#x266A;</span>
               <span class="voice-sine-trail"></span>
             </div>
@@ -4515,19 +4305,19 @@ img {
           <div class="scene-motif motif-scene-4" aria-hidden="true">
             <!-- Bouncing Conversational Speech Bubbles -->
             <div class="motif-speech-bubbles">
-              <div class="speech-bubble-shape sb-1">
+              <div class="speech-bubble-shape sb-1 dyn-motif-item">
                 <span class="sb-dots"><i></i><i></i><i></i></span>
                 <span class="sb-tail"></span>
               </div>
-              <div class="speech-bubble-shape sb-2">
+              <div class="speech-bubble-shape sb-2 dyn-motif-item">
                 <span class="sb-line"></span>
                 <span class="sb-tail"></span>
               </div>
-              <div class="speech-bubble-shape sb-3">
+              <div class="speech-bubble-shape sb-3 dyn-motif-item">
                 <span class="sb-heart">&hearts;</span>
                 <span class="sb-tail"></span>
               </div>
-              <div class="speech-bubble-shape sb-4">
+              <div class="speech-bubble-shape sb-4 dyn-motif-item">
                 <span class="sb-dots"><i></i><i></i></span>
                 <span class="sb-tail"></span>
               </div>
@@ -4535,19 +4325,19 @@ img {
 
             <!-- Oversized Decorative Quotation Marks -->
             <div class="motif-big-quotes">
-              <span class="big-quote bq-left">&ldquo;</span>
-              <span class="big-quote bq-right">&rdquo;</span>
+              <span class="big-quote bq-left dyn-motif-item">&ldquo;</span>
+              <span class="big-quote bq-right dyn-motif-item">&rdquo;</span>
             </div>
 
             <!-- Kinetic Idea Starbursts -->
             <div class="motif-idea-sparks">
-              <svg class="idea-burst ib-1" viewBox="0 0 32 32">
+              <svg class="idea-burst ib-1 dyn-motif-item" viewBox="0 0 32 32">
                 <path d="M16 0 L19 12 L31 16 L19 20 L16 32 L13 20 L1 16 L13 12 Z" fill="#F59E0B" />
               </svg>
-              <svg class="idea-burst ib-2" viewBox="0 0 32 32">
+              <svg class="idea-burst ib-2 dyn-motif-item" viewBox="0 0 32 32">
                 <path d="M16 0 L19 12 L31 16 L19 20 L16 32 L13 20 L1 16 L13 12 Z" fill="#E94266" />
               </svg>
-              <svg class="idea-burst ib-3" viewBox="0 0 32 32">
+              <svg class="idea-burst ib-3 dyn-motif-item" viewBox="0 0 32 32">
                 <path d="M16 0 L19 12 L31 16 L19 20 L16 32 L13 20 L1 16 L13 12 Z" fill="#4A90E2" />
               </svg>
             </div>
@@ -4561,7 +4351,7 @@ img {
           <!-- ==================== SCENE 5 MOTIF: REAL COMPANIONSHIP (Steam Spirals, Clock Dial & Warm Sunbeams) ==================== -->
           <div class="scene-motif motif-scene-5" aria-hidden="true">
             <!-- Rising Helical Steam Vapor Spirals -->
-            <div class="motif-steam-system">
+            <div class="motif-steam-system dyn-motif-item">
               <svg class="steam-svg" viewBox="0 0 160 260">
                 <defs>
                   <linearGradient id="steamGrad5" x1="0%" y1="100%" x2="0%" y2="0%">
@@ -4577,7 +4367,7 @@ img {
             </div>
 
             <!-- Meetup Calendar & Clock Face Dial -->
-            <div class="motif-cafe-clock">
+            <div class="motif-cafe-clock dyn-motif-item">
               <svg class="clock-svg" viewBox="0 0 180 180">
                 <circle class="clock-face" cx="90" cy="90" r="80" fill="rgba(254, 243, 199, 0.55)" stroke="rgba(245, 158, 11, 0.38)" stroke-width="2" />
                 <circle class="clock-inner" cx="90" cy="90" r="68" fill="none" stroke="rgba(245, 158, 11, 0.22)" stroke-width="1.2" stroke-dasharray="3 6" />
@@ -4593,7 +4383,7 @@ img {
             </div>
 
             <!-- Minimalist Ceramic Cup & Saucer Line Art -->
-            <div class="motif-cup-contour">
+            <div class="motif-cup-contour dyn-motif-item">
               <svg class="cup-svg" viewBox="0 0 160 120">
                 <path d="M10 98 C 40 114 120 114 150 98" fill="none" stroke="rgba(245, 158, 11, 0.35)" stroke-width="2.5" stroke-linecap="round" />
                 <path d="M35 50 L45 88 C 50 98 110 98 115 88 L125 50 Z" fill="rgba(255, 251, 235, 0.6)" stroke="rgba(245, 158, 11, 0.4)" stroke-width="2" />
@@ -4607,9 +4397,9 @@ img {
               <span class="sunbeam-ray sr-2"></span>
             </div>
             <div class="motif-amber-droplets">
-              <span class="amber-drop ad-1"></span>
-              <span class="amber-drop ad-2"></span>
-              <span class="amber-drop ad-3"></span>
+              <span class="amber-drop ad-1 dyn-motif-item"></span>
+              <span class="amber-drop ad-2 dyn-motif-item"></span>
+              <span class="amber-drop ad-3 dyn-motif-item"></span>
             </div>
           </div>
         </div>
@@ -5688,6 +5478,114 @@ window.APP_CONFIG = {
     }
   }
 
+  // 13 Stratified candidate zones covering the entire stage background canvas
+  // Guarantees balanced distribution without clumping while covering 100% of the canvas area
+  var STAGE_ZONES = [
+    // Top row (across entire stage width)
+    { minX: 3,  maxX: 18, minY: 4,  maxY: 22 }, // Top-Left edge
+    { minX: 20, maxX: 36, minY: 5,  maxY: 20 }, // Top-Left inner
+    { minX: 38, maxX: 54, minY: 5,  maxY: 22 }, // Top-Gutter
+    { minX: 56, maxX: 72, minY: 5,  maxY: 22 }, // Top-Right inner
+    { minX: 74, maxX: 90, minY: 4,  maxY: 22 }, // Top-Right edge
+
+    // Middle band (left flank, center gutter, right flank)
+    { minX: 2,  maxX: 15, minY: 28, maxY: 56 }, // Mid-Left edge
+    { minX: 38, maxX: 54, minY: 26, maxY: 60 }, // Mid-Gutter
+    { minX: 82, maxX: 94, minY: 28, maxY: 60 }, // Mid-Right edge
+
+    // Bottom row (across entire stage width)
+    { minX: 3,  maxX: 18, minY: 68, maxY: 88 }, // Bot-Left edge
+    { minX: 20, maxX: 36, minY: 70, maxY: 88 }, // Bot-Left inner
+    { minX: 38, maxX: 54, minY: 68, maxY: 88 }, // Bot-Gutter
+    { minX: 56, maxX: 72, minY: 70, maxY: 88 }, // Bot-Right inner
+    { minX: 74, maxX: 90, minY: 68, maxY: 88 }  // Bot-Right edge
+  ];
+
+  function randomizeSceneElements(sceneIdx) {
+    var motifEl = stage.querySelector('.motif-scene-' + sceneIdx);
+    if (!motifEl) return;
+
+    var items = motifEl.querySelectorAll('.dyn-motif-item');
+    if (!items.length) return;
+
+    // Shuffle candidate zones so each item receives a distinct zone across the canvas
+    var shuffledZones = STAGE_ZONES.slice().sort(function() {
+      return 0.5 - Math.random();
+    });
+
+    items.forEach(function(el, i) {
+      var zone = shuffledZones[i % shuffledZones.length];
+      var posX = zone.minX + Math.random() * (zone.maxX - zone.minX);
+      var posY = zone.minY + Math.random() * (zone.maxY - zone.minY);
+
+      // Position-aware kinetic motion dynamics ("根据位置来随机出现随机设"):
+      // 1. Vertical physics based on spawn height:
+      // - Upper elements (posY <= 35) float/glide downward into view; idle drifts downward
+      // - Lower elements (posY >= 65) spring/hop upward into view; idle drifts upward
+      // - Middle elements (35 < posY < 65) pop radially with elastic expansion
+      var entranceY = 0;
+      var driftY = 0;
+      if (posY <= 35) {
+        entranceY = -(22 + Math.floor(Math.random() * 24));
+        driftY = 8 + Math.floor(Math.random() * 16);
+      } else if (posY >= 65) {
+        entranceY = 24 + Math.floor(Math.random() * 26);
+        driftY = -(10 + Math.floor(Math.random() * 18));
+      } else {
+        entranceY = (Math.random() > 0.5 ? 1 : -1) * (14 + Math.floor(Math.random() * 16));
+        driftY = (Math.random() > 0.5 ? 1 : -1) * (10 + Math.floor(Math.random() * 14));
+      }
+
+      // 2. Horizontal physics based on spawn lateral position:
+      // - Left elements (posX <= 32) drift inward towards right
+      // - Right elements (posX >= 68) drift inward towards left, flanking phone
+      // - Center elements (32 < posX < 68) sway laterally
+      var entranceX = 0;
+      var driftX = 0;
+      if (posX <= 32) {
+        entranceX = -(16 + Math.floor(Math.random() * 18));
+        driftX = 6 + Math.floor(Math.random() * 16);
+      } else if (posX >= 68) {
+        entranceX = 16 + Math.floor(Math.random() * 18);
+        driftX = -(6 + Math.floor(Math.random() * 16));
+      } else {
+        entranceX = (Math.random() > 0.5 ? 1 : -1) * (10 + Math.floor(Math.random() * 14));
+        driftX = (Math.random() > 0.5 ? 1 : -1) * (8 + Math.floor(Math.random() * 14));
+      }
+
+      // 3. Orientation, scale & timing jitter:
+      var baseRot = (posX < 50 ? -1 : 1) * (3 + Math.floor(Math.random() * 11)); // -14deg to +14deg
+      var swing = 3 + Math.floor(Math.random() * 5); // 3deg to 7deg
+      var scale = (0.86 + Math.random() * 0.28).toFixed(2); // 0.86 to 1.14
+      var dur = (3.4 + Math.random() * 2.6).toFixed(2); // 3.4s to 6.0s
+      var delay = Math.floor(50 + Math.random() * 520); // 50ms to 570ms
+      var popDur = (0.64 + Math.random() * 0.22).toFixed(2); // 0.64s to 0.86s
+
+      // Apply coordinates spanning the entire stage canvas
+      el.style.left = posX.toFixed(1) + '%';
+      el.style.top = posY.toFixed(1) + '%';
+      el.style.right = 'auto';
+      el.style.bottom = 'auto';
+
+      // Apply dynamic kinetic CSS properties
+      el.style.setProperty('--entrance-x', entranceX + 'px');
+      el.style.setProperty('--entrance-y', entranceY + 'px');
+      el.style.setProperty('--rnd-drift-x', driftX + 'px');
+      el.style.setProperty('--rnd-drift-y', driftY + 'px');
+      el.style.setProperty('--rnd-rot', baseRot + 'deg');
+      el.style.setProperty('--rnd-swing', swing + 'deg');
+      el.style.setProperty('--rnd-scale', scale);
+      el.style.setProperty('--rnd-dur', dur + 's');
+      el.style.setProperty('--pop-delay', delay + 'ms');
+      el.style.setProperty('--pop-dur', popDur + 's');
+    });
+
+    // Re-trigger CSS animations smoothly
+    motifEl.classList.remove('is-spawned');
+    void motifEl.offsetWidth; // force reflow
+    motifEl.classList.add('is-spawned');
+  }
+
   function applySceneUI(sceneIndex) {
     if (sceneIndex < 0) sceneIndex = 0;
     if (sceneIndex >= totalScenes) sceneIndex = totalScenes - 1;
@@ -5766,7 +5664,7 @@ window.APP_CONFIG = {
       }
     });
 
-    // 3. Update right-side floating pill popups with random, irregular spring pop delays
+    // 3. Update right-side floating pill popups with random, irregular spring pop delays and position jitter
     var allPops = stage.querySelectorAll('.phone-scene-pops');
     allPops.forEach(function(popsEl) {
       popsEl.classList.remove('is-active');
@@ -5780,17 +5678,27 @@ window.APP_CONFIG = {
         var pill = pills[p];
         // Random organic jitter: -100ms to +140ms
         var jitter = Math.floor(Math.random() * 240) - 100;
-        var delay = Math.max(220, (baseDelays[p] || (400 + p * 550)) + jitter);
+        var delay = Math.max(200, (baseDelays[p] || (400 + p * 550)) + jitter);
         var duration = 750 + Math.floor(Math.random() * 150); // 750ms - 900ms tactile pop
+        var pillJitterX = Math.floor(Math.random() * 28) - 14; // -14px to +14px
+        var pillJitterY = Math.floor(Math.random() * 24) - 12; // -12px to +12px
+        var pillRot = Math.floor(Math.random() * 10) - 5; // -5deg to +5deg
+
         pill.style.setProperty('--pop-delay', delay + 'ms');
         pill.style.setProperty('--pop-duration', duration + 'ms');
+        pill.style.setProperty('--pill-jitter-x', pillJitterX + 'px');
+        pill.style.setProperty('--pill-jitter-y', pillJitterY + 'px');
+        pill.style.setProperty('--pill-rot', pillRot + 'deg');
       }
       // Force reflow so animation restarts from scratch with the new random delays
       void currentPops.offsetWidth;
       currentPops.classList.add('is-active');
     }
 
-    // 4. Update segment active states
+    // 4. Randomize and animate background motif elements across the entire canvas with position-aware kinetics
+    randomizeSceneElements(currentScene);
+
+    // 5. Update segment active states
     segments.forEach(function(seg, i) {
       if (i === currentScene) {
         seg.classList.add('active');

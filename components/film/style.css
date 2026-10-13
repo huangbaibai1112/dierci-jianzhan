@@ -182,6 +182,55 @@
   transform: scale(1) translateY(0);
 }
 
+/* ==========================================================================
+   Dynamic Motif Item Suite: Full-Canvas Randomized Kinetic Motion Engine
+   Position-aware spring entrance pop & continuous organic floating physics
+   ========================================================================== */
+.dyn-motif-item {
+  position: absolute;
+  will-change: transform, opacity, filter;
+  pointer-events: none;
+}
+
+/* Kinetic Spring Entrance & Continuous Position-Aware Organic Drift */
+.scene-motif.is-spawned .dyn-motif-item {
+  animation: dynamicSpringPopIn var(--pop-dur, 0.74s) cubic-bezier(0.34, 1.45, 0.64, 1) var(--pop-delay, 0s) both,
+             dynamicKineticHop var(--rnd-dur, 4.6s) cubic-bezier(0.34, 1.35, 0.64, 1) calc(var(--pop-delay, 0s) + var(--pop-dur, 0.74s)) infinite;
+}
+
+@keyframes dynamicSpringPopIn {
+  0% {
+    opacity: 0;
+    transform: translate(var(--entrance-x, 0px), var(--entrance-y, 24px)) rotate(var(--rnd-rot, 0deg)) scale(calc(var(--rnd-scale, 1) * 0.35));
+    filter: blur(8px);
+  }
+  62% {
+    opacity: 1;
+    transform: translate(calc(var(--entrance-x, 0px) * -0.15), calc(var(--entrance-y, 24px) * -0.15)) rotate(calc(var(--rnd-rot, 0deg) + var(--rnd-swing, 4deg))) scale(calc(var(--rnd-scale, 1) * 1.08));
+    filter: blur(0);
+  }
+  80% {
+    transform: translate(0, 0) rotate(calc(var(--rnd-rot, 0deg) - var(--rnd-swing, 2deg))) scale(calc(var(--rnd-scale, 1) * 0.96));
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(var(--rnd-rot, 0deg)) scale(var(--rnd-scale, 1));
+    filter: blur(0);
+  }
+}
+
+@keyframes dynamicKineticHop {
+  0%, 100% {
+    transform: translate(0, 0) rotate(var(--rnd-rot, 0deg)) scale(var(--rnd-scale, 1));
+  }
+  42% {
+    transform: translate(var(--rnd-drift-x, 0px), var(--rnd-drift-y, -16px)) rotate(calc(var(--rnd-rot, 0deg) + var(--rnd-swing, 4deg))) scale(calc(var(--rnd-scale, 1) * 1.05));
+  }
+  74% {
+    transform: translate(calc(var(--rnd-drift-x, 0px) * 0.35), calc(var(--rnd-drift-y, -16px) * -0.2)) rotate(calc(var(--rnd-rot, 0deg) - var(--rnd-swing, 2deg))) scale(var(--rnd-scale, 1));
+  }
+}
+
 /* --------------------------------------------------------------------------
    CHAPTER 0 MOTIF: CURATED DAILY PICKS (Morning Dawn & Heartbeat Pulse)
    -------------------------------------------------------------------------- */
@@ -244,21 +293,13 @@
 /* Morning Sunrise Arc & Radiating Dawn Rays */
 .sunrise-arc {
   position: absolute;
-  left: 14cqw;
-  top: 3%;
   width: 240px;
   height: 140px;
   filter: drop-shadow(0 6px 16px rgba(233, 66, 102, 0.15));
-  animation: sunriseBreathe 5.8s ease-in-out infinite alternate;
 }
 
 .sun-ray {
   animation: sunRayFlutter 3.4s ease-in-out infinite alternate;
-}
-
-@keyframes sunriseBreathe {
-  0% { transform: translateY(0) scale(0.96); opacity: 0.7; }
-  100% { transform: translateY(-8px) scale(1.04); opacity: 1; }
 }
 
 @keyframes sunRayFlutter {
@@ -314,42 +355,6 @@
   animation: heartMiniBeat 1.4s ease-in-out infinite;
 }
 
-.mc-1 {
-  left: 3cqw;
-  top: 13%;
-  animation: miniCardHop1 4.6s cubic-bezier(0.34, 1.35, 0.64, 1) infinite;
-}
-
-.mc-2 {
-  left: 42cqw;
-  bottom: 18%;
-  animation: miniCardHop2 5.2s cubic-bezier(0.34, 1.35, 0.64, 1) -1.6s infinite;
-}
-
-.mc-3 {
-  right: 6cqw;
-  top: 18%;
-  animation: miniCardHop3 4.8s cubic-bezier(0.34, 1.35, 0.64, 1) -3s infinite;
-}
-
-@keyframes miniCardHop1 {
-  0%, 100% { transform: translateY(0) rotate(-3deg); }
-  42% { transform: translateY(-16px) rotate(2deg) scale(1.06); }
-  72% { transform: translateY(3px) rotate(-4deg); }
-}
-
-@keyframes miniCardHop2 {
-  0%, 100% { transform: translateY(0) rotate(4deg); }
-  45% { transform: translateY(-18px) rotate(-1deg) scale(1.05); }
-  75% { transform: translateY(4px) rotate(5deg); }
-}
-
-@keyframes miniCardHop3 {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  40% { transform: translateY(-15px) rotate(3deg) scale(1.07); }
-  70% { transform: translateY(3px) rotate(-1deg); }
-}
-
 @keyframes heartMiniBeat {
   0%, 100% { transform: scale(1); }
   35% { transform: scale(1.35); }
@@ -368,39 +373,9 @@
   will-change: transform, opacity;
 }
 
-.fh-1 {
-  left: 20cqw;
-  top: 18%;
-  width: 22px;
-  height: 22px;
-  animation: heartFlutter1 4.5s ease-in-out infinite;
-}
-
-.fh-2 {
-  left: 48cqw;
-  top: 24%;
-  width: 18px;
-  height: 18px;
-  animation: heartFlutter2 4s ease-in-out -1.8s infinite;
-}
-
-.fh-3 {
-  right: 14cqw;
-  bottom: 22%;
-  width: 26px;
-  height: 26px;
-  animation: heartFlutter1 5.2s ease-in-out -2.6s infinite;
-}
-
-@keyframes heartFlutter1 {
-  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.65; }
-  50% { transform: translateY(-20px) rotate(14deg) scale(1.18); opacity: 0.95; }
-}
-
-@keyframes heartFlutter2 {
-  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.55; }
-  50% { transform: translateY(-16px) rotate(-18deg) scale(1.22); opacity: 0.95; }
-}
+.fh-1 { width: 22px; height: 22px; }
+.fh-2 { width: 18px; height: 18px; }
+.fh-3 { width: 26px; height: 26px; }
 
 /* Morning Dawn Twinkle Diamonds */
 .motif-starburst-field {
@@ -413,20 +388,13 @@
   width: 10px;
   height: 10px;
   background: linear-gradient(135deg, #F59E0B, #E94266);
-  transform: rotate(45deg);
   border-radius: 2px;
   box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
-  animation: diamondHopTwinkle 3.8s ease-in-out infinite;
 }
 
-.bd-1 { left: 16cqw; bottom: 28%; animation-delay: 0s; }
-.bd-2 { right: 28cqw; top: 12%; animation-delay: -1.3s; width: 8px; height: 8px; }
-.bd-3 { left: 36cqw; top: 14%; animation-delay: -2.4s; width: 12px; height: 12px; }
-
-@keyframes diamondHopTwinkle {
-  0%, 100% { transform: rotate(45deg) scale(0.8); opacity: 0.4; }
-  50% { transform: rotate(135deg) scale(1.3) translateY(-6px); opacity: 1; }
-}
+.bd-1 { width: 10px; height: 10px; }
+.bd-2 { width: 8px; height: 8px; }
+.bd-3 { width: 12px; height: 12px; }
 
 /* --------------------------------------------------------------------------
    CHAPTER 1 MOTIF: AGE 50–99 FILTERS (Radar Compass & Precision Scales)
@@ -475,15 +443,12 @@
 /* Gliding Precision Range Slider Scales */
 .motif-slider-system {
   position: absolute;
-  left: 4cqw;
-  top: 10%;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  inset: 0;
+  pointer-events: none;
 }
 
 .calibrated-track {
-  position: relative;
+  position: absolute;
   width: 190px;
   height: 10px;
   background: rgba(226, 232, 240, 0.7);
@@ -573,31 +538,9 @@
 .rc-h { width: 100%; height: 1.5px; opacity: 0.55; }
 .rc-v { height: 100%; width: 1.5px; opacity: 0.55; }
 
-.tr-1 {
-  left: 40cqw;
-  bottom: 22%;
-  animation: reticleHop1 5s ease-in-out infinite;
-}
-
-.tr-2 {
-  right: 8cqw;
-  top: 14%;
-  animation: reticleHop2 4.5s ease-in-out -2s infinite;
-}
-
 @keyframes reticlePulse {
   0%, 100% { transform: scale(0.9); opacity: 0.5; }
   50% { transform: scale(1.15); opacity: 0.95; }
-}
-
-@keyframes reticleHop1 {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-@keyframes reticleHop2 {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
 }
 
 /* Calibrated Metric Tags */
@@ -621,37 +564,20 @@
   -webkit-backdrop-filter: blur(6px);
 }
 
-.gm-1 { left: 24cqw; top: 12%; animation: markerHop 4s ease-in-out infinite; }
-.gm-2 { left: 45cqw; top: 18%; animation: markerHop 4.6s ease-in-out -1.2s infinite; }
-.gm-3 { right: 28cqw; bottom: 16%; animation: markerHop 5s ease-in-out -2.4s infinite; }
-
-@keyframes markerHop {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-8px) scale(1.05); }
-}
-
 /* --------------------------------------------------------------------------
    CHAPTER 2 MOTIF: IN-DEPTH PROFILES (Story Journal & Botanical Leaves)
    -------------------------------------------------------------------------- */
 /* Floating Open Story Journal */
 .motif-journal-frame {
   position: absolute;
-  left: 3cqw;
-  top: 7%;
   width: 220px;
   height: 140px;
-  animation: journalFloatHop 6s ease-in-out infinite;
   filter: drop-shadow(0 10px 24px rgba(39, 174, 96, 0.12));
 }
 
 .journal-svg {
   width: 100%;
   height: 100%;
-}
-
-@keyframes journalFloatHop {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-16px) rotate(1deg) scale(1.03); }
 }
 
 /* Swaying Botanical Vines & Olive Leaves */
@@ -667,30 +593,8 @@
   filter: drop-shadow(0 6px 14px rgba(39, 174, 96, 0.14));
 }
 
-.vine-left {
-  left: 2cqw;
-  bottom: 8%;
-  animation: vineSwayLeft 7s ease-in-out infinite alternate;
-}
-
-.vine-right {
-  right: 5cqw;
-  top: 10%;
-  animation: vineSwayRight 6.5s ease-in-out -2s infinite alternate;
-}
-
 .vine-leaf {
   animation: leafFlutter 3.8s ease-in-out infinite alternate;
-}
-
-@keyframes vineSwayLeft {
-  0% { transform: rotate(-4deg) translateY(0); }
-  100% { transform: rotate(5deg) translateY(-8px); }
-}
-
-@keyframes vineSwayRight {
-  0% { transform: rotate(4deg) translateY(0); }
-  100% { transform: rotate(-5deg) translateY(-10px); }
 }
 
 @keyframes leafFlutter {
@@ -701,11 +605,8 @@
 /* Authenticity Rosette Seal */
 .motif-authenticity-seal {
   position: absolute;
-  left: 45cqw;
-  top: 48%;
   width: 86px;
   height: 86px;
-  animation: sealFloatBreath 5s ease-in-out infinite;
 }
 
 .seal-svg {
@@ -723,11 +624,6 @@
   100% { transform: rotate(360deg); }
 }
 
-@keyframes sealFloatBreath {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-12px) scale(1.08); }
-}
-
 /* Floating Story Bookmark Ribbons */
 .motif-ribbon-stream {
   position: absolute;
@@ -740,16 +636,9 @@
   height: 80px;
   border-radius: 9999px;
   background: linear-gradient(180deg, rgba(39, 174, 96, 0.45) 0%, rgba(74, 144, 226, 0.1) 100%);
-  animation: ribbonWave 4.6s ease-in-out infinite alternate;
 }
 
-.srib-1 { left: 44cqw; top: 12%; animation-delay: 0s; }
-.srib-2 { left: 47cqw; bottom: 20%; animation-delay: -2.3s; height: 60px; }
-
-@keyframes ribbonWave {
-  0% { transform: translateY(0) skewX(-4deg); opacity: 0.5; }
-  100% { transform: translateY(-14px) skewX(4deg); opacity: 0.9; }
-}
+.srib-2 { height: 60px; }
 
 /* --------------------------------------------------------------------------
    CHAPTER 3 MOTIF: VOICE CONNECTION (Jumping Audio Spectrum & Speaker Waves)
@@ -813,8 +702,6 @@
 /* Concentric Speaker Soundwave Arcs */
 .motif-soundwave-arcs {
   position: absolute;
-  left: 4cqw;
-  top: 7%;
   width: 250px;
   height: 200px;
 }
@@ -876,20 +763,9 @@
   100% { transform: scale(1.6); opacity: 0; }
 }
 
-.an-1 { left: 38cqw; top: 16%; animation: nodeHop 4.2s ease-in-out infinite; }
-.an-2 { left: 46cqw; bottom: 24%; animation: nodeHop 5s ease-in-out -1.6s infinite; }
-.an-3 { right: 8cqw; top: 22%; animation: nodeHop 4.6s ease-in-out -3s infinite; }
-
-@keyframes nodeHop {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
-}
-
 /* Floating Audio Clef & Wave Capsule */
 .motif-voice-pill {
   position: absolute;
-  left: 22cqw;
-  bottom: 20%;
   padding: 6px 14px;
   background: rgba(245, 243, 255, 0.9);
   border: 1px solid rgba(139, 92, 246, 0.35);
@@ -899,12 +775,6 @@
   box-shadow: 0 6px 18px rgba(139, 92, 246, 0.16);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  animation: voicePillHop 4.8s ease-in-out infinite;
-}
-
-@keyframes voicePillHop {
-  0%, 100% { transform: translateY(0) rotate(-4deg); }
-  50% { transform: translateY(-16px) rotate(4deg) scale(1.08); }
 }
 
 /* --------------------------------------------------------------------------
@@ -975,55 +845,10 @@
   animation: heartMiniBeat 1.5s ease-in-out infinite;
 }
 
-.sb-1 {
-  left: 4cqw;
-  top: 9%;
-  width: 58px;
-  height: 34px;
-  animation: bubbleHopSpring1 4.5s cubic-bezier(0.34, 1.35, 0.64, 1) infinite;
-}
-
-.sb-2 {
-  left: 42cqw;
-  top: 14%;
-  width: 66px;
-  height: 32px;
-  animation: bubbleHopSpring2 5.2s cubic-bezier(0.34, 1.35, 0.64, 1) -1.8s infinite;
-}
-
-.sb-3 {
-  right: 8cqw;
-  top: 20%;
-  width: 44px;
-  height: 36px;
-  animation: bubbleHopSpring3 4.8s cubic-bezier(0.34, 1.35, 0.64, 1) -3.2s infinite;
-}
-
-.sb-4 {
-  left: 20cqw;
-  bottom: 22%;
-  width: 52px;
-  height: 32px;
-  animation: bubbleHopSpring1 4.2s cubic-bezier(0.34, 1.35, 0.64, 1) -2.1s infinite;
-}
-
-@keyframes bubbleHopSpring1 {
-  0%, 100% { transform: translateY(0) rotate(-6deg); }
-  40% { transform: translateY(-18px) rotate(4deg) scale(1.1); }
-  70% { transform: translateY(4px) rotate(-8deg); }
-}
-
-@keyframes bubbleHopSpring2 {
-  0%, 100% { transform: translateY(0) rotate(5deg); }
-  45% { transform: translateY(-20px) rotate(-3deg) scale(1.08); }
-  75% { transform: translateY(3px) rotate(6deg); }
-}
-
-@keyframes bubbleHopSpring3 {
-  0%, 100% { transform: translateY(0) rotate(-3deg); }
-  38% { transform: translateY(-16px) rotate(6deg) scale(1.12); }
-  68% { transform: translateY(4px) rotate(-4deg); }
-}
+.sb-1 { width: 58px; height: 34px; }
+.sb-2 { width: 66px; height: 32px; }
+.sb-3 { width: 44px; height: 36px; }
+.sb-4 { width: 52px; height: 32px; }
 
 /* Oversized Decorative Quotation Marks */
 .motif-big-quotes {
@@ -1039,16 +864,9 @@
   color: rgba(245, 158, 11, 0.22);
   user-select: none;
   pointer-events: none;
-  animation: quoteTiltHop 5.5s ease-in-out infinite alternate;
 }
 
-.bq-left { left: 4cqw; bottom: 18%; }
-.bq-right { right: 28cqw; top: 12%; animation-delay: -2.5s; color: rgba(233, 66, 102, 0.2); }
-
-@keyframes quoteTiltHop {
-  0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(-14px) rotate(12deg); }
-}
+.bq-right { color: rgba(233, 66, 102, 0.2); }
 
 /* Kinetic Idea Starbursts */
 .motif-idea-sparks {
@@ -1061,17 +879,10 @@
   width: 24px;
   height: 24px;
   filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.35));
-  animation: ideaBurstPop 3.8s ease-in-out infinite;
 }
 
-.ib-1 { left: 28cqw; top: 16%; animation-delay: 0s; }
-.ib-2 { right: 14cqw; bottom: 24%; animation-delay: -1.4s; width: 20px; height: 20px; }
-.ib-3 { left: 48cqw; bottom: 18%; animation-delay: -2.7s; width: 22px; height: 22px; }
-
-@keyframes ideaBurstPop {
-  0%, 100% { transform: scale(0.7) rotate(0deg); opacity: 0.4; }
-  50% { transform: scale(1.3) rotate(90deg) translateY(-8px); opacity: 1; }
-}
+.ib-2 { width: 20px; height: 20px; }
+.ib-3 { width: 22px; height: 22px; }
 
 /* Animated Dashed Dialogue Connector Trail */
 .dialogue-trail-svg {
@@ -1096,8 +907,6 @@
 /* Rising Helical Steam Vapor Spirals */
 .motif-steam-system {
   position: absolute;
-  left: 4cqw;
-  top: 7%;
   width: 160px;
   height: 260px;
 }
@@ -1138,8 +947,6 @@
 /* Meetup Calendar & Clock Face Dial */
 .motif-cafe-clock {
   position: absolute;
-  left: 45cqw;
-  top: 20%;
   width: 150px;
   height: 150px;
 }
@@ -1193,25 +1000,14 @@
 /* Minimalist Ceramic Cup & Saucer Line Art */
 .motif-cup-contour {
   position: absolute;
-  left: 4cqw;
-  bottom: 16%;
   width: 130px;
   height: 95px;
   filter: drop-shadow(0 6px 16px rgba(245, 158, 11, 0.18));
-  animation: cupWarmthFloat 5.2s ease-in-out infinite alternate;
-}
-  filter: drop-shadow(0 6px 16px rgba(245, 158, 11, 0.18));
-  animation: cupWarmthFloat 5.2s ease-in-out infinite alternate;
 }
 
 .cup-svg {
   width: 100%;
   height: 100%;
-}
-
-@keyframes cupWarmthFloat {
-  0% { transform: translateY(0) scale(1); }
-  100% { transform: translateY(-10px) scale(1.04); }
 }
 
 /* Warm Golden Sunbeam Ribbons & Rising Amber Drops */
@@ -1248,17 +1044,11 @@
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #F59E0B 60%, #D97706 100%);
   box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
-  animation: amberDropRise 4.6s ease-in-out infinite;
 }
 
-.ad-1 { left: 42cqw; bottom: 22%; width: 14px; height: 14px; animation-delay: 0s; }
-.ad-2 { right: 8cqw; top: 16%; width: 18px; height: 18px; animation-delay: -1.6s; }
-.ad-3 { left: 16cqw; top: 28%; width: 10px; height: 10px; animation-delay: -3s; }
-
-@keyframes amberDropRise {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 0.55; }
-  50% { transform: translateY(-18px) scale(1.2); opacity: 0.95; }
-}
+.ad-1 { width: 14px; height: 14px; }
+.ad-2 { width: 18px; height: 18px; }
+.ad-3 { width: 10px; height: 10px; }
 
 /* ==========================================================================
    Left Editorial Narrative Box & Kinetic Typography Entrance
@@ -1528,43 +1318,43 @@
   visibility: visible;
 }
 
-/* Apple-grade Tactile Spring Pop Keyframe */
+/* Apple-grade Tactile Spring Pop Keyframe with randomized position jitter & tilt */
 @keyframes pillSpringPop {
   0% {
     opacity: 0;
-    transform: scale(0.3) translateY(28px);
+    transform: translate(var(--pill-jitter-x, 0px), calc(var(--pill-jitter-y, 0px) + 28px)) scale(0.3) rotate(var(--pill-rot, 0deg));
     filter: blur(6px);
   }
   62% {
     opacity: 1;
-    transform: scale(1.08) translateY(-4px);
+    transform: translate(var(--pill-jitter-x, 0px), calc(var(--pill-jitter-y, 0px) - 4px)) scale(1.08) rotate(calc(var(--pill-rot, 0deg) + 2deg));
     filter: blur(0);
   }
   80% {
-    transform: scale(0.96) translateY(2px);
+    transform: translate(var(--pill-jitter-x, 0px), calc(var(--pill-jitter-y, 0px) + 2px)) scale(0.96) rotate(calc(var(--pill-rot, 0deg) - 1deg));
   }
   100% {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: translate(var(--pill-jitter-x, 0px), var(--pill-jitter-y, 0px)) scale(1) rotate(var(--pill-rot, 0deg));
     filter: blur(0);
   }
 }
 
 @keyframes pillFloatIdle1 {
   0%, 100% {
-    transform: scale(1) translateY(0) rotate(-1.5deg);
+    transform: translate(var(--pill-jitter-x, 0px), var(--pill-jitter-y, 0px)) scale(1) rotate(calc(var(--pill-rot, 0deg) - 1.5deg));
   }
   50% {
-    transform: scale(1) translateY(-7px) rotate(0.8deg);
+    transform: translate(var(--pill-jitter-x, 0px), calc(var(--pill-jitter-y, 0px) - 7px)) scale(1) rotate(calc(var(--pill-rot, 0deg) + 0.8deg));
   }
 }
 
 @keyframes pillFloatIdle2 {
   0%, 100% {
-    transform: scale(1) translateY(0) rotate(1.8deg);
+    transform: translate(var(--pill-jitter-x, 0px), var(--pill-jitter-y, 0px)) scale(1) rotate(calc(var(--pill-rot, 0deg) + 1.8deg));
   }
   50% {
-    transform: scale(1) translateY(-8px) rotate(-0.5deg);
+    transform: translate(var(--pill-jitter-x, 0px), calc(var(--pill-jitter-y, 0px) - 8px)) scale(1) rotate(calc(var(--pill-rot, 0deg) - 0.5deg));
   }
 }
 
