@@ -1,18 +1,19 @@
 /**
  * FAQ Component Behavior
- * Self-contained: smoothly coordinates single-open behavior.
+ * Self-contained: strictly coordinates exclusive accordion (single-open) behavior.
+ * When any item is opened, all previously opened items automatically fold and collapse.
  */
 (function() {
   'use strict';
 
-  var cards = document.querySelectorAll('.faq-card');
-  if (!cards.length) return;
+  var rows = document.querySelectorAll('.faq-row, .faq-card');
+  if (!rows.length) return;
 
-  cards.forEach(function(card) {
-    card.addEventListener('toggle', function() {
-      if (card.open) {
-        cards.forEach(function(other) {
-          if (other !== card && other.open) {
+  rows.forEach(function(row) {
+    row.addEventListener('toggle', function() {
+      if (row.open) {
+        rows.forEach(function(other) {
+          if (other !== row && other.open) {
             other.removeAttribute('open');
           }
         });

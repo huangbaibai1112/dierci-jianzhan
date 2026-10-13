@@ -2826,6 +2826,21 @@ img {
   line-height: 1.65;
 }
 
+.faq-row[open] .faq-content {
+  animation: faqExpand 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes faqExpand {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .faq-content p {
   margin: 0;
 }
@@ -3894,7 +3909,7 @@ img {
 
       <div class="faq-accordion-group">
         
-        <details class="faq-row" open>
+        <details class="faq-row" name="faq-group" open>
           <summary class="faq-header">Is registration free to start?</summary>
           <div class="faq-content">
             <p>
@@ -3903,7 +3918,7 @@ img {
           </div>
         </details>
 
-        <details class="faq-row">
+        <details class="faq-row" name="faq-group">
           <summary class="faq-header">Who is this platform designed for?</summary>
           <div class="faq-content">
             <p>
@@ -3912,7 +3927,7 @@ img {
           </div>
         </details>
 
-        <details class="faq-row">
+        <details class="faq-row" name="faq-group">
           <summary class="faq-header">How does the compatibility matching algorithm work?</summary>
           <div class="faq-content">
             <p>
@@ -3921,7 +3936,7 @@ img {
           </div>
         </details>
 
-        <details class="faq-row">
+        <details class="faq-row" name="faq-group">
           <summary class="faq-header">Will my real identity or address be publicly visible?</summary>
           <div class="faq-content">
             <p>
@@ -3930,7 +3945,7 @@ img {
           </div>
         </details>
 
-        <details class="faq-row">
+        <details class="faq-row" name="faq-group">
           <summary class="faq-header">What if I haven&rsquo;t dated in many years?</summary>
           <div class="faq-content">
             <p>
@@ -4619,19 +4634,20 @@ window.APP_CONFIG = {
 // [COMPONENT: faq] components\faq\script.js
 /**
  * FAQ Component Behavior
- * Self-contained: smoothly coordinates single-open behavior.
+ * Self-contained: strictly coordinates exclusive accordion (single-open) behavior.
+ * When any item is opened, all previously opened items automatically fold and collapse.
  */
 (function() {
   'use strict';
 
-  var cards = document.querySelectorAll('.faq-card');
-  if (!cards.length) return;
+  var rows = document.querySelectorAll('.faq-row, .faq-card');
+  if (!rows.length) return;
 
-  cards.forEach(function(card) {
-    card.addEventListener('toggle', function() {
-      if (card.open) {
-        cards.forEach(function(other) {
-          if (other !== card && other.open) {
+  rows.forEach(function(row) {
+    row.addEventListener('toggle', function() {
+      if (row.open) {
+        rows.forEach(function(other) {
+          if (other !== row && other.open) {
             other.removeAttribute('open');
           }
         });
