@@ -32,25 +32,50 @@
   gap: clamp(24px, 3.5vw, 38px);
 }
 
-/* Atmospheric Aurora Blooms & Graphic Motifs */
-.motif-faq-arcs {
+/* Atmospheric Member Concierge Dialogue & Acoustic Motifs */
+.faq-ambient-decor {
   position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  border: 1px dashed rgba(245, 158, 11, 0.16);
-  box-shadow: inset 0 0 60px rgba(245, 158, 11, 0.04);
+  inset: 0;
   pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
 }
 
-.motif-faq-arcs::after {
-  content: '';
+.faq-motif-waves {
   position: absolute;
-  inset: 48px;
-  border-radius: 50%;
-  border: 1px solid rgba(139, 38, 62, 0.12);
+  top: -50px;
+  right: -50px;
+  width: clamp(260px, 34vw, 390px);
+  height: clamp(230px, 30vw, 340px);
+  animation: faqWaveDrift 12s ease-in-out infinite alternate;
+  transform-origin: center center;
+  opacity: 0.95;
+}
+
+.faq-motif-ribbon {
+  position: absolute;
+  top: 30%;
+  left: -35px;
+  width: clamp(130px, 16vw, 200px);
+  height: clamp(170px, 22vw, 260px);
+  opacity: 0.85;
+}
+
+@keyframes faqWaveDrift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-6px, 8px) scale(1.02); }
+  100% { transform: translate(4px, -6px) scale(0.98); }
+}
+
+@media (max-width: 768px) {
+  .faq-motif-waves {
+    top: -30px;
+    right: -30px;
+    opacity: 0.65;
+  }
+  .faq-motif-ribbon {
+    display: none;
+  }
 }
 
 /* Stage Header inside Island */

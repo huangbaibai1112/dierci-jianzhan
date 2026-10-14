@@ -32,25 +32,55 @@
   gap: clamp(24px, 3.5vw, 38px);
 }
 
-/* Atmospheric Aurora Blooms & Graphic Motifs */
-.motif-trust-shield-radar {
+/* Atmospheric Senior Protection Shield & Biometric Radar Motifs */
+.trust-ambient-decor {
   position: absolute;
-  top: -90px;
-  right: -90px;
-  width: 380px;
-  height: 380px;
-  border-radius: 50%;
-  border: 1px dashed rgba(139, 38, 62, 0.15);
-  box-shadow: inset 0 0 70px rgba(139, 38, 62, 0.04);
+  inset: 0;
   pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
 }
 
-.motif-trust-shield-radar::after {
-  content: '';
+.trust-motif-shield {
   position: absolute;
-  inset: 50px;
-  border-radius: 50%;
-  border: 1px solid rgba(36, 110, 86, 0.12);
+  top: -60px;
+  left: -70px;
+  width: clamp(280px, 36vw, 440px);
+  height: clamp(280px, 36vw, 440px);
+  animation: trustShieldBreathe 10s ease-in-out infinite alternate;
+  transform-origin: center center;
+  opacity: 0.95;
+}
+
+.trust-motif-hex {
+  position: absolute;
+  bottom: 4%;
+  right: -25px;
+  width: clamp(140px, 18vw, 220px);
+  height: clamp(140px, 18vw, 220px);
+  animation: trustHexFloat 14s ease-in-out infinite alternate;
+  opacity: 0.85;
+}
+
+@keyframes trustShieldBreathe {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.04) rotate(1.5deg); }
+}
+
+@keyframes trustHexFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-8px) rotate(-3deg); }
+}
+
+@media (max-width: 768px) {
+  .trust-motif-shield {
+    top: -40px;
+    left: -40px;
+    opacity: 0.65;
+  }
+  .trust-motif-hex {
+    display: none;
+  }
 }
 
 /* Stage Header inside Island */

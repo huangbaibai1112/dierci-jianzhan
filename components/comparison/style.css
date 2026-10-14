@@ -32,25 +32,49 @@
   gap: clamp(24px, 3.5vw, 40px);
 }
 
-/* Atmospheric Aurora Blooms & Graphic Motifs */
-.motif-benchmark-rings {
+/* Atmospheric Benchmark Precision Instruments & Calibration Motifs */
+.benchmark-ambient-decor {
   position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 320px;
-  height: 320px;
-  border-radius: 50%;
-  border: 1px dashed rgba(233, 66, 102, 0.14);
-  box-shadow: inset 0 0 60px rgba(233, 66, 102, 0.04);
+  inset: 0;
   pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
 }
 
-.motif-benchmark-rings::after {
-  content: '';
+.benchmark-motif-dial {
   position: absolute;
-  inset: 40px;
-  border-radius: 50%;
-  border: 1px solid rgba(245, 158, 11, 0.12);
+  top: -80px;
+  right: -80px;
+  width: clamp(280px, 35vw, 420px);
+  height: clamp(280px, 35vw, 420px);
+  animation: benchmarkDialSpin 100s linear infinite;
+  transform-origin: center center;
+  opacity: 0.95;
+}
+
+.benchmark-motif-reticle {
+  position: absolute;
+  bottom: 6%;
+  left: -20px;
+  width: clamp(130px, 16vw, 190px);
+  height: clamp(130px, 16vw, 190px);
+  opacity: 0.85;
+}
+
+@keyframes benchmarkDialSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .benchmark-motif-dial {
+    top: -50px;
+    right: -50px;
+    opacity: 0.65;
+  }
+  .benchmark-motif-reticle {
+    display: none;
+  }
 }
 
 /* Stage Header inside Island */
