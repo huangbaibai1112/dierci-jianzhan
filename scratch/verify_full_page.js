@@ -193,6 +193,14 @@ async function run() {
     const shotTrust = await client.send('Page.captureScreenshot', { format: 'png' });
     fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_05_trust.png'), Buffer.from(shotTrust.data, 'base64'));
 
+    // Capture Section 5b: FAQ
+    await client.send('Runtime.evaluate', {
+      expression: `document.getElementById('faq')?.scrollIntoView({ behavior: 'instant', block: 'start' });`
+    });
+    await sleep(600);
+    const shotFaq = await client.send('Page.captureScreenshot', { format: 'png' });
+    fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_05b_faq.png'), Buffer.from(shotFaq.data, 'base64'));
+
     // Capture Section 6: Footer
     await client.send('Runtime.evaluate', {
       expression: `document.querySelector('.comp-footer')?.scrollIntoView({ behavior: 'instant', block: 'start' });`
