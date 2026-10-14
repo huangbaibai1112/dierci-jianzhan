@@ -211,6 +211,14 @@ async function run() {
     });
     await sleep(1000);
 
+    // Scroll to hero on mobile
+    await client.send('Runtime.evaluate', {
+      expression: `document.getElementById('hero')?.scrollIntoView({ behavior: 'instant', block: 'start' });`
+    });
+    await sleep(600);
+    const shotMobileHero = await client.send('Page.captureScreenshot', { format: 'png' });
+    fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_mobile_hero.png'), Buffer.from(shotMobileHero.data, 'base64'));
+
     // Scroll to hanging cards on mobile
     await client.send('Runtime.evaluate', {
       expression: `document.getElementById('platform-advantages')?.scrollIntoView({ behavior: 'instant', block: 'start' });`
