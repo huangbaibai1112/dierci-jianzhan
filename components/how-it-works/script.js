@@ -1,28 +1,79 @@
 /**
  * Component: How It Works Interactive Behavior
- * Handcrafted tactile interactions: Curation tabs, Rewind dial, Voice player, Call shield
+ * Unified Master Stage Controller & Tactile Simulations
  */
 (function() {
   'use strict';
 
-  // 1. Curation Tab Ribbon Switcher (Eleanor, Arthur, Clara)
-  var tabs = document.querySelectorAll('.ribbon-tab');
-  var cards = document.querySelectorAll('.letterpress-card');
+  // 1. Master Console Phase Switcher (Dossier, Dispatch, Acoustic, Daylight, Ledger)
+  var navPills = document.querySelectorAll('.stage-nav-pill');
+  var viewPanels = document.querySelectorAll('.stage-view-panel');
+  var stageEl = document.getElementById('masterLivingStage');
 
-  tabs.forEach(function(tab) {
+  function switchPhase(phaseId, scrollIntoView) {
+    var targetPanelId = 'view-' + phaseId;
+
+    // Update Nav Pills
+    navPills.forEach(function(pill) {
+      if (pill.getAttribute('data-phase') === phaseId) {
+        pill.classList.add('is-active');
+        pill.setAttribute('aria-selected', 'true');
+      } else {
+        pill.classList.remove('is-active');
+        pill.setAttribute('aria-selected', 'false');
+      }
+    });
+
+    // Update Stage Panels
+    viewPanels.forEach(function(panel) {
+      if (panel.id === targetPanelId) {
+        panel.classList.add('is-active');
+        panel.removeAttribute('hidden');
+      } else {
+        panel.classList.remove('is-active');
+        panel.setAttribute('hidden', 'true');
+      }
+    });
+
+    if (scrollIntoView && stageEl) {
+      stageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  navPills.forEach(function(pill) {
+    pill.addEventListener('click', function() {
+      var phase = this.getAttribute('data-phase');
+      switchPhase(phase, false);
+    });
+  });
+
+  // Next Phase Button Handlers
+  document.querySelectorAll('.btn-console-next').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var nextPhase = this.getAttribute('data-next-phase');
+      if (nextPhase) {
+        switchPhase(nextPhase, true);
+      }
+    });
+  });
+
+
+  // 2. Phase 02 Curation Switcher (Eleanor, Arthur, Clara)
+  var subtabs = document.querySelectorAll('.ribbon-tab');
+  var subcards = document.querySelectorAll('.letterpress-card');
+
+  subtabs.forEach(function(tab) {
     tab.addEventListener('click', function() {
-      var targetId = 'card-' + this.getAttribute('data-tab');
+      var targetId = 'subcard-' + this.getAttribute('data-tab');
 
-      // Update tabs state
-      tabs.forEach(function(t) {
+      subtabs.forEach(function(t) {
         t.classList.remove('is-active');
         t.setAttribute('aria-selected', 'false');
       });
       this.classList.add('is-active');
       this.setAttribute('aria-selected', 'true');
 
-      // Update card panels
-      cards.forEach(function(card) {
+      subcards.forEach(function(card) {
         if (card.id === targetId) {
           card.classList.add('is-active');
           card.removeAttribute('hidden');
@@ -34,7 +85,8 @@
     });
   });
 
-  // 2. Rewind Dial Simulation
+
+  // 3. Rewind Dial Simulation
   var rewindBtn = document.getElementById('rewindDialBtn');
   var rewindStatus = document.getElementById('rewindStatusText');
   var dialCap = document.querySelector('.dial-center-cap');
@@ -45,7 +97,6 @@
       if (isRewinding) return;
       isRewinding = true;
 
-      // Animate dial rotation
       dialCap.style.transform = 'rotate(-720deg)';
       rewindStatus.textContent = 'Retrieving yesterday\u2019s passed recommendation...';
       rewindStatus.style.color = '#E94266';
@@ -64,7 +115,8 @@
     });
   }
 
-  // 3. Acoustic Voice Note Player Simulation
+
+  // 4. Acoustic Voice Note Player Simulation
   var playBtn = document.getElementById('voicePlayBtn');
   var playIcon = document.getElementById('playIconSpan');
   var grooveStation = document.querySelector('.voice-groove-station');
@@ -103,7 +155,8 @@
     });
   }
 
-  // 4. Mock Curation Tray Actions (Pass / Wink feedback)
+
+  // 5. Mock Curation Actions
   document.querySelectorAll('[data-action="mock-pass"]').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var originalText = this.querySelector('span:last-child').textContent;
@@ -131,7 +184,8 @@
     });
   });
 
-  // 5. Mock Call Shield Decline
+
+  // 6. Mock Call Shield Decline
   var declineBtn = document.querySelector('[data-action="mock-decline"]');
   if (declineBtn) {
     declineBtn.addEventListener('click', function() {
@@ -150,7 +204,8 @@
     });
   }
 
-  // 6. Global Conversion Action Emitter
+
+  // 7. Global Conversion Emitter
   var actionBtns = document.querySelectorAll('.how-it-works-page [data-action="join-partner"]');
   actionBtns.forEach(function(btn) {
     btn.addEventListener('click', function() {
