@@ -1,32 +1,11 @@
 /**
  * Component: How It Works Interactive Behavior
- * Handles smooth scrolling navigation rail and interaction tracking.
+ * Handles accordion interactions and conversion click event bubbling.
  */
 (function() {
   'use strict';
 
-  // Smooth scroll for quick-jump rail items
-  var railLinks = document.querySelectorAll('.hiw-nav-rail a[href^="#"]');
-  railLinks.forEach(function(anchor) {
-    anchor.addEventListener('click', function(e) {
-      var targetId = this.getAttribute('href');
-      if (!targetId || targetId === '#') return;
-      var targetEl = document.querySelector(targetId);
-      if (targetEl) {
-        e.preventDefault();
-        var headerOffset = 90;
-        var elementPosition = targetEl.getBoundingClientRect().top;
-        var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
-
-  // Outbound action button handling
+  // Conversion action handlers
   var actionBtns = document.querySelectorAll('.how-it-works-page [data-action="join-partner"]');
   actionBtns.forEach(function(btn) {
     btn.addEventListener('click', function() {
