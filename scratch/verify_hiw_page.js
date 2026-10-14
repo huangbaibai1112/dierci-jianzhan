@@ -134,38 +134,38 @@ async function run() {
   fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_desktop_top.png'), Buffer.from(shot1.data, 'base64'));
   console.log('Saved scratch/verify_hiw_desktop_top.png');
 
-  // Capture Living Stage Phase 1
+  // Capture Workbench Step 1
   await cdp.send('Runtime.evaluate', {
-    expression: "document.querySelector('.master-console-section').scrollIntoView();"
+    expression: "document.querySelector('.workbench-section').scrollIntoView();"
   });
   await sleep(600);
-  const shotStage1 = await cdp.send('Page.captureScreenshot', { format: 'png' });
-  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_console_p1.png'), Buffer.from(shotStage1.data, 'base64'));
+  const shotWorkbench1 = await cdp.send('Page.captureScreenshot', { format: 'png' });
+  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_workbench_s1.png'), Buffer.from(shotWorkbench1.data, 'base64'));
 
-  // Click tab 2 (9:00 AM Dispatch) and capture
+  // Click Step 3 (9:00 AM Dispatch) and capture
   await cdp.send('Runtime.evaluate', {
-    expression: "document.getElementById('tab-phase-dispatch').click();"
+    expression: "document.getElementById('step-btn-3').click();"
   });
   await sleep(600);
-  const shotStage2 = await cdp.send('Page.captureScreenshot', { format: 'png' });
-  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_console_p2.png'), Buffer.from(shotStage2.data, 'base64'));
+  const shotWorkbench3 = await cdp.send('Page.captureScreenshot', { format: 'png' });
+  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_workbench_s3.png'), Buffer.from(shotWorkbench3.data, 'base64'));
 
-  // Scroll to Editorial Broadside (Pure Typography)
+  // Scroll to Architecture & Matching Equation (Pure Editorial)
   await cdp.send('Runtime.evaluate', {
-    expression: "document.querySelector('.editorial-manifesto-section').scrollIntoView();"
+    expression: "document.querySelector('.architecture-editorial-article').scrollIntoView();"
   });
   await sleep(600);
-  const shotBroadside = await cdp.send('Page.captureScreenshot', { format: 'png' });
-  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_editorial_broadside.png'), Buffer.from(shotBroadside.data, 'base64'));
+  const shotArch = await cdp.send('Page.captureScreenshot', { format: 'png' });
+  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_architecture.png'), Buffer.from(shotArch.data, 'base64'));
 
-  // Scroll to Editorial Inquiries (Pure Typography)
+  // Scroll to Financial Ledger (Table)
   await cdp.send('Runtime.evaluate', {
-    expression: "document.querySelector('.editorial-inquiries-section').scrollIntoView();"
+    expression: "document.querySelector('.ledger-transparency-section').scrollIntoView();"
   });
   await sleep(600);
-  const shotInquiries = await cdp.send('Page.captureScreenshot', { format: 'png' });
-  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_editorial_inquiries.png'), Buffer.from(shotInquiries.data, 'base64'));
-  console.log('Saved all console & editorial screenshots');
+  const shotLedger = await cdp.send('Page.captureScreenshot', { format: 'png' });
+  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_ledger.png'), Buffer.from(shotLedger.data, 'base64'));
+  console.log('Saved all workbench & ledger screenshots');
 
   // Test Mobile Viewport 390px
   console.log('Testing Mobile Viewport (390px)...');
@@ -182,15 +182,19 @@ async function run() {
     expression: `(() => {
       const docW = document.documentElement.clientWidth;
       const bodyW = document.body.clientWidth;
+      const scrollW = document.documentElement.scrollWidth;
       const elts = Array.from(document.querySelectorAll('*'));
       let bad = [];
       elts.forEach(el => {
+        // Skip elements inside an overflow container
+        if (el.closest('.manual-table-container') && el !== document.querySelector('.manual-table-container')) return;
         const r = el.getBoundingClientRect();
-        if (r.right > docW + 1) {
+        if (r.right > docW + 1.5 || r.left < -1.5) {
           bad.push({
             tag: el.tagName,
             class: el.className,
             id: el.id,
+            left: Math.round(r.left),
             right: Math.round(r.right),
             docWidth: docW
           });
@@ -199,6 +203,8 @@ async function run() {
       return {
         docWidth: docW,
         bodyWidth: bodyW,
+        scrollWidth: scrollW,
+        pageHasHorizontalScroll: scrollW > docW + 1,
         hasOverflow: bad.length > 0,
         overflowCount: bad.length,
         overflowSamples: bad.slice(0, 5)
@@ -212,6 +218,23 @@ async function run() {
   const shotMob = await cdp.send('Page.captureScreenshot', { format: 'png' });
   fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_mobile.png'), Buffer.from(shotMob.data, 'base64'));
   console.log('Saved scratch/verify_hiw_mobile.png');
+
+  // Mobile Workbench
+  await cdp.send('Runtime.evaluate', {
+    expression: "document.querySelector('.workbench-section').scrollIntoView();"
+  });
+  await sleep(600);
+  const shotMobBench = await cdp.send('Page.captureScreenshot', { format: 'png' });
+  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_mobile_bench.png'), Buffer.from(shotMobBench.data, 'base64'));
+
+  // Mobile Table
+  await cdp.send('Runtime.evaluate', {
+    expression: "document.querySelector('.ledger-transparency-section').scrollIntoView();"
+  });
+  await sleep(600);
+  const shotMobTable = await cdp.send('Page.captureScreenshot', { format: 'png' });
+  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_mobile_table.png'), Buffer.from(shotMobTable.data, 'base64'));
+  console.log('Saved mobile workbench & table screenshots');
 
   } finally {
     try { if (cdp) cdp.close(); } catch (e) {}

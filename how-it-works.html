@@ -529,14 +529,15 @@ img {
 
 /* [COMPONENT: how-it-works] components\how-it-works\style.css */
 /* ===================================================================
-   Component: How It Works Page Scoped Styles
-   Theme: The Living Companion Console & Editorial Broadside
-   Design Philosophy: Zero Card Stacking, Fluid Single-Stage Mastery, Prestige Typography
-   Aesthetic: Warm Parchment, Velvet Bordeaux, Sunlit Honey Amber, Titanium Slate
-   Target Audience: Mature Adults (50+) - High Contrast, Legible, Dignified
+   Component: How It Works - Platform Manual & Operating Guide
+   Design Identity: Precision Technical Elegance & Interface Walkthrough
+   Distinction: Completely decoupled in tone, layout, and purpose from Homepage.
+   Aesthetic: Architectural Hairline Grid, High-Precision Device Simulator,
+              Pristine White & Titanium Slate, Bordeaux Wine & Emerald Accents.
+   Target Audience: Mature Adults (50+) - High Contrast, Legible, Pedagogical
    =================================================================== */
 
-.how-it-works-page {
+.how-it-works-page.manual-theme {
   position: relative;
   background-color: var(--bg-primary, #F8FAFC);
   color: var(--ink-primary, #1E293B);
@@ -546,10 +547,10 @@ img {
 }
 
 /* ===================================================================
-   1. MASTHEAD: Editorial Headline & Manifesto
+   1. OPERATING MANUAL MASTHEAD (Architectural Document Header)
    =================================================================== */
-.hiw-masthead {
-  padding-bottom: 40px;
+.manual-masthead {
+  padding-bottom: 36px;
   border-bottom: 2px solid rgba(226, 232, 240, 0.9);
   margin-bottom: 48px;
 }
@@ -561,7 +562,7 @@ img {
   font-size: var(--text-sm, 0.9375rem);
   font-weight: 500;
   color: var(--ink-muted, #64748B);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .hiw-breadcrumb a {
@@ -583,1833 +584,653 @@ img {
   font-weight: 600;
 }
 
-.masthead-badge-row {
+.manual-meta-strip {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 14px;
+  margin-bottom: 16px;
 }
 
-.dispatch-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(233, 66, 102, 0.08);
-  color: var(--accent-wine, #E94266);
+.meta-badge-spec {
+  font-family: ui-monospace, SFMono-Regular, monospace;
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.12em;
-  padding: 6px 14px;
-  border-radius: var(--radius-full, 9999px);
-  border: 1px solid rgba(233, 66, 102, 0.2);
+  color: #FFFFFF;
+  background: #1E293B;
+  padding: 4px 10px;
+  border-radius: 4px;
 }
 
-.dispatch-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent-wine, #E94266);
-  box-shadow: 0 0 6px rgba(233, 66, 102, 0.6);
-  animation: pulseDot 2s infinite ease-in-out;
-}
-
-@keyframes pulseDot {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.4); opacity: 0.7; }
-}
-
-.dispatch-serial {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+.meta-doc-id {
+  font-family: ui-monospace, SFMono-Regular, monospace;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--ink-muted, #64748B);
   letter-spacing: 0.06em;
 }
 
-.masthead-headline {
-  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(2.15rem, 4.4vw, 3.6rem);
-  font-weight: 800;
-  line-height: 1.14;
-  letter-spacing: -0.03em;
-  color: var(--ink-primary, #1E293B);
-  margin: 0 0 20px 0;
+.meta-status {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-juniper, #27AE60);
 }
 
-.masthead-highlight {
+.manual-title {
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.15rem, 4.4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--ink-primary, #1E293B);
+  margin: 0 0 16px 0;
+}
+
+.manual-title-sub {
   color: var(--accent-wine, #E94266);
   background: linear-gradient(135deg, #E94266 0%, #D42B51 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.masthead-manifesto {
-  font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
+.manual-intro {
+  font-size: clamp(1.0625rem, 1.8vw, 1.2rem);
   line-height: 1.7;
   color: var(--ink-secondary, #475569);
-  max-width: 880px;
+  max-width: 860px;
   margin: 0;
 }
 
 
 /* ===================================================================
-   2. THE MASTER COMPANION CONSOLE (Unified Single-Stage Experience)
+   2. THE INTERFACE WORKBENCH (Interactive Screen Simulator)
    =================================================================== */
-.master-console-section {
-  margin-bottom: 96px;
+.workbench-section {
+  margin-bottom: 88px;
 }
 
-/* Switchboard Segmented Controller */
-.console-switchboard {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  background: #FFFFFF;
-  border: 1px solid var(--border-light, #E2E8F0);
-  border-radius: var(--radius-lg, 20px);
-  padding: 8px 12px;
-  box-shadow: 0 8px 24px -4px rgba(35, 28, 26, 0.06);
-  margin-bottom: 24px;
-}
-
-.stage-nav-pill {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid transparent;
-  background: transparent;
-  cursor: pointer;
-  transition: all var(--transition, 200ms ease);
-}
-
-.stage-nav-pill:hover {
-  background: #F1F5F9;
-}
-
-.stage-nav-pill.is-active {
-  background: var(--accent-wine, #E94266);
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(233, 66, 102, 0.35);
-}
-
-.pill-phase-num {
-  font-family: ui-monospace, SFMono-Regular, monospace;
-  font-size: 0.6875rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  padding: 2px 6px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.06);
-}
-
-.stage-nav-pill.is-active .pill-phase-num {
-  background: rgba(255, 255, 255, 0.25);
-  color: #FFFFFF;
-}
-
-.pill-phase-text {
-  font-size: 0.875rem;
-  font-weight: 700;
-}
-
-/* Living Stage Viewport */
-.console-living-stage {
-  position: relative;
+.workbench-shell {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 40px;
   background: #FFFFFF;
   border: 1px solid var(--border-light, #E2E8F0);
   border-radius: var(--island-radius, 24px);
   padding: clamp(24px, 4vw, 44px);
   box-shadow: var(--shadow-card, 0 12px 32px -8px rgba(35, 28, 26, 0.08));
-}
-
-.stage-view-panel {
-  display: none;
-}
-
-.stage-view-panel.is-active {
-  display: block;
-  animation: stageFadeIn 0.35s ease-out;
-}
-
-@keyframes stageFadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.stage-footer-action {
-  margin-top: 36px;
-  padding-top: 24px;
-  border-top: 1px solid #E2E8F0;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.btn-console-next {
-  background: #F8FAFC;
-  border: 1px solid #CBD5E1;
-  color: var(--ink-primary, #1E293B);
-  font-size: 0.9375rem;
-  font-weight: 700;
-  padding: 12px 24px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all var(--transition, 200ms ease);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.btn-console-next:hover {
-  background: var(--accent-wine-soft, #FDF2F4);
-  color: var(--accent-wine, #E94266);
-  border-color: rgba(233, 66, 102, 0.4);
-}
-
-
-/* ===================================================================
-   STAGE VIEW 01: THE SINCERE DOSSIER
-   =================================================================== */
-.dossier-layout-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.05fr;
-  gap: 48px;
   align-items: flex-start;
 }
 
-.dossier-physical-binder {
-  position: relative;
-  background: #E8E5DF;
-  border: 1px solid #D5D0C7;
-  border-radius: 24px;
-  padding: 24px 20px 24px 38px;
-  box-shadow: 0 16px 36px -10px rgba(35, 28, 26, 0.1);
-}
-
-.binder-rings {
-  position: absolute;
-  left: 12px;
-  top: 40px;
-  bottom: 40px;
+/* Left: Steps Navigation Console */
+.workbench-nav-col {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
-.binder-ring {
-  width: 14px;
-  height: 28px;
-  border: 3px solid #71717A;
-  border-right: none;
-  border-radius: 14px 0 0 14px;
-  background: linear-gradient(90deg, #A1A1AA, #D4D4D8);
-  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3);
-}
-
-.binder-parchment-sheet {
-  position: relative;
-  background: #FCFBF8;
-  border: 1px solid #E5E0D5;
-  border-radius: 16px;
-  padding: 28px 24px;
-  box-shadow: 2px 3px 12px rgba(0, 0, 0, 0.05);
-}
-
-.brass-clip {
-  position: absolute;
-  top: -10px;
-  right: 36px;
-  width: 32px;
-  height: 60px;
-  border: 4px solid #D97706;
-  border-radius: 16px;
-  background: transparent;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.25);
-  z-index: 10;
-}
-
-.dossier-sheet-top {
+.wnav-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px dashed #D5D0C7;
-}
-
-.dossier-folio-mark {
-  font-family: ui-monospace, SFMono-Regular, monospace;
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: var(--ink-muted, #64748B);
-  letter-spacing: 0.08em;
-}
-
-.wax-seal-badge {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: #8B263E;
-  color: #FFFFFF;
-  padding: 4px 10px;
-  border-radius: 9999px;
-  box-shadow: 0 2px 8px rgba(139, 38, 62, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.3);
-}
-
-.wax-crest {
-  font-weight: 800;
-  font-size: 0.8125rem;
-}
-
-.wax-text {
-  font-size: 0.6875rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-}
-
-.dossier-polaroid-frame {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 14px;
-  padding: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  margin-bottom: 22px;
-}
-
-.polaroid-photo-box {
-  position: relative;
-  width: 110px;
-  height: 110px;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #F1F5F9;
-  flex-shrink: 0;
-}
-
-.polaroid-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.verification-lens {
-  position: absolute;
-  inset: 0;
-  border: 2px solid var(--accent-juniper, #27AE60);
-  border-radius: 12px;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.lens-scan-beam {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(180deg, transparent, rgba(39, 174, 96, 0.8));
-  box-shadow: 0 0 8px rgba(39, 174, 96, 0.9);
-  animation: radarScan 2.5s infinite ease-in-out;
-}
-
-@keyframes radarScan {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(106px); }
-  100% { transform: translateY(0); }
-}
-
-.lens-status-pill {
-  position: absolute;
-  bottom: 4px;
-  left: 4px;
-  right: 4px;
-  font-size: 0.5625rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  background: rgba(30, 41, 59, 0.88);
-  color: #FFFFFF;
-  text-align: center;
-  padding: 2px 4px;
-  border-radius: 4px;
-}
-
-.polaroid-name {
-  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--ink-primary, #1E293B);
-  margin: 0 0 4px 0;
-}
-
-.polaroid-sub {
-  font-size: 0.8125rem;
-  color: var(--ink-muted, #64748B);
-  margin: 0;
-}
-
-.dossier-prompts-card {
-  background: #FFFDF9;
-  border-left: 3px solid var(--accent-wine, #E94266);
-  padding: 14px 18px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.prompt-entry {
-  margin-bottom: 12px;
-}
-
-.prompt-entry:last-child {
-  margin-bottom: 0;
-}
-
-.prompt-label {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--accent-wine, #E94266);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 4px;
-}
-
-.prompt-handwriting {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-style: italic;
-  font-size: 0.9375rem;
-  line-height: 1.5;
-  color: #334155;
-  margin: 0;
-}
-
-.dossier-albums-drawer {
-  background: #F1EFEA;
-  padding: 12px 14px;
-  border-radius: 10px;
-}
-
-.albums-drawer-title {
-  display: block;
-  font-size: 0.6875rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  color: var(--ink-muted, #64748B);
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.albums-tabs-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.album-tag {
-  font-size: 0.75rem;
-  font-weight: 600;
-  background: #FFFFFF;
-  color: var(--ink-primary, #1E293B);
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: 1px solid #D8D2C5;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.narrative-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: var(--accent-wine, #E94266);
-  margin-bottom: 12px;
-}
-
-.chapter-headline {
-  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(1.75rem, 3.2vw, 2.65rem);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-  color: var(--ink-primary, #1E293B);
-  margin: 0 0 16px 0;
-}
-
-.chapter-headline.center-aligned {
-  text-align: center;
-}
-
-.chapter-lead {
-  font-size: clamp(1rem, 1.6vw, 1.15rem);
-  line-height: 1.68;
-  color: var(--ink-secondary, #475569);
-  margin: 0 0 28px 0;
-}
-
-.chapter-lead.max-w-700 {
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-.text-wine {
-  color: var(--accent-wine, #E94266);
-}
-
-.mechanics-stream {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.mechanic-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.mech-index {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--accent-wine-soft, #FDF2F4);
-  color: var(--accent-wine, #E94266);
-  font-weight: 800;
-  font-size: 0.875rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  border: 1px solid rgba(233, 66, 102, 0.3);
-}
-
-.mech-title {
-  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.0625rem;
-  font-weight: 700;
-  color: var(--ink-primary, #1E293B);
-  margin: 0 0 4px 0;
-}
-
-.mech-text {
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  color: var(--ink-secondary, #475569);
-  margin: 0;
-}
-
-
-/* ===================================================================
-   STAGE VIEW 02: 9:00 AM COFFEE DISPATCH
-   =================================================================== */
-.table-console-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 36px;
-  align-items: flex-start;
-}
-
-.envelope-switch-console {
-  background: #FCFBF8;
-  border: 1px solid #E2E8F0;
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: 0 4px 16px rgba(35, 28, 26, 0.04);
-}
-
-.console-tab-ribbon {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 24px;
-  border-bottom: 1px solid #E2E8F0;
   padding-bottom: 14px;
-}
-
-.ribbon-tab {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  padding: 10px 8px;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  background: #F8FAFC;
-  cursor: pointer;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: var(--ink-secondary, #475569);
-  transition: all var(--transition, 200ms ease);
-}
-
-.ribbon-tab:hover {
-  background: #EEF2F6;
-}
-
-.ribbon-tab.is-active {
-  background: var(--accent-wine-soft, #FDF2F4);
-  color: var(--accent-wine, #E94266);
-  border-color: rgba(233, 66, 102, 0.3);
-}
-
-.tab-dist {
-  font-size: 0.6875rem;
-  font-weight: 500;
-  color: var(--ink-muted, #64748B);
-}
-
-.letterpress-card {
-  display: none;
-}
-
-.letterpress-card.is-active {
-  display: block;
-  animation: fadeInCard 0.3s ease-out;
-}
-
-@keyframes fadeInCard {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.card-letterhead {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 18px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #F1F5F9;
-}
-
-.dispatch-time-stamp {
-  font-family: ui-monospace, SFMono-Regular, monospace;
-  font-size: 0.6875rem;
-  font-weight: 800;
-  color: var(--accent-wine, #E94266);
-  letter-spacing: 0.08em;
-  display: block;
-}
-
-.lh-compat-badge {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--accent-juniper, #27AE60);
-  background: rgba(39, 174, 96, 0.1);
-  padding: 2px 8px;
-  border-radius: 4px;
-}
-
-.lh-location {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--ink-muted, #64748B);
-}
-
-.card-profile-summary {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 18px;
-}
-
-.lp-avatar {
-  border-radius: 14px;
-  border: 2px solid #E2E8F0;
-}
-
-.lp-name {
-  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--ink-primary, #1E293B);
-  margin: 0 0 4px 0;
-}
-
-.lp-profession {
-  font-size: 0.8125rem;
-  color: var(--ink-secondary, #475569);
-  margin: 0 0 10px 0;
-}
-
-.lp-shared-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.chip-item {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  background: #F1F5F9;
-  color: #334155;
-  padding: 3px 8px;
-  border-radius: 6px;
-}
-
-.card-quote-box {
-  background: #FFFFFF;
-  border-left: 3px solid var(--accent-wine, #E94266);
-  padding: 14px 16px;
-  border-radius: 8px;
-  font-style: italic;
-  font-size: 0.9375rem;
-  line-height: 1.55;
-  color: #334155;
-  margin-bottom: 24px;
-}
-
-.card-interaction-tray {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.tray-btn {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 12px 14px;
-  border-radius: 12px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  cursor: pointer;
-  border: 1px solid transparent;
-  transition: all var(--transition, 200ms ease);
-}
-
-.btn-pass {
-  background: #F1F5F9;
-  color: #64748B;
-  border-color: #E2E8F0;
-}
-
-.btn-pass:hover {
-  background: #E2E8F0;
-  color: #334155;
-}
-
-.btn-wink {
-  background: #FEF3C7;
-  color: #B45309;
-  border-color: #FDE68A;
-}
-
-.btn-wink:hover {
-  background: #FDE68A;
-}
-
-.btn-like {
-  background: var(--accent-wine, #E94266);
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(233, 66, 102, 0.35);
-}
-
-.btn-like:hover {
-  background: var(--accent-wine-dark, #D42B51);
-}
-
-.rewind-gallery-col {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.rewind-machine-box,
-.gallery-explore-box {
-  background: #FCFBF8;
-  border: 1px solid #E2E8F0;
-  border-radius: 18px;
-  padding: 22px;
-}
-
-.rm-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.rm-tag {
-  font-family: ui-monospace, SFMono-Regular, monospace;
-  font-size: 0.6875rem;
-  font-weight: 800;
-  color: var(--accent-wine, #E94266);
-  letter-spacing: 0.08em;
-}
-
-.rm-pill {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--accent-juniper, #27AE60);
-  background: rgba(39, 174, 96, 0.1);
-  padding: 2px 8px;
-  border-radius: 4px;
-}
-
-.rm-title {
-  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.0625rem;
-  font-weight: 800;
-  color: var(--ink-primary, #1E293B);
-  margin: 0 0 8px 0;
-}
-
-.rm-desc {
-  font-size: 0.875rem;
-  line-height: 1.58;
-  color: var(--ink-secondary, #475569);
-  margin: 0 0 16px 0;
-}
-
-.rm-dial-visual {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 14px;
-  padding: 12px 16px;
-  cursor: pointer;
-  transition: all var(--transition, 200ms ease);
-}
-
-.rm-dial-visual:hover {
-  background: var(--accent-wine-soft, #FDF2F4);
-  border-color: rgba(233, 66, 102, 0.3);
-}
-
-.dial-track {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #E2E8F0;
-  border: 2px solid #CBD5E1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.dial-center-cap {
-  font-size: 1.125rem;
-  font-weight: 800;
-  color: var(--accent-wine, #E94266);
-  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.dial-caption {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.dial-caption strong {
-  font-size: 0.8125rem;
-  color: var(--ink-primary, #1E293B);
-}
-
-.dial-caption span {
-  font-size: 0.6875rem;
-  color: var(--ink-muted, #64748B);
-}
-
-.search-keyword-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.skt-chip {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #475569;
-  background: #FFFFFF;
-  padding: 4px 10px;
-  border-radius: 6px;
-  border: 1px solid #E2E8F0;
-}
-
-
-/* ===================================================================
-   STAGE VIEW 03: ACOUSTIC ROOM & CALL SHIELD
-   =================================================================== */
-.acoustic-layout-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 44px;
-  align-items: flex-start;
-}
-
-.player-top-status {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: var(--accent-wine, #E94266);
-  margin-bottom: 12px;
-}
-
-.status-indicator-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent-wine, #E94266);
-  animation: pulseDot 1.8s infinite;
-}
-
-.voice-groove-station {
-  background: #FCFBF8;
-  border: 1px solid var(--border-light, #E2E8F0);
-  border-radius: 20px;
-  padding: 24px;
-  margin-bottom: 24px;
-}
-
-.groove-speaker-meta {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 20px;
-}
-
-.groove-avatar {
-  border-radius: 50%;
-  border: 2px solid #E2E8F0;
-}
-
-.groove-name {
-  display: block;
-  font-size: 1.0625rem;
-  color: var(--ink-primary, #1E293B);
-}
-
-.groove-sub {
-  font-size: 0.75rem;
-  color: var(--ink-muted, #64748B);
-}
-
-.equalizer-waveform {
-  display: flex;
-  align-items: flex-end;
-  gap: 4px;
-  height: 48px;
-  padding: 6px 0;
-  margin-bottom: 18px;
-}
-
-.eq-bar {
-  flex: 1;
-  background: linear-gradient(180deg, var(--accent-wine, #E94266), #D42B51);
-  border-radius: 3px;
-  height: var(--h, 40%);
-  transition: height 0.2s ease;
-}
-
-.voice-groove-station.is-playing .eq-bar {
-  animation: eqPulse 1s infinite alternate ease-in-out;
-}
-
-@keyframes eqPulse {
-  0% { transform: scaleY(0.4); }
-  100% { transform: scaleY(1.2); }
-}
-
-.groove-controls {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 18px;
-}
-
-.groove-play-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--accent-wine, #E94266);
-  color: #FFFFFF;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(233, 66, 102, 0.35);
-  transition: transform var(--transition, 200ms ease);
-  flex-shrink: 0;
-}
-
-.groove-play-btn:hover {
-  transform: scale(1.05);
-}
-
-.play-icon {
-  font-size: 1rem;
-  margin-left: 2px;
-}
-
-.groove-scrubber {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.scrub-track {
-  width: 100%;
-  height: 6px;
-  background: #E2E8F0;
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.scrub-fill {
-  height: 100%;
-  background: var(--accent-wine, #E94266);
-  border-radius: 3px;
-}
-
-.scrub-time {
-  font-family: ui-monospace, SFMono-Regular, monospace;
-  font-size: 0.6875rem;
-  color: var(--ink-muted, #64748B);
-  text-align: right;
-}
-
-.voice-quote-transcript {
-  background: #FFFFFF;
-  border-left: 3px solid #CBD5E1;
-  padding: 10px 14px;
-  border-radius: 6px;
-}
-
-.transcript-label {
-  display: block;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--ink-muted, #64748B);
-  text-transform: uppercase;
-  margin-bottom: 2px;
-}
-
-.voice-quote-transcript p {
-  font-style: italic;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: #334155;
-  margin: 0;
-}
-
-.interaction-modes-row {
-  display: flex;
-  gap: 14px;
-}
-
-.mode-pill {
-  flex: 1;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  background: #FCFBF8;
-  border: 1px solid #E2E8F0;
-  border-radius: 12px;
-  padding: 12px 14px;
-}
-
-.mode-icon {
-  font-size: 1.25rem;
-}
-
-.mode-pill strong {
-  display: block;
-  font-size: 0.8125rem;
-  color: var(--ink-primary, #1E293B);
-  margin-bottom: 2px;
-}
-
-.mode-pill p {
-  font-size: 0.75rem;
-  color: var(--ink-muted, #64748B);
-  line-height: 1.4;
-  margin: 0;
-}
-
-.shield-vault-card {
-  background: #1E293B;
-  border: 1px solid #334155;
-  border-radius: 24px;
-  padding: 28px;
-  color: #FFFFFF;
-  box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.35);
-}
-
-.vault-top-badge {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.shield-icon-badge {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: rgba(39, 174, 96, 0.2);
-  color: var(--accent-juniper, #27AE60);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.vault-badge-tag {
-  display: block;
-  font-family: ui-monospace, SFMono-Regular, monospace;
-  font-size: 0.6875rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: #94A3B8;
-}
-
-.vault-security-status {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: var(--accent-juniper, #27AE60);
-}
-
-.shield-call-screen {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-  padding: 24px 20px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.cs-avatar-halo {
-  position: relative;
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 14px auto;
-}
-
-.cs-avatar {
-  border-radius: 50%;
-  border: 2px solid var(--accent-juniper, #27AE60);
-}
-
-.cs-pulse-ring {
-  position: absolute;
-  inset: -6px;
-  border: 2px solid var(--accent-juniper, #27AE60);
-  border-radius: 50%;
-  animation: haloPulse 2.4s infinite;
-}
-
-@keyframes haloPulse {
-  0% { transform: scale(1); opacity: 0.8; }
-  100% { transform: scale(1.35); opacity: 0; }
-}
-
-.cs-caller-name {
-  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #FFFFFF;
-  margin: 0 0 4px 0;
-}
-
-.cs-call-type {
-  font-size: 0.8125rem;
-  color: #94A3B8;
-  display: block;
-  margin-bottom: 18px;
-}
-
-.cloaked-number-indicator {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(39, 174, 96, 0.15);
-  border: 1px solid rgba(39, 174, 96, 0.3);
-  border-radius: 10px;
-  padding: 10px 14px;
-  text-align: left;
-  margin-bottom: 18px;
-}
-
-.cni-icon {
-  font-size: 1.25rem;
-}
-
-.cni-text strong {
-  display: block;
-  font-size: 0.8125rem;
-  color: #FFFFFF;
-}
-
-.cni-text span {
-  font-size: 0.6875rem;
-  color: #A7F3D0;
-}
-
-.protected-data-checklist {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px 14px;
-  text-align: left;
-  font-size: 0.75rem;
-  color: #CBD5E1;
-  margin-bottom: 22px;
-}
-
-.pdc-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.pdc-check {
-  color: var(--accent-juniper, #27AE60);
-  font-weight: 800;
-}
-
-.cs-action-row {
-  display: flex;
-  gap: 12px;
-}
-
-.cs-btn {
-  flex: 1;
-  padding: 12px 14px;
-  border-radius: 12px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  cursor: pointer;
-  border: none;
-  transition: transform 0.2s ease;
-}
-
-.cs-btn:hover {
-  transform: translateY(-2px);
-}
-
-.cs-decline {
-  background: #334155;
-  color: #E2E8F0;
-}
-
-.cs-accept {
-  background: var(--accent-juniper, #27AE60);
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(39, 174, 96, 0.4);
-}
-
-.shield-guarantee-note {
-  font-size: 0.8125rem;
-  line-height: 1.55;
-  color: #94A3B8;
-}
-
-.shield-guarantee-note strong {
-  color: #FFFFFF;
-}
-
-
-/* ===================================================================
-   STAGE VIEW 04: DAYLIGHT PROTOCOL
-   =================================================================== */
-.daylight-field-guide {
-  background: transparent;
-}
-
-.field-guide-header {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 36px;
-  align-items: flex-end;
-  margin-bottom: 36px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid #E5E0D5;
-}
-
-.fgh-stamp {
-  font-family: ui-monospace, SFMono-Regular, monospace;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: #D97706;
-  display: block;
-  margin-bottom: 10px;
-}
-
-.daylight-itinerary-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-bottom: 28px;
-}
-
-.itinerary-card {
-  background: #FCFBF8;
-  border: 1px solid #E2E8F0;
-  border-radius: 16px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.itin-time-badge {
-  background: #FEF3C7;
-  color: #B45309;
-  padding: 8px 12px;
-  border-radius: 10px;
+  border-bottom: 1px solid #E2E8F0;
   margin-bottom: 16px;
 }
 
-.itin-badge-amber {
-  background: #FEF3C7;
-  color: #B45309;
-}
-
-.itin-badge-juniper {
-  background: #DCFCE7;
-  color: #15803D;
-}
-
-.itin-badge-wine {
-  background: var(--accent-wine-soft, #FDF2F4);
-  color: var(--accent-wine, #E94266);
-}
-
-.itin-hour {
-  display: block;
-  font-family: ui-monospace, SFMono-Regular, monospace;
-  font-size: 0.8125rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-}
-
-.itin-loc {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  opacity: 0.85;
-}
-
-.itin-title {
-  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.0625rem;
-  font-weight: 800;
-  color: var(--ink-primary, #1E293B);
-  margin: 0 0 8px 0;
-}
-
-.itin-text {
-  font-size: 0.875rem;
-  line-height: 1.55;
-  color: var(--ink-secondary, #475569);
-  margin: 0 0 16px 0;
-}
-
-.itin-pill-tag {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--ink-muted, #64748B);
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  padding: 4px 8px;
-  border-radius: 6px;
-  display: inline-block;
-}
-
-.safety-advisory-banner {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: #EFF6FF;
-  border: 1px solid #BFDBFE;
-  border-radius: 14px;
-  padding: 14px 20px;
-}
-
-.sab-badge {
-  font-family: ui-monospace, SFMono-Regular, monospace;
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: #1D4ED8;
-  white-space: nowrap;
-}
-
-.sab-text {
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: #1E3A8A;
-  margin: 0;
-}
-
-
-/* ===================================================================
-   STAGE VIEW 05: THE TRANSPARENT LEDGER
-   =================================================================== */
-.master-ledger-spread {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  align-items: stretch;
-  margin-bottom: 32px;
-}
-
-.ledger-column {
-  border-radius: 24px;
-  padding: 36px 32px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.col-standard-entry {
-  background: #FCFBF8;
-  border: 2px solid #E5E0D5;
-}
-
-.lh-serial {
+.wnav-caption {
   font-family: ui-monospace, SFMono-Regular, monospace;
   font-size: 0.6875rem;
   font-weight: 800;
   letter-spacing: 0.12em;
-  color: var(--ink-muted, #64748B);
-  display: block;
-  margin-bottom: 6px;
+  color: var(--accent-wine, #E94266);
 }
 
-.lh-tier-name {
-  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: var(--ink-primary, #1E293B);
-  margin: 0 0 12px 0;
-}
-
-.lh-cost-tag {
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
-  margin-bottom: 14px;
-}
-
-.cost-currency {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--ink-primary, #1E293B);
-}
-
-.cost-number {
-  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
-  font-size: 3rem;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--ink-primary, #1E293B);
-}
-
-.cost-sub {
-  font-size: 0.9375rem;
-  font-weight: 600;
+.wnav-step-counter {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
   color: var(--ink-muted, #64748B);
 }
 
-.lh-intent {
-  font-size: 0.9375rem;
-  line-height: 1.55;
-  color: var(--ink-secondary, #475569);
-  margin: 0 0 24px 0;
-  padding-bottom: 18px;
-  border-bottom: 1px solid #E5E0D5;
-}
-
-.ledger-rows-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-bottom: 32px;
-}
-
-.l-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.l-check {
-  font-size: 1rem;
-  font-weight: 800;
-  color: var(--accent-juniper, #27AE60);
-  line-height: 1.4;
-  flex-shrink: 0;
-}
-
-.l-row strong {
-  display: block;
-  font-size: 0.9375rem;
-  color: var(--ink-primary, #1E293B);
-}
-
-.l-row p {
-  font-size: 0.8125rem;
-  color: var(--ink-muted, #64748B);
-  line-height: 1.4;
-  margin: 2px 0 0 0;
-}
-
-.ledger-action-foot {
+.wnav-steps-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  align-items: center;
+  margin-bottom: 24px;
 }
 
-.action-caption {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--ink-muted, #64748B);
-}
-
-.col-silver-select {
-  position: relative;
-  background: linear-gradient(145deg, #1E293B 0%, #283344 100%);
-  border: 2px solid #D97706;
-  box-shadow: 0 16px 40px -8px rgba(217, 119, 6, 0.25);
-  color: #FFFFFF;
-}
-
-.col-silver-select .lh-tier-name {
-  color: #FFFFFF !important;
-}
-
-.col-silver-select .lh-serial {
-  color: #FBBF24 !important;
-}
-
-.col-silver-select .lh-intent {
-  color: #E2E8F0 !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-}
-
-.select-seal-ribbon {
-  position: absolute;
-  top: 18px;
-  right: 24px;
-  background: linear-gradient(135deg, #F59E0B, #D97706);
-  color: #1E293B;
-  font-size: 0.6875rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  padding: 4px 12px;
-  border-radius: 9999px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
-
-.select-privilege-badge {
-  font-size: 1.125rem;
-  font-weight: 800;
-  color: #FBBF24;
-}
-
-.check-gold {
-  color: #FBBF24 !important;
-}
-
-.row-vip strong {
-  color: #FFFFFF !important;
-}
-
-.row-vip p {
-  color: #CBD5E1 !important;
-}
-
-.btn-silver-gold {
-  background: linear-gradient(135deg, var(--accent-wine, #E94266) 0%, #D42B51 100%);
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 8px 24px rgba(233, 66, 102, 0.4);
-}
-
-.btn-silver-gold:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(233, 66, 102, 0.5);
-}
-
-.consumer-pledge-card {
+.wnav-step-item {
   display: flex;
   align-items: flex-start;
-  gap: 18px;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #E2E8F0;
   background: #FCFBF8;
-  border: 1px dashed #D5D0C7;
-  border-radius: 16px;
-  padding: 22px 26px;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition, 200ms ease);
 }
 
-.cpc-badge {
+.wnav-step-item:hover {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+}
+
+.wnav-step-item.is-active {
+  background: var(--accent-wine-soft, #FDF2F4);
+  border-color: rgba(233, 66, 102, 0.4);
+  box-shadow: 0 4px 14px rgba(233, 66, 102, 0.12);
+}
+
+.step-badge {
   font-family: ui-monospace, SFMono-Regular, monospace;
   font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
-  color: var(--accent-wine, #E94266);
-  white-space: nowrap;
+  color: var(--ink-muted, #64748B);
+  background: #EEF2F6;
+  padding: 4px 8px;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
-.cpc-content h4 {
+.wnav-step-item.is-active .step-badge {
+  background: var(--accent-wine, #E94266);
+  color: #FFFFFF;
+}
+
+.step-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.step-name {
   font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.0625rem;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: var(--ink-primary, #1E293B);
+}
+
+.wnav-step-item.is-active .step-name {
+  color: var(--accent-wine, #E94266);
+}
+
+.step-summary {
+  font-size: 0.75rem;
+  color: var(--ink-secondary, #475569);
+  line-height: 1.4;
+}
+
+.wnav-quick-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-ctrl {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid #CBD5E1;
+  background: #FFFFFF;
+  color: var(--ink-primary, #1E293B);
+  transition: all var(--transition, 200ms ease);
+}
+
+.btn-ctrl:hover:not(:disabled) {
+  background: #F1F5F9;
+  border-color: #94A3B8;
+}
+
+.btn-ctrl:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-next {
+  background: var(--ink-primary, #1E293B);
+  color: #FFFFFF;
+  border-color: #1E293B;
+}
+
+.btn-next:hover:not(:disabled) {
+  background: var(--accent-wine, #E94266);
+  border-color: var(--accent-wine, #E94266);
+  color: #FFFFFF;
+}
+
+/* Right: Device Frame & Hotspot Annotations */
+.workbench-viewport-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.device-frame-enclosure {
+  position: relative;
+  background: #0F172A;
+  border: 8px solid #1E293B;
+  border-radius: 36px;
+  box-shadow: 0 20px 50px -12px rgba(15, 23, 42, 0.35);
+  overflow: hidden;
+}
+
+.device-notch {
+  height: 20px;
+  background: #1E293B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.notch-speaker {
+  width: 44px;
+  height: 4px;
+  border-radius: 2px;
+  background: #334155;
+}
+
+.notch-camera {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #334155;
+}
+
+.device-screen-view {
+  display: none;
+}
+
+.device-screen-view.is-active {
+  display: block;
+  animation: screenFadeIn 0.35s ease-out;
+}
+
+@keyframes screenFadeIn {
+  from { opacity: 0; transform: scale(0.985); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.screen-image-wrap {
+  position: relative;
+  background: #000000;
+  overflow: hidden;
+}
+
+.device-screen-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 520px;
+}
+
+/* Hotspot Callout Pins */
+.hotspot-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 20;
+}
+
+.pin-marker {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-wine, #E94266);
+  color: #FFFFFF;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9), 0 4px 12px rgba(0, 0, 0, 0.4);
+  animation: pinPulse 2.4s infinite;
+}
+
+@keyframes pinPulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9), 0 4px 12px rgba(0, 0, 0, 0.4); }
+  50% { box-shadow: 0 0 0 7px rgba(233, 66, 102, 0.6), 0 4px 16px rgba(0, 0, 0, 0.5); }
+}
+
+.pin-popup {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.94);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 30;
+}
+
+.pin-popup::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(15, 23, 42, 0.94) transparent transparent transparent;
+}
+
+.hotspot-pin:hover .pin-popup {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+/* Screen Procedural Specs (Below device in frame) */
+.screen-spec-dossier {
+  background: #FCFBF8;
+  border-top: 1px solid #E2E8F0;
+  padding: 20px 24px;
+}
+
+.spec-screen-title {
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.125rem;
   font-weight: 800;
   color: var(--ink-primary, #1E293B);
   margin: 0 0 6px 0;
 }
 
-.cpc-content p {
+.spec-screen-desc {
   font-size: 0.875rem;
   line-height: 1.6;
   color: var(--ink-secondary, #475569);
-  margin: 0;
+  margin: 0 0 14px 0;
+}
+
+.spec-metrics-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.sm-metric {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.75rem;
+  color: var(--ink-muted, #64748B);
+  background: #EEF2F6;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.sm-metric strong {
+  color: var(--ink-primary, #1E293B);
 }
 
 
 /* ===================================================================
-   3. EDITORIAL ESSAY & BROADSIDE (Zero Cards! Pure Publication Craft)
+   3. PLATFORM ARCHITECTURE & THE MATCHING EQUATION (Pure Editorial)
    =================================================================== */
-.editorial-manifesto-section {
+.architecture-editorial-article {
   padding: 64px 0;
   border-top: 1px solid rgba(226, 232, 240, 0.9);
   border-bottom: 1px solid rgba(226, 232, 240, 0.9);
-  margin-bottom: 80px;
+  margin-bottom: 88px;
 }
 
-.manifesto-header-rule {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-bottom: 36px;
-}
-
-.manifesto-header-rule::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: 1px;
-  background: #E2E8F0;
-  z-index: 1;
-}
-
-.rule-label {
-  position: relative;
-  z-index: 2;
-  background: var(--bg-primary, #F8FAFC);
-  padding: 0 18px;
-  font-family: ui-monospace, SFMono-Regular, monospace;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  color: var(--accent-wine, #E94266);
-}
-
-.manifesto-intro-block {
+.arch-section-header {
   max-width: 860px;
   margin: 0 auto 48px auto;
   text-align: center;
 }
 
-.manifesto-title {
+.arch-rule-tag {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--accent-wine, #E94266);
+  margin-bottom: 12px;
+}
+
+.arch-main-title {
   font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
   font-size: clamp(2rem, 3.8vw, 2.85rem);
   font-weight: 800;
   line-height: 1.18;
   letter-spacing: -0.025em;
   color: var(--ink-primary, #1E293B);
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
 }
 
-.manifesto-lead {
+.arch-main-lead {
   font-size: clamp(1.0625rem, 1.8vw, 1.2rem);
-  line-height: 1.75;
+  line-height: 1.7;
   color: var(--ink-secondary, #475569);
-  text-align: left;
+  margin: 0;
 }
 
-.editorial-dropcap {
-  float: left;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 3.6rem;
-  line-height: 0.8;
-  padding-top: 4px;
-  padding-right: 12px;
-  padding-bottom: 2px;
-  color: var(--accent-wine, #E94266);
-  font-weight: 700;
-}
-
-/* Pure Typographic 4-Column Broadside */
-.tenets-broadside-grid {
+.arch-columns-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 36px;
 }
 
-.tenet-col {
+.arch-col {
   padding-left: 20px;
   border-left: 1px solid rgba(226, 232, 240, 0.9);
 }
 
-.tenet-num {
+.arch-num-badge {
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--accent-wine, #E94266);
-  display: block;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
-.tenet-title {
+.arch-col-title {
   font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
   font-size: 1.125rem;
   font-weight: 800;
-  line-height: 1.35;
   color: var(--ink-primary, #1E293B);
-  margin: 0 0 12px 0;
+  margin: 0 0 10px 0;
 }
 
-.tenet-body {
+.arch-col-text {
   font-size: 0.9375rem;
   line-height: 1.68;
   color: var(--ink-secondary, #475569);
   margin: 0;
 }
 
+.text-wine {
+  color: var(--accent-wine, #E94266);
+}
+
 
 /* ===================================================================
-   4. CURATED INQUIRIES: Editorial Q&A Stream (Unboxed, Pure Typography)
+   4. FINANCIAL & MEMBERSHIP LEDGER TABLE
    =================================================================== */
-.editorial-inquiries-section {
-  margin-bottom: 96px;
+.ledger-transparency-section {
+  margin-bottom: 88px;
 }
 
-.inquiries-layout-stream {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 56px;
-  align-items: flex-start;
-}
-
-.inquiries-main-heading {
-  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(2rem, 3.6vw, 2.75rem);
-  font-weight: 800;
-  line-height: 1.18;
-  letter-spacing: -0.025em;
-  color: var(--ink-primary, #1E293B);
-  margin: 0 0 16px 0;
-}
-
-.inquiries-sub {
-  font-size: 1.0625rem;
-  line-height: 1.65;
-  color: var(--ink-secondary, #475569);
-  margin: 0 0 28px 0;
-}
-
-.inquiries-support-note {
-  background: #FCFBF8;
-  border-left: 3px solid var(--accent-wine, #E94266);
-  padding: 16px 20px;
-  border-radius: 8px;
-}
-
-.inquiries-support-note strong {
-  display: block;
-  font-size: 0.875rem;
-  color: var(--ink-primary, #1E293B);
-  margin-bottom: 4px;
-}
-
-.inquiries-support-note p {
-  font-size: 0.8125rem;
-  line-height: 1.5;
-  color: var(--ink-secondary, #475569);
-  margin: 0;
-}
-
-.inquiries-qa-col {
-  display: flex;
-  flex-direction: column;
-}
-
-.qa-item {
-  padding: 24px 0;
-  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
-}
-
-.qa-item:first-child {
-  padding-top: 0;
-}
-
-.qa-item:last-child {
-  border-bottom: none;
-}
-
-.qa-q-row {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  margin-bottom: 10px;
-}
-
-.qa-index {
+.table-scroll-hint {
+  display: none;
   font-family: ui-monospace, SFMono-Regular, monospace;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-wine, #E94266);
+  text-align: right;
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+
+.manual-table-container {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light, #E2E8F0);
+  border-radius: var(--island-radius, 20px);
+  overflow-x: auto;
+  box-shadow: 0 8px 24px -4px rgba(35, 28, 26, 0.05);
+  margin-bottom: 24px;
+}
+
+.manual-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 680px;
+  text-align: left;
+}
+
+.manual-comparison-table th {
+  padding: 20px 24px;
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  border-bottom: 2px solid #E2E8F0;
+  background: #F8FAFC;
+}
+
+.th-feature {
+  width: 45%;
+  color: var(--ink-primary, #1E293B);
+}
+
+.th-standard {
+  width: 25%;
+  color: var(--ink-secondary, #475569);
+}
+
+.th-vip {
+  width: 30%;
+  color: var(--accent-wine, #E94266);
+  background: var(--accent-wine-soft, #FDF2F4) !important;
+}
+
+.manual-comparison-table td {
+  padding: 18px 24px;
+  border-bottom: 1px solid #E2E8F0;
+  vertical-align: middle;
+}
+
+.td-feature-name strong {
+  display: block;
+  font-size: 0.9375rem;
+  color: var(--ink-primary, #1E293B);
+  margin-bottom: 2px;
+}
+
+.td-feature-name span {
+  font-size: 0.75rem;
+  color: var(--ink-muted, #64748B);
+}
+
+.badge-included {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--accent-juniper, #27AE60);
+}
+
+.badge-limited {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-muted, #64748B);
+}
+
+.badge-vip-key {
+  font-size: 0.8125rem;
   font-weight: 800;
   color: var(--accent-wine, #E94266);
 }
 
-.qa-question {
-  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--ink-primary, #1E293B);
-  line-height: 1.38;
-  margin: 0;
+.financial-truth-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: #FCFBF8;
+  border: 1px dashed #CBD5E1;
+  border-radius: 14px;
+  padding: 20px 24px;
 }
 
-.qa-answer {
-  font-size: 0.9375rem;
-  line-height: 1.68;
+.ftb-icon {
+  font-size: 1.5rem;
+}
+
+.ftb-text h4 {
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--ink-primary, #1E293B);
+  margin: 0 0 4px 0;
+}
+
+.ftb-text p {
+  font-size: 0.875rem;
+  line-height: 1.58;
   color: var(--ink-secondary, #475569);
-  padding-left: 28px;
   margin: 0;
 }
 
 
 /* ===================================================================
-   5. EDITORIAL CLOSING SANCTUARY
+   5. SENIOR MEMBER SAFETY CODE (Pure Typographic List)
    =================================================================== */
-.editorial-closing-sanctuary {
+.safety-code-section {
+  margin-bottom: 88px;
+}
+
+.safety-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.rule-card-item {
+  border-top: 2px solid var(--accent-wine, #E94266);
+  padding-top: 16px;
+}
+
+.rule-digit {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--accent-wine, #E94266);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.rule-header {
+  font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--ink-primary, #1E293B);
+  line-height: 1.35;
+  margin: 0 0 10px 0;
+}
+
+.rule-body {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--ink-secondary, #475569);
+  margin: 0;
+}
+
+
+/* ===================================================================
+   6. CLOSING MANUAL SIGN-OFF (Masthead Sanctuary)
+   =================================================================== */
+.manual-footer-masthead {
   position: relative;
   background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
   border-radius: var(--island-radius, 28px);
@@ -2420,20 +1241,12 @@ img {
   overflow: hidden;
 }
 
-.sanctuary-inner-wrap {
-  position: relative;
+.mfm-inner {
   max-width: 740px;
   margin: 0 auto;
-  z-index: 2;
 }
 
-.sanctuary-crest {
-  font-size: 2.25rem;
-  color: var(--accent-wine, #E94266);
-  margin-bottom: 12px;
-}
-
-.sanctuary-kicker {
+.mfm-badge {
   display: inline-block;
   font-family: ui-monospace, SFMono-Regular, monospace;
   font-size: 0.75rem;
@@ -2443,7 +1256,7 @@ img {
   margin-bottom: 14px;
 }
 
-.sanctuary-title {
+.mfm-title {
   font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
   font-size: clamp(1.85rem, 3.6vw, 2.75rem);
   font-weight: 800;
@@ -2453,21 +1266,21 @@ img {
   margin: 0 0 16px 0;
 }
 
-.sanctuary-desc {
+.mfm-lead {
   font-size: clamp(1rem, 1.8vw, 1.15rem);
   line-height: 1.68;
   color: #CBD5E1;
   margin: 0 0 32px 0;
 }
 
-.sanctuary-action-row {
+.mfm-action-row {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
 }
 
-.sanctuary-note {
+.mfm-guarantee {
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--accent-juniper, #27AE60);
@@ -2475,157 +1288,70 @@ img {
 
 
 /* ===================================================================
-   RESPONSIVE CRAFT (Mobile 390px Zero-Overflow Testing)
+   RESPONSIVE CRAFT (Mobile 390px Zero-Overflow)
    =================================================================== */
 @media (max-width: 1024px) {
-  .console-switchboard {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .stage-nav-pill {
-    flex: 0 0 auto;
-  }
-
-  .dossier-layout-grid {
+  .workbench-shell {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
   }
 
-  .table-console-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .acoustic-layout-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .daylight-itinerary-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .master-ledger-spread {
-    grid-template-columns: 1fr;
-  }
-
-  .tenets-broadside-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .inquiries-layout-stream {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  .how-it-works-page {
-    padding: 20px 0 60px 0;
-  }
-
-  .hiw-masthead {
-    margin-bottom: 32px;
-    padding-bottom: 24px;
-  }
-
-  .console-switchboard {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
-    padding: 8px;
-  }
-
-  .stage-nav-pill:last-child {
-    grid-column: span 2;
-  }
-
-  .stage-nav-pill {
-    padding: 10px 8px;
-    font-size: 0.8125rem;
-  }
-
-  .console-living-stage {
-    padding: 20px 16px;
-  }
-
-  .dossier-physical-binder {
-    padding: 20px 14px 20px 24px;
-  }
-
-  .binder-rings {
-    left: 6px;
-  }
-
-  .binder-ring {
-    width: 10px;
-    height: 20px;
-  }
-
-  .brass-clip {
-    right: 18px;
-    width: 24px;
-    height: 48px;
-  }
-
-  .dossier-polaroid-frame {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .field-guide-header {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .daylight-itinerary-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .card-interaction-tray {
-    flex-direction: column;
-  }
-
-  .tray-btn {
-    width: 100%;
-  }
-
-  .interaction-modes-row {
-    flex-direction: column;
-  }
-
-  .protected-data-checklist {
-    grid-template-columns: 1fr;
-  }
-
-  .cs-action-row {
-    flex-direction: column;
-  }
-
-  .cs-btn {
-    width: 100%;
-  }
-
-  .ledger-column {
-    padding: 28px 20px;
-  }
-
-  .consumer-pledge-card {
-    flex-direction: column;
-  }
-
-  .tenets-broadside-grid {
+  .arch-columns-grid {
     grid-template-columns: 1fr;
     gap: 28px;
   }
 
-  .tenet-col {
-    padding-left: 16px;
+  .safety-rules-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .how-it-works-page.manual-theme {
+    padding: 20px 0 60px 0;
   }
 
-  .qa-answer {
-    padding-left: 0;
+  .manual-masthead {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+  }
+
+  .workbench-shell {
+    padding: 20px 16px;
+  }
+
+  .wnav-steps-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .wnav-step-item {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .step-summary {
+    display: none;
+  }
+
+  .device-frame-enclosure {
+    border-radius: 24px;
+    border-width: 6px;
+  }
+
+  .safety-rules-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .spec-metrics-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pin-popup {
+    display: none;
   }
 }
 
@@ -2847,852 +1573,321 @@ img {
   <!-- ======================================================== -->
   <!-- [COMPONENT START] how-it-works (components/how-it-works/template.html) -->
   <!-- ======================================================== -->
-<main class="how-it-works-page" id="mainContent">
+<main class="how-it-works-page manual-theme" id="mainContent">
   <div class="site-wrap">
     
     <!-- ===================================================================
-         1. MASTHEAD: The 2026 Companion Dispatch (Clean Editorial Typography)
+         1. OPERATING MANUAL MASTHEAD (Distinct Architectural Document Header)
          =================================================================== -->
-    <header class="hiw-masthead">
+    <header class="manual-masthead">
       <nav class="hiw-breadcrumb" aria-label="Breadcrumb">
         <a href="index.html">Home</a>
         <span class="bc-divider" aria-hidden="true">&#x203A;</span>
-        <span class="bc-current" aria-current="page">How It Works</span>
+        <span class="bc-current" aria-current="page">Platform Manual &amp; Operating Guide</span>
       </nav>
 
-      <div class="masthead-badge-row">
-        <span class="dispatch-tag">
-          <span class="dispatch-dot" aria-hidden="true"></span>
-          2026 FIELD MANUAL &middot; EXCLUSIVELY FOR ADULTS 50+
-        </span>
-        <span class="dispatch-serial">ISSUE NO. 04 &middot; REVISED EDITION</span>
+      <div class="manual-meta-strip">
+        <span class="meta-badge-spec">OFFICIAL OPERATING MANUAL</span>
+        <span class="meta-doc-id">REF: SPEC-2026-M50</span>
+        <span class="meta-status">&#x25CF; SYSTEM ACTIVE &middot; AGE 50+ ONLY</span>
       </div>
 
-      <div class="masthead-hero-content">
-        <h1 class="masthead-headline">
-          From Morning Coffee to Daylight Conversation:<br>
-          <span class="masthead-highlight">The Unhurried Way to Meet After 50</span>
+      <div class="manual-header-content">
+        <h1 class="manual-title">
+          Inside the Application:<br>
+          <span class="manual-title-sub">The Complete Interface Walkthrough &amp; Privacy Protocol</span>
         </h1>
-        <p class="masthead-manifesto">
-          No 3-second swipe games or twenty-something party distractions. Here is the complete, transparent account of how our verified community connects sincere adults together—with complete privacy, voice-first intimacy, and relaxed daytime encounters.
+        <p class="manual-intro">
+          This operating manual documents the concrete functions of Senior Dating Over 50. From age-verified onboarding to morning curation and in-app number shielding, review the exact screens, matching controls, and communication safety layers.
         </p>
       </div>
     </header>
 
 
     <!-- ===================================================================
-         2. THE MASTER COMPANION CONSOLE (Unified Interactive Experience)
-         Replaces the sequential stack of cards with a single living stage
+         2. THE INTERFACE WORKBENCH (Interactive Screen Simulator)
+         A unified device station with 6 real operational phases & hotspot pins
          =================================================================== -->
-    <section class="master-console-section" aria-label="Interactive Platform Experience">
+    <section class="workbench-section" aria-label="Application Interface Simulator">
       
-      <!-- Stage Controller Switchboard (Persistent Navigation) -->
-      <nav class="console-switchboard" role="tablist" aria-label="Platform Phases">
-        <button class="stage-nav-pill is-active" role="tab" aria-selected="true" data-phase="dossier" id="tab-phase-dossier">
-          <span class="pill-phase-num">01</span>
-          <span class="pill-phase-text">The Sincere Dossier</span>
-        </button>
-        <button class="stage-nav-pill" role="tab" aria-selected="false" data-phase="dispatch" id="tab-phase-dispatch">
-          <span class="pill-phase-num">02</span>
-          <span class="pill-phase-text">9:00 AM Coffee Dispatch</span>
-        </button>
-        <button class="stage-nav-pill" role="tab" aria-selected="false" data-phase="acoustic" id="tab-phase-acoustic">
-          <span class="pill-phase-num">03</span>
-          <span class="pill-phase-text">Acoustic &amp; Call Shield</span>
-        </button>
-        <button class="stage-nav-pill" role="tab" aria-selected="false" data-phase="daylight" id="tab-phase-daylight">
-          <span class="pill-phase-num">04</span>
-          <span class="pill-phase-text">Daylight Protocol</span>
-        </button>
-        <button class="stage-nav-pill" role="tab" aria-selected="false" data-phase="ledger" id="tab-phase-ledger">
-          <span class="pill-phase-num">05</span>
-          <span class="pill-phase-text">Transparent Ledger</span>
-        </button>
-      </nav>
+      <div class="workbench-shell" id="workbenchShell">
+        
+        <!-- Left Column: Step Navigation Console -->
+        <div class="workbench-nav-col">
+          <div class="wnav-header">
+            <span class="wnav-caption">SYSTEM WORKFLOW</span>
+            <span class="wnav-step-counter" id="stepCounterDisplay">STEP 01 OF 06</span>
+          </div>
 
-      <!-- The Dynamic Living Stage Container -->
-      <div class="console-living-stage" id="masterLivingStage">
-
-        <!-- ================= VIEW 01: THE SINCERE DOSSIER ================= -->
-        <div class="stage-view-panel is-active" id="view-dossier" role="tabpanel" aria-labelledby="tab-phase-dossier">
-          <div class="dossier-layout-grid">
+          <div class="wnav-steps-list" role="tablist" aria-label="Operating Steps">
             
-            <!-- Left: Physical Archival Scrapbook -->
-            <div class="dossier-physical-binder">
-              <div class="binder-rings" aria-hidden="true">
-                <span class="binder-ring"></span>
-                <span class="binder-ring"></span>
-                <span class="binder-ring"></span>
+            <button class="wnav-step-item is-active" role="tab" aria-selected="true" data-step="1" id="step-btn-1">
+              <span class="step-badge">01</span>
+              <div class="step-text-wrap">
+                <strong class="step-name">Onboarding &amp; Verification</strong>
+                <span class="step-summary">Age 50+ gate, selfie check &amp; prompts</span>
               </div>
-
-              <div class="binder-parchment-sheet">
-                <div class="brass-clip" aria-hidden="true"></div>
-
-                <div class="dossier-sheet-top">
-                  <div class="dossier-folio-mark">FOLIO REF: #EL-58-OR</div>
-                  <div class="wax-seal-badge" title="Verified Age 50+ and Human Inspected">
-                    <span class="wax-crest">&#x2713;</span>
-                    <span class="wax-text">AGE 50+ VERIFIED</span>
-                  </div>
-                </div>
-
-                <div class="dossier-polaroid-frame">
-                  <div class="polaroid-photo-box">
-                    <img src="assets/placeholders/hero-eleanor.svg" alt="Eleanor, 58, Portland" width="160" height="160" class="polaroid-img" loading="lazy">
-                    <div class="verification-lens" aria-label="Live face check verification indicator">
-                      <div class="lens-crosshair" aria-hidden="true"></div>
-                      <div class="lens-scan-beam" aria-hidden="true"></div>
-                      <span class="lens-status-pill">&#x25CF; LIVE FACE CHECK PASSED</span>
-                    </div>
-                  </div>
-
-                  <div class="polaroid-caption">
-                    <h3 class="polaroid-name">Eleanor, 58</h3>
-                    <p class="polaroid-sub">Portland, OR &middot; Active Community Member</p>
-                  </div>
-                </div>
-
-                <div class="dossier-prompts-card">
-                  <div class="prompt-entry">
-                    <span class="prompt-label">&ldquo;A typical Sunday morning for me&rdquo;</span>
-                    <p class="prompt-handwriting">
-                      Pour-over coffee, tending heirloom dahlias in the back garden, and getting happily lost in antique history books.
-                    </p>
-                  </div>
-                  <div class="prompt-entry">
-                    <span class="prompt-label">&ldquo;What I value most at 58&rdquo;</span>
-                    <p class="prompt-handwriting">
-                      Unrushed conversations where both people listen, warm humor, and quiet walks along the coast.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="dossier-albums-drawer">
-                  <span class="albums-drawer-title">Member Photo Albums:</span>
-                  <div class="albums-tabs-strip">
-                    <span class="album-tag">&#x1F33F; Garden Dahlias (12)</span>
-                    <span class="album-tag">&#x1F3D5;&#xFE0F; Pacific Trails (8)</span>
-                    <span class="album-tag">&#x1F373; Sunday Kitchen (14)</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right: Editorial Narrative -->
-            <div class="dossier-narrative-col">
-              <div class="narrative-eyebrow">
-                <span class="eyebrow-accent">ZERO CATFISHING</span>
-                <span class="eyebrow-detail">&middot; 100% SINCERE MEMBERS</span>
-              </div>
-
-              <h2 class="chapter-headline">
-                Profiles Built on Real Life Stories,<br>
-                <span class="text-wine">Never Three-Second Snaps</span>
-              </h2>
-
-              <p class="chapter-lead">
-                Entering our community begins with a deliberate, dignified setup. Instead of superficial picture carousels, members build thoughtful profiles grounded in real life values, authentic photos, and strict verification.
-              </p>
-
-              <div class="mechanics-stream">
-                <div class="mechanic-row">
-                  <div class="mech-index">A</div>
-                  <div class="mech-body">
-                    <h3 class="mech-title">Strict 50+ Age Gate</h3>
-                    <p class="mech-text">
-                      Registration requires confirmation of age 50 or older. You interact only with peers who understand your generation, life milestones, and cultural references.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="mechanic-row">
-                  <div class="mech-index">B</div>
-                  <div class="mech-body">
-                    <h3 class="mech-title">Live Selfie &amp; Video Account Check</h3>
-                    <p class="mech-text">
-                      Every profile completes a live facial verification check reviewed by human customer support specialists. Fake accounts, bots, and romance scammers are stopped at the door.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="mechanic-row">
-                  <div class="mech-index">C</div>
-                  <div class="mech-body">
-                    <h3 class="mech-title">Curated Life Prompts &amp; Albums</h3>
-                    <p class="mech-text">
-                      Share your favorite weekend routines, culinary passions, and travel memories through structured albums and reflective prompts that make your first hello effortless.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="stage-footer-action">
-                <button class="btn-console-next" data-next-phase="dispatch">
-                  <span>Explore Phase 02: The 9:00 AM Dispatch &rarr;</span>
-                </button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ================= VIEW 02: 9:00 AM COFFEE DISPATCH ================= -->
-        <div class="stage-view-panel" id="view-dispatch" role="tabpanel" aria-labelledby="tab-phase-dispatch" hidden>
-          <div class="dispatch-view-wrap">
-            <div class="dispatch-editorial-header">
-              <span class="chapter-index-stamp">09:00 AM CURATION</span>
-              <h2 class="chapter-headline center-aligned">
-                Delivered Over Morning Coffee, Never Endlessly Scrolled
-              </h2>
-              <p class="chapter-lead max-w-700">
-                Swiping until your thumb tires devalues human dignity. We replace the infinite scroll with a focused batch of handpicked local introductions delivered once every morning at 9:00 AM.
-              </p>
-            </div>
-
-            <div class="table-console-grid">
-              
-              <!-- Letterpress Card Switcher -->
-              <div class="envelope-switch-console">
-                <div class="console-tab-ribbon" role="tablist">
-                  <button class="ribbon-tab is-active" role="tab" aria-selected="true" data-tab="eleanor" id="subtab-eleanor">
-                    <span>01. Eleanor, 58</span>
-                    <span class="tab-dist">18 mi</span>
-                  </button>
-                  <button class="ribbon-tab" role="tab" aria-selected="false" data-tab="arthur" id="subtab-arthur">
-                    <span>02. Arthur, 64</span>
-                    <span class="tab-dist">12 mi</span>
-                  </button>
-                  <button class="ribbon-tab" role="tab" aria-selected="false" data-tab="clara" id="subtab-clara">
-                    <span>03. Clara, 61</span>
-                    <span class="tab-dist">24 mi</span>
-                  </button>
-                </div>
-
-                <div class="letterpress-showcase">
-                  
-                  <!-- Card Eleanor -->
-                  <div class="letterpress-card is-active" id="subcard-eleanor">
-                    <div class="card-letterhead">
-                      <div class="lh-left">
-                        <span class="dispatch-time-stamp">9:00 AM DISPATCH &middot; MATCH #1</span>
-                        <span class="lh-compat-badge">&#x2713; 96% Values Alignment</span>
-                      </div>
-                      <span class="lh-location">Portland &middot; 18 Miles Away</span>
-                    </div>
-
-                    <div class="card-profile-summary">
-                      <img src="assets/placeholders/hero-eleanor.svg" alt="Eleanor, 58" width="88" height="88" class="lp-avatar" loading="lazy">
-                      <div class="lp-bio">
-                        <h3 class="lp-name">Eleanor, 58</h3>
-                        <p class="lp-profession">Architectural Historian &middot; Master Gardener</p>
-                        <div class="lp-shared-chips">
-                          <span class="chip-item">Farmers Markets</span>
-                          <span class="chip-item">Acoustic Folk</span>
-                          <span class="chip-item">Coastal Walks</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="card-quote-box">
-                      <p>&ldquo;Looking for a sincere gentleman to share Sunday morning coffees, antique hunting, and unhurried coastal afternoon strolls.&rdquo;</p>
-                    </div>
-
-                    <div class="card-interaction-tray">
-                      <button class="tray-btn btn-pass" data-action="mock-pass">
-                        <span class="btn-icon">&#x2715;</span>
-                        <span>Respectful Pass</span>
-                      </button>
-                      <button class="tray-btn btn-wink" data-action="mock-wink">
-                        <span class="btn-icon">&#x1F44B;</span>
-                        <span>Send Warm Wink</span>
-                      </button>
-                      <button class="tray-btn btn-like" data-action="join-partner" data-source="hiw_curation_like">
-                        <span class="btn-icon">&#x2665;</span>
-                        <span>Like Profile</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Card Arthur -->
-                  <div class="letterpress-card" id="subcard-arthur" hidden>
-                    <div class="card-letterhead">
-                      <div class="lh-left">
-                        <span class="dispatch-time-stamp">9:00 AM DISPATCH &middot; MATCH #2</span>
-                        <span class="lh-compat-badge">&#x2713; 94% Values Alignment</span>
-                      </div>
-                      <span class="lh-location">Beaverton &middot; 12 Miles Away</span>
-                    </div>
-
-                    <div class="card-profile-summary">
-                      <img src="assets/placeholders/showcase-arthur.svg" alt="Arthur, 64" width="88" height="88" class="lp-avatar" loading="lazy">
-                      <div class="lp-bio">
-                        <h3 class="lp-name">Arthur, 64</h3>
-                        <p class="lp-profession">Retired Principal &middot; Woodworker</p>
-                        <div class="lp-shared-chips">
-                          <span class="chip-item">Jazz Records</span>
-                          <span class="chip-item">Woodworking</span>
-                          <span class="chip-item">Book Clubs</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="card-quote-box">
-                      <p>&ldquo;I believe the best conversations happen with a mug of black coffee and nowhere to rush. Looking for companionship with someone genuine.&rdquo;</p>
-                    </div>
-
-                    <div class="card-interaction-tray">
-                      <button class="tray-btn btn-pass" data-action="mock-pass">
-                        <span class="btn-icon">&#x2715;</span>
-                        <span>Respectful Pass</span>
-                      </button>
-                      <button class="tray-btn btn-wink" data-action="mock-wink">
-                        <span class="btn-icon">&#x1F44B;</span>
-                        <span>Send Warm Wink</span>
-                      </button>
-                      <button class="tray-btn btn-like" data-action="join-partner" data-source="hiw_curation_like">
-                        <span class="btn-icon">&#x2665;</span>
-                        <span>Like Profile</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Card Clara -->
-                  <div class="letterpress-card" id="subcard-clara" hidden>
-                    <div class="card-letterhead">
-                      <div class="lh-left">
-                        <span class="dispatch-time-stamp">9:00 AM DISPATCH &middot; MATCH #3</span>
-                        <span class="lh-compat-badge">&#x2713; 98% Values Alignment</span>
-                      </div>
-                      <span class="lh-location">Lake Oswego &middot; 24 Miles Away</span>
-                    </div>
-
-                    <div class="card-profile-summary">
-                      <img src="assets/placeholders/showcase-clara.svg" alt="Clara, 61" width="88" height="88" class="lp-avatar" loading="lazy">
-                      <div class="lp-bio">
-                        <h3 class="lp-name">Clara, 61</h3>
-                        <p class="lp-profession">Oil Painter &middot; Classical Pianist</p>
-                        <div class="lp-shared-chips">
-                          <span class="chip-item">Watercolor</span>
-                          <span class="chip-item">Botanical Gardens</span>
-                          <span class="chip-item">Chamber Music</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="card-quote-box">
-                      <p>&ldquo;Appreciating art, natural light, and quiet weekend road trips. Hoping to meet a kind partner with an open heart.&rdquo;</p>
-                    </div>
-
-                    <div class="card-interaction-tray">
-                      <button class="tray-btn btn-pass" data-action="mock-pass">
-                        <span class="btn-icon">&#x2715;</span>
-                        <span>Respectful Pass</span>
-                      </button>
-                      <button class="tray-btn btn-wink" data-action="mock-wink">
-                        <span class="btn-icon">&#x1F44B;</span>
-                        <span>Send Warm Wink</span>
-                      </button>
-                      <button class="tray-btn btn-like" data-action="join-partner" data-source="hiw_curation_like">
-                        <span class="btn-icon">&#x2665;</span>
-                        <span>Like Profile</span>
-                      </button>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-              <!-- Rewind Machine & Gallery -->
-              <div class="rewind-gallery-col">
-                <div class="rewind-machine-box">
-                  <div class="rm-header">
-                    <span class="rm-tag">&#x21BA; THE REWIND GUARANTEE</span>
-                    <span class="rm-pill">Zero Frantic Mistakes</span>
-                  </div>
-                  <h3 class="rm-title">Accidental Pass? Never Lost to the Void</h3>
-                  <p class="rm-desc">
-                    Passed someone while in a rush? Unlike other apps where a slip of the finger erases a profile forever, our Profile Rewind lets you retrieve and reconsider previous recommendations at your own tempo.
-                  </p>
-                  <div class="rm-dial-visual" id="rewindDialBtn" role="button" tabindex="0" aria-label="Simulate Profile Rewind">
-                    <div class="dial-track">
-                      <div class="dial-center-cap">&#x21BA;</div>
-                    </div>
-                    <div class="dial-caption">
-                      <strong id="rewindStatusText">Click to Rewind Yesterday&rsquo;s Batch</strong>
-                      <span>Unlimited rewinds included with Silver Select</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="gallery-explore-box">
-                  <div class="rm-header">
-                    <span class="rm-tag">&#x1F50D; COMMUNITY GALLERY</span>
-                    <span class="rm-pill">Explore At Leisure</span>
-                  </div>
-                  <h3 class="rm-title">Keyword Search &amp; Lifestyle Filters</h3>
-                  <p class="rm-desc">
-                    Beyond the morning dispatch, explore the broader gallery at your convenience. Search by specific passions like &ldquo;gardening&rdquo; or &ldquo;classical guitar&rdquo; and adjust distance radius whenever you wish.
-                  </p>
-                  <div class="search-keyword-tags">
-                    <span class="skt-chip">#Gardening</span>
-                    <span class="skt-chip">#HistoryBooks</span>
-                    <span class="skt-chip">#CoastalTrails</span>
-                    <span class="skt-chip">#ChamberMusic</span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="stage-footer-action">
-              <button class="btn-console-next" data-next-phase="acoustic">
-                <span>Explore Phase 03: Acoustic &amp; Call Shield &rarr;</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- ================= VIEW 03: ACOUSTIC ROOM & CALL SHIELD ================= -->
-        <div class="stage-view-panel" id="view-acoustic" role="tabpanel" aria-labelledby="tab-phase-acoustic" hidden>
-          <div class="acoustic-layout-grid">
-            
-            <!-- Left: Voice Groove Station -->
-            <div class="acoustic-player-panel">
-              <div class="player-top-status">
-                <span class="status-indicator-dot" aria-hidden="true"></span>
-                <span class="status-text">HIGH-FIDELITY VOICE ROOM</span>
-              </div>
-
-              <h2 class="chapter-headline">
-                Hear Cadence &amp; Laughter<br>
-                <span class="text-wine">Before Writing a Single Word</span>
-              </h2>
-
-              <p class="chapter-lead">
-                Text on a glass screen cannot convey warmth, tone, or genuine humor. Our audio message feature lets you listen to authentic voice reflections before meeting.
-              </p>
-
-              <div class="voice-groove-station">
-                <div class="groove-speaker-meta">
-                  <img src="assets/placeholders/hero-eleanor.svg" alt="Eleanor voice clip" width="54" height="54" class="groove-avatar" loading="lazy">
-                  <div>
-                    <strong class="groove-name">Eleanor, 58</strong>
-                    <span class="groove-sub">Voice Note &middot; 14 Seconds &middot; Sunday Morning</span>
-                  </div>
-                </div>
-
-                <div class="equalizer-waveform" id="equalizerWave" aria-hidden="true">
-                  <span class="eq-bar" style="--h: 28%;"></span>
-                  <span class="eq-bar" style="--h: 60%;"></span>
-                  <span class="eq-bar" style="--h: 85%;"></span>
-                  <span class="eq-bar" style="--h: 45%;"></span>
-                  <span class="eq-bar" style="--h: 95%;"></span>
-                  <span class="eq-bar" style="--h: 70%;"></span>
-                  <span class="eq-bar" style="--h: 30%;"></span>
-                  <span class="eq-bar" style="--h: 80%;"></span>
-                  <span class="eq-bar" style="--h: 55%;"></span>
-                  <span class="eq-bar" style="--h: 90%;"></span>
-                  <span class="eq-bar" style="--h: 65%;"></span>
-                  <span class="eq-bar" style="--h: 40%;"></span>
-                </div>
-
-                <div class="groove-controls">
-                  <button class="groove-play-btn" id="voicePlayBtn" aria-label="Play Eleanor's Voice Note">
-                    <span class="play-icon" id="playIconSpan">&#x25B6;</span>
-                  </button>
-                  <div class="groove-scrubber">
-                    <div class="scrub-track">
-                      <div class="scrub-fill" id="scrubFillBar" style="width: 35%;"></div>
-                    </div>
-                    <div class="scrub-time">
-                      <span id="currentTime">0:05</span> / <span>0:14</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="voice-quote-transcript">
-                  <span class="transcript-label">&ldquo;Audio Transcript&rdquo;</span>
-                  <p>&ldquo;Hello there... I find Sunday mornings are best spent with tea and fresh rain against the glass. It is a pleasure to say hello.&rdquo;</p>
-                </div>
-              </div>
-
-              <div class="interaction-modes-row">
-                <div class="mode-pill">
-                  <span class="mode-icon">&#x1F44B;</span>
-                  <div>
-                    <strong>Gentle Winks</strong>
-                    <p>Express quiet interest without drafting long letters</p>
-                  </div>
-                </div>
-                <div class="mode-pill">
-                  <span class="mode-icon">&#x1F4AC;</span>
-                  <div>
-                    <strong>Private Messaging</strong>
-                    <p>1-to-1 calm messaging with emojis &amp; pinned chats</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right: In-App Call Shield Security Enclave -->
-            <div class="call-shield-enclave">
-              <div class="shield-vault-card">
-                <div class="vault-top-badge">
-                  <div class="shield-icon-badge" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2">
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    </svg>
-                  </div>
-                  <div class="vault-title-wrap">
-                    <span class="vault-badge-tag">IN-APP CALL SHIELD TECHNOLOGY</span>
-                    <span class="vault-security-status">&#x2713; Complete Privacy Cloak Active</span>
-                  </div>
-                </div>
-
-                <div class="shield-call-screen">
-                  <div class="cs-avatar-halo">
-                    <img src="assets/placeholders/hero-robert.svg" alt="Robert, 62" width="80" height="80" class="cs-avatar" loading="lazy">
-                    <div class="cs-pulse-ring" aria-hidden="true"></div>
-                  </div>
-
-                  <h3 class="cs-caller-name">Robert, 62</h3>
-                  <span class="cs-call-type">Encrypted In-App Audio Call</span>
-
-                  <div class="cloaked-number-indicator">
-                    <div class="cni-icon">&#x1F512;</div>
-                    <div class="cni-text">
-                      <strong>Personal Phone Number: 100% Concealed</strong>
-                      <span>Connected securely via in-app server relay</span>
-                    </div>
-                  </div>
-
-                  <div class="protected-data-checklist">
-                    <div class="pdc-item">
-                      <span class="pdc-check">&#x2713;</span>
-                      <span>Personal Cell Number Sealed</span>
-                    </div>
-                    <div class="pdc-item">
-                      <span class="pdc-check">&#x2713;</span>
-                      <span>Residential Address Hidden</span>
-                    </div>
-                    <div class="pdc-item">
-                      <span class="pdc-check">&#x2713;</span>
-                      <span>Private Email Untouched</span>
-                    </div>
-                    <div class="pdc-item">
-                      <span class="pdc-check">&#x2713;</span>
-                      <span>Incoming Call Blocking Available</span>
-                    </div>
-                  </div>
-
-                  <div class="cs-action-row">
-                    <button class="cs-btn cs-decline" data-action="mock-decline">&#x2715; Decline</button>
-                    <button class="cs-btn cs-accept" data-action="join-partner" data-source="hiw_call_shield_answer">&#x1F4DE; Answer Call</button>
-                  </div>
-                </div>
-
-                <div class="shield-guarantee-note">
-                  <p>
-                    <strong>The Golden Rule of Mature Privacy:</strong> You never need to hand out your phone number to a stranger online. Talk face-to-face or voice-to-voice through the app until you have met in person and built lasting mutual trust.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="stage-footer-action">
-            <button class="btn-console-next" data-next-phase="daylight">
-              <span>Explore Phase 04: The Daylight Protocol &rarr;</span>
             </button>
+
+            <button class="wnav-step-item" role="tab" aria-selected="false" data-step="2" id="step-btn-2">
+              <span class="step-badge">02</span>
+              <div class="step-text-wrap">
+                <strong class="step-name">Setting Discovery Filters</strong>
+                <span class="step-summary">Radius, age bracket &amp; dealbreakers</span>
+              </div>
+            </button>
+
+            <button class="wnav-step-item" role="tab" aria-selected="false" data-step="3" id="step-btn-3">
+              <span class="step-badge">03</span>
+              <div class="step-text-wrap">
+                <strong class="step-name">The 9:00 AM Morning Dispatch</strong>
+                <span class="step-summary">Curated batch, like, pass &amp; rewind</span>
+              </div>
+            </button>
+
+            <button class="wnav-step-item" role="tab" aria-selected="false" data-step="4" id="step-btn-4">
+              <span class="step-badge">04</span>
+              <div class="step-text-wrap">
+                <strong class="step-name">Prompts, Winks &amp; Voice Notes</strong>
+                <span class="step-summary">Acoustic voice messages &amp; icebreakers</span>
+              </div>
+            </button>
+
+            <button class="wnav-step-item" role="tab" aria-selected="false" data-step="5" id="step-btn-5">
+              <span class="step-badge">05</span>
+              <div class="step-text-wrap">
+                <strong class="step-name">In-App Call Shield</strong>
+                <span class="step-summary">Voice/video with phone number hidden</span>
+              </div>
+            </button>
+
+            <button class="wnav-step-item" role="tab" aria-selected="false" data-step="6" id="step-btn-6">
+              <span class="step-badge">06</span>
+              <div class="step-text-wrap">
+                <strong class="step-name">Daylight 1-to-1 Meetups</strong>
+                <span class="step-summary">Public coffee requests &amp; safe arrival</span>
+              </div>
+            </button>
+
+          </div>
+
+          <div class="wnav-quick-controls">
+            <button class="btn-ctrl btn-prev" id="prevStepBtn" aria-label="Previous step" disabled>&larr; Previous</button>
+            <button class="btn-ctrl btn-next" id="nextStepBtn" aria-label="Next step">Next Step &rarr;</button>
           </div>
         </div>
 
-        <!-- ================= VIEW 04: DAYLIGHT PROTOCOL ================= -->
-        <div class="stage-view-panel" id="view-daylight" role="tabpanel" aria-labelledby="tab-phase-daylight" hidden>
-          <div class="daylight-field-guide">
-            <div class="field-guide-header">
-              <div class="fgh-left">
-                <span class="fgh-stamp">&#x2600;&#xFE0F; REAL-WORLD TRANSITION</span>
-                <h2 class="chapter-headline">
-                  The Daylight Protocol:<br>
-                  <span class="text-wine">Relaxed First Encounters in Bright Public Spaces</span>
-                </h2>
+        <!-- Right Column: Interactive Device Simulator & Annotated Hotspots -->
+        <div class="workbench-viewport-col">
+          
+          <div class="device-frame-enclosure">
+            <div class="device-notch" aria-hidden="true">
+              <span class="notch-speaker"></span>
+              <span class="notch-camera"></span>
+            </div>
+
+            <!-- Screen 1: Profile & Verification -->
+            <div class="device-screen-view is-active" id="screen-view-1" role="tabpanel" aria-labelledby="step-btn-1">
+              <div class="screen-image-wrap">
+                <img src="assets/ui/ui06-profile.jpg" alt="Profile Setup Screen" class="device-screen-img" width="580" height="720" loading="lazy">
+                
+                <!-- Hotspot Pins -->
+                <div class="hotspot-pin pin-1" style="top: 24%; left: 78%;" data-tooltip="Green badge confirms live selfie check passed by human staff">
+                  <span class="pin-marker">1</span>
+                  <div class="pin-popup">Verified Member Badge (Selfie &amp; Video Checked)</div>
+                </div>
+
+                <div class="hotspot-pin pin-2" style="top: 62%; left: 32%;" data-tooltip="Structured prompts reveal morning routines, books, and hobbies">
+                  <span class="pin-marker">2</span>
+                  <div class="pin-popup">Life Prompts &amp; Story Reflections</div>
+                </div>
+
+                <div class="hotspot-pin pin-3" style="top: 85%; left: 55%;" data-tooltip="Organize custom albums for gardening, travel, and cooking">
+                  <span class="pin-marker">3</span>
+                  <div class="pin-popup">Custom Photo Albums &amp; Video Media</div>
+                </div>
               </div>
-              <div class="fgh-right">
-                <p class="chapter-lead">
-                  When mutual comfort is reached, take the conversation into the real world with complete confidence. Our community protocol encourages daytime meetings in welcoming public settings without dinner pressure.
+
+              <!-- Screen Procedural Specs -->
+              <div class="screen-spec-dossier">
+                <h3 class="spec-screen-title">Stage 01: Profile Setup &amp; Real-Person Verification</h3>
+                <p class="spec-screen-desc">
+                  Members confirm their birth year (strict 50+ age gate) and complete personality prompts. Human staff inspect a live selfie to verify authenticity, eradicating romance scammers before your profile enters member discovery.
                 </p>
+                <div class="spec-metrics-row">
+                  <span class="sm-metric"><strong>Verification Time:</strong> Under 15 Minutes</span>
+                  <span class="sm-metric"><strong>Inspection:</strong> 100% Human Reviewed</span>
+                </div>
               </div>
             </div>
 
-            <div class="daylight-itinerary-grid">
-              
-              <div class="itinerary-card">
-                <div class="itin-time-badge">
-                  <span class="itin-hour">10:30 AM</span>
-                  <span class="itin-loc">Morning Coffee</span>
+            <!-- Screen 2: Discovery Filters -->
+            <div class="device-screen-view" id="screen-view-2" role="tabpanel" aria-labelledby="step-btn-2" hidden>
+              <div class="screen-image-wrap">
+                <img src="assets/ui/ui05-filters.png" alt="Search and Discovery Filters" class="device-screen-img" width="580" height="720" loading="lazy">
+                
+                <div class="hotspot-pin pin-1" style="top: 32%; left: 65%;">
+                  <span class="pin-marker">1</span>
+                  <div class="pin-popup">Age Bracket Slider (Strict 50 to 99 Years)</div>
                 </div>
-                <div class="itin-body">
-                  <h3 class="itin-title">Well-Lit Public Venues</h3>
-                  <p class="itin-text">
-                    Choose a sunlit botanical garden cafe, an art museum espresso bar, or a quiet neighborhood bakery. Daylight creates a natural, relaxed setting free from evening bar noise.
-                  </p>
-                  <div class="itin-pill-tag">Natural Light &middot; Low Pressure</div>
-                </div>
-              </div>
 
-              <div class="itinerary-card">
-                <div class="itin-time-badge itin-badge-amber">
-                  <span class="itin-hour">&#x1F697; INDEPENDENT</span>
-                  <span class="itin-loc">Own Schedule</span>
+                <div class="hotspot-pin pin-2" style="top: 55%; left: 45%;">
+                  <span class="pin-marker">2</span>
+                  <div class="pin-popup">Geographic Radius Filter (5 to 50+ Miles)</div>
                 </div>
-                <div class="itin-body">
-                  <h3 class="itin-title">Drive Yourself or Transit</h3>
-                  <p class="itin-text">
-                    Always arrive and depart under your own power. Never accept rides from someone you have just met. You remain completely in command of your afternoon timeline.
-                  </p>
-                  <div class="itin-pill-tag">Total Autonomy &middot; Secure Departure</div>
+
+                <div class="hotspot-pin pin-3" style="top: 78%; left: 70%;">
+                  <span class="pin-marker">3</span>
+                  <div class="pin-popup">Verified Accounts Only Toggle</div>
                 </div>
               </div>
 
-              <div class="itinerary-card">
-                <div class="itin-time-badge itin-badge-juniper">
-                  <span class="itin-hour">45 MIN</span>
-                  <span class="itin-loc">The Golden Window</span>
-                </div>
-                <div class="itin-body">
-                  <h3 class="itin-title">The 45-Minute Golden Rule</h3>
-                  <p class="itin-text">
-                    A single cup of coffee is the perfect duration to gauge real chemistry. If sparks fly, you can agree on a second outing; if not, wrap up politely with zero awkwardness.
-                  </p>
-                  <div class="itin-pill-tag">Gentle Boundaries &middot; Dignified Exit</div>
-                </div>
-              </div>
-
-              <div class="itinerary-card">
-                <div class="itin-time-badge itin-badge-wine">
-                  <span class="itin-hour">&#x2709;&#xFE0F; APP EVENT</span>
-                  <span class="itin-loc">1-to-1 Meetups</span>
-                </div>
-                <div class="itin-body">
-                  <h3 class="itin-title">1-to-1 Meetup Invitations</h3>
-                  <p class="itin-text">
-                    Send formal meeting requests through the app with suggested public locations. Both parties confirm before any date is set, maintaining clear mutual expectations.
-                  </p>
-                  <div class="itin-pill-tag">Mutual Consent &middot; Clear Planning</div>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="safety-advisory-banner">
-              <div class="sab-badge">&#x1F6E1;&#xFE0F; SAFETY FIRST</div>
-              <p class="sab-text">
-                <strong>Community Guidance:</strong> Our member care team maintains continuous safety tips, dating advice, and 24/7 reporting tools. You can block or report any profile with a single discreet tap.
-              </p>
-            </div>
-
-            <div class="stage-footer-action">
-              <button class="btn-console-next" data-next-phase="ledger">
-                <span>Explore Phase 05: The Transparent Ledger &rarr;</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- ================= VIEW 05: THE TRANSPARENT LEDGER ================= -->
-        <div class="stage-view-panel" id="view-ledger" role="tabpanel" aria-labelledby="tab-phase-ledger" hidden>
-          <div class="ledger-view-wrap">
-            <div class="ledger-editorial-header">
-              <span class="chapter-index-stamp">RADICAL TRANSPARENCY</span>
-              <h2 class="chapter-headline center-aligned">
-                Free Registration &amp; The Silver Select Privilege
-              </h2>
-              <p class="chapter-lead max-w-700">
-                No hidden fees or sneaky auto-charges. You can register, verify your identity, and receive daily matches at zero cost. Here is an honest accounting of standard access versus our Silver Select upgrade.
-              </p>
-            </div>
-
-            <div class="master-ledger-spread">
-              
-              <!-- Left: Standard Free Entry -->
-              <div class="ledger-column col-standard-entry">
-                <div class="ledger-header-box">
-                  <span class="lh-serial">ENTRY CLASS A</span>
-                  <h3 class="lh-tier-name">Standard Access</h3>
-                  <div class="lh-cost-tag">
-                    <span class="cost-currency">$</span>
-                    <span class="cost-number">0</span>
-                    <span class="cost-sub">/ Free to Join</span>
-                  </div>
-                  <p class="lh-intent">
-                    Perfect for setting up your profile, taking your time, and reviewing daily introductions without financial commitment.
-                  </p>
-                </div>
-
-                <div class="ledger-rows-list">
-                  <div class="l-row">
-                    <span class="l-check">&#x2713;</span>
-                    <div>
-                      <strong>Age 50+ Verified Registration</strong>
-                      <p>Full access to join our community exclusively for mature adults</p>
-                    </div>
-                  </div>
-                  <div class="l-row">
-                    <span class="l-check">&#x2713;</span>
-                    <div>
-                      <strong>Thoughtful Life Prompts &amp; Photos</strong>
-                      <p>Build your profile with prompts, hobbies, and custom photo albums</p>
-                    </div>
-                  </div>
-                  <div class="l-row">
-                    <span class="l-check">&#x2713;</span>
-                    <div>
-                      <strong>Real-Person Live Verification Badge</strong>
-                      <p>Complete selfie and video checks to earn your verified badge</p>
-                    </div>
-                  </div>
-                  <div class="l-row">
-                    <span class="l-check">&#x2713;</span>
-                    <div>
-                      <strong>9:00 AM Daily Curated Matches</strong>
-                      <p>Receive handpicked local introductions delivered every morning</p>
-                    </div>
-                  </div>
-                  <div class="l-row">
-                    <span class="l-check">&#x2713;</span>
-                    <div>
-                      <strong>Community Gallery &amp; Keyword Search</strong>
-                      <p>Explore recommended profiles and search by specific hobbies</p>
-                    </div>
-                  </div>
-                  <div class="l-row">
-                    <span class="l-check">&#x2713;</span>
-                    <div>
-                      <strong>Send Friendly Winks &amp; Receive Messages</strong>
-                      <p>Signal quiet interest and read incoming notes from other members</p>
-                    </div>
-                  </div>
-                  <div class="l-row">
-                    <span class="l-check">&#x2713;</span>
-                    <div>
-                      <strong>24/7 Safety Reporting &amp; Customer Care</strong>
-                      <p>Continuous support and profile blocking tools always included</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="ledger-action-foot">
-                  <button class="btn btn-outline-dark w-100" data-action="join-partner" data-source="hiw_ledger_free">
-                    Start Free Registration
-                  </button>
-                  <span class="action-caption">&#x2713; Zero payment required &middot; 50+ only</span>
-                </div>
-              </div>
-
-              <!-- Right: Silver Select VIP -->
-              <div class="ledger-column col-silver-select">
-                <div class="select-seal-ribbon">VIP PRIVILEGE KEY</div>
-
-                <div class="ledger-header-box">
-                  <span class="lh-serial">ENTRY CLASS S &middot; PREMIER TIER</span>
-                  <h3 class="lh-tier-name">Silver Select Membership</h3>
-                  <div class="lh-cost-tag">
-                    <span class="select-privilege-badge">&#x2728; The Unrestricted Key</span>
-                  </div>
-                  <p class="lh-intent">
-                    For members who want unlimited communication freedom, complete call shield privacy, and priority discovery.
-                  </p>
-                </div>
-
-                <div class="ledger-rows-list">
-                  <div class="l-row row-vip">
-                    <span class="l-check check-gold">&#x2713;</span>
-                    <div>
-                      <strong>All Standard Access Inclusions</strong>
-                      <p>Includes complete profile setup, verification, and daily matches</p>
-                    </div>
-                  </div>
-                  <div class="l-row row-vip">
-                    <span class="l-check check-gold">&#x2713;</span>
-                    <div>
-                      <strong>Active Unlimited Private Messaging</strong>
-                      <p>Initiate and reply to conversations with any member without restrictions</p>
-                    </div>
-                  </div>
-                  <div class="l-row row-vip">
-                    <span class="l-check check-gold">&#x2713;</span>
-                    <div>
-                      <strong>In-App Video &amp; Voice Calling + Call Shield</strong>
-                      <p>Speak voice-to-voice or video while keeping personal phone numbers sealed</p>
-                    </div>
-                  </div>
-                  <div class="l-row row-vip">
-                    <span class="l-check check-gold">&#x2713;</span>
-                    <div>
-                      <strong>Unlimited Likes &amp; Custom Animated Winks</strong>
-                      <p>Show interest and break the ice with distinctive animated greetings</p>
-                    </div>
-                  </div>
-                  <div class="l-row row-vip">
-                    <span class="l-check check-gold">&#x2713;</span>
-                    <div>
-                      <strong>Reveal Who Liked You &amp; Who Viewed Your Profile</strong>
-                      <p>See everyone who has shown interest or visited your portfolio</p>
-                    </div>
-                  </div>
-                  <div class="l-row row-vip">
-                    <span class="l-check check-gold">&#x2713;</span>
-                    <div>
-                      <strong>Unlimited Profile Rewinds</strong>
-                      <p>Retrieve any passed recommendation without worrying about mistakes</p>
-                    </div>
-                  </div>
-                  <div class="l-row row-vip">
-                    <span class="l-check check-gold">&#x2713;</span>
-                    <div>
-                      <strong>On-Demand Invisibility &amp; Anonymous Browsing</strong>
-                      <p>Browse profiles quietly without leaving normal visit records behind</p>
-                    </div>
-                  </div>
-                  <div class="l-row row-vip">
-                    <span class="l-check check-gold">&#x2713;</span>
-                    <div>
-                      <strong>100% Ad-Free Experience &amp; Silver Select Badge</strong>
-                      <p>Enjoy an uncluttered reading environment with priority profile placement</p>
-                    </div>
-                  </div>
-                  <div class="l-row row-vip">
-                    <span class="l-check check-gold">&#x2713;</span>
-                    <div>
-                      <strong>1-to-1 Meetup Requests &amp; Dating Advice</strong>
-                      <p>Send formal daylight rendezvous invitations and access dating tips</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="ledger-action-foot">
-                  <button class="btn btn-primary btn-silver-gold w-100" data-action="join-partner" data-source="hiw_ledger_silver">
-                    Explore Silver Select
-                  </button>
-                  <span class="action-caption">&#x2713; Cancel anytime &middot; No long-term lock-in</span>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="consumer-pledge-card">
-              <div class="cpc-badge">&#x1F4DC; THE DIGNITY PLEDGE</div>
-              <div class="cpc-content">
-                <h4>Radical Honesty &middot; Zero Dark Patterns</h4>
-                <p>
-                  You will never find hidden renewal traps, fake flirt messages from staff, or inflated match counts. What you see is what you experience. If our community does not meet your expectations, cancel with a single click inside your account management panel at any time.
+              <div class="screen-spec-dossier">
+                <h3 class="spec-screen-title">Stage 02: Calibrating Search Radius &amp; Shared Values</h3>
+                <p class="spec-screen-desc">
+                  Control who appears in your daily recommendations. Adjust age preferences, travel distance, and lifestyle habits. You decide whether your profile is visible to neighboring towns or set to temporary invisibility.
                 </p>
+                <div class="spec-metrics-row">
+                  <span class="sm-metric"><strong>Radius Control:</strong> 5 to 100 Miles</span>
+                  <span class="sm-metric"><strong>Privacy:</strong> On-Demand Invisibility Toggle</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 3: 9:00 AM Morning Dispatch -->
+            <div class="device-screen-view" id="screen-view-3" role="tabpanel" aria-labelledby="step-btn-3" hidden>
+              <div class="screen-image-wrap">
+                <img src="assets/ui/ui02-daily-picks.jpg" alt="Daily Matches Screen" class="device-screen-img" width="580" height="720" loading="lazy">
+                
+                <div class="hotspot-pin pin-1" style="top: 18%; left: 82%;">
+                  <span class="pin-marker">1</span>
+                  <div class="pin-popup">9:00 AM Batch Timestamp (Zero Ticking Clock)</div>
+                </div>
+
+                <div class="hotspot-pin pin-2" style="top: 50%; left: 50%;">
+                  <span class="pin-marker">2</span>
+                  <div class="pin-popup">Mutual Passions &amp; Geographic Proximity</div>
+                </div>
+
+                <div class="hotspot-pin pin-3" style="top: 88%; left: 35%;">
+                  <span class="pin-marker">3</span>
+                  <div class="pin-popup">Profile Rewind &middot; Restore Accidental Passes</div>
+                </div>
+              </div>
+
+              <div class="screen-spec-dossier">
+                <h3 class="spec-screen-title">Stage 03: The 9:00 AM Daily Curation Batch</h3>
+                <p class="spec-screen-desc">
+                  Instead of endless swiping, members receive a focused selection of compatible peers once every morning at 9:00 AM. When you finish reviewing, your dating day is complete. Passed someone by mistake? Use Profile Rewind to reconsider.
+                </p>
+                <div class="spec-metrics-row">
+                  <span class="sm-metric"><strong>Frequency:</strong> Once Daily at 9:00 AM</span>
+                  <span class="sm-metric"><strong>Grace Period:</strong> Unlimited Rewind for Silver Select</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 4: Conversation Prompts & Voice Notes -->
+            <div class="device-screen-view" id="screen-view-4" role="tabpanel" aria-labelledby="step-btn-4" hidden>
+              <div class="screen-image-wrap">
+                <img src="assets/ui/ui07-conversation-starters.png" alt="Conversation Starters and Prompts" class="device-screen-img" width="580" height="720" loading="lazy">
+                
+                <div class="hotspot-pin pin-1" style="top: 30%; left: 45%;">
+                  <span class="pin-marker">1</span>
+                  <div class="pin-popup">Contextual Prompt Reply (Reply directly to a hobby)</div>
+                </div>
+
+                <div class="hotspot-pin pin-2" style="top: 60%; left: 75%;">
+                  <span class="pin-marker">2</span>
+                  <div class="pin-popup">Send Friendly Wink (Low-pressure greeting)</div>
+                </div>
+
+                <div class="hotspot-pin pin-3" style="top: 82%; left: 50%;">
+                  <span class="pin-marker">3</span>
+                  <div class="pin-popup">Recorded Voice Notes (Hear tone &amp; laughter)</div>
+                </div>
+              </div>
+
+              <div class="screen-spec-dossier">
+                <h3 class="spec-screen-title">Stage 04: Breaking the Ice with Voice &amp; Sincere Greetings</h3>
+                <p class="spec-screen-desc">
+                  Say hello without writing intimidating essays. Send a friendly Wink or reply directly to a specific prompt. Record voice messages to share spoken laughter, regional inflection, and genuine warmth.
+                </p>
+                <div class="spec-metrics-row">
+                  <span class="sm-metric"><strong>Interaction Modes:</strong> Winks, Emojis, Voice Notes</span>
+                  <span class="sm-metric"><strong>Audio Fidelity:</strong> High-Definition Voice Messaging</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 5: In-App Call Shield -->
+            <div class="device-screen-view" id="screen-view-5" role="tabpanel" aria-labelledby="step-btn-5" hidden>
+              <div class="screen-image-wrap">
+                <img src="assets/ui/ui03-voice.png" alt="In-App Voice and Video Calling with Call Shield" class="device-screen-img" width="580" height="720" loading="lazy">
+                
+                <div class="hotspot-pin pin-1" style="top: 25%; left: 75%;">
+                  <span class="pin-marker">1</span>
+                  <div class="pin-popup">Call Shield Active: Personal SIM Number 100% Sealed</div>
+                </div>
+
+                <div class="hotspot-pin pin-2" style="top: 55%; left: 50%;">
+                  <span class="pin-marker">2</span>
+                  <div class="pin-popup">Encrypted In-App Audio &amp; Video Stream</div>
+                </div>
+
+                <div class="hotspot-pin pin-3" style="top: 85%; left: 60%;">
+                  <span class="pin-marker">3</span>
+                  <div class="pin-popup">One-Tap Incoming Call Blocker</div>
+                </div>
+              </div>
+
+              <div class="screen-spec-dossier">
+                <h3 class="spec-screen-title">Stage 05: In-App Video &amp; Voice with Call Shield</h3>
+                <p class="spec-screen-desc">
+                  Never surrender your personal phone number, landline, or private email to an online match. The in-app Call Shield routes audio and video through secure server relays. Unwanted callers can be blocked permanently with a single tap.
+                </p>
+                <div class="spec-metrics-row">
+                  <span class="sm-metric"><strong>Privacy Shield:</strong> 0% Telephone Exposure</span>
+                  <span class="sm-metric"><strong>Security:</strong> Incoming Call Blocking Built-In</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 6: Daylight 1-to-1 Meetups -->
+            <div class="device-screen-view" id="screen-view-6" role="tabpanel" aria-labelledby="step-btn-6" hidden>
+              <div class="screen-image-wrap">
+                <img src="assets/ui/ui04-coffee-event.jpg" alt="1-to-1 Daylight Meetup Event Planner" class="device-screen-img" width="580" height="720" loading="lazy">
+                
+                <div class="hotspot-pin pin-1" style="top: 28%; left: 40%;">
+                  <span class="pin-marker">1</span>
+                  <div class="pin-popup">1-to-1 Meetup Request (Sent &amp; Confirmed in App)</div>
+                </div>
+
+                <div class="hotspot-pin pin-2" style="top: 58%; left: 68%;">
+                  <span class="pin-marker">2</span>
+                  <div class="pin-popup">Suggested Public Venues (Botanical Garden, Museum Cafe)</div>
+                </div>
+
+                <div class="hotspot-pin pin-3" style="top: 86%; left: 50%;">
+                  <span class="pin-marker">3</span>
+                  <div class="pin-popup">Independent Travel Protocol Checklist</div>
+                </div>
+              </div>
+
+              <div class="screen-spec-dossier">
+                <h3 class="spec-screen-title">Stage 06: Transitioning to Real-World Daylight Coffee</h3>
+                <p class="spec-screen-desc">
+                  When both members feel comfortable, send a formal 1-to-1 Meetup request with an agreed public venue. Both arrive independently for a 45-minute coffee date—free from evening bar noise, high-pressure dinners, or transportation dependencies.
+                </p>
+                <div class="spec-metrics-row">
+                  <span class="sm-metric"><strong>Setting:</strong> Daylight Public Venues Only</span>
+                  <span class="sm-metric"><strong>Duration:</strong> 45-Minute Low-Pressure Standard</span>
+                </div>
               </div>
             </div>
 
           </div>
+
         </div>
 
       </div>
@@ -3700,162 +1895,265 @@ img {
 
 
     <!-- ===================================================================
-         3. EDITORIAL ESSAY: The Four Tenets of Mature Companionship
-         Pure publication typography with zero card frames or borders
+         3. PLATFORM ARCHITECTURE & THE MATCHING EQUATION (Pure Editorial)
+         Pure publication typography with zero card containers
          =================================================================== -->
-    <article class="editorial-manifesto-section" aria-label="Editorial Principles">
-      <div class="manifesto-header-rule">
-        <span class="rule-label">THE FOUNDING ETHOS</span>
-      </div>
-
-      <div class="manifesto-intro-block">
-        <h2 class="manifesto-title">
-          Why Dating After 50 Demands<br>
-          <span class="text-wine">A Completely Different Architecture</span>
+    <article class="architecture-editorial-article" aria-label="System Architecture and Philosophy">
+      
+      <div class="arch-section-header">
+        <span class="arch-rule-tag">SYSTEM ARCHITECTURE</span>
+        <h2 class="arch-main-title">
+          The Matching Equation Explained:<br>
+          <span class="text-wine">How Intentional Algorithms Differ from Casino Slots</span>
         </h2>
-        <p class="manifesto-lead">
-          <span class="editorial-dropcap">S</span>wiping applications were designed for collegiate dopamine loops: split-second judgments on filtered photos, algorithmic competition, and endless ghosting. For adults who have raised families, built careers, and weathered life chapters, that model feels hollow. Here are the four founding tenets that guide our community architecture.
+        <p class="arch-main-lead">
+          Mainstream dating apps optimize for session length and repetitive swiping. Our algorithm optimizes for mutual comfort, verified authenticity, and conversational compatibility.
         </p>
       </div>
 
-      <!-- Pure Typographic 4-Column Broadside (Zero Cards!) -->
-      <div class="tenets-broadside-grid">
+      <!-- Architectural Grid: 3 Analytical Columns with Hairline Borders -->
+      <div class="arch-columns-grid">
         
-        <div class="tenet-col">
-          <span class="tenet-num">I.</span>
-          <h3 class="tenet-title">Deliberate Friction Over Reckless Speed</h3>
-          <p class="tenet-body">
-            Friction is a virtue when it protects human dignity. By requiring age confirmation, live face checks, and thoughtful life prompts, we eliminate bots, romance scammers, and casual tourists. The members who arrive are people who care enough to show up sincerely.
+        <div class="arch-col">
+          <div class="arch-num-badge">01</div>
+          <h3 class="arch-col-title">The Three Matching Filters</h3>
+          <p class="arch-col-text">
+            Every introduction is evaluated across three primary dimensions: <strong>strict age eligibility</strong> (confirmed 50+), <strong>geographic proximity</strong> (configured by your custom radius), and <strong>lifestyle habits</strong> (morning routines, cultural passions, and living preferences).
           </p>
         </div>
 
-        <div class="tenet-col">
-          <span class="tenet-num">II.</span>
-          <h3 class="tenet-title">One Daily Batch Over Infinite Scrolling</h3>
-          <p class="tenet-body">
-            Human connection is not an inventory catalog. Delivering a curated batch at 9:00 AM lets you evaluate each person with curiosity, attention, and respect. When your batch is reviewed, your dating day is complete—leaving you free to live your life.
+        <div class="arch-col">
+          <div class="arch-num-badge">02</div>
+          <h3 class="arch-col-title">The Once-a-Day Curation Engine</h3>
+          <p class="arch-col-text">
+            At 9:00 AM, our servers compile your daily batch. By delivering recommendations at a set morning hour, members review profiles attentively over coffee rather than checking notifications during late-night hours.
           </p>
         </div>
 
-        <div class="tenet-col">
-          <span class="tenet-num">III.</span>
-          <h3 class="tenet-title">Sacred Personal Privacy &amp; Call Shield</h3>
-          <p class="tenet-body">
-            Your home address, private cell phone number, and personal email should never be bargaining chips for an introduction. In-app voice and video calling ensures complete acoustic familiarity while your telephone number remains locked behind our secure relay.
-          </p>
-        </div>
-
-        <div class="tenet-col">
-          <span class="tenet-num">IV.</span>
-          <h3 class="tenet-title">Daylight First Dates &amp; Mutual Autonomy</h3>
-          <p class="tenet-body">
-            Transitioning offline should feel natural, never intimidating. Morning coffee at a botanical garden or gallery tea room keeps first meetings unhurried and low-pressure. You arrive independently, leave independently, and stay completely in command of your afternoon.
+        <div class="arch-col">
+          <div class="arch-num-badge">03</div>
+          <h3 class="arch-col-title">The Anti-Ghosting Protocol</h3>
+          <p class="arch-col-text">
+            Inactive accounts are systematically phased out of the daily rotation. You only see members who have verified their profiles and engaged within the past 14 days, preventing dead inboxes and wasted emotional energy.
           </p>
         </div>
 
       </div>
+
     </article>
 
 
     <!-- ===================================================================
-         4. CURATED INQUIRIES: Editorial Q&A Stream
-         Pure typographic question list with subtle hairline dividers (No cards)
+         4. THE FINANCIAL & MEMBERSHIP LEDGER (Authoritative Transparent Grid)
          =================================================================== -->
-    <section class="editorial-inquiries-section" aria-labelledby="inquiriesHeading">
-      <div class="manifesto-header-rule">
-        <span class="rule-label">CURATED INQUIRIES</span>
+    <section class="ledger-transparency-section" aria-labelledby="ledgerGridTitle">
+      <div class="arch-section-header">
+        <span class="arch-rule-tag">RADICAL TRANSPARENCY</span>
+        <h2 id="ledgerGridTitle" class="arch-main-title">
+          The Membership Ledger:<br>
+          <span class="text-wine">Standard Access vs Silver Select (VIP)</span>
+        </h2>
+        <p class="arch-main-lead">
+          We operate with complete financial honesty. Registration, profile creation, and daily match delivery are completely free. Review the exact operational differences below.
+        </p>
       </div>
 
-      <div class="inquiries-layout-stream">
-        <div class="inquiries-title-col">
-          <h2 id="inquiriesHeading" class="inquiries-main-heading">
-            Clear Answers for<br>
-            <span class="text-wine">First-Time Members</span>
-          </h2>
-          <p class="inquiries-sub">
-            Direct, transparent responses to the questions mature adults most frequently ask before registering.
+      <!-- Mobile Scroll Hint -->
+      <div class="table-scroll-hint" aria-hidden="true">
+        <span>&#x21C4; Swipe horizontally to compare tier features</span>
+      </div>
+
+      <!-- Authoritative Comparison Ledger Table -->
+      <div class="manual-table-container">
+        <table class="manual-comparison-table">
+          <thead>
+            <tr>
+              <th scope="col" class="th-feature">Platform Capability</th>
+              <th scope="col" class="th-tier th-standard">Standard Access (Free)</th>
+              <th scope="col" class="th-tier th-vip">Silver Select (Premier VIP)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-feature-name">
+                <strong>Age 50+ Registration &amp; Account Setup</strong>
+                <span>Confirmation of age 50 or older to maintain community standards</span>
+              </td>
+              <td class="td-cell cell-standard"><span class="badge-included">&#x2713; Full Access ($0)</span></td>
+              <td class="td-cell cell-vip"><span class="badge-included">&#x2713; Full Access</span></td>
+            </tr>
+
+            <tr>
+              <td class="td-feature-name">
+                <strong>Real-Person Live Verification Badge</strong>
+                <span>Facial selfie and video check inspected by human staff</span>
+              </td>
+              <td class="td-cell cell-standard"><span class="badge-included">&#x2713; Included</span></td>
+              <td class="td-cell cell-vip"><span class="badge-included">&#x2713; Priority Review</span></td>
+            </tr>
+
+            <tr>
+              <td class="td-feature-name">
+                <strong>9:00 AM Curated Daily Matches</strong>
+                <span>Handpicked local recommendations delivered every morning</span>
+              </td>
+              <td class="td-cell cell-standard"><span class="badge-included">&#x2713; 3 to 5 Daily</span></td>
+              <td class="td-cell cell-vip"><span class="badge-included">&#x2713; Expanded Curation</span></td>
+            </tr>
+
+            <tr>
+              <td class="td-feature-name">
+                <strong>Community Gallery &amp; Keyword Search</strong>
+                <span>Browse the wider directory and filter by specific hobbies</span>
+              </td>
+              <td class="td-cell cell-standard"><span class="badge-included">&#x2713; Included</span></td>
+              <td class="td-cell cell-vip"><span class="badge-included">&#x2713; Advanced Filters</span></td>
+            </tr>
+
+            <tr>
+              <td class="td-feature-name">
+                <strong>Send Friendly Winks &amp; Receive Notes</strong>
+                <span>Signal interest quietly and read messages from members</span>
+              </td>
+              <td class="td-cell cell-standard"><span class="badge-included">&#x2713; Read &amp; Wink</span></td>
+              <td class="td-cell cell-vip"><span class="badge-included">&#x2713; Custom Animated Winks</span></td>
+            </tr>
+
+            <tr>
+              <td class="td-feature-name">
+                <strong>Active Unlimited Private Messaging</strong>
+                <span>Initiate one-on-one conversations with any member without restrictions</span>
+              </td>
+              <td class="td-cell cell-standard"><span class="badge-limited">Read Only</span></td>
+              <td class="td-cell cell-vip"><span class="badge-vip-key">&#x2713; Unlimited Active Messaging</span></td>
+            </tr>
+
+            <tr>
+              <td class="td-feature-name">
+                <strong>In-App Video &amp; Voice Calling + Call Shield</strong>
+                <span>Call through secure server relay; personal phone number remains sealed</span>
+              </td>
+              <td class="td-cell cell-standard"><span class="badge-limited">Not Included</span></td>
+              <td class="td-cell cell-vip"><span class="badge-vip-key">&#x2713; Call Shield Included</span></td>
+            </tr>
+
+            <tr>
+              <td class="td-feature-name">
+                <strong>Profile Rewind for Passed Matches</strong>
+                <span>Retrieve recommendations passed accidentally</span>
+              </td>
+              <td class="td-cell cell-standard"><span class="badge-limited">Limited</span></td>
+              <td class="td-cell cell-vip"><span class="badge-vip-key">&#x2713; Unlimited Rewind</span></td>
+            </tr>
+
+            <tr>
+              <td class="td-feature-name">
+                <strong>See Who Liked You &amp; Who Viewed Your Profile</strong>
+                <span>Reveal members who have expressed interest or visited your portfolio</span>
+              </td>
+              <td class="td-cell cell-standard"><span class="badge-limited">Hidden</span></td>
+              <td class="td-cell cell-vip"><span class="badge-vip-key">&#x2713; Complete Visibility</span></td>
+            </tr>
+
+            <tr>
+              <td class="td-feature-name">
+                <strong>On-Demand Invisibility &amp; Anonymous Browsing</strong>
+                <span>Explore profiles without leaving records in their &ldquo;Viewed Me&rdquo; tab</span>
+              </td>
+              <td class="td-cell cell-standard"><span class="badge-limited">Standard Visible</span></td>
+              <td class="td-cell cell-vip"><span class="badge-vip-key">&#x2713; Anonymous Mode</span></td>
+            </tr>
+
+            <tr>
+              <td class="td-feature-name">
+                <strong>1-to-1 Meetup Requests &amp; Dating Advice</strong>
+                <span>Send formal daytime coffee invitations and access safety tips</span>
+              </td>
+              <td class="td-cell cell-standard"><span class="badge-included">&#x2713; Safety Tips Included</span></td>
+              <td class="td-cell cell-vip"><span class="badge-vip-key">&#x2713; 1-to-1 Meetup Requests</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Financial Truth Pledge -->
+      <div class="financial-truth-box">
+        <div class="ftb-icon">&#x1F4DC;</div>
+        <div class="ftb-text">
+          <h4>Our Consumer Guarantee: Zero Hidden Terms</h4>
+          <p>
+            No auto-charge traps, no phantom profiles, and no synthetic flirting messages. If you choose to upgrade to Silver Select, you can pause, downgrade, or cancel your membership at any moment with a single click inside your account management panel.
           </p>
-          <div class="inquiries-support-note">
-            <strong>24/7 Human Support:</strong>
-            <p>Our dedicated care team is always available to assist with verification, prompt writing, or account inquiries.</p>
-          </div>
-        </div>
-
-        <div class="inquiries-qa-col">
-          
-          <div class="qa-item">
-            <div class="qa-q-row">
-              <span class="qa-index">01.</span>
-              <h3 class="qa-question">Is registration really free, and what can I do without paying?</h3>
-            </div>
-            <p class="qa-answer">
-              Yes, registration is completely free. You can create your account, complete your personality prompts, upload custom photo albums, undergo live selfie verification, and receive curated 9:00 AM daily matches every single day without entering credit card details. You can also read incoming messages from members and send friendly Winks to signal quiet interest.
-            </p>
-          </div>
-
-          <div class="qa-item">
-            <div class="qa-q-row">
-              <span class="qa-index">02.</span>
-              <h3 class="qa-question">How does Call Shield protect my personal phone number?</h3>
-            </div>
-            <p class="qa-answer">
-              Call Shield connects voice and video calls directly through our secure in-app network. Neither your mobile phone number, landline, home address, nor personal email is ever revealed to your match. You can speak voice-to-voice or video chat with complete peace of mind, and you can block unwanted incoming calls with a single tap.
-            </p>
-          </div>
-
-          <div class="qa-item">
-            <div class="qa-q-row">
-              <span class="qa-index">03.</span>
-              <h3 class="qa-question">What happens if I accidentally pass someone I wanted to meet?</h3>
-            </div>
-            <p class="qa-answer">
-              Our community includes a Profile Rewind feature specifically to eliminate frantic mistakes. You can revisit previously passed recommendations in your discovery history, reconsider their stories, and reach out when you feel ready. Silver Select members enjoy unlimited profile rewinds.
-            </p>
-          </div>
-
-          <div class="qa-item">
-            <div class="qa-q-row">
-              <span class="qa-index">04.</span>
-              <h3 class="qa-question">Can I browse privately without friends or colleagues seeing me?</h3>
-            </div>
-            <p class="qa-answer">
-              Yes. You have complete control over your visibility settings. You can activate Anonymous Browsing to visit profiles without leaving a visit record in their &ldquo;Viewed Me&rdquo; tab, or use On-Demand Invisibility to temporarily pause your profile from public discovery while keeping existing conversations active.
-            </p>
-          </div>
-
-          <div class="qa-item">
-            <div class="qa-q-row">
-              <span class="qa-index">05.</span>
-              <h3 class="qa-question">Why do you strictly require members to be 50 or older?</h3>
-            </div>
-            <p class="qa-answer">
-              Our platform was specifically created to offer an unhurried, dignified sanctuary free from twenty-something dating noise, party culture, and superficial swipe games. By maintaining a strict 50+ age gate verified by human staff, our members know that every person they encounter shares similar life stages, maturity, and conversational depth.
-            </p>
-          </div>
-
         </div>
       </div>
     </section>
 
 
     <!-- ===================================================================
-         5. CLOSING INVITATION (Pure Typographic Masthead Sanctuary)
+         5. SENIOR MEMBER SAFETY CODE & SCAM DEFENSE (Pure Typographic List)
          =================================================================== -->
-    <footer class="editorial-closing-sanctuary">
-      <div class="sanctuary-inner-wrap">
-        <div class="sanctuary-crest" aria-hidden="true">&#x2655;</div>
-        <span class="sanctuary-kicker">AN INVITATION TO SINCERE COMPANIONSHIP</span>
-        <h2 class="sanctuary-title">
-          Ready to Meet Someone Who Understands Your Generation?
+    <section class="safety-code-section" aria-labelledby="safetyCodeTitle">
+      <div class="arch-section-header">
+        <span class="arch-rule-tag">MEMBER DEFENSE</span>
+        <h2 id="safetyCodeTitle" class="arch-main-title">
+          The Four Golden Rules of Mature Online Dating
         </h2>
-        <p class="sanctuary-desc">
-          Join thousands of verified adults aged 50 and older. Set up your free profile in under five minutes, and receive your first handpicked introductions tomorrow morning over coffee.
+        <p class="arch-main-lead">
+          While our human care specialists verify accounts 24/7, keeping these four principles in mind ensures complete security.
         </p>
-        <div class="sanctuary-action-row">
-          <button class="btn btn-primary btn-lg" data-action="join-partner" data-source="hiw_closing_start">
+      </div>
+
+      <div class="safety-rules-grid">
+        <div class="rule-card-item">
+          <span class="rule-digit">01</span>
+          <h3 class="rule-header">Never Transfer Money or Financial Info</h3>
+          <p class="rule-body">
+            Sincere members will never request wire transfers, gift cards, or financial assistance. Report any member who mentions financial distress immediately.
+          </p>
+        </div>
+
+        <div class="rule-card-item">
+          <span class="rule-digit">02</span>
+          <h3 class="rule-header">Keep Voice Calls Inside the App</h3>
+          <p class="rule-body">
+            Use the in-app Call Shield for all voice and video calls. Never share personal mobile numbers or home addresses until you have met in person multiple times.
+          </p>
+        </div>
+
+        <div class="rule-card-item">
+          <span class="rule-digit">03</span>
+          <h3 class="rule-header">Always Meet During Daylight Hours</h3>
+          <p class="rule-body">
+            First encounters belong in well-lit public venues: botanical cafes, museum restaurants, or local coffee shops. Never meet in private residences or secluded parks.
+          </p>
+        </div>
+
+        <div class="rule-card-item">
+          <span class="rule-digit">04</span>
+          <h3 class="rule-header">Maintain Independent Transportation</h3>
+          <p class="rule-body">
+            Drive yourself or take public transit to and from your meetup venue. Maintaining your own transportation ensures complete control over when you depart.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         6. CLOSING ACTION (Authoritative Manual Sign-Off)
+         =================================================================== -->
+    <footer class="manual-footer-masthead">
+      <div class="mfm-inner">
+        <span class="mfm-badge">&#x2655; STEP FORWARD WITH COMPLETE DIGNITY</span>
+        <h2 class="mfm-title">Ready to Experience Dating Designed for Your Generation?</h2>
+        <p class="mfm-lead">
+          Join thousands of verified adults aged 50 and older. Set up your profile in under five minutes, complete your live verification check, and receive your first curated introductions tomorrow morning.
+        </p>
+        <div class="mfm-action-row">
+          <button class="btn btn-primary btn-lg" data-action="join-partner" data-source="hiw_manual_bottom">
             Start Free Registration
           </button>
-          <span class="sanctuary-note">&#x2713; Takes under 5 minutes &middot; Age 50+ only &middot; Confidential</span>
+          <span class="mfm-guarantee">&#x2713; Takes under 5 minutes &middot; Age 50+ only &middot; Confidential</span>
         </div>
       </div>
     </footer>
@@ -4191,217 +2489,125 @@ window.APP_CONFIG = {
 
 // [COMPONENT: how-it-works] components\how-it-works\script.js
 /**
- * Component: How It Works Interactive Behavior
- * Unified Master Stage Controller & Tactile Simulations
+ * Component: How It Works - Platform Manual & Operating Guide
+ * Interactive Device Workbench Simulator & Step Controller
  */
 (function() {
   'use strict';
 
-  // 1. Master Console Phase Switcher (Dossier, Dispatch, Acoustic, Daylight, Ledger)
-  var navPills = document.querySelectorAll('.stage-nav-pill');
-  var viewPanels = document.querySelectorAll('.stage-view-panel');
-  var stageEl = document.getElementById('masterLivingStage');
+  var currentStep = 1;
+  var totalSteps = 6;
 
-  function switchPhase(phaseId, scrollIntoView) {
-    var targetPanelId = 'view-' + phaseId;
+  var stepButtons = document.querySelectorAll('.wnav-step-item');
+  var screenViews = document.querySelectorAll('.device-screen-view');
+  var stepCounter = document.getElementById('stepCounterDisplay');
+  var prevBtn = document.getElementById('prevStepBtn');
+  var nextBtn = document.getElementById('nextStepBtn');
 
-    // Update Nav Pills
-    navPills.forEach(function(pill) {
-      if (pill.getAttribute('data-phase') === phaseId) {
-        pill.classList.add('is-active');
-        pill.setAttribute('aria-selected', 'true');
+  function setStep(index) {
+    if (index < 1 || index > totalSteps) return;
+    currentStep = index;
+
+    // Update buttons state
+    stepButtons.forEach(function(btn) {
+      var s = parseInt(btn.getAttribute('data-step'), 10);
+      if (s === currentStep) {
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected', 'true');
       } else {
-        pill.classList.remove('is-active');
-        pill.setAttribute('aria-selected', 'false');
+        btn.classList.remove('is-active');
+        btn.setAttribute('aria-selected', 'false');
       }
     });
 
-    // Update Stage Panels
-    viewPanels.forEach(function(panel) {
-      if (panel.id === targetPanelId) {
-        panel.classList.add('is-active');
-        panel.removeAttribute('hidden');
+    // Update screen views
+    screenViews.forEach(function(view) {
+      if (view.id === 'screen-view-' + currentStep) {
+        view.classList.add('is-active');
+        view.removeAttribute('hidden');
       } else {
-        panel.classList.remove('is-active');
-        panel.setAttribute('hidden', 'true');
+        view.classList.remove('is-active');
+        view.setAttribute('hidden', 'true');
       }
     });
 
-    if (scrollIntoView && stageEl) {
-      stageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Update counter display
+    if (stepCounter) {
+      var pad = currentStep < 10 ? '0' + currentStep : currentStep;
+      stepCounter.textContent = 'STEP ' + pad + ' OF 06';
+    }
+
+    // Update prev/next button states
+    if (prevBtn) {
+      prevBtn.disabled = (currentStep === 1);
+    }
+    if (nextBtn) {
+      nextBtn.disabled = (currentStep === totalSteps);
+      if (currentStep === totalSteps) {
+        nextBtn.textContent = 'All Steps Reviewed \u2713';
+      } else {
+        nextBtn.textContent = 'Next Step \u2192';
+      }
     }
   }
 
-  navPills.forEach(function(pill) {
-    pill.addEventListener('click', function() {
-      var phase = this.getAttribute('data-phase');
-      switchPhase(phase, false);
-    });
-  });
-
-  // Next Phase Button Handlers
-  document.querySelectorAll('.btn-console-next').forEach(function(btn) {
+  // Bind step list buttons
+  stepButtons.forEach(function(btn) {
     btn.addEventListener('click', function() {
-      var nextPhase = this.getAttribute('data-next-phase');
-      if (nextPhase) {
-        switchPhase(nextPhase, true);
-      }
+      var s = parseInt(this.getAttribute('data-step'), 10);
+      setStep(s);
     });
   });
 
-
-  // 2. Phase 02 Curation Switcher (Eleanor, Arthur, Clara)
-  var subtabs = document.querySelectorAll('.ribbon-tab');
-  var subcards = document.querySelectorAll('.letterpress-card');
-
-  subtabs.forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      var targetId = 'subcard-' + this.getAttribute('data-tab');
-
-      subtabs.forEach(function(t) {
-        t.classList.remove('is-active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      this.classList.add('is-active');
-      this.setAttribute('aria-selected', 'true');
-
-      subcards.forEach(function(card) {
-        if (card.id === targetId) {
-          card.classList.add('is-active');
-          card.removeAttribute('hidden');
-        } else {
-          card.classList.remove('is-active');
-          card.setAttribute('hidden', 'true');
-        }
-      });
-    });
-  });
-
-
-  // 3. Rewind Dial Simulation
-  var rewindBtn = document.getElementById('rewindDialBtn');
-  var rewindStatus = document.getElementById('rewindStatusText');
-  var dialCap = document.querySelector('.dial-center-cap');
-
-  if (rewindBtn && rewindStatus && dialCap) {
-    var isRewinding = false;
-    rewindBtn.addEventListener('click', function() {
-      if (isRewinding) return;
-      isRewinding = true;
-
-      dialCap.style.transform = 'rotate(-720deg)';
-      rewindStatus.textContent = 'Retrieving yesterday\u2019s passed recommendation...';
-      rewindStatus.style.color = '#E94266';
-
-      setTimeout(function() {
-        dialCap.style.transform = 'rotate(0deg)';
-        rewindStatus.textContent = '\u2713 Successfully restored Arthur, 64 to your batch!';
-        rewindStatus.style.color = '#27AE60';
-
-        setTimeout(function() {
-          rewindStatus.textContent = 'Click to Rewind Yesterday\u2019s Batch';
-          rewindStatus.style.color = '';
-          isRewinding = false;
-        }, 3500);
-      }, 700);
-    });
-  }
-
-
-  // 4. Acoustic Voice Note Player Simulation
-  var playBtn = document.getElementById('voicePlayBtn');
-  var playIcon = document.getElementById('playIconSpan');
-  var grooveStation = document.querySelector('.voice-groove-station');
-  var scrubFill = document.getElementById('scrubFillBar');
-  var currentTimeEl = document.getElementById('currentTime');
-
-  if (playBtn && playIcon && grooveStation && scrubFill && currentTimeEl) {
-    var isPlaying = false;
-    var timerId = null;
-    var currentSeconds = 5;
-    var totalSeconds = 14;
-
-    function formatTime(s) {
-      return '0:' + (s < 10 ? '0' + s : s);
-    }
-
-    playBtn.addEventListener('click', function() {
-      isPlaying = !isPlaying;
-
-      if (isPlaying) {
-        grooveStation.classList.add('is-playing');
-        playIcon.textContent = '\u23F8'; // Pause icon
-        timerId = setInterval(function() {
-          currentSeconds++;
-          if (currentSeconds > totalSeconds) {
-            currentSeconds = 0;
-          }
-          currentTimeEl.textContent = formatTime(currentSeconds);
-          scrubFill.style.width = Math.round((currentSeconds / totalSeconds) * 100) + '%';
-        }, 1000);
-      } else {
-        grooveStation.classList.remove('is-playing');
-        playIcon.textContent = '\u25B6'; // Play icon
-        clearInterval(timerId);
+  // Bind next/prev controls
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function() {
+      if (currentStep > 1) {
+        setStep(currentStep - 1);
       }
     });
   }
 
-
-  // 5. Mock Curation Actions
-  document.querySelectorAll('[data-action="mock-pass"]').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var originalText = this.querySelector('span:last-child').textContent;
-      var span = this.querySelector('span:last-child');
-      span.textContent = 'Passed (Stored in Rewind)';
-      this.style.opacity = '0.6';
-      setTimeout(function() {
-        span.textContent = originalText;
-        btn.style.opacity = '1';
-      }, 2000);
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      if (currentStep < totalSteps) {
+        setStep(currentStep + 1);
+      }
     });
-  });
+  }
 
-  document.querySelectorAll('[data-action="mock-wink"]').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var span = this.querySelector('span:last-child');
-      span.textContent = '\u2713 Warm Wink Sent!';
-      this.style.background = '#DCFCE7';
-      this.style.color = '#15803D';
-      setTimeout(function() {
-        span.textContent = 'Send Warm Wink';
-        btn.style.background = '';
-        btn.style.color = '';
-      }, 2500);
-    });
-  });
-
-
-  // 6. Mock Call Shield Decline
-  var declineBtn = document.querySelector('[data-action="mock-decline"]');
-  if (declineBtn) {
-    declineBtn.addEventListener('click', function() {
-      var parent = this.closest('.shield-call-screen');
-      if (parent) {
-        var callStatus = parent.querySelector('.cs-call-type');
-        if (callStatus) {
-          callStatus.textContent = '\u2715 Call Ended Privately & Silenced';
-          callStatus.style.color = '#F87171';
-          setTimeout(function() {
-            callStatus.textContent = 'Encrypted In-App Audio Call';
-            callStatus.style.color = '#94A3B8';
-          }, 3000);
+  // Hotspot pin click interactions on touch devices
+  var pins = document.querySelectorAll('.hotspot-pin');
+  pins.forEach(function(pin) {
+    pin.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var popup = this.querySelector('.pin-popup');
+      if (popup) {
+        var isOpen = popup.style.opacity === '1';
+        // Close all popups
+        document.querySelectorAll('.pin-popup').forEach(function(p) {
+          p.style.opacity = '';
+        });
+        if (!isOpen) {
+          popup.style.opacity = '1';
+          popup.style.transform = 'translateX(-50%) translateY(-6px)';
         }
       }
     });
-  }
+  });
 
+  document.addEventListener('click', function() {
+    document.querySelectorAll('.pin-popup').forEach(function(p) {
+      p.style.opacity = '';
+      p.style.transform = '';
+    });
+  });
 
-  // 7. Global Conversion Emitter
+  // Global Conversion Emitter
   var actionBtns = document.querySelectorAll('.how-it-works-page [data-action="join-partner"]');
   actionBtns.forEach(function(btn) {
     btn.addEventListener('click', function() {
-      var source = this.getAttribute('data-source') || 'how_it_works';
+      var source = this.getAttribute('data-source') || 'operating_manual';
       if (window.EventBus) {
         window.EventBus.emit('cta:click', { source: source });
       }
