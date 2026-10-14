@@ -233,40 +233,50 @@ img {
   }
 }
 
-/* Revealed State for Hero Headline */
-.comp-hero.is-revealed .hero-headline .w {
-  animation: wordBloom 1.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: calc(var(--i, 0) * 115ms + 220ms);
+/* ==========================================================================
+   Shared Badges & Status Chips (Used across Hero, Film, Standards, Trust, FAQ)
+   ========================================================================== */
+.chip-popup {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-xs, 0.8125rem);
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 2px 8px -1px rgba(30, 41, 59, 0.06);
+  transition: all 0.25s ease;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
-/* Hero Intro Orchestration (Slower, gentle cadence) */
-.hero-badge-wrap {
-  opacity: 0;
-  transform: translateY(-8px);
-  transition: opacity 0.7s ease 0.1s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+.chip-rose {
+  background: var(--accent-wine, #E94266);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(233, 66, 102, 0.28);
 }
 
-.comp-hero.is-revealed .hero-badge-wrap {
-  opacity: 1;
-  transform: translateY(0);
+.chip-juniper {
+  background: var(--accent-juniper-soft, #EAF9F1);
+  border: 1px solid rgba(39, 174, 96, 0.35);
+  color: var(--accent-juniper-dark, #1E8449);
 }
 
-.hero-why {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.85s ease 0.65s, transform 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.65s;
+.chip-amber {
+  background: var(--accent-honey-soft, #FEF3C7);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #B45309;
 }
 
-.comp-hero.is-revealed .hero-why {
-  opacity: 1;
-  transform: translateY(0);
+.chip-sky {
+  background: var(--accent-sky-soft, #EBF5FB);
+  border: 1px solid rgba(74, 144, 226, 0.35);
+  color: #1D4ED8;
 }
 
 /* Accessibility: Reduced Motion Override */
 @media (prefers-reduced-motion: reduce) {
-  .w,
-  .hero-badge-wrap,
-  .hero-why {
+  .w {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
