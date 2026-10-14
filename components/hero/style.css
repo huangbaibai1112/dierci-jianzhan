@@ -25,12 +25,12 @@
 /* ================= 2-COLUMN STAGE GRID ================= */
 
 .hero-stage-grid {
-  max-width: 1140px;
+  max-width: 1180px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.12fr 0.88fr;
-  gap: clamp(24px, 3.5vw, 48px);
-  align-items: center;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(20px, 3vw, 40px);
+  align-items: flex-start;
 }
 
 /* ================= LEFT COLUMN: EDITORIAL & RHYTHMS ================= */
@@ -341,19 +341,20 @@
 .hero-right-col {
   display: flex;
   justify-content: flex-end;
+  margin-top: -14px;
 }
 
 .hero-story-art-card {
   width: 100%;
-  max-width: 440px;
+  max-width: 505px;
   background: #FFFFFF;
   border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: 20px;
-  padding: 16px 18px;
+  padding: 15px 16px;
   box-shadow: 0 16px 40px -12px rgba(35, 28, 26, 0.09);
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 10px;
   position: relative;
 }
 
@@ -393,7 +394,7 @@
 .art-visual-box {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .art-collage-frame {
@@ -401,7 +402,7 @@
   background: #FAFAF9;
   border: 1px solid rgba(226, 232, 240, 0.85);
   border-radius: 16px;
-  padding: 8px;
+  padding: 4px;
   box-shadow: 0 2px 8px rgba(35, 28, 26, 0.04);
   overflow: hidden;
 }
@@ -409,18 +410,18 @@
 .art-collage-img,
 .art-photo {
   width: 100%;
-  height: clamp(260px, 30vw, 320px);
-  min-height: 260px;
+  height: clamp(290px, 33vw, 360px);
+  min-height: 290px;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center 27%;
   border-radius: 12px;
   display: block;
 }
 
 .art-photo-badge {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  bottom: 12px;
+  right: 12px;
   z-index: 2;
 }
 
@@ -578,6 +579,7 @@
 
   .hero-right-col {
     justify-content: center;
+    margin-top: 0;
   }
 
   .hero-story-art-card {
