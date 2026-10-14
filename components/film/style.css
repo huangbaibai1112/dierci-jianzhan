@@ -44,7 +44,7 @@
 /* ==========================================================================
    Living Atmosphere: Unified Master Cinema Canvas (Cohesive Warm Porcelain Architecture)
    ========================================================================== */
-.stage-master-canvas {
+.film-stage .stage-master-canvas {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -82,7 +82,7 @@
 
 
 /* Ambient Floating Aurora Blooms (Dreamy watercolor pastels) */
-.ambient-aurora {
+.film-stage .ambient-aurora {
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
