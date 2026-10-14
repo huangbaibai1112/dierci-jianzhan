@@ -134,38 +134,46 @@ async function run() {
   fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_desktop_top.png'), Buffer.from(shot1.data, 'base64'));
   console.log('Saved scratch/verify_hiw_desktop_top.png');
 
-  // Scroll to Step 1 section
+  // Scroll to Phase I: Dossier
   await cdp.send('Runtime.evaluate', {
-    expression: "document.getElementById('step-registration').scrollIntoView();"
+    expression: "document.getElementById('stage-dossier').scrollIntoView();"
   });
   await sleep(600);
   const shotStep1 = await cdp.send('Page.captureScreenshot', { format: 'png' });
-  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_step1.png'), Buffer.from(shotStep1.data, 'base64'));
+  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_stage1_dossier.png'), Buffer.from(shotStep1.data, 'base64'));
 
-  // Scroll to Step 2 section
+  // Scroll to Phase II: Dispatch
   await cdp.send('Runtime.evaluate', {
-    expression: "document.getElementById('step-discovery').scrollIntoView();"
+    expression: "document.getElementById('stage-dispatch').scrollIntoView();"
   });
   await sleep(600);
   const shotStep2 = await cdp.send('Page.captureScreenshot', { format: 'png' });
-  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_step2.png'), Buffer.from(shotStep2.data, 'base64'));
+  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_stage2_dispatch.png'), Buffer.from(shotStep2.data, 'base64'));
 
-  // Scroll to Step 3 section
+  // Scroll to Phase III: Acoustic & Call Shield
   await cdp.send('Runtime.evaluate', {
-    expression: "document.getElementById('step-communication').scrollIntoView();"
+    expression: "document.getElementById('stage-acoustic').scrollIntoView();"
   });
   await sleep(600);
   const shotStep3 = await cdp.send('Page.captureScreenshot', { format: 'png' });
-  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_step3.png'), Buffer.from(shotStep3.data, 'base64'));
+  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_stage3_acoustic.png'), Buffer.from(shotStep3.data, 'base64'));
 
-  // Scroll to Tiers section
+  // Scroll to Phase IV: Daylight
   await cdp.send('Runtime.evaluate', {
-    expression: "document.getElementById('step-tiers').scrollIntoView();"
+    expression: "document.getElementById('stage-daylight').scrollIntoView();"
   });
   await sleep(600);
-  const shotTiers = await cdp.send('Page.captureScreenshot', { format: 'png' });
-  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_tiers.png'), Buffer.from(shotTiers.data, 'base64'));
-  console.log('Saved step screenshots');
+  const shotDaylight = await cdp.send('Page.captureScreenshot', { format: 'png' });
+  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_stage4_daylight.png'), Buffer.from(shotDaylight.data, 'base64'));
+
+  // Scroll to Phase V: Ledger
+  await cdp.send('Runtime.evaluate', {
+    expression: "document.getElementById('stage-ledger').scrollIntoView();"
+  });
+  await sleep(600);
+  const shotLedger = await cdp.send('Page.captureScreenshot', { format: 'png' });
+  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_stage5_ledger.png'), Buffer.from(shotLedger.data, 'base64'));
+  console.log('Saved all stage screenshots');
 
   // Test Mobile Viewport 390px
   console.log('Testing Mobile Viewport (390px)...');
