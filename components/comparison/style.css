@@ -77,15 +77,15 @@
   }
 }
 
-/* Stage Header inside Island */
+/* Left-Aligned Precision Benchmark Header */
 .benchmark-stage-header {
-  text-align: center;
+  text-align: left;
   max-width: 720px;
-  margin: 0 auto;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 12px;
   position: relative;
   z-index: 1;
 }
@@ -98,7 +98,7 @@
   line-height: 1.18;
   letter-spacing: -0.025em;
   margin: 0;
-  text-wrap: balance;
+  text-align: left;
 }
 
 .benchmark-stage-title .highlight {
@@ -110,7 +110,8 @@
   color: var(--ink-secondary);
   line-height: 1.55;
   margin: 0;
-  max-width: 620px;
+  max-width: 640px;
+  text-align: left;
   text-wrap: pretty;
 }
 
