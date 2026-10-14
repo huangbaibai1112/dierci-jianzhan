@@ -114,15 +114,6 @@
   text-wrap: pretty;
 }
 
-/* Floating Reassurance Tags below Header */
-.benchmark-floating-tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 6px;
-}
-
 /* 2x2 Comparative Benchmark Audit Grid */
 .benchmark-grid {
   display: grid;

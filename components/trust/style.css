@@ -120,15 +120,6 @@
   text-wrap: pretty;
 }
 
-/* Floating Reassurance Badges below Header */
-.trust-floating-tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 6px;
-}
-
 /* 3-Tier Protection Vault Grid */
 .trust-shield-grid {
   display: grid;

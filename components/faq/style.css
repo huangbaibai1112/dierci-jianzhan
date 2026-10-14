@@ -115,15 +115,6 @@
   text-wrap: pretty;
 }
 
-/* Floating Reassurance Badges below Header */
-.faq-floating-tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 6px;
-}
-
 /* Porcelain Card Accordion Group */
 .faq-accordion-group {
   display: flex;
