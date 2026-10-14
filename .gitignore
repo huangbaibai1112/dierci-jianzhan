@@ -5,7 +5,7 @@ __pycache__/
 Thumbs.db
 .vscode/
 .idea/
-scratch/edge_profile_full/
+scratch/edge_profile*/
 scratch/frame_*.jpg
 scratch/crop_*.jpg
 scratch/*_raw.jpg

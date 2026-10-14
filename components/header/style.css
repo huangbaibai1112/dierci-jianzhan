@@ -70,9 +70,11 @@
   transition: color var(--transition), background-color var(--transition);
 }
 
-.header-nav-list a:hover {
+.header-nav-list a:hover,
+.header-nav-list a.is-active {
   color: var(--accent-wine);
   background-color: var(--accent-wine-soft);
+  font-weight: 700;
 }
 
 .header-actions {

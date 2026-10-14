@@ -472,9 +472,11 @@ img {
   transition: color var(--transition), background-color var(--transition);
 }
 
-.header-nav-list a:hover {
+.header-nav-list a:hover,
+.header-nav-list a.is-active {
   color: var(--accent-wine);
   background-color: var(--accent-wine-soft);
+  font-weight: 700;
 }
 
 .header-actions {
@@ -5679,12 +5681,12 @@ img {
       <!-- Navigation Links -->
       <nav aria-label="Main Navigation">
         <ul class="header-nav-list" id="headerNavList">
-          <li><a href="#how-it-works">How It Works</a></li>
-          <li><a href="#experience">The Experience</a></li>
-          <li><a href="#standards">Our Standards</a></li>
-          <li><a href="#features">Platform Features</a></li>
-          <li><a href="#safety">Trust &amp; Safety</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="index.html#experience">The Experience</a></li>
+          <li><a href="index.html#standards">Our Standards</a></li>
+          <li><a href="index.html#features">Platform Features</a></li>
+          <li><a href="index.html#safety">Trust &amp; Safety</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
         </ul>
       </nav>
 
@@ -7045,12 +7047,12 @@ img {
         </div>
 
         <nav class="footer-links" aria-label="Footer Links">
-          <a href="#how-it-works">How It Works</a>
-          <a href="#experience">The Experience</a>
-          <a href="#standards">Our Standards</a>
-          <a href="#features">Platform Features</a>
-          <a href="#safety">Security</a>
-          <a href="#faq">FAQ</a>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="index.html#experience">The Experience</a>
+          <a href="index.html#standards">Our Standards</a>
+          <a href="index.html#features">Platform Features</a>
+          <a href="index.html#safety">Security</a>
+          <a href="index.html#faq">FAQ</a>
           <a href="#" data-action="join-partner" data-source="footer_nav">Sign Up</a>
         </nav>
       </div>
@@ -7327,6 +7329,16 @@ window.APP_CONFIG = {
     if (!list.contains(e.target) && !btn.contains(e.target) && list.classList.contains('is-open')) {
       list.classList.remove('is-open');
       btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Highlight current page active link
+  var page = window.location.pathname.split('/').pop() || 'index.html';
+  var links = list.querySelectorAll('a');
+  links.forEach(function(link) {
+    var href = link.getAttribute('href') || '';
+    if (page === 'how-it-works.html' && href.indexOf('how-it-works.html') !== -1) {
+      link.classList.add('is-active');
     }
   });
 })();

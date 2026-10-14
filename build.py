@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Decoupled Static Site Builder & Compliance Auditor
-Assembles components declared in site.manifest.json into production index.html
+Assembles components declared in manifest files into production HTML pages
+Supports multi-page architecture (index.html, how-it-works.html, etc.)
 """
 import os
 import json
@@ -37,13 +38,11 @@ def run_audit(html_content):
     
     return ai_hits, proh_hits
 
-def build():
+def build_page(manifest_path, output_file):
     print("=" * 60)
-    print("  Decoupled Component Assembler - Building index.html")
+    print(f"  Building {output_file} from {manifest_path}")
     print("=" * 60)
 
-    # 1. Load Manifest
-    manifest_path = "site.manifest.json"
     if not os.path.exists(manifest_path):
         print(f"Error: {manifest_path} not found!")
         sys.exit(1)
@@ -57,7 +56,7 @@ def build():
 
     print(f"-> Active components: {', '.join(comp_order)}")
 
-    # 2. Gather Styles
+    # 1. Gather Styles
     css_bundles = []
     # Core styles first
     for core_file in ["core/variables.css", "core/reset.css"]:
@@ -72,7 +71,7 @@ def build():
 
     combined_css = "\n\n".join(css_bundles)
 
-    # 3. Gather Component HTML Blocks
+    # 2. Gather Component HTML Blocks
     html_blocks = []
     for cname in comp_order:
         c_tpl = os.path.join("components", cname, "template.html")
@@ -90,7 +89,7 @@ def build():
 
     body_html = "\n".join(html_blocks)
 
-    # 4. Gather Scripts
+    # 3. Gather Scripts
     js_bundles = []
     # Core scripts first
     for core_js in ["core/config.js", "core/event-bus.js", "core/motion.js", "core/outbound-listener.js"]:
@@ -105,7 +104,7 @@ def build():
 
     combined_js = "\n\n".join(js_bundles)
 
-    # 5. Assemble index.html
+    # 4. Assemble HTML document
     full_html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,22 +136,32 @@ def build():
 </html>
 """
 
-    # 6. Audit Before Writing
+    # 5. Audit Before Writing
     ai_hits, proh_hits = run_audit(full_html)
     if ai_hits:
-        print(f"Audit Warning! Detected AI banned terms: {ai_hits}")
+        print(f"Audit Warning! Detected AI banned terms in {output_file}: {ai_hits}")
     if proh_hits:
-        print(f"Audit Warning! Detected Prohibited keywords: {proh_hits}")
+        print(f"Audit Warning! Detected Prohibited keywords in {output_file}: {proh_hits}")
 
     if not ai_hits and not proh_hits:
-        print("-> Audit Passed: 0 banned words, 0 AI clichés detected.")
+        print(f"-> Audit Passed: 0 banned words, 0 AI clichés detected in {output_file}.")
 
-    # 7. Write index.html
-    with open("index.html", "w", encoding="utf-8") as f:
+    # 6. Write Output File
+    with open(output_file, "w", encoding="utf-8") as f:
         f.write(full_html)
 
-    print(f"-> Successfully compiled index.html ({len(full_html)} bytes)")
+    print(f"-> Successfully compiled {output_file} ({len(full_html)} bytes)")
     print("=" * 60)
 
+def build_all():
+    # Build homepage
+    build_page("site.manifest.json", "index.html")
+    # Build How It Works page if manifest exists
+    if os.path.exists("how-it-works.manifest.json"):
+        build_page("how-it-works.manifest.json", "how-it-works.html")
+
 if __name__ == "__main__":
-    build()
+    if len(sys.argv) > 2:
+        build_page(sys.argv[1], sys.argv[2])
+    else:
+        build_all()
