@@ -4924,53 +4924,50 @@ img {
 
 
 /* [COMPONENT: footer] components\footer\style.css */
-/* Component: Footer Full Viewport Module - 100% Width */
+/* Component: Footer Scoped Styles (Warm Cashmere & Velvet Wine Theme) */
 .comp-footer {
-  width: 100%;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: clamp(64px, 7vw, 96px) 0 calc(32px + env(safe-area-inset-bottom, 0px));
-  background: #0F172A;
-  color: #F8FAFC;
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
+  margin-top: clamp(48px, 6vw, 80px);
+  margin-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
 }
 
 .footer-cta-banner {
-  max-width: 860px;
-  margin: 0 auto clamp(40px, 5vw, 64px);
-  background: transparent;
-  color: #FFFFFF;
-  border-radius: 0;
-  padding: 0 0 clamp(40px, 5vw, 56px);
+  max-width: 900px;
+  margin: 0 auto clamp(24px, 3.5vw, 40px);
+  background: var(--bg-card-dark);
+  color: var(--ink-inverse);
+  border-radius: var(--island-radius);
+  padding: clamp(36px, 6vw, 64px) clamp(24px, 5vw, 48px);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-lg);
-  box-shadow: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: var(--shadow-floating);
   position: relative;
+  overflow: hidden;
 }
 
 .footer-cta-banner::before {
-  display: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(139, 38, 62, 0.4), rgba(212, 116, 20, 0.22) 50%, transparent 80%);
+  pointer-events: none;
 }
 
 .footer-cta-heading {
-  font-size: clamp(2rem, 3.8vw, 2.75rem);
+  font-size: clamp(1.85rem, 3.8vw, 2.75rem);
   color: #FFFFFF;
   margin: 0;
   max-width: 680px;
   font-weight: 800;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
 .footer-cta-text {
   font-size: clamp(1.05rem, 1.4vw, 1.2rem);
-  color: #94A3B8;
+  color: var(--ink-inverse-muted);
   max-width: 580px;
   margin: 0;
   line-height: 1.6;
@@ -4978,17 +4975,16 @@ img {
 }
 
 .footer-container {
-  width: 100%;
-  max-width: 1140px;
+  max-width: 1120px;
   margin: 0 auto;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  padding: 0;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--island-radius);
+  padding: clamp(24px, 4vw, 40px);
   display: flex;
   flex-direction: column;
   gap: var(--space-xl);
-  box-shadow: none;
+  box-shadow: var(--shadow-subtle);
 }
 
 .footer-brand-row {

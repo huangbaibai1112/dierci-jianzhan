@@ -193,6 +193,14 @@ async function run() {
     const shotTrust = await client.send('Page.captureScreenshot', { format: 'png' });
     fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_05_trust.png'), Buffer.from(shotTrust.data, 'base64'));
 
+    // Capture Section 6: Footer
+    await client.send('Runtime.evaluate', {
+      expression: `document.querySelector('.comp-footer')?.scrollIntoView({ behavior: 'instant', block: 'start' });`
+    });
+    await sleep(600);
+    const shotFooter = await client.send('Page.captureScreenshot', { format: 'png' });
+    fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_06_footer.png'), Buffer.from(shotFooter.data, 'base64'));
+
     // 2. Mobile Viewport (390 x 844)
     console.log('Testing Mobile Viewport (390px)...');
     await client.send('Emulation.setDeviceMetricsOverride', {
