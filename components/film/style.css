@@ -2747,3 +2747,46 @@
 .dmi-cheers-badge .dmi-cheers-icon {
   font-size: 12px;
 }
+
+/* Dedicated Experience Bridge Island */
+.film-experience-bridge {
+  margin-top: clamp(24px, 3.5vw, 40px);
+}
+
+.bridge-inner {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: clamp(20px, 3vw, 28px) clamp(20px, 3vw, 32px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-card);
+}
+
+.bridge-meta {
+  max-width: 680px;
+}
+
+.bridge-tag {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--accent-wine);
+  margin-bottom: 4px;
+}
+
+.bridge-title {
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  color: var(--ink-primary);
+  margin-bottom: 4px;
+}
+
+.bridge-text {
+  font-size: 0.95rem;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+}

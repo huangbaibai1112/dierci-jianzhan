@@ -60,10 +60,13 @@ class CDPClient {
     this.ws.onmessage = (event) => {
       const msg = JSON.parse(event.data);
       if (msg.id && this.callbacks.has(msg.id)) {
-        const cb = this.callbacks.get(msg.id);
+        const { resolve, reject } = this.callbacks.get(msg.id);
         this.callbacks.delete(msg.id);
-        if (msg.error) cb.reject(msg.error);
-        else cb.resolve(msg.result);
+        if (msg.error) {
+          reject(new Error(msg.error.message || JSON.stringify(msg.error)));
+        } else {
+          resolve(msg.result);
+        }
       }
     };
   }
@@ -81,22 +84,41 @@ class CDPClient {
   }
 }
 
+async function getJSON(url) {
+  return new Promise((resolve, reject) => {
+    http.get(url, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try { resolve(JSON.parse(data)); } catch (e) { reject(e); }
+      });
+    }).on('error', reject);
+  });
+}
+
 async function main() {
+  console.log('============================================================');
+  console.log('  STARTING COMPREHENSIVE VERIFICATION SUITE');
+  console.log('============================================================');
+
   const { server, port } = await startServer();
+  console.log(`Local static server listening at http://127.0.0.1:${port}`);
+
   const edgeProc = spawn(EDGE_PATH, [
     `--remote-debugging-port=${CDP_PORT}`,
     '--headless=new',
-    '--window-size=1200,900',
     '--disable-gpu',
+    '--no-first-run',
+    '--no-default-browser-check',
     'about:blank'
   ]);
 
   try {
     await sleep(1500);
+    const targetList = await getJSON(`http://127.0.0.1:${CDP_PORT}/json`);
+    const page = targetList.find(t => t.type === 'page');
+    if (!page) throw new Error('No inspectable page found in Edge');
 
-    const listRes = await fetch(`http://127.0.0.1:${CDP_PORT}/json/list`);
-    const list = await listRes.json();
-    const page = list.find(t => t.type === 'page');
     const client = new CDPClient(page.webSocketDebuggerUrl);
     await client.connect();
 
@@ -106,7 +128,15 @@ async function main() {
     console.log('============================================================');
     console.log('  TEST SUITE 1: RESPONSIVE VIEWPORT PERFECTION (ZERO OVERFLOW)');
     console.log('============================================================');
-    const pages = ['index.html', 'how-it-works.html'];
+    const pages = [
+      'index.html',
+      'how-it-works.html',
+      'the-experience.html',
+      'our-standards.html',
+      'platform-features.html',
+      'safety.html',
+      'faq.html'
+    ];
     const widths = [360, 375, 390, 412, 480];
 
     for (const p of pages) {
@@ -192,30 +222,23 @@ async function main() {
     }
 
     console.log('\n============================================================');
-    console.log('  TEST SUITE 3: SCROLLSPY RE-VERIFICATION (EVERY SECTION LIGHTS UP)');
+    console.log('  TEST SUITE 3: SUBPAGE DEDICATED ACTIVE NAVIGATION LINKS');
     console.log('============================================================');
 
-    const expectedSequence = [
-      { id: 'experience', label: 'The Experience' },
-      { id: 'standards', label: 'Our Standards' },
-      { id: 'features', label: 'Platform Features' },
-      { id: 'safety', label: 'Trust & Safety' },
-      { id: 'faq', label: 'FAQ' }
+    const subpageNavChecks = [
+      { page: 'how-it-works.html', expectedText: 'How It Works', expectedHref: 'how-it-works.html' },
+      { page: 'the-experience.html', expectedText: 'The Experience', expectedHref: 'the-experience.html' },
+      { page: 'our-standards.html', expectedText: 'Our Standards', expectedHref: 'our-standards.html' },
+      { page: 'platform-features.html', expectedText: 'Platform Features', expectedHref: 'platform-features.html' },
+      { page: 'safety.html', expectedText: 'Trust & Safety', expectedHref: 'safety.html' },
+      { page: 'faq.html', expectedText: 'FAQ', expectedHref: 'faq.html' }
     ];
 
-    for (const target of expectedSequence) {
-      await client.send('Runtime.evaluate', {
-        returnByValue: true,
-        expression: `
-          (function() {
-            var el = document.getElementById('${target.id}');
-            if (el) el.scrollIntoView({ behavior: 'instant' });
-          })()
-        `
-      });
-      await sleep(250);
+    for (const sc of subpageNavChecks) {
+      await client.send('Page.navigate', { url: `http://127.0.0.1:${port}/${sc.page}` });
+      await sleep(1000);
 
-      const spyCheck = await client.send('Runtime.evaluate', {
+      const navEval = await client.send('Runtime.evaluate', {
         returnByValue: true,
         expression: `
           (function() {
@@ -228,11 +251,12 @@ async function main() {
         `
       });
 
-      const actualLabel = spyCheck.result.value.activeText;
-      const matched = actualLabel === target.label;
-      console.log(`  Scrolled to #${target.id} -> Expected: "${target.label}" | Actual: "${actualLabel}" [${matched ? 'PASSED' : 'FAILED'}]`);
+      const actualText = navEval.result.value.activeText;
+      const actualHref = navEval.result.value.activeHref;
+      const matched = (actualText === sc.expectedText && actualHref.indexOf(sc.expectedHref) !== -1);
+      console.log(`  Subpage: ${sc.page} -> Active Nav: "${actualText}" (${actualHref}) [${matched ? 'PASSED' : 'FAILED'}]`);
       if (!matched) {
-        throw new Error(`ScrollSpy failed on #${target.id}! Expected "${target.label}", got "${actualLabel}"`);
+        throw new Error(`Nav active check failed on ${sc.page}! Expected "${sc.expectedText}", got "${actualText}"`);
       }
     }
 
@@ -274,11 +298,10 @@ async function main() {
 
           // 3. Open drawer again and click a link
           btn.click();
-          var link = list.querySelector('a[href*="#standards"]');
+          var link = list.querySelector('a');
           link.click();
           var linkClickState = {
-            isClosed: !list.classList.contains('is-open'),
-            currentHash: window.location.hash
+            isClosed: !list.classList.contains('is-open')
           };
 
           return {
@@ -299,6 +322,9 @@ async function main() {
     console.log('\n============================================================');
     console.log('  TEST SUITE 5: ORPHAN WORD VERIFICATION');
     console.log('============================================================');
+    await client.send('Page.navigate', { url: `http://127.0.0.1:${port}/index.html` });
+    await sleep(1000);
+
     const orphanCheck = await client.send('Runtime.evaluate', {
       returnByValue: true,
       expression: `
@@ -358,19 +384,350 @@ async function main() {
     }
 
     console.log('\n============================================================');
-    console.log('  TEST SUITE 6: CAPTURING MOBILE SCREENSHOTS');
+    console.log('  TEST SUITE 6: CAPTURING MOBILE SCREENSHOTS (ALL 7 PAGES)');
     console.log('============================================================');
-    const ssIndex = await client.send('Page.captureScreenshot', { format: 'png' });
-    fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_boost_index_mobile.png'), Buffer.from(ssIndex.data, 'base64'));
-    console.log('  Saved scratch/verify_boost_index_mobile.png');
+    const screenshotPages = [
+      { file: 'index.html', out: 'verify_boost_index_mobile.png' },
+      { file: 'how-it-works.html', out: 'verify_boost_hiw_mobile.png' },
+      { file: 'the-experience.html', out: 'verify_boost_exp_mobile.png' },
+      { file: 'our-standards.html', out: 'verify_boost_standards_mobile.png' },
+      { file: 'platform-features.html', out: 'verify_boost_features_mobile.png' },
+      { file: 'safety.html', out: 'verify_boost_safety_mobile.png' },
+      { file: 'faq.html', out: 'verify_boost_faq_mobile.png' }
+    ];
 
-    await client.send('Page.navigate', { url: `http://127.0.0.1:${port}/how-it-works.html` });
+    for (const sp of screenshotPages) {
+      await client.send('Page.navigate', { url: `http://127.0.0.1:${port}/${sp.file}` });
+      await sleep(1000);
+      const ss = await client.send('Page.captureScreenshot', { format: 'png' });
+      fs.writeFileSync(path.join(ROOT_DIR, 'scratch', sp.out), Buffer.from(ss.data, 'base64'));
+      console.log(`  Saved scratch/${sp.out}`);
+    }
+
+    console.log('\n============================================================');
+    console.log('  TEST SUITE 7: SAFETY.HTML INTERACTIVE VERIFICATION');
+    console.log('============================================================');
+    await client.send('Page.navigate', { url: `http://127.0.0.1:${port}/safety.html` });
     await sleep(1000);
-    const ssHiw = await client.send('Page.captureScreenshot', { format: 'png' });
-    fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_boost_hiw_mobile.png'), Buffer.from(ssHiw.data, 'base64'));
-    console.log('  Saved scratch/verify_boost_hiw_mobile.png');
 
-    console.log('\n>>> ALL 6 TEST SUITES PASSED FLAWLESSLY! <<<');
+    const safetyInteractions = await client.send('Runtime.evaluate', {
+      returnByValue: true,
+      expression: `
+        (function() {
+          // 1. Check Trust & Safety nav link is active
+          var navLinks = Array.from(document.querySelectorAll('#headerNavList a'));
+          var activeLink = navLinks.find(l => l.classList.contains('is-active'));
+          var isNavActive = activeLink && activeLink.getAttribute('href').indexOf('safety.html') !== -1;
+
+          // 2. Test Tab Switch to Panel 2
+          var tab2 = document.getElementById('sec-tab-2');
+          if (tab2) tab2.click();
+          var panel2 = document.getElementById('sec-panel-2');
+          var panel2Active = panel2 && panel2.classList.contains('is-active') && !panel2.hasAttribute('hidden');
+
+          // 3. Test Call Shield Simulator Toggle
+          var btnTelecom = document.getElementById('toggleTelecomBtn');
+          var btnShield = document.getElementById('toggleShieldBtn');
+          var circuit = document.getElementById('circuitDisplay');
+
+          if (btnTelecom) btnTelecom.click();
+          var telecomActive = circuit && circuit.getAttribute('data-active-mode') === 'telecom';
+
+          if (btnShield) btnShield.click();
+          var shieldActive = circuit && circuit.getAttribute('data-active-mode') === 'shield';
+
+          // 4. Test Checklist Checkbox & Reset
+          var chk1 = document.getElementById('chk1');
+          if (chk1) chk1.click();
+          var chk1Checked = chk1 && chk1.checked;
+          var chkCounter = document.getElementById('chkCounter');
+          var counterTextBefore = chkCounter ? chkCounter.textContent : '';
+
+          var resetBtn = document.getElementById('resetChecklistBtn');
+          if (resetBtn) resetBtn.click();
+          var chk1AfterReset = chk1 && !chk1.checked;
+          var counterTextAfter = chkCounter ? chkCounter.textContent : '';
+
+          // 5. Test Safety Report Modal Dialog Open/Close
+          var reportBtn = document.querySelector('[data-action="safety-report"]');
+          var modal = document.getElementById('safetyReportModal');
+          if (reportBtn) reportBtn.click();
+          var modalOpen = modal && !modal.hasAttribute('hidden');
+
+          var closeBtn = document.getElementById('closeReportModalBtn');
+          if (closeBtn) closeBtn.click();
+          var modalClosed = modal && modal.hasAttribute('hidden');
+
+          return {
+            isNavActive: isNavActive,
+            panel2Active: panel2Active,
+            telecomActive: telecomActive,
+            shieldActive: shieldActive,
+            chk1Checked: chk1Checked,
+            counterTextBefore: counterTextBefore,
+            chk1AfterReset: chk1AfterReset,
+            counterTextAfter: counterTextAfter,
+            modalOpen: modalOpen,
+            modalClosed: modalClosed
+          };
+        })()
+      `
+    });
+
+    console.log('Safety interactive verification results:', safetyInteractions.result.value);
+    const si = safetyInteractions.result.value;
+    if (!si.isNavActive) throw new Error('safety.html nav item is not active!');
+    if (!si.panel2Active) throw new Error('Panel 2 did not activate on tab click!');
+    if (!si.telecomActive || !si.shieldActive) throw new Error('Call shield simulator toggle failed!');
+    if (!si.chk1Checked) throw new Error('Checklist checkbox click failed!');
+    if (!si.chk1AfterReset) throw new Error('Checklist reset failed!');
+    if (!si.modalOpen || !si.modalClosed) throw new Error('Safety report modal dialog failed!');
+
+    console.log('\n============================================================');
+    console.log('  TEST SUITE 8: THE-EXPERIENCE.HTML INTERACTIVE VERIFICATION');
+    console.log('============================================================');
+    await client.send('Page.navigate', { url: `http://127.0.0.1:${port}/the-experience.html` });
+    await sleep(1000);
+
+    const expInteractions = await client.send('Runtime.evaluate', {
+      returnByValue: true,
+      expression: `
+        (function() {
+          // 1. Check The Experience nav link is active
+          var navLinks = Array.from(document.querySelectorAll('#headerNavList a'));
+          var activeLink = navLinks.find(l => l.classList.contains('is-active'));
+          var isNavActive = activeLink && activeLink.getAttribute('href').indexOf('the-experience.html') !== -1;
+
+          // 2. Test Tab Switch to Stage 3 (Dialogue & Voice)
+          var tab3 = document.getElementById('stage-tab-3');
+          if (tab3) tab3.click();
+          var panel3 = document.getElementById('exp-panel-3');
+          var panel3Active = panel3 && panel3.classList.contains('is-active') && !panel3.hasAttribute('hidden');
+
+          // 3. Test Tab Switch to Stage 6 (Silver Select VIP)
+          var tab6 = document.getElementById('stage-tab-6');
+          if (tab6) tab6.click();
+          var panel6 = document.getElementById('exp-panel-6');
+          var panel6Active = panel6 && panel6.classList.contains('is-active') && !panel6.hasAttribute('hidden');
+
+          // Switch back to tab 1 for simulator test
+          var tab1 = document.getElementById('stage-tab-1');
+          if (tab1) tab1.click();
+
+          // 4. Test Morning Batch Simulator Advance
+          var passBtn = document.getElementById('simPassBtn');
+          var initialName = document.querySelector('.sim-name') ? document.querySelector('.sim-name').textContent : '';
+          if (passBtn) passBtn.click();
+          var nextName = document.querySelector('.sim-name') ? document.querySelector('.sim-name').textContent : '';
+
+          // 5. Test Audio Voice Simulator Play Toggle
+          var audioToggle = document.getElementById('audioPlayToggle');
+          var audioSim = document.getElementById('audioPlayerSim');
+          if (audioToggle) audioToggle.click();
+          var isPlaying = audioSim && audioSim.classList.contains('is-playing');
+          if (audioToggle) audioToggle.click(); // Pause
+
+          // 6. Test Itinerary Calculator Update
+          var venueSel = document.getElementById('venueSelect');
+          var timeSel = document.getElementById('timeSelect');
+          if (venueSel) {
+            venueSel.value = 'museum';
+            venueSel.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+          if (timeSel) {
+            timeSel.value = 'lunch';
+            timeSel.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+          var planTitle = document.getElementById('planTitle') ? document.getElementById('planTitle').textContent : '';
+          var planTiming = document.getElementById('planTiming') ? document.getElementById('planTiming').textContent : '';
+
+          return {
+            isNavActive: isNavActive,
+            panel3Active: panel3Active,
+            panel6Active: panel6Active,
+            initialName: initialName,
+            nextName: nextName,
+            profileAdvanced: (initialName !== nextName),
+            isPlaying: isPlaying,
+            planTitle: planTitle,
+            planTiming: planTiming
+          };
+        })()
+      `
+    });
+
+    console.log('The Experience interactive results:', expInteractions.result.value);
+    const ei = expInteractions.result.value;
+    if (!ei.isNavActive) throw new Error('the-experience.html nav item is not active!');
+    if (!ei.panel3Active || !ei.panel6Active) throw new Error('Stage tab switching failed!');
+    if (!ei.profileAdvanced) throw new Error('Morning batch profile advance failed!');
+    if (!ei.isPlaying) throw new Error('Audio simulator play toggle failed!');
+    if (ei.planTitle.indexOf('Museum') === -1) throw new Error('Itinerary calculator venue update failed!');
+
+    console.log('\n============================================================');
+    console.log('  TEST SUITE 9: CROSS-PAGE BRIDGE NAVIGATION (ALL 5 BRIDGES)');
+    console.log('============================================================');
+    await client.send('Page.navigate', { url: `http://127.0.0.1:${port}/index.html` });
+    await sleep(1000);
+
+    const bridgeTest = await client.send('Runtime.evaluate', {
+      returnByValue: true,
+      expression: `
+        (function() {
+          var expBridge = document.querySelector('.film-experience-bridge a');
+          var stdBridge = document.querySelector('.hanging-standards-bridge a');
+          var featBridge = document.querySelector('.comparison-features-bridge a');
+          var safetyBridge = document.querySelector('.trust-safety-bridge a');
+          var faqBridge = document.querySelector('.faq-knowledge-bridge a');
+          return {
+            hasExpBridge: !!expBridge && expBridge.getAttribute('href') === 'the-experience.html',
+            hasStdBridge: !!stdBridge && stdBridge.getAttribute('href') === 'our-standards.html',
+            hasFeatBridge: !!featBridge && featBridge.getAttribute('href') === 'platform-features.html',
+            hasSafetyBridge: !!safetyBridge && safetyBridge.getAttribute('href') === 'safety.html',
+            hasFaqBridge: !!faqBridge && faqBridge.getAttribute('href') === 'faq.html'
+          };
+        })()
+      `
+    });
+
+    console.log('Cross-page bridge verification:', bridgeTest.result.value);
+    const bt = bridgeTest.result.value;
+    if (!bt.hasExpBridge || !bt.hasStdBridge || !bt.hasFeatBridge || !bt.hasSafetyBridge || !bt.hasFaqBridge) {
+      throw new Error('One or more cross-page bridge links missing on index.html!');
+    }
+
+    console.log('\n============================================================');
+    console.log('  TEST SUITE 10: NEW SUBPAGES INTERACTIVE VERIFICATION');
+    console.log('============================================================');
+
+    // 10A: our-standards.html
+    console.log('\nTesting our-standards.html structure:');
+    await client.send('Page.navigate', { url: `http://127.0.0.1:${port}/our-standards.html` });
+    await sleep(1000);
+
+    const stdCheck = await client.send('Runtime.evaluate', {
+      returnByValue: true,
+      expression: `
+        (function() {
+          var pillars = document.querySelectorAll('.standard-pillar-block');
+          var rules = document.querySelectorAll('.prule-item');
+          var stats = document.querySelectorAll('.pstat-item');
+          return {
+            pillarCount: pillars.length,
+            ruleCount: rules.length,
+            statCount: stats.length
+          };
+        })()
+      `
+    });
+    console.log('  Standards checks:', stdCheck.result.value);
+    const scVal = stdCheck.result.value;
+    if (scVal.pillarCount !== 4 || scVal.ruleCount !== 4 || scVal.statCount !== 3) {
+      throw new Error('our-standards.html structural elements count mismatch!');
+    }
+
+    // 10B: platform-features.html
+    console.log('\nTesting platform-features.html category filters:');
+    await client.send('Page.navigate', { url: `http://127.0.0.1:${port}/platform-features.html` });
+    await sleep(1000);
+
+    const featCheck = await client.send('Runtime.evaluate', {
+      returnByValue: true,
+      expression: `
+        (function() {
+          var allCards = Array.from(document.querySelectorAll('.feature-card'));
+          var totalCount = allCards.length;
+
+          // Click privacy filter
+          var privacyBtn = document.querySelector('.filter-tab-btn[data-filter="privacy"]');
+          if (privacyBtn) privacyBtn.click();
+          var visibleAfterPrivacy = allCards.filter(c => !c.hasAttribute('hidden')).length;
+
+          // Click silver filter
+          var silverBtn = document.querySelector('.filter-tab-btn[data-filter="silver"]');
+          if (silverBtn) silverBtn.click();
+          var visibleAfterSilver = allCards.filter(c => !c.hasAttribute('hidden')).length;
+
+          // Click all filter
+          var allBtn = document.querySelector('.filter-tab-btn[data-filter="all"]');
+          if (allBtn) allBtn.click();
+          var visibleAfterAll = allCards.filter(c => !c.hasAttribute('hidden')).length;
+
+          return {
+            totalCount: totalCount,
+            visibleAfterPrivacy: visibleAfterPrivacy,
+            visibleAfterSilver: visibleAfterSilver,
+            visibleAfterAll: visibleAfterAll
+          };
+        })()
+      `
+    });
+    console.log('  Features filter checks:', featCheck.result.value);
+    const fcVal = featCheck.result.value;
+    if (fcVal.totalCount !== 18 || fcVal.visibleAfterPrivacy === 0 || fcVal.visibleAfterSilver === 0 || fcVal.visibleAfterAll !== 18) {
+      throw new Error('platform-features.html interactive filter test failed!');
+    }
+
+    // 10C: faq.html
+    console.log('\nTesting faq.html live search & category pills:');
+    await client.send('Page.navigate', { url: `http://127.0.0.1:${port}/faq.html` });
+    await sleep(1000);
+
+    const faqCheck = await client.send('Runtime.evaluate', {
+      returnByValue: true,
+      expression: `
+        (function() {
+          var allFaq = Array.from(document.querySelectorAll('.faq-item'));
+          var totalCount = allFaq.length;
+
+          // 1. Live search test
+          var searchInput = document.getElementById('faqSearchInput');
+          if (searchInput) {
+            searchInput.value = 'selfie';
+            searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+          }
+          var visibleAfterSearch = allFaq.filter(f => !f.hasAttribute('hidden')).length;
+
+          // Clear search
+          if (searchInput) {
+            searchInput.value = '';
+            searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+          }
+          var visibleAfterClear = allFaq.filter(f => !f.hasAttribute('hidden')).length;
+
+          // 2. Category pill test
+          var safetyPill = document.querySelector('.cat-pill-btn[data-category="safety"]');
+          if (safetyPill) safetyPill.click();
+          var visibleAfterSafetyPill = allFaq.filter(f => !f.hasAttribute('hidden')).length;
+
+          // Reset to all
+          var allPill = document.querySelector('.cat-pill-btn[data-category="all"]');
+          if (allPill) allPill.click();
+
+          // 3. Details accordion expand test on initially closed second item
+          var secondItem = allFaq[1];
+          var secondSummary = secondItem ? secondItem.querySelector('summary') : null;
+          var secondBeforeClick = secondItem ? secondItem.hasAttribute('open') : false;
+          if (secondSummary) secondSummary.click();
+          var secondAfterClick = secondItem ? secondItem.hasAttribute('open') : false;
+
+          return {
+            totalCount: totalCount,
+            visibleAfterSearch: visibleAfterSearch,
+            visibleAfterClear: visibleAfterClear,
+            visibleAfterSafetyPill: visibleAfterSafetyPill,
+            accordionToggled: (!secondBeforeClick && secondAfterClick)
+          };
+        })()
+      `
+    });
+    console.log('  FAQ checks:', faqCheck.result.value);
+    const faqVal = faqCheck.result.value;
+    if (faqVal.totalCount !== 16 || faqVal.visibleAfterSearch === 0 || faqVal.visibleAfterSearch >= 16 || faqVal.visibleAfterClear !== 16 || faqVal.visibleAfterSafetyPill === 0 || !faqVal.accordionToggled) {
+      throw new Error('faq.html interactive live search & accordion test failed!');
+    }
+
+    console.log('\n>>> ALL 10 TEST SUITES PASSED FLAWLESSLY! <<<');
 
     client.close();
   } finally {

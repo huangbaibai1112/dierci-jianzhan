@@ -1,0 +1,10 @@
+{
+  "siteName": "Senior Dating Over 50",
+  "pageTitle": "The Dating Experience | 6 Curated Stages for Adults 50+",
+  "metaDescription": "Discover our signature dating experience for singles over 50. Handpicked daily matches at 9:00 AM, in-depth mature dossiers, Call Shield audio calls, and daylight coffee meetups.",
+  "componentsOrder": [
+    "header",
+    "experience",
+    "footer"
+  ]
+}

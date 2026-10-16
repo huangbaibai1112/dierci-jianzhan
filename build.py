@@ -113,6 +113,16 @@ def build_page(manifest_path, output_file):
   <title>{title}</title>
   <meta name="description" content="{description}">
   <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#E94266">
+
+  <!-- OpenGraph & Social Sharing Metadata -->
+  <meta property="og:title" content="{title}">
+  <meta property="og:description" content="{description}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Senior Dating Over 50">
+
+  <!-- Brand Favicon: Warm Interlocking Rings Emblem -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='12' r='6' stroke='%23E94266'/%3E%3Ccircle cx='15' cy='12' r='6' stroke='%23F59E0B'/%3E%3C/svg%3E" type="image/svg+xml">
 
   <!-- Fonts: High-Trust Display (Plus Jakarta Sans) + Clean Reading (Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

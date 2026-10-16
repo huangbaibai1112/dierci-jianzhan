@@ -6,6 +6,7 @@ Thumbs.db
 .vscode/
 .idea/
 scratch/edge_profile*/
+scratch/edge_grid/
 scratch/frame_*.jpg
 scratch/crop_*.jpg
 scratch/*_raw.jpg

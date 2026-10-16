@@ -1,0 +1,10 @@
+{
+  "siteName": "Senior Dating Over 50",
+  "pageTitle": "Help & FAQ | Direct Answers for Mature Dating (50+)",
+  "metaDescription": "Find answers to frequently asked questions about registration, 50+ age verification, Call Shield, daylight meetups, and Silver Select membership.",
+  "componentsOrder": [
+    "header",
+    "faq-page",
+    "footer"
+  ]
+}

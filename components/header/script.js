@@ -56,6 +56,11 @@
   if (!page || page === '') page = 'index.html';
   var isIndexPage = (page === 'index.html');
   var isHiwPage = (page === 'how-it-works.html');
+  var isExpPage = (page === 'the-experience.html');
+  var isStandardsPage = (page === 'our-standards.html');
+  var isFeaturesPage = (page === 'platform-features.html');
+  var isSafetyPage = (page === 'safety.html');
+  var isFaqPage = (page === 'faq.html');
 
   var navLinks = Array.from(list.querySelectorAll('a'));
 
@@ -65,6 +70,21 @@
 
     // Active state for dedicated subpages
     if (isHiwPage && href.indexOf('how-it-works.html') !== -1) {
+      link.classList.add('is-active');
+    }
+    if (isExpPage && href.indexOf('the-experience.html') !== -1) {
+      link.classList.add('is-active');
+    }
+    if (isStandardsPage && href.indexOf('our-standards.html') !== -1) {
+      link.classList.add('is-active');
+    }
+    if (isFeaturesPage && href.indexOf('platform-features.html') !== -1) {
+      link.classList.add('is-active');
+    }
+    if (isSafetyPage && href.indexOf('safety.html') !== -1) {
+      link.classList.add('is-active');
+    }
+    if (isFaqPage && href.indexOf('faq.html') !== -1) {
       link.classList.add('is-active');
     }
 
@@ -97,15 +117,13 @@
     headerCta.addEventListener('click', closeMenu);
   }
 
-  // ScrollSpy on index.html
+  // ScrollSpy on index.html for in-page anchors
   if (isIndexPage) {
-    // The sequence in document order:
-    // 1. experience (film)
-    // 2. standards (hanging-cards)
-    // 3. features (comparison)
-    // 4. safety (trust)
-    // 5. faq (faq)
-    var sectionIds = ['experience', 'standards', 'features', 'safety', 'faq'];
+    // In-page anchor sections in physical document order:
+    // 1. standards (hanging-cards)
+    // 2. features (comparison)
+    // 3. faq (faq)
+    var sectionIds = ['standards', 'features', 'faq'];
 
     function getSectionsInDocumentOrder() {
       var arr = [];
@@ -137,6 +155,8 @@
           } else {
             link.classList.remove('is-active');
           }
+        } else {
+          link.classList.remove('is-active');
         }
       });
     }
