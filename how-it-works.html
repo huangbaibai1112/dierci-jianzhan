@@ -646,8 +646,8 @@ img {
 
 /* ===================================================================
    2. THE INTERFACE WORKBENCH (3-Column Precision Command Deck)
-   Col 1: Step Sequencer Rail (~280px)
-   Col 2: 1:1 Hardware Phone (~360px)
+   Col 1: Step Sequencer Rail & Assist Card (~290px)
+   Col 2: 1:1 Hardware Phone with Masked Native Status Bar (~360px)
    Col 3: External Engineering Teardown Dossier (1fr)
    =================================================================== */
 .workbench-section {
@@ -671,6 +671,12 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 24px;
+}
+
+.wnav-top-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .wnav-header {
@@ -700,8 +706,8 @@ img {
 .wnav-steps-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 24px;
+  gap: 9px;
+  margin-bottom: 18px;
 }
 
 .wnav-step-item {
@@ -808,6 +814,69 @@ img {
   color: #FFFFFF;
 }
 
+/* Left Column Assist Card (Fills height gap) */
+.wnav-status-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wsc-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wsc-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-juniper, #27AE60);
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+}
+
+.wsc-title {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--ink-primary, #1E293B);
+}
+
+.wsc-desc {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--ink-secondary, #475569);
+  margin: 0;
+}
+
+.wsc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.wsc-tag {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #27AE60;
+  background: #E8F8EE;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.wsc-keyboard-hint {
+  font-size: 0.6875rem;
+  color: var(--ink-muted, #64748B);
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  margin-top: 2px;
+}
+
 
 /* --- Column 2: 1:1 Realistic Device Simulator --- */
 .workbench-device-col {
@@ -842,16 +911,15 @@ img {
   height: 50%;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
   pointer-events: none;
-  z-index: 20;
+  z-index: 30;
 }
 
-/* Realistic Status Bar */
+/* Solid Black Hardware Status Bar (Covers native image status bar 100%) */
 .device-status-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 38px;
+  position: relative;
+  width: 100%;
+  height: 44px;
+  background: #000000;
   padding: 0 20px;
   display: flex;
   align-items: center;
@@ -860,30 +928,30 @@ img {
   font-size: 0.75rem;
   font-weight: 700;
   z-index: 25;
-  pointer-events: none;
+  flex-shrink: 0;
 }
 
 .device-status-time {
   font-family: ui-monospace, SFMono-Regular, monospace;
   font-weight: 800;
   letter-spacing: -0.02em;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  color: #FFFFFF;
 }
 
 .device-island {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 8px;
+  top: 9px;
   width: 86px;
-  height: 22px;
+  height: 24px;
   background: #000000;
   border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding-right: 12px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .island-camera {
@@ -891,7 +959,7 @@ img {
   height: 9px;
   background: #111827;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 2px rgba(56, 189, 248, 0.6);
 }
 
@@ -901,14 +969,14 @@ img {
   display: flex;
   align-items: center;
   gap: 6px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  color: #FFFFFF;
 }
 
 /* Viewport Screen Stage */
 .device-screen-stage {
   position: relative;
   width: 100%;
-  height: 100%;
+  flex: 1;
   overflow: hidden;
   background: #0F172A;
 }
@@ -926,9 +994,11 @@ img {
   visibility: visible;
 }
 
+/* Image shifted up by 44px so the duplicate original status bar is hidden */
 .device-screen-img {
   width: 100%;
-  height: 100%;
+  height: calc(100% + 44px);
+  margin-top: -44px;
   object-fit: cover;
   object-position: top center;
   display: block;
@@ -941,7 +1011,7 @@ img {
   width: 32px;
   height: 32px;
   cursor: pointer;
-  z-index: 15;
+  z-index: 20;
   outline: none;
 }
 
@@ -1141,17 +1211,19 @@ img {
 
 /* ===================================================================
    3. PLATFORM ARCHITECTURE & THE MATCHING EQUATION (Pure Editorial)
+   Asymmetric Left-Aligned Layout (Breaks centered repetition)
    =================================================================== */
 .architecture-editorial-article {
-  padding: 40px 0;
+  padding: 48px 0;
   margin-bottom: 88px;
   border-top: 2px solid rgba(226, 232, 240, 0.9);
   border-bottom: 2px solid rgba(226, 232, 240, 0.9);
 }
 
 .arch-section-header {
-  max-width: 840px;
+  max-width: 860px;
   margin-bottom: 40px;
+  text-align: left;
 }
 
 .arch-rule-tag {
@@ -1348,7 +1420,6 @@ img {
 
 /* ===================================================================
    5. THE MATURE DATING SAFETY OATH (Certified Public Directive Ledger)
-   Completely Cardless Directive Document with Architectural Seals
    =================================================================== */
 .safety-code-section {
   margin-bottom: 88px;
@@ -1850,7 +1921,7 @@ img {
 
     <!-- ===================================================================
          2. THE INTERFACE WORKBENCH (1:1 Smartphone & Engineering Teardown)
-         3-Column Precision Command Deck with Zero Cards in Device
+         3-Column Precision Command Deck with Calibrated Coordinates
          =================================================================== -->
     <section class="workbench-section" aria-label="Application Interface Simulator">
       
@@ -1858,75 +1929,96 @@ img {
         
         <!-- Column 1: Step Sequencer Rail -->
         <nav class="workbench-nav-col" aria-label="Interface Walkthrough Steps">
-          <div class="wnav-header">
-            <span class="wnav-caption">SYSTEM WORKFLOW</span>
-            <span class="wnav-step-counter" id="stepCounterDisplay">STEP 01 OF 06</span>
+          <div class="wnav-top-group">
+            <div class="wnav-header">
+              <span class="wnav-caption">SYSTEM WORKFLOW</span>
+              <span class="wnav-step-counter" id="stepCounterDisplay">STEP 01 OF 06</span>
+            </div>
+
+            <div class="wnav-steps-list" role="tablist" aria-label="Operating Steps">
+              
+              <button class="wnav-step-item is-active" role="tab" aria-selected="true" data-step="1" id="step-btn-1">
+                <span class="step-badge">01</span>
+                <div class="step-text-wrap">
+                  <strong class="step-name">Onboarding &amp; Verification</strong>
+                  <span class="step-summary">Age 50+ gate &amp; human selfie audit</span>
+                </div>
+              </button>
+
+              <button class="wnav-step-item" role="tab" aria-selected="false" data-step="2" id="step-btn-2">
+                <span class="step-badge">02</span>
+                <div class="step-text-wrap">
+                  <strong class="step-name">Setting Discovery Filters</strong>
+                  <span class="step-summary">Radius, age bracket &amp; dealbreakers</span>
+                </div>
+              </button>
+
+              <button class="wnav-step-item" role="tab" aria-selected="false" data-step="3" id="step-btn-3">
+                <span class="step-badge">03</span>
+                <div class="step-text-wrap">
+                  <strong class="step-name">The 9:00 AM Morning Dispatch</strong>
+                  <span class="step-summary">Curated batch &amp; rewind protection</span>
+                </div>
+              </button>
+
+              <button class="wnav-step-item" role="tab" aria-selected="false" data-step="4" id="step-btn-4">
+                <span class="step-badge">04</span>
+                <div class="step-text-wrap">
+                  <strong class="step-name">Prompts, Winks &amp; Voice Notes</strong>
+                  <span class="step-summary">Acoustic voice notes &amp; sincere hellos</span>
+                </div>
+              </button>
+
+              <button class="wnav-step-item" role="tab" aria-selected="false" data-step="5" id="step-btn-5">
+                <span class="step-badge">05</span>
+                <div class="step-text-wrap">
+                  <strong class="step-name">In-App Call Shield</strong>
+                  <span class="step-summary">Relayed audio/video &amp; zero phone exposure</span>
+                </div>
+              </button>
+
+              <button class="wnav-step-item" role="tab" aria-selected="false" data-step="6" id="step-btn-6">
+                <span class="step-badge">06</span>
+                <div class="step-text-wrap">
+                  <strong class="step-name">Daylight 1-to-1 Meetups</strong>
+                  <span class="step-summary">Public coffee requests &amp; arrival protocol</span>
+                </div>
+              </button>
+
+            </div>
+
+            <div class="wnav-quick-controls">
+              <button class="btn-ctrl btn-prev" id="prevStepBtn" aria-label="Previous step" disabled>&larr; Previous</button>
+              <button class="btn-ctrl btn-next" id="nextStepBtn" aria-label="Next step">Next Step &rarr;</button>
+            </div>
           </div>
 
-          <div class="wnav-steps-list" role="tablist" aria-label="Operating Steps">
-            
-            <button class="wnav-step-item is-active" role="tab" aria-selected="true" data-step="1" id="step-btn-1">
-              <span class="step-badge">01</span>
-              <div class="step-text-wrap">
-                <strong class="step-name">Onboarding &amp; Verification</strong>
-                <span class="step-summary">Age 50+ gate &amp; human selfie audit</span>
-              </div>
-            </button>
-
-            <button class="wnav-step-item" role="tab" aria-selected="false" data-step="2" id="step-btn-2">
-              <span class="step-badge">02</span>
-              <div class="step-text-wrap">
-                <strong class="step-name">Setting Discovery Filters</strong>
-                <span class="step-summary">Radius, age bracket &amp; dealbreakers</span>
-              </div>
-            </button>
-
-            <button class="wnav-step-item" role="tab" aria-selected="false" data-step="3" id="step-btn-3">
-              <span class="step-badge">03</span>
-              <div class="step-text-wrap">
-                <strong class="step-name">The 9:00 AM Morning Dispatch</strong>
-                <span class="step-summary">Curated batch &amp; rewind protection</span>
-              </div>
-            </button>
-
-            <button class="wnav-step-item" role="tab" aria-selected="false" data-step="4" id="step-btn-4">
-              <span class="step-badge">04</span>
-              <div class="step-text-wrap">
-                <strong class="step-name">Prompts, Winks &amp; Voice Notes</strong>
-                <span class="step-summary">Acoustic voice notes &amp; sincere hellos</span>
-              </div>
-            </button>
-
-            <button class="wnav-step-item" role="tab" aria-selected="false" data-step="5" id="step-btn-5">
-              <span class="step-badge">05</span>
-              <div class="step-text-wrap">
-                <strong class="step-name">In-App Call Shield</strong>
-                <span class="step-summary">Relayed audio/video &amp; zero phone exposure</span>
-              </div>
-            </button>
-
-            <button class="wnav-step-item" role="tab" aria-selected="false" data-step="6" id="step-btn-6">
-              <span class="step-badge">06</span>
-              <div class="step-text-wrap">
-                <strong class="step-name">Daylight 1-to-1 Meetups</strong>
-                <span class="step-summary">Public coffee requests &amp; arrival protocol</span>
-              </div>
-            </button>
-
-          </div>
-
-          <div class="wnav-quick-controls">
-            <button class="btn-ctrl btn-prev" id="prevStepBtn" aria-label="Previous step" disabled>&larr; Previous</button>
-            <button class="btn-ctrl btn-next" id="nextStepBtn" aria-label="Next step">Next Step &rarr;</button>
+          <!-- Left Column Bottom Assist Dossier (Fills empty height gap) -->
+          <div class="wnav-status-card">
+            <div class="wsc-header">
+              <span class="wsc-pulse-dot" aria-hidden="true"></span>
+              <span class="wsc-title">ACTIVE DISPATCH ENGINE</span>
+            </div>
+            <p class="wsc-desc">
+              Curated daily batches delivered at 9:00 AM. Profiles verified under strict 50+ generational standards.
+            </p>
+            <div class="wsc-tags">
+              <span class="wsc-tag">&#x2713; Age 50+ Gated</span>
+              <span class="wsc-tag">&#x2713; Call Shield Active</span>
+              <span class="wsc-tag">&#x2713; Human Verified</span>
+            </div>
+            <div class="wsc-keyboard-hint">
+              <span>Tip: Use &larr; &rarr; keys to switch steps</span>
+            </div>
           </div>
         </nav>
 
 
-        <!-- Column 2: 1:1 Realistic Device Simulator (Native Hardware Casing) -->
+        <!-- Column 2: 1:1 Realistic Device Simulator (True Native Hardware Casing) -->
         <div class="workbench-device-col">
           <div class="device-hardware-frame">
             
-            <!-- Real Status Bar Overlay -->
+            <!-- Real Solid Black Hardware Status Bar (100% masks original image status bar) -->
             <div class="device-status-bar" aria-hidden="true">
               <span class="device-status-time">9:41</span>
               <div class="device-island">
@@ -1945,16 +2037,16 @@ img {
               <div class="device-screen-view is-active" id="screen-view-1" role="tabpanel" aria-labelledby="step-btn-1">
                 <img src="assets/ui/ui06-profile.jpg" alt="Profile Setup and Real-Person Verification Screen" class="device-screen-img" width="1206" height="2622" loading="eager">
                 
-                <!-- Hotspot Pins -->
-                <div class="hotspot-pin pin-1" style="top: 23%; left: 81%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: Real-Person Verification Badge">
+                <!-- Calibrated Hotspot Pins -->
+                <div class="hotspot-pin pin-1" style="top: 48%; left: 28%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: Real-Person Verification Badge">
                   <span class="pin-marker">1</span>
                 </div>
 
-                <div class="hotspot-pin pin-2" style="top: 61%; left: 34%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Generational Life Prompts">
+                <div class="hotspot-pin pin-2" style="top: 58%; left: 45%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Generational Life Prompts">
                   <span class="pin-marker">2</span>
                 </div>
 
-                <div class="hotspot-pin pin-3" style="top: 86%; left: 56%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: Authentic Media Portfolios">
+                <div class="hotspot-pin pin-3" style="top: 80%; left: 50%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: Authentic Media Portfolios">
                   <span class="pin-marker">3</span>
                 </div>
               </div>
@@ -1963,15 +2055,15 @@ img {
               <div class="device-screen-view" id="screen-view-2" role="tabpanel" aria-labelledby="step-btn-2" hidden>
                 <img src="assets/ui/ui05-filters.png" alt="Search and Discovery Filters" class="device-screen-img" width="1206" height="2622" loading="lazy">
                 
-                <div class="hotspot-pin pin-1" style="top: 31%; left: 66%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: Age Bracket Slider">
+                <div class="hotspot-pin pin-1" style="top: 60%; left: 60%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: Age Bracket Slider">
                   <span class="pin-marker">1</span>
                 </div>
 
-                <div class="hotspot-pin pin-2" style="top: 54%; left: 47%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Geographic Radius Control">
+                <div class="hotspot-pin pin-2" style="top: 47%; left: 35%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Geographic Radius Control">
                   <span class="pin-marker">2</span>
                 </div>
 
-                <div class="hotspot-pin pin-3" style="top: 77%; left: 72%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: Verified Only &amp; Invisibility">
+                <div class="hotspot-pin pin-3" style="top: 80%; left: 80%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: Verified Only &amp; Invisibility">
                   <span class="pin-marker">3</span>
                 </div>
               </div>
@@ -1980,15 +2072,15 @@ img {
               <div class="device-screen-view" id="screen-view-3" role="tabpanel" aria-labelledby="step-btn-3" hidden>
                 <img src="assets/ui/ui02-daily-picks.jpg" alt="Daily Curated Batch Screen" class="device-screen-img" width="1206" height="2622" loading="lazy">
                 
-                <div class="hotspot-pin pin-1" style="top: 17%; left: 83%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: 9:00 AM Batch Delivery">
+                <div class="hotspot-pin pin-1" style="top: 13%; left: 52%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: 9:00 AM Batch Delivery">
                   <span class="pin-marker">1</span>
                 </div>
 
-                <div class="hotspot-pin pin-2" style="top: 49%; left: 52%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Mutual Passions &amp; Alignment">
+                <div class="hotspot-pin pin-2" style="top: 52%; left: 48%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Mutual Passions &amp; Alignment">
                   <span class="pin-marker">2</span>
                 </div>
 
-                <div class="hotspot-pin pin-3" style="top: 89%; left: 34%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: Profile Rewind Protection">
+                <div class="hotspot-pin pin-3" style="top: 88%; left: 85%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: Profile Rewind Protection">
                   <span class="pin-marker">3</span>
                 </div>
               </div>
@@ -1997,15 +2089,15 @@ img {
               <div class="device-screen-view" id="screen-view-4" role="tabpanel" aria-labelledby="step-btn-4" hidden>
                 <img src="assets/ui/ui07-conversation-starters.png" alt="Conversation Starters and Prompts" class="device-screen-img" width="1206" height="2622" loading="lazy">
                 
-                <div class="hotspot-pin pin-1" style="top: 29%; left: 46%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: Direct Prompt Responses">
+                <div class="hotspot-pin pin-1" style="top: 52%; left: 74%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: Direct Prompt Responses">
                   <span class="pin-marker">1</span>
                 </div>
 
-                <div class="hotspot-pin pin-2" style="top: 59%; left: 76%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Low-Pressure Winks">
+                <div class="hotspot-pin pin-2" style="top: 92%; left: 72%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Low-Pressure Winks">
                   <span class="pin-marker">2</span>
                 </div>
 
-                <div class="hotspot-pin pin-3" style="top: 81%; left: 51%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: Acoustic Voice Memos">
+                <div class="hotspot-pin pin-3" style="top: 92%; left: 67%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: Acoustic Voice Memos">
                   <span class="pin-marker">3</span>
                 </div>
               </div>
@@ -2014,15 +2106,15 @@ img {
               <div class="device-screen-view" id="screen-view-5" role="tabpanel" aria-labelledby="step-btn-5" hidden>
                 <img src="assets/ui/ui03-voice.png" alt="In-App Voice Calling with Call Shield" class="device-screen-img" width="1206" height="2622" loading="lazy">
                 
-                <div class="hotspot-pin pin-1" style="top: 23%; left: 77%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: Call Shield Telephone Protection">
+                <div class="hotspot-pin pin-1" style="top: 13%; left: 85%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: Call Shield Telephone Protection">
                   <span class="pin-marker">1</span>
                 </div>
 
-                <div class="hotspot-pin pin-2" style="top: 54%; left: 51%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Encrypted Video &amp; Audio">
+                <div class="hotspot-pin pin-2" style="top: 55%; left: 50%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Encrypted Video &amp; Audio">
                   <span class="pin-marker">2</span>
                 </div>
 
-                <div class="hotspot-pin pin-3" style="top: 87%; left: 62%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: Instant One-Tap Call Blocker">
+                <div class="hotspot-pin pin-3" style="top: 75%; left: 75%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: Instant One-Tap Call Blocker">
                   <span class="pin-marker">3</span>
                 </div>
               </div>
@@ -2031,15 +2123,15 @@ img {
               <div class="device-screen-view" id="screen-view-6" role="tabpanel" aria-labelledby="step-btn-6" hidden>
                 <img src="assets/ui/ui04-coffee-event.jpg" alt="1-to-1 Daytime Meetup Planner" class="device-screen-img" width="1206" height="2622" loading="lazy">
                 
-                <div class="hotspot-pin pin-1" style="top: 27%; left: 39%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: Daytime Coffee Invitation">
+                <div class="hotspot-pin pin-1" style="top: 16%; left: 82%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: Daytime Coffee Invitation">
                   <span class="pin-marker">1</span>
                 </div>
 
-                <div class="hotspot-pin pin-2" style="top: 57%; left: 69%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Curated Neutral Public Venues">
+                <div class="hotspot-pin pin-2" style="top: 51%; left: 28%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Curated Neutral Public Venues">
                   <span class="pin-marker">2</span>
                 </div>
 
-                <div class="hotspot-pin pin-3" style="top: 85%; left: 51%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: 45-Minute Independent Arrival">
+                <div class="hotspot-pin pin-3" style="top: 31%; left: 88%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: 45-Minute Independent Arrival">
                   <span class="pin-marker">3</span>
                 </div>
               </div>
@@ -2321,12 +2413,12 @@ img {
 
     <!-- ===================================================================
          3. PLATFORM ARCHITECTURE & THE MATCHING EQUATION (Pure Editorial)
-         Pure publication typography with zero card containers
+         Asymmetric Left-Aligned Editorial Hierarchy with Zero Cards
          =================================================================== -->
     <article class="architecture-editorial-article" aria-label="System Architecture and Philosophy">
       
       <div class="arch-section-header">
-        <span class="arch-rule-tag">SYSTEM ARCHITECTURE</span>
+        <span class="arch-rule-tag">SYSTEM ARCHITECTURE // SPEC-2026-ALGO</span>
         <h2 class="arch-main-title">
           The Matching Equation Explained:<br>
           <span class="text-wine">How Intentional Algorithms Differ from Casino Slots</span>
@@ -2373,7 +2465,7 @@ img {
          =================================================================== -->
     <section class="ledger-transparency-section" aria-labelledby="ledgerGridTitle">
       <div class="arch-section-header">
-        <span class="arch-rule-tag">RADICAL TRANSPARENCY</span>
+        <span class="arch-rule-tag">RADICAL TRANSPARENCY // PRICING ETHICS</span>
         <h2 id="ledgerGridTitle" class="arch-main-title">
           The Membership Ledger:<br>
           <span class="text-wine">Standard Access vs Silver Select (VIP)</span>
@@ -2516,11 +2608,11 @@ img {
 
     <!-- ===================================================================
          5. THE MATURE DATING SAFETY OATH (Certified Public Directive Ledger)
-         Completely Cardless Official Directive Layout with Monospace Seals
+         Completely Cardless Directive Document with Architectural Seals
          =================================================================== -->
     <section class="safety-code-section" aria-labelledby="safetyCodeTitle">
       <div class="arch-section-header">
-        <span class="arch-rule-tag">MEMBER DEFENSE DIRECTIVE</span>
+        <span class="arch-rule-tag">MEMBER DEFENSE DIRECTIVE // CODE-2026-PROTECT</span>
         <h2 id="safetyCodeTitle" class="arch-main-title">
           The Mature Dating Safety Oath:<br>
           <span class="text-wine">Four Inviolable Principles for 50+ Daters</span>

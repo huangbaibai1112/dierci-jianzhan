@@ -116,8 +116,8 @@
 
 /* ===================================================================
    2. THE INTERFACE WORKBENCH (3-Column Precision Command Deck)
-   Col 1: Step Sequencer Rail (~280px)
-   Col 2: 1:1 Hardware Phone (~360px)
+   Col 1: Step Sequencer Rail & Assist Card (~290px)
+   Col 2: 1:1 Hardware Phone with Masked Native Status Bar (~360px)
    Col 3: External Engineering Teardown Dossier (1fr)
    =================================================================== */
 .workbench-section {
@@ -141,6 +141,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 24px;
+}
+
+.wnav-top-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .wnav-header {
@@ -170,8 +176,8 @@
 .wnav-steps-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 24px;
+  gap: 9px;
+  margin-bottom: 18px;
 }
 
 .wnav-step-item {
@@ -278,6 +284,69 @@
   color: #FFFFFF;
 }
 
+/* Left Column Assist Card (Fills height gap) */
+.wnav-status-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wsc-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wsc-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-juniper, #27AE60);
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+}
+
+.wsc-title {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--ink-primary, #1E293B);
+}
+
+.wsc-desc {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--ink-secondary, #475569);
+  margin: 0;
+}
+
+.wsc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.wsc-tag {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #27AE60;
+  background: #E8F8EE;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.wsc-keyboard-hint {
+  font-size: 0.6875rem;
+  color: var(--ink-muted, #64748B);
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  margin-top: 2px;
+}
+
 
 /* --- Column 2: 1:1 Realistic Device Simulator --- */
 .workbench-device-col {
@@ -312,16 +381,15 @@
   height: 50%;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
   pointer-events: none;
-  z-index: 20;
+  z-index: 30;
 }
 
-/* Realistic Status Bar */
+/* Solid Black Hardware Status Bar (Covers native image status bar 100%) */
 .device-status-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 38px;
+  position: relative;
+  width: 100%;
+  height: 44px;
+  background: #000000;
   padding: 0 20px;
   display: flex;
   align-items: center;
@@ -330,30 +398,30 @@
   font-size: 0.75rem;
   font-weight: 700;
   z-index: 25;
-  pointer-events: none;
+  flex-shrink: 0;
 }
 
 .device-status-time {
   font-family: ui-monospace, SFMono-Regular, monospace;
   font-weight: 800;
   letter-spacing: -0.02em;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  color: #FFFFFF;
 }
 
 .device-island {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 8px;
+  top: 9px;
   width: 86px;
-  height: 22px;
+  height: 24px;
   background: #000000;
   border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding-right: 12px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .island-camera {
@@ -361,7 +429,7 @@
   height: 9px;
   background: #111827;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 2px rgba(56, 189, 248, 0.6);
 }
 
@@ -371,14 +439,14 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  color: #FFFFFF;
 }
 
 /* Viewport Screen Stage */
 .device-screen-stage {
   position: relative;
   width: 100%;
-  height: 100%;
+  flex: 1;
   overflow: hidden;
   background: #0F172A;
 }
@@ -396,9 +464,11 @@
   visibility: visible;
 }
 
+/* Image shifted up by 44px so the duplicate original status bar is hidden */
 .device-screen-img {
   width: 100%;
-  height: 100%;
+  height: calc(100% + 44px);
+  margin-top: -44px;
   object-fit: cover;
   object-position: top center;
   display: block;
@@ -411,7 +481,7 @@
   width: 32px;
   height: 32px;
   cursor: pointer;
-  z-index: 15;
+  z-index: 20;
   outline: none;
 }
 
@@ -611,17 +681,19 @@
 
 /* ===================================================================
    3. PLATFORM ARCHITECTURE & THE MATCHING EQUATION (Pure Editorial)
+   Asymmetric Left-Aligned Layout (Breaks centered repetition)
    =================================================================== */
 .architecture-editorial-article {
-  padding: 40px 0;
+  padding: 48px 0;
   margin-bottom: 88px;
   border-top: 2px solid rgba(226, 232, 240, 0.9);
   border-bottom: 2px solid rgba(226, 232, 240, 0.9);
 }
 
 .arch-section-header {
-  max-width: 840px;
+  max-width: 860px;
   margin-bottom: 40px;
+  text-align: left;
 }
 
 .arch-rule-tag {
@@ -818,7 +890,6 @@
 
 /* ===================================================================
    5. THE MATURE DATING SAFETY OATH (Certified Public Directive Ledger)
-   Completely Cardless Directive Document with Architectural Seals
    =================================================================== */
 .safety-code-section {
   margin-bottom: 88px;
