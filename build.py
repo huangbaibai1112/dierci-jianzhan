@@ -144,7 +144,7 @@ def build_page(manifest_path, output_file):
         print(f"Audit Warning! Detected Prohibited keywords in {output_file}: {proh_hits}")
 
     if not ai_hits and not proh_hits:
-        print(f"-> Audit Passed: 0 banned words, 0 AI clichés detected in {output_file}.")
+        print(f"-> Audit Passed: 0 banned words, 0 AI cliches detected in {output_file}.")
 
     # 6. Write Output File
     with open(output_file, "w", encoding="utf-8") as f:
@@ -154,11 +154,18 @@ def build_page(manifest_path, output_file):
     print("=" * 60)
 
 def build_all():
-    # Build homepage
-    build_page("site.manifest.json", "index.html")
-    # Build How It Works page if manifest exists
-    if os.path.exists("how-it-works.manifest.json"):
-        build_page("how-it-works.manifest.json", "how-it-works.html")
+    import glob
+    # 1. Primary homepage
+    if os.path.exists("site.manifest.json"):
+        build_page("site.manifest.json", "index.html")
+
+    # 2. Automatically discover all other [name].manifest.json pages
+    for manifest_path in sorted(glob.glob("*.manifest.json")):
+        basename = os.path.basename(manifest_path)
+        if basename == "site.manifest.json":
+            continue
+        out_name = basename.replace(".manifest.json", ".html")
+        build_page(manifest_path, out_name)
 
 if __name__ == "__main__":
     if len(sys.argv) > 2:
