@@ -234,7 +234,23 @@ async function run() {
   await sleep(600);
   const shotMobTable = await cdp.send('Page.captureScreenshot', { format: 'png' });
   fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_mobile_table.png'), Buffer.from(shotMobTable.data, 'base64'));
-  console.log('Saved mobile workbench & table screenshots');
+
+  // Mobile Teardown Dossier
+  await cdp.send('Runtime.evaluate', {
+    expression: "document.getElementById('teardownDossier').scrollIntoView();"
+  });
+  await sleep(600);
+  const shotMobDossier = await cdp.send('Page.captureScreenshot', { format: 'png' });
+  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_mobile_dossier.png'), Buffer.from(shotMobDossier.data, 'base64'));
+
+  // Mobile Safety Oath
+  await cdp.send('Runtime.evaluate', {
+    expression: "document.querySelector('.safety-code-section').scrollIntoView();"
+  });
+  await sleep(600);
+  const shotMobSafety = await cdp.send('Page.captureScreenshot', { format: 'png' });
+  fs.writeFileSync(path.join(ROOT_DIR, 'scratch', 'verify_hiw_mobile_safety.png'), Buffer.from(shotMobSafety.data, 'base64'));
+  console.log('Saved mobile workbench, table, dossier & safety screenshots');
 
   } finally {
     try { if (cdp) cdp.close(); } catch (e) {}

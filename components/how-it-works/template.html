@@ -30,15 +30,15 @@
 
 
     <!-- ===================================================================
-         2. THE INTERFACE WORKBENCH (Interactive Screen Simulator)
-         A unified device station with 6 real operational phases & hotspot pins
+         2. THE INTERFACE WORKBENCH (1:1 Smartphone & Engineering Teardown)
+         3-Column Precision Command Deck with Zero Cards in Device
          =================================================================== -->
     <section class="workbench-section" aria-label="Application Interface Simulator">
       
       <div class="workbench-shell" id="workbenchShell">
         
-        <!-- Left Column: Step Navigation Console -->
-        <div class="workbench-nav-col">
+        <!-- Column 1: Step Sequencer Rail -->
+        <nav class="workbench-nav-col" aria-label="Interface Walkthrough Steps">
           <div class="wnav-header">
             <span class="wnav-caption">SYSTEM WORKFLOW</span>
             <span class="wnav-step-counter" id="stepCounterDisplay">STEP 01 OF 06</span>
@@ -50,7 +50,7 @@
               <span class="step-badge">01</span>
               <div class="step-text-wrap">
                 <strong class="step-name">Onboarding &amp; Verification</strong>
-                <span class="step-summary">Age 50+ gate, selfie check &amp; prompts</span>
+                <span class="step-summary">Age 50+ gate &amp; human selfie audit</span>
               </div>
             </button>
 
@@ -66,7 +66,7 @@
               <span class="step-badge">03</span>
               <div class="step-text-wrap">
                 <strong class="step-name">The 9:00 AM Morning Dispatch</strong>
-                <span class="step-summary">Curated batch, like, pass &amp; rewind</span>
+                <span class="step-summary">Curated batch &amp; rewind protection</span>
               </div>
             </button>
 
@@ -74,7 +74,7 @@
               <span class="step-badge">04</span>
               <div class="step-text-wrap">
                 <strong class="step-name">Prompts, Winks &amp; Voice Notes</strong>
-                <span class="step-summary">Acoustic voice messages &amp; icebreakers</span>
+                <span class="step-summary">Acoustic voice notes &amp; sincere hellos</span>
               </div>
             </button>
 
@@ -82,7 +82,7 @@
               <span class="step-badge">05</span>
               <div class="step-text-wrap">
                 <strong class="step-name">In-App Call Shield</strong>
-                <span class="step-summary">Voice/video with phone number hidden</span>
+                <span class="step-summary">Relayed audio/video &amp; zero phone exposure</span>
               </div>
             </button>
 
@@ -90,7 +90,7 @@
               <span class="step-badge">06</span>
               <div class="step-text-wrap">
                 <strong class="step-name">Daylight 1-to-1 Meetups</strong>
-                <span class="step-summary">Public coffee requests &amp; safe arrival</span>
+                <span class="step-summary">Public coffee requests &amp; arrival protocol</span>
               </div>
             </button>
 
@@ -100,220 +100,401 @@
             <button class="btn-ctrl btn-prev" id="prevStepBtn" aria-label="Previous step" disabled>&larr; Previous</button>
             <button class="btn-ctrl btn-next" id="nextStepBtn" aria-label="Next step">Next Step &rarr;</button>
           </div>
-        </div>
+        </nav>
 
-        <!-- Right Column: Interactive Device Simulator & Annotated Hotspots -->
-        <div class="workbench-viewport-col">
-          
-          <div class="device-frame-enclosure">
-            <div class="device-notch" aria-hidden="true">
-              <span class="notch-speaker"></span>
-              <span class="notch-camera"></span>
+
+        <!-- Column 2: 1:1 Realistic Device Simulator (Native Hardware Casing) -->
+        <div class="workbench-device-col">
+          <div class="device-hardware-frame">
+            
+            <!-- Real Status Bar Overlay -->
+            <div class="device-status-bar" aria-hidden="true">
+              <span class="device-status-time">9:41</span>
+              <div class="device-island">
+                <span class="island-camera"></span>
+              </div>
+              <div class="device-status-telecom">
+                <span class="telecom-signal">5G</span>
+                <span class="telecom-battery">100%</span>
+              </div>
             </div>
 
-            <!-- Screen 1: Profile & Verification -->
-            <div class="device-screen-view is-active" id="screen-view-1" role="tabpanel" aria-labelledby="step-btn-1">
-              <div class="screen-image-wrap">
-                <img src="assets/ui/ui06-profile.jpg" alt="Profile Setup Screen" class="device-screen-img" width="580" height="720" loading="lazy">
+            <!-- Viewport Screen (True 19.5:9 Full-Height Native App UI Screen) -->
+            <div class="device-screen-stage">
+              
+              <!-- Screen 1: Profile & Verification -->
+              <div class="device-screen-view is-active" id="screen-view-1" role="tabpanel" aria-labelledby="step-btn-1">
+                <img src="assets/ui/ui06-profile.jpg" alt="Profile Setup and Real-Person Verification Screen" class="device-screen-img" width="1206" height="2622" loading="eager">
                 
                 <!-- Hotspot Pins -->
-                <div class="hotspot-pin pin-1" style="top: 24%; left: 78%;" data-tooltip="Green badge confirms live selfie check passed by human staff">
+                <div class="hotspot-pin pin-1" style="top: 23%; left: 81%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: Real-Person Verification Badge">
                   <span class="pin-marker">1</span>
-                  <div class="pin-popup">Verified Member Badge (Selfie &amp; Video Checked)</div>
                 </div>
 
-                <div class="hotspot-pin pin-2" style="top: 62%; left: 32%;" data-tooltip="Structured prompts reveal morning routines, books, and hobbies">
+                <div class="hotspot-pin pin-2" style="top: 61%; left: 34%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Generational Life Prompts">
                   <span class="pin-marker">2</span>
-                  <div class="pin-popup">Life Prompts &amp; Story Reflections</div>
                 </div>
 
-                <div class="hotspot-pin pin-3" style="top: 85%; left: 55%;" data-tooltip="Organize custom albums for gardening, travel, and cooking">
+                <div class="hotspot-pin pin-3" style="top: 86%; left: 56%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: Authentic Media Portfolios">
                   <span class="pin-marker">3</span>
-                  <div class="pin-popup">Custom Photo Albums &amp; Video Media</div>
                 </div>
               </div>
 
-              <!-- Screen Procedural Specs -->
-              <div class="screen-spec-dossier">
-                <h3 class="spec-screen-title">Stage 01: Profile Setup &amp; Real-Person Verification</h3>
-                <p class="spec-screen-desc">
-                  Members confirm their birth year (strict 50+ age gate) and complete personality prompts. Human staff inspect a live selfie to verify authenticity, eradicating romance scammers before your profile enters member discovery.
-                </p>
-                <div class="spec-metrics-row">
-                  <span class="sm-metric"><strong>Verification Time:</strong> Under 15 Minutes</span>
-                  <span class="sm-metric"><strong>Inspection:</strong> 100% Human Reviewed</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Screen 2: Discovery Filters -->
-            <div class="device-screen-view" id="screen-view-2" role="tabpanel" aria-labelledby="step-btn-2" hidden>
-              <div class="screen-image-wrap">
-                <img src="assets/ui/ui05-filters.png" alt="Search and Discovery Filters" class="device-screen-img" width="580" height="720" loading="lazy">
+              <!-- Screen 2: Discovery Filters -->
+              <div class="device-screen-view" id="screen-view-2" role="tabpanel" aria-labelledby="step-btn-2" hidden>
+                <img src="assets/ui/ui05-filters.png" alt="Search and Discovery Filters" class="device-screen-img" width="1206" height="2622" loading="lazy">
                 
-                <div class="hotspot-pin pin-1" style="top: 32%; left: 65%;">
+                <div class="hotspot-pin pin-1" style="top: 31%; left: 66%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: Age Bracket Slider">
                   <span class="pin-marker">1</span>
-                  <div class="pin-popup">Age Bracket Slider (Strict 50 to 99 Years)</div>
                 </div>
 
-                <div class="hotspot-pin pin-2" style="top: 55%; left: 45%;">
+                <div class="hotspot-pin pin-2" style="top: 54%; left: 47%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Geographic Radius Control">
                   <span class="pin-marker">2</span>
-                  <div class="pin-popup">Geographic Radius Filter (5 to 50+ Miles)</div>
                 </div>
 
-                <div class="hotspot-pin pin-3" style="top: 78%; left: 70%;">
+                <div class="hotspot-pin pin-3" style="top: 77%; left: 72%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: Verified Only &amp; Invisibility">
                   <span class="pin-marker">3</span>
-                  <div class="pin-popup">Verified Accounts Only Toggle</div>
                 </div>
               </div>
 
-              <div class="screen-spec-dossier">
-                <h3 class="spec-screen-title">Stage 02: Calibrating Search Radius &amp; Shared Values</h3>
-                <p class="spec-screen-desc">
-                  Control who appears in your daily recommendations. Adjust age preferences, travel distance, and lifestyle habits. You decide whether your profile is visible to neighboring towns or set to temporary invisibility.
-                </p>
-                <div class="spec-metrics-row">
-                  <span class="sm-metric"><strong>Radius Control:</strong> 5 to 100 Miles</span>
-                  <span class="sm-metric"><strong>Privacy:</strong> On-Demand Invisibility Toggle</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Screen 3: 9:00 AM Morning Dispatch -->
-            <div class="device-screen-view" id="screen-view-3" role="tabpanel" aria-labelledby="step-btn-3" hidden>
-              <div class="screen-image-wrap">
-                <img src="assets/ui/ui02-daily-picks.jpg" alt="Daily Matches Screen" class="device-screen-img" width="580" height="720" loading="lazy">
+              <!-- Screen 3: 9:00 AM Morning Dispatch -->
+              <div class="device-screen-view" id="screen-view-3" role="tabpanel" aria-labelledby="step-btn-3" hidden>
+                <img src="assets/ui/ui02-daily-picks.jpg" alt="Daily Curated Batch Screen" class="device-screen-img" width="1206" height="2622" loading="lazy">
                 
-                <div class="hotspot-pin pin-1" style="top: 18%; left: 82%;">
+                <div class="hotspot-pin pin-1" style="top: 17%; left: 83%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: 9:00 AM Batch Delivery">
                   <span class="pin-marker">1</span>
-                  <div class="pin-popup">9:00 AM Batch Timestamp (Zero Ticking Clock)</div>
                 </div>
 
-                <div class="hotspot-pin pin-2" style="top: 50%; left: 50%;">
+                <div class="hotspot-pin pin-2" style="top: 49%; left: 52%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Mutual Passions &amp; Alignment">
                   <span class="pin-marker">2</span>
-                  <div class="pin-popup">Mutual Passions &amp; Geographic Proximity</div>
                 </div>
 
-                <div class="hotspot-pin pin-3" style="top: 88%; left: 35%;">
+                <div class="hotspot-pin pin-3" style="top: 89%; left: 34%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: Profile Rewind Protection">
                   <span class="pin-marker">3</span>
-                  <div class="pin-popup">Profile Rewind &middot; Restore Accidental Passes</div>
                 </div>
               </div>
 
-              <div class="screen-spec-dossier">
-                <h3 class="spec-screen-title">Stage 03: The 9:00 AM Daily Curation Batch</h3>
-                <p class="spec-screen-desc">
-                  Instead of endless swiping, members receive a focused selection of compatible peers once every morning at 9:00 AM. When you finish reviewing, your dating day is complete. Passed someone by mistake? Use Profile Rewind to reconsider.
-                </p>
-                <div class="spec-metrics-row">
-                  <span class="sm-metric"><strong>Frequency:</strong> Once Daily at 9:00 AM</span>
-                  <span class="sm-metric"><strong>Grace Period:</strong> Unlimited Rewind for Silver Select</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Screen 4: Conversation Prompts & Voice Notes -->
-            <div class="device-screen-view" id="screen-view-4" role="tabpanel" aria-labelledby="step-btn-4" hidden>
-              <div class="screen-image-wrap">
-                <img src="assets/ui/ui07-conversation-starters.png" alt="Conversation Starters and Prompts" class="device-screen-img" width="580" height="720" loading="lazy">
+              <!-- Screen 4: Conversation Prompts & Voice Notes -->
+              <div class="device-screen-view" id="screen-view-4" role="tabpanel" aria-labelledby="step-btn-4" hidden>
+                <img src="assets/ui/ui07-conversation-starters.png" alt="Conversation Starters and Prompts" class="device-screen-img" width="1206" height="2622" loading="lazy">
                 
-                <div class="hotspot-pin pin-1" style="top: 30%; left: 45%;">
+                <div class="hotspot-pin pin-1" style="top: 29%; left: 46%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: Direct Prompt Responses">
                   <span class="pin-marker">1</span>
-                  <div class="pin-popup">Contextual Prompt Reply (Reply directly to a hobby)</div>
                 </div>
 
-                <div class="hotspot-pin pin-2" style="top: 60%; left: 75%;">
+                <div class="hotspot-pin pin-2" style="top: 59%; left: 76%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Low-Pressure Winks">
                   <span class="pin-marker">2</span>
-                  <div class="pin-popup">Send Friendly Wink (Low-pressure greeting)</div>
                 </div>
 
-                <div class="hotspot-pin pin-3" style="top: 82%; left: 50%;">
+                <div class="hotspot-pin pin-3" style="top: 81%; left: 51%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: Acoustic Voice Memos">
                   <span class="pin-marker">3</span>
-                  <div class="pin-popup">Recorded Voice Notes (Hear tone &amp; laughter)</div>
                 </div>
               </div>
 
-              <div class="screen-spec-dossier">
-                <h3 class="spec-screen-title">Stage 04: Breaking the Ice with Voice &amp; Sincere Greetings</h3>
-                <p class="spec-screen-desc">
-                  Say hello without writing intimidating essays. Send a friendly Wink or reply directly to a specific prompt. Record voice messages to share spoken laughter, regional inflection, and genuine warmth.
-                </p>
-                <div class="spec-metrics-row">
-                  <span class="sm-metric"><strong>Interaction Modes:</strong> Winks, Emojis, Voice Notes</span>
-                  <span class="sm-metric"><strong>Audio Fidelity:</strong> High-Definition Voice Messaging</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Screen 5: In-App Call Shield -->
-            <div class="device-screen-view" id="screen-view-5" role="tabpanel" aria-labelledby="step-btn-5" hidden>
-              <div class="screen-image-wrap">
-                <img src="assets/ui/ui03-voice.png" alt="In-App Voice and Video Calling with Call Shield" class="device-screen-img" width="580" height="720" loading="lazy">
+              <!-- Screen 5: In-App Call Shield -->
+              <div class="device-screen-view" id="screen-view-5" role="tabpanel" aria-labelledby="step-btn-5" hidden>
+                <img src="assets/ui/ui03-voice.png" alt="In-App Voice Calling with Call Shield" class="device-screen-img" width="1206" height="2622" loading="lazy">
                 
-                <div class="hotspot-pin pin-1" style="top: 25%; left: 75%;">
+                <div class="hotspot-pin pin-1" style="top: 23%; left: 77%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: Call Shield Telephone Protection">
                   <span class="pin-marker">1</span>
-                  <div class="pin-popup">Call Shield Active: Personal SIM Number 100% Sealed</div>
                 </div>
 
-                <div class="hotspot-pin pin-2" style="top: 55%; left: 50%;">
+                <div class="hotspot-pin pin-2" style="top: 54%; left: 51%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Encrypted Video &amp; Audio">
                   <span class="pin-marker">2</span>
-                  <div class="pin-popup">Encrypted In-App Audio &amp; Video Stream</div>
                 </div>
 
-                <div class="hotspot-pin pin-3" style="top: 85%; left: 60%;">
+                <div class="hotspot-pin pin-3" style="top: 87%; left: 62%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: Instant One-Tap Call Blocker">
                   <span class="pin-marker">3</span>
-                  <div class="pin-popup">One-Tap Incoming Call Blocker</div>
                 </div>
               </div>
 
-              <div class="screen-spec-dossier">
-                <h3 class="spec-screen-title">Stage 05: In-App Video &amp; Voice with Call Shield</h3>
-                <p class="spec-screen-desc">
-                  Never surrender your personal phone number, landline, or private email to an online match. The in-app Call Shield routes audio and video through secure server relays. Unwanted callers can be blocked permanently with a single tap.
-                </p>
-                <div class="spec-metrics-row">
-                  <span class="sm-metric"><strong>Privacy Shield:</strong> 0% Telephone Exposure</span>
-                  <span class="sm-metric"><strong>Security:</strong> Incoming Call Blocking Built-In</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Screen 6: Daylight 1-to-1 Meetups -->
-            <div class="device-screen-view" id="screen-view-6" role="tabpanel" aria-labelledby="step-btn-6" hidden>
-              <div class="screen-image-wrap">
-                <img src="assets/ui/ui04-coffee-event.jpg" alt="1-to-1 Daylight Meetup Event Planner" class="device-screen-img" width="580" height="720" loading="lazy">
+              <!-- Screen 6: Daylight 1-to-1 Meetups -->
+              <div class="device-screen-view" id="screen-view-6" role="tabpanel" aria-labelledby="step-btn-6" hidden>
+                <img src="assets/ui/ui04-coffee-event.jpg" alt="1-to-1 Daytime Meetup Planner" class="device-screen-img" width="1206" height="2622" loading="lazy">
                 
-                <div class="hotspot-pin pin-1" style="top: 28%; left: 40%;">
+                <div class="hotspot-pin pin-1" style="top: 27%; left: 39%;" data-pin="1" role="button" tabindex="0" aria-label="Hotspot 1: Daytime Coffee Invitation">
                   <span class="pin-marker">1</span>
-                  <div class="pin-popup">1-to-1 Meetup Request (Sent &amp; Confirmed in App)</div>
                 </div>
 
-                <div class="hotspot-pin pin-2" style="top: 58%; left: 68%;">
+                <div class="hotspot-pin pin-2" style="top: 57%; left: 69%;" data-pin="2" role="button" tabindex="0" aria-label="Hotspot 2: Curated Neutral Public Venues">
                   <span class="pin-marker">2</span>
-                  <div class="pin-popup">Suggested Public Venues (Botanical Garden, Museum Cafe)</div>
                 </div>
 
-                <div class="hotspot-pin pin-3" style="top: 86%; left: 50%;">
+                <div class="hotspot-pin pin-3" style="top: 85%; left: 51%;" data-pin="3" role="button" tabindex="0" aria-label="Hotspot 3: 45-Minute Independent Arrival">
                   <span class="pin-marker">3</span>
-                  <div class="pin-popup">Independent Travel Protocol Checklist</div>
                 </div>
               </div>
 
-              <div class="screen-spec-dossier">
-                <h3 class="spec-screen-title">Stage 06: Transitioning to Real-World Daylight Coffee</h3>
-                <p class="spec-screen-desc">
-                  When both members feel comfortable, send a formal 1-to-1 Meetup request with an agreed public venue. Both arrive independently for a 45-minute coffee date—free from evening bar noise, high-pressure dinners, or transportation dependencies.
-                </p>
-                <div class="spec-metrics-row">
-                  <span class="sm-metric"><strong>Setting:</strong> Daylight Public Venues Only</span>
-                  <span class="sm-metric"><strong>Duration:</strong> 45-Minute Low-Pressure Standard</span>
+            </div>
+
+            <!-- Real Bottom Home Bar -->
+            <div class="device-home-pill" aria-hidden="true"></div>
+          </div>
+        </div>
+
+
+        <!-- Column 3: Engineering Teardown Dossier (External to Phone!) -->
+        <aside class="workbench-teardown-col" id="teardownDossier" aria-label="Interface Engineering Teardown">
+          
+          <!-- Dossier 1 -->
+          <div class="teardown-card is-active" id="dossier-step-1">
+            <div class="td-header">
+              <span class="td-meta">// STAGE SPECIFICATION 01 OF 06</span>
+              <h3 class="td-title">Onboarding &amp; Real-Person Verification</h3>
+              <p class="td-desc">
+                Account creation enforces strict age qualification and identity authenticity before entering the member directory.
+              </p>
+            </div>
+
+            <div class="td-callouts-list">
+              <div class="td-callout-item" data-target-pin="1">
+                <span class="td-pin-badge">PIN 01</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Human-Audited Verification Badge</strong>
+                  <p class="td-pin-desc">Live selfie and photo verification audited by trained human specialists within 15 minutes, blocking romance scam networks before profile activation.</p>
+                </div>
+              </div>
+
+              <div class="td-callout-item" data-target-pin="2">
+                <span class="td-pin-badge">PIN 02</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Generational Life Prompts</strong>
+                  <p class="td-pin-desc">Structured prompts covering morning routines, favorite reading, gardening passions, and values replace shallow dating bios.</p>
+                </div>
+              </div>
+
+              <div class="td-callout-item" data-target-pin="3">
+                <span class="td-pin-badge">PIN 03</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Authentic Media Portfolios</strong>
+                  <p class="td-pin-desc">Dedicated lifestyle albums allowing members to share travel memories, culinary adventures, and pet companionship in clear high resolution.</p>
                 </div>
               </div>
             </div>
 
+            <div class="td-telemetry-strip">
+              <div class="td-metric"><span class="td-metric-label">Review Latency:</span> <span class="td-metric-val">&lt; 15 Minutes</span></div>
+              <div class="td-metric"><span class="td-metric-label">Age Gate:</span> <span class="td-metric-val">Strict 50+ Verified</span></div>
+              <div class="td-metric"><span class="td-metric-label">Scam Defense:</span> <span class="td-metric-val">100% Human Audited</span></div>
+            </div>
           </div>
 
-        </div>
+          <!-- Dossier 2 -->
+          <div class="teardown-card" id="dossier-step-2" hidden>
+            <div class="td-header">
+              <span class="td-meta">// STAGE SPECIFICATION 02 OF 06</span>
+              <h3 class="td-title">Calibrating Discovery Filters &amp; Boundaries</h3>
+              <p class="td-desc">
+                Precision discovery parameters ensure you only encounter matches aligned with your travel distance and age cohort.
+              </p>
+            </div>
+
+            <div class="td-callouts-list">
+              <div class="td-callout-item" data-target-pin="1">
+                <span class="td-pin-badge">PIN 01</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Strict Age Bracket Slider (50 to 90+)</strong>
+                  <p class="td-pin-desc">Lock your discovery preferences to your desired age cohort. The platform's strict architectural barrier prevents profiles under age 50 from participating.</p>
+                </div>
+              </div>
+
+              <div class="td-callout-item" data-target-pin="2">
+                <span class="td-pin-badge">PIN 02</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Custom Geographic Proximity</strong>
+                  <p class="td-pin-desc">Configure travel radius from 5 to 50+ miles. Ideal for staying within familiar municipal districts or extending to neighboring communities.</p>
+                </div>
+              </div>
+
+              <div class="td-callout-item" data-target-pin="3">
+                <span class="td-pin-badge">PIN 03</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Verified Only &amp; Anonymous Mode</strong>
+                  <p class="td-pin-desc">Restrict recommendations exclusively to verified members, or engage Anonymous Mode to browse the directory without leaving visitor footprints.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="td-telemetry-strip">
+              <div class="td-metric"><span class="td-metric-label">Radius Range:</span> <span class="td-metric-val">5 to 100+ Miles</span></div>
+              <div class="td-metric"><span class="td-metric-label">Under-50 Ratio:</span> <span class="td-metric-val">0.0% Guaranteed</span></div>
+              <div class="td-metric"><span class="td-metric-label">Privacy Shield:</span> <span class="td-metric-val">On-Demand Invisibility</span></div>
+            </div>
+          </div>
+
+          <!-- Dossier 3 -->
+          <div class="teardown-card" id="dossier-step-3" hidden>
+            <div class="td-header">
+              <span class="td-meta">// STAGE SPECIFICATION 03 OF 06</span>
+              <h3 class="td-title">The 9:00 AM Synchronized Morning Batch</h3>
+              <p class="td-desc">
+                A single daily dispatch delivers 3 to 5 handpicked introductions every morning, completely replacing endless evening swiping.
+              </p>
+            </div>
+
+            <div class="td-callouts-list">
+              <div class="td-callout-item" data-target-pin="1">
+                <span class="td-pin-badge">PIN 01</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">9:00 AM Delivery Timestamp</strong>
+                  <p class="td-pin-desc">Matches arrive once a day over morning tea. Once reviewed, your dating day is complete—eliminating compulsive phone checking and late-night fatigue.</p>
+                </div>
+              </div>
+
+              <div class="td-callout-item" data-target-pin="2">
+                <span class="td-pin-badge">PIN 02</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Mutual Values &amp; Proximity Matching</strong>
+                  <p class="td-pin-desc">Recommendations evaluate shared cultural habits, reading routines, and geographic proximity rather than superficial photo-first algorithms.</p>
+                </div>
+              </div>
+
+              <div class="td-callout-item" data-target-pin="3">
+                <span class="td-pin-badge">PIN 03</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Profile Rewind Second Chance</strong>
+                  <p class="td-pin-desc">Passed someone by accident while reading their details? Use Profile Rewind to bring their portfolio back immediately for reconsideration.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="td-telemetry-strip">
+              <div class="td-metric"><span class="td-metric-label">Delivery Cadence:</span> <span class="td-metric-val">Once Daily at 9:00 AM</span></div>
+              <div class="td-metric"><span class="td-metric-label">Curated Batch:</span> <span class="td-metric-val">3 to 5 Candidates</span></div>
+              <div class="td-metric"><span class="td-metric-label">Rewind Privilege:</span> <span class="td-metric-val">Unlimited for Silver Select</span></div>
+            </div>
+          </div>
+
+          <!-- Dossier 4 -->
+          <div class="teardown-card" id="dossier-step-4" hidden>
+            <div class="td-header">
+              <span class="td-meta">// STAGE SPECIFICATION 04 OF 06</span>
+              <h3 class="td-title">Prompts, Winks &amp; Acoustic Voice Notes</h3>
+              <p class="td-desc">
+                Low-pressure communication channels provide natural conversation starters without requiring intimidating opening messages.
+              </p>
+            </div>
+
+            <div class="td-callouts-list">
+              <div class="td-callout-item" data-target-pin="1">
+                <span class="td-pin-badge">PIN 01</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Contextual Prompt Responses</strong>
+                  <p class="td-pin-desc">Reply directly to a specific travel snapshot, book quote, or garden photo, giving every dialogue an authentic, meaningful foundation.</p>
+                </div>
+              </div>
+
+              <div class="td-callout-item" data-target-pin="2">
+                <span class="td-pin-badge">PIN 02</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Low-Pressure Friendly Winks</strong>
+                  <p class="td-pin-desc">Signal polite interest with an understated greeting. If reciprocated, conversation unlocks naturally without social awkwardness.</p>
+                </div>
+              </div>
+
+              <div class="td-callout-item" data-target-pin="3">
+                <span class="td-pin-badge">PIN 03</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Acoustic Voice Memos</strong>
+                  <p class="td-pin-desc">Exchange 30-second audio messages to appreciate spoken cadence, genuine laughter, and vocal warmth before coordinating a live phone call.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="td-telemetry-strip">
+              <div class="td-metric"><span class="td-metric-label">Interaction Modes:</span> <span class="td-metric-val">Prompts, Winks, Audio</span></div>
+              <div class="td-metric"><span class="td-metric-label">Audio Fidelity:</span> <span class="td-metric-val">High-Definition AAC</span></div>
+              <div class="td-metric"><span class="td-metric-label">Spam Protection:</span> <span class="td-metric-val">Unreciprocated Limit: 3</span></div>
+            </div>
+          </div>
+
+          <!-- Dossier 5 -->
+          <div class="teardown-card" id="dossier-step-5" hidden>
+            <div class="td-header">
+              <span class="td-meta">// STAGE SPECIFICATION 05 OF 06</span>
+              <h3 class="td-title">In-App Call Shield (Video &amp; Audio)</h3>
+              <p class="td-desc">
+                Audio and video calls occur entirely within encrypted server relays, permanently protecting personal telephone numbers and home addresses.
+              </p>
+            </div>
+
+            <div class="td-callouts-list">
+              <div class="td-callout-item" data-target-pin="1">
+                <span class="td-pin-badge">PIN 01</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Call Shield Telephone Sealing</strong>
+                  <p class="td-pin-desc">Your real SIM telephone number, home landline, and personal email address remain 100% confidential. No external app handover required.</p>
+                </div>
+              </div>
+
+              <div class="td-callout-item" data-target-pin="2">
+                <span class="td-pin-badge">PIN 02</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Encrypted Video &amp; Voice Relay</strong>
+                  <p class="td-pin-desc">Verify facial chemistry and spoken comfort in real time through secure peer-to-peer relays before planning an in-person coffee meetup.</p>
+                </div>
+              </div>
+
+              <div class="td-callout-item" data-target-pin="3">
+                <span class="td-pin-badge">PIN 03</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Instant One-Tap Call Blocker</strong>
+                  <p class="td-pin-desc">Unwanted or intrusive callers can be terminated and permanently blocked across all voice, text, and profile visibility channels with one tap.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="td-telemetry-strip">
+              <div class="td-metric"><span class="td-metric-label">Phone Exposure:</span> <span class="td-metric-val">0.0% Guaranteed</span></div>
+              <div class="td-metric"><span class="td-metric-label">Encryption:</span> <span class="td-metric-val">AES-256 Server Relay</span></div>
+              <div class="td-metric"><span class="td-metric-label">Blocker Control:</span> <span class="td-metric-val">Instant Lifetime Severance</span></div>
+            </div>
+          </div>
+
+          <!-- Dossier 6 -->
+          <div class="teardown-card" id="dossier-step-6" hidden>
+            <div class="td-header">
+              <span class="td-meta">// STAGE SPECIFICATION 06 OF 06</span>
+              <h3 class="td-title">Daylight 1-to-1 Public Meetups</h3>
+              <p class="td-desc">
+                Transitioning online connections into real-world encounters follows a structured, daytime public protocol designed for mutual peace of mind.
+              </p>
+            </div>
+
+            <div class="td-callouts-list">
+              <div class="td-callout-item" data-target-pin="1">
+                <span class="td-pin-badge">PIN 01</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Daytime Coffee Invitation</strong>
+                  <p class="td-pin-desc">Send and confirm structured 1-to-1 Meetup invitations inside the app, establishing mutual expectations before stepping out.</p>
+                </div>
+              </div>
+
+              <div class="td-callout-item" data-target-pin="2">
+                <span class="td-pin-badge">PIN 02</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">Neutral Public Venues Only</strong>
+                  <p class="td-pin-desc">Recommended meetup venues prioritize botanical gardens, museum bistros, and quiet tea rooms—free from noisy bars or high-pressure dinner environments.</p>
+                </div>
+              </div>
+
+              <div class="td-callout-item" data-target-pin="3">
+                <span class="td-pin-badge">PIN 03</span>
+                <div class="td-pin-info">
+                  <strong class="td-pin-title">45-Minute Independent Standard</strong>
+                  <p class="td-pin-desc">Members arrive independently via personal vehicle or public transit for an unhurried 45-minute coffee, maintaining complete control over departures.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="td-telemetry-strip">
+              <div class="td-metric"><span class="td-metric-label">Venue Category:</span> <span class="td-metric-val">Public Daylight Venues</span></div>
+              <div class="td-metric"><span class="td-metric-label">Standard Duration:</span> <span class="td-metric-val">45-Minute Coffee Protocol</span></div>
+              <div class="td-metric"><span class="td-metric-label">Transit Mandate:</span> <span class="td-metric-val">100% Independent Arrival</span></div>
+            </div>
+          </div>
+
+        </aside>
 
       </div>
     </section>
@@ -515,50 +696,75 @@
 
 
     <!-- ===================================================================
-         5. SENIOR MEMBER SAFETY CODE & SCAM DEFENSE (Pure Typographic List)
+         5. THE MATURE DATING SAFETY OATH (Certified Public Directive Ledger)
+         Completely Cardless Official Directive Layout with Monospace Seals
          =================================================================== -->
     <section class="safety-code-section" aria-labelledby="safetyCodeTitle">
       <div class="arch-section-header">
-        <span class="arch-rule-tag">MEMBER DEFENSE</span>
+        <span class="arch-rule-tag">MEMBER DEFENSE DIRECTIVE</span>
         <h2 id="safetyCodeTitle" class="arch-main-title">
-          The Four Golden Rules of Mature Online Dating
+          The Mature Dating Safety Oath:<br>
+          <span class="text-wine">Four Inviolable Principles for 50+ Daters</span>
         </h2>
         <p class="arch-main-lead">
-          While our human care specialists verify accounts 24/7, keeping these four principles in mind ensures complete security.
+          While our human care specialists verify accounts 24/7, mature dating dignity relies on absolute transparency and personal safety standards.
         </p>
       </div>
 
-      <div class="safety-rules-grid">
-        <div class="rule-card-item">
-          <span class="rule-digit">01</span>
-          <h3 class="rule-header">Never Transfer Money or Financial Info</h3>
-          <p class="rule-body">
-            Sincere members will never request wire transfers, gift cards, or financial assistance. Report any member who mentions financial distress immediately.
-          </p>
+      <!-- Official Security Directive Document (Zero White Cards) -->
+      <div class="safety-protocol-document">
+        <div class="spd-masthead">
+          <div class="spd-badge">DIRECTIVE // SPEC-2026-SAFETY-CODE</div>
+          <div class="spd-seal">&#x272A; RATIFIED CONSUMER CODE &middot; ZERO TOLERANCE</div>
         </div>
 
-        <div class="rule-card-item">
-          <span class="rule-digit">02</span>
-          <h3 class="rule-header">Keep Voice Calls Inside the App</h3>
-          <p class="rule-body">
-            Use the in-app Call Shield for all voice and video calls. Never share personal mobile numbers or home addresses until you have met in person multiple times.
-          </p>
+        <div class="spd-articles-list">
+          
+          <div class="spd-article">
+            <div class="spd-article-num">ARTICLE I</div>
+            <div class="spd-article-content">
+              <h3 class="spd-article-title">Absolute Prohibition on Financial Transfers</h3>
+              <p class="spd-article-text">
+                Sincere members never solicit money, wire transfers, cryptocurrency, emergency funds, or gift cards. Any mention of financial distress or investment schemes triggers an immediate, permanent ban.
+              </p>
+            </div>
+          </div>
+
+          <div class="spd-article">
+            <div class="spd-article-num">ARTICLE II</div>
+            <div class="spd-article-content">
+              <h3 class="spd-article-title">In-App Contact Confinement via Call Shield</h3>
+              <p class="spd-article-text">
+                Never surrender your personal landline, mobile telephone number, or private email address to a recent connection. Conduct voice and video calls exclusively through our in-app Call Shield relays.
+              </p>
+            </div>
+          </div>
+
+          <div class="spd-article">
+            <div class="spd-article-num">ARTICLE III</div>
+            <div class="spd-article-content">
+              <h3 class="spd-article-title">Daylight Encounters in Verified Public Spaces</h3>
+              <p class="spd-article-text">
+                Initial meetings must always occur during daylight hours in public settings: botanical garden cafes, museum bistros, or well-lit neighborhood bakeries. Never agree to private residences or secluded locations.
+              </p>
+            </div>
+          </div>
+
+          <div class="spd-article">
+            <div class="spd-article-num">ARTICLE IV</div>
+            <div class="spd-article-content">
+              <h3 class="spd-article-title">Independent Transportation &amp; Departure Autonomy</h3>
+              <p class="spd-article-text">
+                Always drive yourself or arrange independent public transit to and from every meetup. Maintaining autonomous transportation guarantees you retain full control over your arrival and departure times.
+              </p>
+            </div>
+          </div>
+
         </div>
 
-        <div class="rule-card-item">
-          <span class="rule-digit">03</span>
-          <h3 class="rule-header">Always Meet During Daylight Hours</h3>
-          <p class="rule-body">
-            First encounters belong in well-lit public venues: botanical cafes, museum restaurants, or local coffee shops. Never meet in private residences or secluded parks.
-          </p>
-        </div>
-
-        <div class="rule-card-item">
-          <span class="rule-digit">04</span>
-          <h3 class="rule-header">Maintain Independent Transportation</h3>
-          <p class="rule-body">
-            Drive yourself or take public transit to and from your meetup venue. Maintaining your own transportation ensures complete control over when you depart.
-          </p>
+        <div class="spd-footer">
+          <span class="spd-footer-note">&#x1F512; 24/7 Human Trust &amp; Safety Dispatch Monitored Daily</span>
+          <span class="spd-stamp">OFFICIAL RATIFIED STANDARD</span>
         </div>
       </div>
     </section>
