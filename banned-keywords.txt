@@ -1,158 +1,156 @@
-# Prohibited & Infringing Keywords / Negative Word List (负面词/侵权词/禁用词库)
-# 当编写、优化或修改网站文案时，严禁使用以下任何词汇或其变体：
+# ==============================================================================
+# Banned & Infringing Keywords / Negative Word List (负面词/侵权词/禁用词库)
+# ==============================================================================
+# 适用范围：
+# 1. 网站前端代码、组件模板（HTML）、样式表（CSS 类名与注释）、脚本（JS）。
+# 2. 网站文章编写、博客内容（Blog Posts）、SEO 元数据、广告文案、说明文档。
+# 3. 任何自动化 AI Agent / 开发者在撰写、生成或优化本平台内容时，严禁使用以下任何词汇或其单复数、派生变体。
+#
+# 每次构建时由 build.py 自动执行双向词库合规审计，若出现任何以下词汇，构建将发出告警。
+# ==============================================================================
 
-ARRANGEMENT
-ARRANGEMENTS
-You Know What You Want
-spark
-HYPERGAMY
-MUTUALLY BENEFICIAL ARRANGEMENTS
-MUTUALLY BENEFICIAL RELATIONSHIP
-MUTUALLY BENEFICIAL RELATIONSHIPS
-RELATIONSHIP ON YOUR TERMS
-SA
-SEEKING ARRANGEMENT
-SEEKING MILLIONAIRE
-SEEKING.COM
-SEEKINGARRANGEMENT
-SEEKINGARRANGEMENT.COM
-Child bride
-pre-teen hardcore
-PTHC
-Jailbait
-Paid Relationship
-cp
-Cheese pizza
-children porn
-Child porn
-fag
-faggot
-cunt
-bitch
-honky
-negro
-nigger
+# ------------------------------------------------------------------------------
+# 1. 竞品平台品牌词与注册商标 (Competitor Brands & Trademarks)
+# ------------------------------------------------------------------------------
 SEEKING
-DATEMYAGE
-SENIORSMEET
-SENIORPEOPLEMEET
-OURTIME
-SA
-seeks
-seek
-Arrangement
-Arrangements
-Ask Brandon Wade
-Besecret
-Black Elite Speed Dating
-Blackbabyboomermeet
-Experience Hypergamy
-First Date Guarantee
-Firstdate
-Gaydaddy
-Get Straight to the Date
-Hypergamy Dating
-Just Date Up
-Lets Talk Sugar
-Meupatrocinio
-One Good Catch
-Popsugar
-Secret Doors
-Secret Rsvp
-Seeking Elite
-Seeking Hypergamy
-Start Dating Up
-Sugar Chat
-Sugardaddie
-Sugardaters
-Universosugar
-Upgrade Your
-What Is Hypergamy
-You Know What You Want
-You Know What You Want. Find It on Seeking
-the Online Dating Shortcut
-Spark
-HYPERGAMY
-RICHMEETBEAUTIFUL
-rich meet beautiful
-KNOW YOUR WORTH. DATE ON SEEKING
-Mutually Beneficial Relationships
-Mutually Beneficial relationship
 SEEKING.COM
-SEEKINGARRANGEMENT.COM
-Sugar Dad
-Sugar Dads
-SugarDad
-SugarDads
-DONT SUGAR SEEK
-KNOW YOUR WORTH DATE ON SEEKING
-WHATS YOUR PRICE
-ARRANGEMENT DATING
-ARRANGEMENT SEEKERS
-BRIBE YOUR WAY TO A DATE
-DATING UP
-EMPOWERED DATING
-EMPOWERED RELATIONSHIPS
-EVERYONE HAS A PRICE
-GET PAID FOR DATING
-GET PAID TO DATE
-HONEST EMPOWERED DATING
-HONEST EMPOWERED RELATIONSHIPS
-KNOW YOUR WORTH
-MASTER DATER
-MISS TRAVEL
-MUTUALLY BENEFICIAL ARRANGEMENTS
-MUTUALLY BENEFICIAL DATING
-POSITIVE SUGAR
-POWER DATING
-RELATIONSHIP ON YOUR TERMS
-SECRET BENEFITS
-SEEK RESPONSIBLY
-SEEKING ADVENTURE
 SEEKING ARRANGEMENT
+SEEKING ARRANGEMENTS
+SEEKINGARRANGEMENT
+SEEKINGARRANGEMENTS
+SEEKINGARRANGEMENT.COM
+SEEKING MILLIONAIRE
+SEEKING MILLIONAIRES
+SEEKING ELITE
+SEEKINGELITE
+SEEKING HYPERGAMY
+SEEKING ADVENTURE
 SEEKING CONNECTION
 SEEKING EXCITEMENT
 SEEKING LOVE
 SEEKING RELATIONSHIPS
 SEEKING SOCIETY
-SEEKINGARRANGEMENT
-SEEKINGELITE
+SEEK RESPONSIBLY
+OURTIME
+DATEMYAGE
+SENIORSMEET
+SENIORPEOPLEMEET
+LUXY
+SPARK
+POPSUGAR
+SECRET DOORS
+SECRET RSVP
+SECRET BENEFITS
+SECRETBENEFITS
+UNIVERSOSUGAR
+MEUPATROCINIO
+RICHMEETBEAUTIFUL
+ASK BRANDON WADE
+BLACK ELITE SPEED DATING
+BLACKBABYBOOMERMEET
+MISS TRAVEL
+
+# ------------------------------------------------------------------------------
+# 2. 交易化约会、援助交际与暗示性口号 (Transactional & Sugar Dating Slogans)
+# ------------------------------------------------------------------------------
+ARRANGEMENT
+ARRANGEMENTS
+ARRANGEMENT DATING
+ARRANGEMENT SEEKERS
+MUTUALLY BENEFICIAL ARRANGEMENT
+MUTUALLY BENEFICIAL ARRANGEMENTS
+MUTUALLY BENEFICIAL RELATIONSHIP
+MUTUALLY BENEFICIAL RELATIONSHIPS
+MUTUALLY BENEFICIAL DATING
+RELATIONSHIP ON YOUR TERMS
+RELATIONSHIP ON YOUR TERM
+YOU KNOW WHAT YOU WANT
+YOU KNOW WHAT YOU WANT. FIND IT ON SEEKING
+THE ONLINE DATING SHORTCUT
+KNOW YOUR WORTH
+KNOW YOUR WORTH. DATE ON SEEKING
+KNOW YOUR WORTH DATE ON SEEKING
+WHATS YOUR PRICE
+EVERYONE HAS A PRICE
+BRIBE YOUR WAY TO A DATE
+GET PAID FOR DATING
+GET PAID TO DATE
+PAID RELATIONSHIP
+FIRST DATE GUARANTEE
+FIRSTDATE
+DATING UP
+JUST DATE UP
+START DATING UP
+POWER DATING
+EMPOWERED DATING
+EMPOWERED RELATIONSHIPS
+HONEST EMPOWERED DATING
+HONEST EMPOWERED RELATIONSHIPS
+MASTER DATER
+UPGRADE YOUR
+UPGRADE YOUR RELATIONSHIPS
+ONE GOOD CATCH
+
+# ------------------------------------------------------------------------------
+# 3. 糖恋（Sugar Dating）与向上择偶（Hypergamy）相关词汇
+# ------------------------------------------------------------------------------
+SUGAR BABY
+SUGARBABY
+SUGAR DADDY
+SUGARDADDY
+SUGAR DAD
+SUGARDAD
+SUGAR DADS
+SUGARDADS
+SUGAR MOM
+SUGARMOM
+SUGAR MOMMY
+SUGARMOMMY
+SUGAR DATE
+SUGARDATE
+SUGAR DATING
+SUGARDATING
+SUGARDATERS
+SUGARDADDIE
+SUGAR CHAT
+POSITIVE SUGAR
+DONT SUGAR SEEK
+LETS TALK SUGAR
 SUGAR BABY CALENDAR
 SUGAR BABY OF THE YEAR
 SUGAR BABY SUMMIT
 SUGAR BABY UNIVERSITY
 SUGAR BABY VIRTUAL SUMMIT
-SecretBenefits
-UPGRADE YOUR RELATIONSHIPS
-sugar date
-sugardate
-sugardating
-sugar dating
-sugar baby
-sugar daddy
-sugar mom
-sugar mommy
-sugarbaby
-sugardaddy
-sugarmom
-sugarmommy
-Cheese pizza
-Child bride
-Child porn
-Jailbait
+HYPERGAMY
+HYPERGAMY DATING
+EXPERIENCE HYPERGAMY
+WHAT IS HYPERGAMY
+GAYDADDY
+BESECRET
+
+# ------------------------------------------------------------------------------
+# 4. 根词拦截与简写 (Root Words & Acronyms)
+# ------------------------------------------------------------------------------
+SEEK
+SEEKS
+SA
+
+# ------------------------------------------------------------------------------
+# 5. 违法、未成年人侵害、仇恨与严重违规词汇 (Prohibited, Illegal & Hate Speech)
+# ------------------------------------------------------------------------------
+CHILD BRIDE
+CHILD PORN
+CHILDREN PORN
+PRE-TEEN HARDCORE
 PTHC
-Paid Relationship
-bitch
-children porn
-cp
-cunt
-fag
-faggot
-honky
-negro
-nigga
-nigger
-pre-teen hardcore
-seeking
-Luxy
-seeking millionaire
+JAILBAIT
+CHEESE PIZZA
+CP
+BITCH
+CUNT
+FAG
+FAGGOT
+HONKY
+NEGRO
+NIGGA
+NIGGER
